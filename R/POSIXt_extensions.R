@@ -6,21 +6,44 @@
 # Generic functions
 # -----------------
 
-#' Generic Function to determine the Quarter-End of dates.
+#' Quarter End.
 #'
+#' Generic function to determine the quarter-end of objects representing dates.
+#' 
 #' See documentation on method functions for further details.
 #'
-#' This function is needed, because \code{\link[lubridate:ceiling_date]{ceiling_date()}} does not have support for unit="quarter".
 #' 
-#' @param x an object containing dates.
-#' @param \dots additional parameters. See documentation on individual methods.
+#' @param x an object representing dates.
+#' @param \dots arguments passed to or from methods.
 #' @seealso \code{\link[lubridate:ceiling_date]{ceiling_date()}}
 quarterend <- function(x, ...) UseMethod("quarterend")
 
 
-
+#' Next Business Day.
+#'
+#' Generic function to find the next business day of objects representing dates.
+#' 
+#' See documentation on method functions for further details.
+#'
+#' @param x an object representing dates.
+#' @param \dots arguments passed to or from methods.
+#' @seealso \code{\link{previous_business_day}}
 next_business_day <- function(x, ...) UseMethod("next_business_day")
+
+
+#' Previous Business Day.
+#' 
+#' Generic function to find the previous business day of objects representing dates.
+#'
+#' See documentation on method functions for further details.
+#'
+#' 
+#' @param x an object representing dates.
+#' @param \dots arguments passed to or from methods.
+#' @seealso \code{\link{next_business_day}}
 previous_business_day <- function(x, ...) UseMethod("previous_business_day")
+
+
 #
 POSIXct_vector <- function(x, ...) UseMethod("POSIXct_vector")
 POSIXct_matrix <- function(x, ...) UseMethod("POSIXct_matrix")
@@ -34,6 +57,7 @@ as.POSIXct_matrix <- function(x, ...) UseMethod("as.POSIXct_matrix")
 
 
 # Return last day of quarter (set intraday time to midnight)
+##' This function is needed, because \code{\link[lubridate:ceiling_date]{ceiling_date()}} does not have support for unit="quarter".
 quarterend.POSIXt <- function(x)
 {
   new_months <- ceiling(month(x) / 3) * 3
