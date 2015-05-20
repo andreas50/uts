@@ -1,16 +1,33 @@
 useDynLib(uts)
 
-## Import packages
-import(chronExt)
+
+### Import packages
+import(lubridate)
 
 
-## Export Classes
-exportClasses(uts)
+### Export Classes
+exportClasses(POSIXct_vector)
+exportClasses(POSIXct_matrix)
 
 
-## Register S3 methods (needed if a package is imported but not attached to the search path)
-#S3method(add_ymd, dates)
+### Export generic methods
+export(quarterend)
+export(next_business_day, previous_business_day)
+export(as.POSIXct_matrix)
 
 
-## Miscellaneous functions
-exportPattern("^[^\\.]")      # export all methods/variables that do not start with a period
+### Register S3 methods (needed if a package is imported but not attached to the search path)
+S3method(quarterend, POSIXt)
+S3method(next_business_day, POSIXt)
+S3method(previous_business_day, POSIXt)
+#
+S3method(POSIXct_vector, default)
+#
+S3method(POSIXct_matrix, POSIXct)
+S3method(POSIXct_matrix, POSIXct_vector)
+S3method(as.POSIXct_matrix, POSIXct_vector)
+
+
+### Miscellaneous functions
+export(is.POSIXct_vector)
+export(is.POSIXct_matrix)
