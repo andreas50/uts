@@ -6,7 +6,7 @@
 # Generic functions
 # -----------------
 
-#' Quarter End.
+#' Quarter End
 #'
 #' Generic function to determine the quarter-end of objects representing dates.
 #' 
@@ -19,7 +19,7 @@
 quarterend <- function(x, ...) UseMethod("quarterend")
 
 
-#' Next Business Day.
+#' Next Business Day
 #'
 #' Generic function to find the next business day of objects representing dates.
 #' 
@@ -31,7 +31,7 @@ quarterend <- function(x, ...) UseMethod("quarterend")
 next_business_day <- function(x, ...) UseMethod("next_business_day")
 
 
-#' Previous Business Day.
+#' Previous Business Day
 #' 
 #' Generic function to find the previous business day of objects representing dates.
 #'
