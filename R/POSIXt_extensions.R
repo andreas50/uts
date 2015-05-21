@@ -37,7 +37,6 @@ next_business_day <- function(x, ...) UseMethod("next_business_day")
 #'
 #' See documentation on method functions for further details.
 #'
-#' 
 #' @param x an object representing dates.
 #' @param \dots arguments passed to or from methods.
 #' @seealso \code{\link{next_business_day}}
@@ -55,9 +54,14 @@ as.POSIXct_matrix <- function(x, ...) UseMethod("as.POSIXct_matrix")
 # Method implementations
 # ----------------------
 
-
-# Return last day of quarter (set intraday time to midnight)
-##' This function is needed, because \code{\link[lubridate:ceiling_date]{ceiling_date()}} does not have support for unit="quarter".
+#' Quarter End
+#' 
+#' For a POSIXt date, return the last day of the corresponding quarter.
+#' 
+#' This function is needed, because \code{\link[lubridate:ceiling_date]{ceiling_date()}} does not have support for unit="quarter".
+#' 
+#' @param x a \code{POSIXt} date object.
+#' @seealso \code{\link[lubridate:ceiling_date]{ceiling_date()}}
 quarterend.POSIXt <- function(x)
 {
   new_months <- ceiling(month(x) / 3) * 3
