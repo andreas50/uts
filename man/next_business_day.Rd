@@ -2,12 +2,12 @@
 % Please edit documentation in R/POSIXt_extensions.R
 \name{next_business_day}
 \alias{next_business_day}
-\title{Next Business Day.}
+\title{Next Business Day}
 \usage{
 next_business_day(x, ...)
 }
 \arguments{
-\item{x}{an object containing dates.}
+\item{x}{an object representing dates.}
 
 \item{\dots}{arguments passed to or from methods.}
 }

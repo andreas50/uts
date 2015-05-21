@@ -2,12 +2,12 @@
 % Please edit documentation in R/POSIXt_extensions.R
 \name{quarterend}
 \alias{quarterend}
-\title{Quarter End.}
+\title{Quarter End}
 \usage{
 quarterend(x, ...)
 }
 \arguments{
-\item{x}{an object containing dates.}
+\item{x}{an object representing dates.}
 
 \item{\dots}{arguments passed to or from methods.}
 }
