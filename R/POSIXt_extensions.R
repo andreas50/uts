@@ -43,11 +43,40 @@ next_business_day <- function(x, ...) UseMethod("next_business_day")
 previous_business_day <- function(x, ...) UseMethod("previous_business_day")
 
 
-#
+#' Vector of POSIXct Objects
+#' 
+#' Generic function to create a vector of POSIXct Objects.
+#'
+#' See documentation on method functions for further details.
+#'
+#' @param x an \R{} object of appropriate type.
+#' @param \dots arguments passed to or from methods.
+#' @seealso \code{\link{POSIXct_matrix}}
 POSIXct_vector <- function(x, ...) UseMethod("POSIXct_vector")
-POSIXct_matrix <- function(x, ...) UseMethod("POSIXct_matrix")
-as.POSIXct_matrix <- function(x, ...) UseMethod("as.POSIXct_matrix")
 
+
+#' Matrix of POSIXct Objects
+#' 
+#' Generic function to create a matrix of POSIXct Objects.
+#'
+#' See documentation on method functions for further details.
+#'
+#' @param x an \R{} object of appropriate type.
+#' @param \dots arguments passed to or from methods.
+#' @seealso \code{\link{POSIXct_vector}}
+POSIXct_matrix <- function(x, ...) UseMethod("POSIXct_matrix")
+
+
+#' Coerce to POSIXct_matrix
+#' 
+#' Generic function to coerce an object to a POSIXct_matrix.
+#'
+#' See documentation on method functions for further details.
+#'
+#' @param x an \R{} object of appropriate type.
+#' @param \dots arguments passed to or from methods.
+#' @seealso \code{\link{POSIXct_matrix}}
+as.POSIXct_matrix <- function(x, ...) UseMethod("as.POSIXct_matrix")
 
 
 # ----------------------
