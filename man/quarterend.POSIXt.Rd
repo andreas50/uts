@@ -4,16 +4,26 @@
 \alias{quarterend.POSIXt}
 \title{Quarter End}
 \usage{
-\method{quarterend}{POSIXt}(x)
+\method{quarterend}{POSIXt}(x, ...)
 }
 \arguments{
-\item{x}{a \code{POSIXt} date object.}
+\item{x}{a \code{POSIXt} date-tim object.}
+
+\item{\dots}{further arguments passed to or from methods.}
+}
+\value{
+An object of the same class and length as the input \code{x}.
 }
 \description{
-For a POSIXt date, return the last day of the corresponding quarter.
+For a POSIXt date-time, return the last day of the corresponding quarter.
 }
 \details{
-This function is needed, because \code{\link[lubridate:ceiling_date]{ceiling_date()}} does not have support for unit="quarter".
+This function is needed, because \code{\link[lubridate:ceiling_date]{ceiling_date()}} does not have support for \code{unit="quarter"}.
+}
+\examples{
+# Get the quarter end for a date in 2015Q1 and 2015Q2
+quarterend(as.POSIXct("2015-01-05"))
+quarterend(as.POSIXct("2015-04-15"))
 }
 \seealso{
 \code{\link[lubridate:ceiling_date]{ceiling_date()}}

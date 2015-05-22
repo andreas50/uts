@@ -9,7 +9,7 @@ previous_business_day(x, ...)
 \arguments{
 \item{x}{an object representing dates.}
 
-\item{\dots}{arguments passed to or from methods.}
+\item{\dots}{further arguments passed to or from methods.}
 }
 \description{
 Generic function to find the previous business day of objects representing dates.

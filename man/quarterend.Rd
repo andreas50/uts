@@ -9,7 +9,7 @@ quarterend(x, ...)
 \arguments{
 \item{x}{an object representing dates.}
 
-\item{\dots}{arguments passed to or from methods.}
+\item{\dots}{further arguments passed to or from methods.}
 }
 \description{
 Generic function to determine the quarter-end of objects representing dates.
