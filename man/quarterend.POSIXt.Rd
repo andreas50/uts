@@ -18,7 +18,7 @@ An object of the same class and length as the input \code{x}.
 For a POSIXt date-time, return the last day of the corresponding quarter.
 }
 \details{
-This function is needed, because \code{\link[lubridate:ceiling_date]{ceiling_date()}} does not have support for \code{unit="quarter"}.
+This function is needed, because \code{\link[lubridate:ceiling_date]{ceiling_date}} does not have support for \code{unit="quarter"}.
 }
 \examples{
 # Get the quarter end for a date in 2015Q1 and 2015Q2
@@ -26,6 +26,6 @@ quarterend(as.POSIXct("2015-01-05"))
 quarterend(as.POSIXct("2015-04-15"))
 }
 \seealso{
-\code{\link[lubridate:ceiling_date]{ceiling_date()}}
+\code{\link[lubridate:ceiling_date]{ceiling_date}}
 }
 

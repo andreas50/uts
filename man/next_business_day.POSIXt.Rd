@@ -24,4 +24,7 @@ Non-business days are defined as Saturdays and Sundays. Public holidays are not 
 # 2015-04-20 is a Monday
 next_business_day(as.POSIXct("2015-04-20") + days(0:6))
 }
+\seealso{
+\code{\link{previous_business_day.POSIXt}}
+}
 

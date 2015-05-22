@@ -18,6 +18,6 @@ Generic function to determine the quarter-end of objects representing dates.
 See documentation on method functions for further details.
 }
 \seealso{
-\code{\link[lubridate:ceiling_date]{ceiling_date()}}
+\code{\link[lubridate:ceiling_date]{ceiling_date}}
 }
 
