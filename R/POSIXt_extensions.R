@@ -15,7 +15,7 @@
 #' 
 #' @param x an object representing dates.
 #' @param \dots further arguments passed to or from methods.
-#' @seealso \code{\link[lubridate:ceiling_date]{ceiling_date()}}
+#' @seealso \code{\link[lubridate:ceiling_date]{ceiling_date}}
 #'
 quarterend <- function(x, ...) UseMethod("quarterend")
 
@@ -56,13 +56,13 @@ previous_business_day <- function(x, ...) UseMethod("previous_business_day")
 #' 
 #' For a POSIXt date-time, return the last day of the corresponding quarter.
 #' 
-#' This function is needed, because \code{\link[lubridate:ceiling_date]{ceiling_date()}} does not have support for \code{unit="quarter"}.
+#' This function is needed, because \code{\link[lubridate:ceiling_date]{ceiling_date}} does not have support for \code{unit="quarter"}.
 #' 
 #' @return An object of the same class and length as the input \code{x}.
 #' @param x a \code{POSIXt} date-tim object.
 #' @param \dots further arguments passed to or from methods.
 #' 
-#' @seealso \code{\link[lubridate:ceiling_date]{ceiling_date()}}
+#' @seealso \code{\link[lubridate:ceiling_date]{ceiling_date}}
 #'
 #' @examples
 #' # Get the quarter end for a date in 2015Q1 and 2015Q2 
@@ -90,6 +90,7 @@ if (0) {
 #' @param \dots further arguments passed to or from methods.
 #' 
 #' @note Non-business days are defined as Saturdays and Sundays. Public holidays are not supported. 
+#' @seealso \code{\link{previous_business_day.POSIXt}}
 #' 
 #' @examples
 #' # 2015-04-20 is a Monday
@@ -112,7 +113,8 @@ next_business_day.POSIXt <- function(x, ...)
 #' @param x a \code{POSIXt} date-time object.
 #' @param \dots further arguments passed to or from methods.
 #' 
-#' @note Non-business days are defined as Saturdays and Sundays. Public holidays are not supported. 
+#' @note Non-business days are defined as Saturdays and Sundays. Public holidays are not supported.
+#' @seealso \code{\link{next_business_day.POSIXt}}
 #' 
 #' @examples
 #' # 2015-04-20 is a Monday
