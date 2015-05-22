@@ -68,7 +68,14 @@ if (0) {
 }
 
 
-# Add minmum number of days >= 0 in order to reach weekday
+#' Next Business Day
+#' 
+#' For a POSIXt date, get the next business day on or after such date. The time-of-day information is unaffected. In particular, if the input already is a business day, then the output is the same as the input.
+#' 
+#' This function is needed, because \code{\link[lubridate:ceiling_date]{ceiling_date()}} does not have support for unit="quarter".
+#' 
+#' @param x a \code{POSIXt} date object.
+#' @seealso \code{\link[lubridate:ceiling_date]{ceiling_date()}}
 next_business_day.POSIXt <- function(x)
 {
   # x     ... an object of class "dates"
