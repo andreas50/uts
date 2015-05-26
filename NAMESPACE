@@ -34,5 +34,6 @@ S3method(as.POSIXct_matrix, POSIXct_vector)
 
 
 ### Miscellaneous functions
+export(sorted_array_position)
 export(is.POSIXct_vector)
 export(is.POSIXct_matrix)
