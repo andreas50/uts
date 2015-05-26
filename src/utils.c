@@ -11,7 +11,7 @@
 
 
 // Declare function prototypes to be exported to shared library
-//void sortedPos(double a[], int *na, double b[], int *nb, int pos[]);
+//void sorted_array_position(double a[], int *na, double b[], int *nb, int pos[]);
 
 
 // Declare internal helper function prototypes
@@ -23,7 +23,7 @@
  * Assume given two sorted vectors 'a' and 'b'. For each element a[i], determine the maximum index j in
  * 'b' such that b[j] <= a[i], (-1 if not found).
 */
-void sortedPos(const double a[], const int *na, const double b[], const int *nb, int pos[])
+void sorted_array_position(const double a[], const int *na, const double b[], const int *nb, int pos[])
 {
   unsigned int i=0, j=0, k=0;
 
@@ -40,5 +40,3 @@ void sortedPos(const double a[], const int *na, const double b[], const int *nb,
     pos[i] = j;
   }
 }
-
-
