@@ -11,13 +11,13 @@ sorted_array_position(a, b, eps = 1e-09)
 
 \item{b}{a sorted vector of numbers.}
 
-\item{eps}{tolerance for numerical noise, relative to the largest absolute elements in \code{a} and \code{b}}
+\item{eps}{tolerance for numerical noise, relative to the largest absolute element in \code{a} and \code{b}.}
 }
 \value{
-A vector of indices of same length as vector \code{a}.
+An integer vector of indices of same length as \code{a}.
 }
 \description{
-Assume given two sorted one-dimensional arrays \code{a} and \code{b}. For each element \code{a[i]}, determine the maximum index \code{j} in \code{b} such that \code{b[j] <= a[i]}, (\code{NA} if not found).
+Assume given two sorted one-dimensional arrays \code{a} and \code{b}. For each element \code{a[i]}, determine the maximum index \code{j} in \code{b} such that \code{b[j] <= a[i]}, or return \code{NA} if no such index exists.
 }
 \examples{
 sorted_array_position(1:5, 1:5)
