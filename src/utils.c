@@ -34,7 +34,7 @@ void sorted_array_position(const double a[], const int *na, const double b[], co
   }
 
   for(i = k; i < *na; i++) {
-	while ((j < *nb - 1) && (a[i] >= b[j+1]))
+    while ((j < *nb - 1) && (a[i] >= b[j+1]))
       j++;
     pos[i] = j;
   }
