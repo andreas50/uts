@@ -12,7 +12,7 @@
 #' @return A vector of same length as \code{a}.
 #' @param a a sorted vector of numbers.
 #' @param b a sorted vector of numbers.
-#' @param eps	tolerance for numerical noise, relative to the largest absolute element in \code{a} and \code{b}.
+#' @param eps tolerance for numerical noise, relative to the largest absolute element in \code{a} and \code{b}.
 #' 
 #' @examples
 #' # The second vector has
@@ -24,16 +24,16 @@
 #' num_leq_sorted_arrays(c(-3, 1, 3, 5, 7), c(0, 1, 4, 9, 16))
 #' 
 #' # Numerical noise < eps has no effect
-#' num_leq_sorted_arrays(1, 0:2)
-#' num_leq_sorted_arrays(1 - 1e-13, 0:2)
-#' num_leq_sorted_arrays(1 + 1e-13, 0:2)
+#' num_leq_sorted_arrays(1, 0:2, eps=1e-12)
+#' num_leq_sorted_arrays(1 - 1e-13, 0:2, eps=1e-12)
+#' num_leq_sorted_arrays(1 + 1e-13, 0:2, eps=1e-12)
 #' 
 #' # Trivial cases
 #' num_leq_sorted_arrays(1:5, 1:5)
 #' num_leq_sorted_arrays(c(), 1:5)
 #' num_leq_sorted_arrays(1:5, c())
 #' 
-num_leq_sorted_arrays <- function(a, b, eps=1e-12)
+num_leq_sorted_arrays <- function(a, b, eps=0)
 {
   # Trivial cases
   if (length(a) == 0)
@@ -44,7 +44,7 @@ num_leq_sorted_arrays <- function(a, b, eps=1e-12)
   # Convert relative to absolute numerical noise tolerance
   eps_absolute <- eps * max(abs(a), abs(b), na.rm=TRUE)
   if (is.na(eps_absolute))
-      return(rep(NA, length(a)))
+    return(rep(NA, length(a)))
   
   # Call C function
   res <- integer(length(a))
