@@ -14,6 +14,7 @@
 #'
 #' @param x an \R{} object of appropriate type.
 #' @param \dots arguments passed to or from methods.
+#' @keywords chron classes
 #' @seealso \code{\link{POSIXct_vector}}
 POSIXct_matrix <- function(x, ...) UseMethod("POSIXct_matrix")
 
@@ -34,7 +35,14 @@ as.POSIXct_matrix <- function(x, ...) UseMethod("as.POSIXct_matrix")
 # Method implementations
 # ----------------------
 
-# Constructor from POSIXct_VECTOR
+#' Matrix of POSIXct Objects
+#' @param x coming soon
+#' @param nrow coming soon
+#' @param ncol coming soon
+#' @param byrow coming soon
+#' @param dimnames coming soon
+#' @param \dots arguments passed to or from methods.
+#' @keywords chron classes
 POSIXct_matrix.POSIXct_vector <- function(x, nrow=1, ncol=1, byrow=FALSE, dimnames=NULL, ...)
 {
   # Determine matrix dimensions, and reycle arguments if necessary

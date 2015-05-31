@@ -62,6 +62,7 @@ previous_business_day <- function(x, ...) UseMethod("previous_business_day")
 #' @param x a \code{POSIXt} date-tim object.
 #' @param \dots further arguments passed to or from methods.
 #' 
+#' @keywords chron
 #' @seealso \code{\link[lubridate:ceiling_date]{ceiling_date}}
 #'
 #' @examples
@@ -89,7 +90,8 @@ if (0) {
 #' @param x a \code{POSIXt} date-time object.
 #' @param \dots further arguments passed to or from methods.
 #' 
-#' @note Non-business days are defined as Saturdays and Sundays. Public holidays are not supported. 
+#' @note Non-business days are defined as Saturdays and Sundays. Public holidays are not supported.
+#' @keywords chron
 #' @seealso \code{\link{previous_business_day.POSIXt}}
 #' 
 #' @examples
@@ -114,6 +116,7 @@ next_business_day.POSIXt <- function(x, ...)
 #' @param \dots further arguments passed to or from methods.
 #' 
 #' @note Non-business days are defined as Saturdays and Sundays. Public holidays are not supported.
+#' @keywords chron
 #' @seealso \code{\link{next_business_day.POSIXt}}
 #' 
 #' @examples

@@ -19,6 +19,7 @@
 #' @param values a vector of observation values.
 #' @param times a vector of observation times. Must be of class \code{"POSIXct"} or be coercible using \code{\link{as.POSIXct}}.
 #' 
+#' @keywords ts classes
 #' @examples
 #' # Create a numeric "uts"
 #' dts <- c("2007-11-08", "2007-11-08", "2007-11-08", "2007-11-09", "2007-11-09", "2007-11-09")

@@ -22,7 +22,9 @@ POSIXct_vector <- function(x, ...) UseMethod("POSIXct_vector")
 # Method implementations
 # ----------------------
 
-# Default constructor
+#' Vector of POSIXct Objects
+#' @param \dots arguments passed to or from methods.
+#' @keywords chron classes
 POSIXct_vector.default <- function(...)
 {
   # Allocate object for output
