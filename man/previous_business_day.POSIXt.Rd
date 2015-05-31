@@ -27,4 +27,5 @@ previous_business_day(as.POSIXct("2015-04-20") + days(0:6))
 \seealso{
 \code{\link{next_business_day.POSIXt}}
 }
+\keyword{chron}
 

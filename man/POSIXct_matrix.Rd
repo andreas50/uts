@@ -20,4 +20,6 @@ See documentation on method functions for further details.
 \seealso{
 \code{\link{POSIXct_vector}}
 }
+\keyword{chron}
+\keyword{classes}
 

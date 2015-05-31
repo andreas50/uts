@@ -28,4 +28,5 @@ quarterend(as.POSIXct("2015-04-15"))
 \seealso{
 \code{\link[lubridate:ceiling_date]{ceiling_date}}
 }
+\keyword{chron}
 

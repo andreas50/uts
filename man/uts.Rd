@@ -29,4 +29,6 @@ uts(list(1:5, c("a", "B")), c("2007-11-08 1:01:00", "2007-11-09 15:16:00"))
 # Create an empty "uts"
 uts()
 }
+\keyword{classes}
+\keyword{ts}
 
