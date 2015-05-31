@@ -11,7 +11,7 @@ num_leq_sorted_arrays(a, b, eps = 0)
 
 \item{b}{a sorted vector of numbers.}
 
-\item{eps}{tolerance for numerical noise, relative to the largest absolute element in \code{a} and \code{b}.}
+\item{eps}{tolerance for numerical noise.}
 }
 \value{
 A vector of same length as \code{a}.
@@ -20,7 +20,7 @@ A vector of same length as \code{a}.
 Assume given two sorted one-dimensional arrays \code{a} and \code{b}. For each element \code{a[i]}, determine the number of elements in \code{b} that are less than or equal (leq) to this value.
 }
 \note{
-Equivalently, because the input arrays are sorted, for each element \code{a[i]} find the index \code{j} with \code{b[j] <= a[i] < b[j+1]}.
+Equivalently, because the input arrays are sorted, for each element \code{a[i]} determine the maximum index \code{j} with \code{b[j] <= a[i]}.
 }
 \examples{
 # The second vector has

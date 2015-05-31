@@ -7,12 +7,12 @@
 #' Assume given two sorted one-dimensional arrays \code{a} and \code{b}. For each element \code{a[i]}, determine the number of elements in \code{b} that are less than or equal (leq) to this value.
 #' 
 #' @note
-#' Equivalently, because the input arrays are sorted, for each element \code{a[i]} find the index \code{j} with \code{b[j] <= a[i] < b[j+1]}. 
+#' Equivalently, because the input arrays are sorted, for each element \code{a[i]} determine the maximum index \code{j} with \code{b[j] <= a[i]}. 
 #' 
 #' @return A vector of same length as \code{a}.
 #' @param a a sorted vector of numbers.
 #' @param b a sorted vector of numbers.
-#' @param eps tolerance for numerical noise, relative to the largest absolute element in \code{a} and \code{b}.
+#' @param eps tolerance for numerical noise.
 #' 
 #' @examples
 #' # The second vector has
@@ -41,14 +41,13 @@ num_leq_sorted_arrays <- function(a, b, eps=0)
   if (length(b) == 0)
     return(rep(0, length(a)))
   
-  # Convert relative to absolute numerical noise tolerance
-  eps_absolute <- eps * max(abs(a), abs(b), na.rm=TRUE)
-  if (is.na(eps_absolute))
-    return(rep(NA, length(a)))
+  # Input checking
+  if (anyNA(a) | anyNA(b))
+    stop("NAs are not allowed as input.")
   
   # Call C function
   res <- integer(length(a))
-  .C("num_leq_sorted_arrays", as.double(a + eps_absolute), as.integer(length(a)),
+  .C("num_leq_sorted_arrays", as.double(a + eps), as.integer(length(a)),
     as.double(b), as.integer(length(b)), pos = res)$pos
 }
 

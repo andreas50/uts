@@ -24,7 +24,7 @@
  * elements in 'b' than are less than or equal (leq) to this value.
  *
  * Equivalently, because the arrays are sorted, for or each element a[i] determine the maximum
- * index j in 'b' such that b[j-1] <= a[i].
+ * index j such that b[j-1] <= a[i].
 */
 void num_leq_sorted_arrays(const double a[], const int *na, const double b[], const int *nb, int pos[])
 {
