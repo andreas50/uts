@@ -28,12 +28,11 @@
 */
 void num_leq_sorted_arrays(const double a[], const int *na, const double b[], const int *nb, int pos[])
 {
-  unsigned int i=0;
-  int j=-1;
+  unsigned int i=0, j=0;
 
   for(i = 0; i < *na; i++) {
-    while ((j < *nb - 1) && (b[j+1] <= a[i]))
+    while ((j < *nb) && (b[j] <= a[i]))
 	  j++;
-    pos[i] = j + 1;
+    pos[i] = j;
   }
 }
