@@ -1,0 +1,20 @@
+# Copy built package to NAS & install on server
+-) VB: cp ~/uts_* /media/sf_nas/andreas/R/own_packages
+-) Server: sudo Rscript -e 'install.packages("/home/share/andreas/R/own_packages/uts_1.0-0.tar.gz")'
+
+
+#
+q()
+n
+R
+library(uts)
+help(package="uts", help_type="html")
+
+
+# Keywords used:
+-) full list: https://svn.r-project.org/R/trunk/doc/KEYWORDS
+classes ... constructors
+ts ... time series constructors 
+chron ... POSIXt functions
+datasets ... for Lynx data
+internal ... objects not part of the API
