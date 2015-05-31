@@ -1,4 +1,5 @@
 *.so
+*.o
 *.project
 .settings/
 symbols.rds

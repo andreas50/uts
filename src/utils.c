@@ -30,7 +30,7 @@ void num_leq_sorted_arrays(const double a[], const int *na, const double b[], co
 {
   unsigned int i=0, j=0;
 
-  for(i = 0; i < *na; i++) {
+  for (i = 0; i < *na; i++) {
     while ((j < *nb) && (b[j] <= a[i]))
 	  j++;
     pos[i] = j;
