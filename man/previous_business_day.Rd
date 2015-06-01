@@ -2,22 +2,40 @@
 % Please edit documentation in R/POSIXt_extensions.R
 \name{previous_business_day}
 \alias{previous_business_day}
+\alias{previous_business_day.POSIXt}
 \title{Previous Business Day}
 \usage{
 previous_business_day(x, ...)
+
+\method{previous_business_day}{POSIXt}(x, ...)
 }
 \arguments{
 \item{x}{an object representing dates.}
 
 \item{\dots}{further arguments passed to or from methods.}
 }
+\value{
+An object of the same class and length as the input \code{x}
+}
 \description{
-Generic function to find the previous business day of objects representing dates.
+For objects representing dates, find the previous business day.
 }
 \details{
-See documentation on method functions for further details.
+Substract the minimum number of days to reach a business day. The time-of-day information is therefore unaffected. In particular, if the input already is a business day, then the output is the same as the input.
+}
+\section{Methods (by class)}{
+\itemize{
+\item \code{POSIXt}: find the previous business day for POSIXt dates
+}}
+\note{
+For \code{previous_business_day.POSIXt()}, non-business days are defined as Saturdays and Sundays. Public holidays are not supported.
+}
+\examples{
+# 2015-04-20 is a Monday
+previous_business_day(as.POSIXct("2015-04-20") + days(0:6))
 }
 \seealso{
 \code{\link{next_business_day}}
 }
+\keyword{chron}
 

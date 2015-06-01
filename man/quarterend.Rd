@@ -2,22 +2,38 @@
 % Please edit documentation in R/POSIXt_extensions.R
 \name{quarterend}
 \alias{quarterend}
+\alias{quarterend.POSIXt}
 \title{Quarter End}
 \usage{
 quarterend(x, ...)
+
+\method{quarterend}{POSIXt}(x, ...)
 }
 \arguments{
 \item{x}{an object representing dates.}
 
 \item{\dots}{further arguments passed to or from methods.}
 }
+\value{
+An object of the same class and length as the input \code{x}.
+}
 \description{
-Generic function to determine the quarter-end of objects representing dates.
+For objects representing dates, determine the last day of the corresponding quarter.
 }
 \details{
-See documentation on method functions for further details.
+This function is needed, because \code{\link[lubridate:ceiling_date]{ceiling_date}} does not have support for \code{unit="quarter"}.
+}
+\section{Methods (by class)}{
+\itemize{
+\item \code{POSIXt}: for a POSIXt date-time, return the last day of the corresponding quarter
+}}
+\examples{
+# Get the quarter end for a date in 2015Q1 and 2015Q2
+quarterend(as.POSIXct("2015-01-05"))
+quarterend(as.POSIXct("2015-04-15"))
 }
 \seealso{
 \code{\link[lubridate:ceiling_date]{ceiling_date}}
 }
+\keyword{chron}
 

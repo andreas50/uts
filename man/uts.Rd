@@ -15,7 +15,7 @@ uts(values = c(), times = as.POSIXct(character(0)))
 An object of class \code{"uts"}.
 }
 \description{
-Create an unvenly-spaced time series (\code{"uts"}) object from a vector of observation values and a vector of observation times of matching length.
+Create an unevenly-spaced time series (\code{"uts"}) object from a vector of observation values and a vector of observation times of matching length.
 }
 \examples{
 # Create a numeric "uts"
