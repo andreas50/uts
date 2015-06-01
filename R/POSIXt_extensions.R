@@ -8,13 +8,15 @@
 
 #' Quarter End
 #'
-#' Generic function to determine the quarter-end of objects representing dates.
-#' 
-#' See documentation on method functions for further details.
+#' For objects representing dates, determine the last day of the corresponding quarter.
 #'
+#' This function is needed, because \code{\link[lubridate:ceiling_date]{ceiling_date}} does not have support for \code{unit="quarter"}.
 #' 
+#' @return An object of the same class and length as the input \code{x}.
 #' @param x an object representing dates.
 #' @param \dots further arguments passed to or from methods.
+#' 
+#' @keywords chron
 #' @seealso \code{\link[lubridate:ceiling_date]{ceiling_date}}
 #'
 quarterend <- function(x, ...) UseMethod("quarterend")
@@ -22,13 +24,15 @@ quarterend <- function(x, ...) UseMethod("quarterend")
 
 #' Next Business Day
 #'
-#' Generic function to find the next business day of objects representing dates.
+#' For objects representing dates, find the next business day.
 #' 
-#' See documentation on method functions for further details.
+#' Add the minimum number of days to reach a business day. The time-of-day information is therefore unaffected. In particular, if the input already is a business day, then the output is the same as the input.
 #'
+#' @return An object of the same class and length as the input \code{x}
 #' @param x an object representing dates.
 #' @param \dots further arguments passed to or from methods.
 #' 
+#' @keywords chron
 #' @seealso \code{\link{previous_business_day}}
 #'
 next_business_day <- function(x, ...) UseMethod("next_business_day")
@@ -36,13 +40,15 @@ next_business_day <- function(x, ...) UseMethod("next_business_day")
 
 #' Previous Business Day
 #' 
-#' Generic function to find the previous business day of objects representing dates.
+#' For objects representing dates, find the previous business day.
 #'
-#' See documentation on method functions for further details.
+#' Substract the minimum number of days to reach a business day. The time-of-day information is therefore unaffected. In particular, if the input already is a business day, then the output is the same as the input.
 #'
+#' @return An object of the same class and length as the input \code{x}
 #' @param x an object representing dates.
 #' @param \dots further arguments passed to or from methods.
 #' 
+#' @keywords chron
 #' @seealso \code{\link{next_business_day}}
 #'
 previous_business_day <- function(x, ...) UseMethod("previous_business_day")
@@ -52,18 +58,7 @@ previous_business_day <- function(x, ...) UseMethod("previous_business_day")
 # Method implementations
 # ----------------------
 
-#' Quarter End
-#' 
-#' For a POSIXt date-time, return the last day of the corresponding quarter.
-#' 
-#' This function is needed, because \code{\link[lubridate:ceiling_date]{ceiling_date}} does not have support for \code{unit="quarter"}.
-#' 
-#' @return An object of the same class and length as the input \code{x}.
-#' @param x a \code{POSIXt} date-tim object.
-#' @param \dots further arguments passed to or from methods.
-#' 
-#' @keywords chron
-#' @seealso \code{\link[lubridate:ceiling_date]{ceiling_date}}
+#' @describeIn quarterend for a POSIXt date-time, return the last day of the corresponding quarter
 #'
 #' @examples
 #' # Get the quarter end for a date in 2015Q1 and 2015Q2 
@@ -77,22 +72,13 @@ quarterend.POSIXt <- function(x, ...)
 }
 if (0) {
   tmp <- seq(as.POSIXct("2015-01-01"), length=12, by="month")
-  month(tmp) <- month(tmp) + (-month(tmp)) %% 3                 # required calculation in ceiling_date() for unit="quarter" support
+  month(tmp) <- month(tmp) + (-month(tmp)) %% 3    # required calculation in ceiling_date() for unit="quarter" support
 }
 
 
-#' Next Business Day
+#' @describeIn next_business_day find the next business day for POSIXt dates
 #' 
-#' For a POSIXt date-time object, add the minimum number of days to reach a business day. The time-of-day information is therefore unaffected. In particular, if the input already is a business day, then the output is the same as the input.
-#'
-#'
-#' @return An object of the same class and length as the input \code{x}.
-#' @param x a \code{POSIXt} date-time object.
-#' @param \dots further arguments passed to or from methods.
-#' 
-#' @note Non-business days are defined as Saturdays and Sundays. Public holidays are not supported.
-#' @keywords chron
-#' @seealso \code{\link{previous_business_day.POSIXt}}
+#' @note For \code{next_business_day.POSIXt()}, non-business days are defined as Saturdays and Sundays. Public holidays are not supported.
 #' 
 #' @examples
 #' # 2015-04-20 is a Monday
@@ -101,23 +87,15 @@ if (0) {
 next_business_day.POSIXt <- function(x, ...)
 {
   day_of_week <- wday(x)
-  x[day_of_week == 7] <- x[day_of_week == 7] + days(2)    # update saturdays
-  x[day_of_week == 1] <- x[day_of_week == 1] + days(1)    # update sundays
+  x[day_of_week == 7] <- x[day_of_week == 7] + days(2)    # update Saturdays
+  x[day_of_week == 1] <- x[day_of_week == 1] + days(1)    # update Sundays
   x
 }
 
 
-#' Previous Business Day
+#' @describeIn previous_business_day find the previous business day for POSIXt dates
 #' 
-#' For a POSIXt date-time object, substract the minimum number of days to reach a business day. The time-of-day information is therefore unaffected. In particular, if the input already is a business day, then the output is the same as the input.
-#'
-#' @return An object of the same class and length as the input \code{x}.
-#' @param x a \code{POSIXt} date-time object.
-#' @param \dots further arguments passed to or from methods.
-#' 
-#' @note Non-business days are defined as Saturdays and Sundays. Public holidays are not supported.
-#' @keywords chron
-#' @seealso \code{\link{next_business_day.POSIXt}}
+#' @note For \code{previous_business_day.POSIXt()}, non-business days are defined as Saturdays and Sundays. Public holidays are not supported.
 #' 
 #' @examples
 #' # 2015-04-20 is a Monday
