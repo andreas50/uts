@@ -8,12 +8,11 @@
 
 #' Matrix of POSIXct Objects
 #' 
-#' Generic function to create a matrix of POSIXct Objects.
-#'
-#' See documentation on method functions for further details.
+#' Create a matrix of \code{POSIXct} objects.
 #'
 #' @param x an \R{} object of appropriate type.
 #' @param \dots arguments passed to or from methods.
+#' 
 #' @keywords chron classes
 #' @seealso \code{\link{POSIXct_vector}}
 POSIXct_matrix <- function(x, ...) UseMethod("POSIXct_matrix")
@@ -35,14 +34,13 @@ as.POSIXct_matrix <- function(x, ...) UseMethod("as.POSIXct_matrix")
 # Method implementations
 # ----------------------
 
-#' Matrix of POSIXct Objects
-#' @param x coming soon
+#' @describeIn POSIXct_matrix create a matrix of \code{POSIXct} objects out of a \code{POSIXct_vector}
+#' 
 #' @param nrow coming soon
 #' @param ncol coming soon
 #' @param byrow coming soon
 #' @param dimnames coming soon
-#' @param \dots arguments passed to or from methods.
-#' @keywords chron classes
+#'
 POSIXct_matrix.POSIXct_vector <- function(x, nrow=1, ncol=1, byrow=FALSE, dimnames=NULL, ...)
 {
   # Determine matrix dimensions, and reycle arguments if necessary

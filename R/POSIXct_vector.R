@@ -8,12 +8,13 @@
 
 #' Vector of POSIXct Objects
 #' 
-#' Generic function to create a vector of POSIXct Objects.
+#' Create a vector of \code{POSIXct} objects.
 #'
-#' See documentation on method functions for further details.
-#'
+#' @return an object of class \code{"POSIXct_vector"}
 #' @param x an \R{} object of appropriate type.
 #' @param \dots arguments passed to or from methods.
+#' 
+#' @keywords chron classes
 #' @seealso \code{\link{POSIXct_matrix}}
 POSIXct_vector <- function(x, ...) UseMethod("POSIXct_vector")
 
@@ -22,9 +23,7 @@ POSIXct_vector <- function(x, ...) UseMethod("POSIXct_vector")
 # Method implementations
 # ----------------------
 
-#' Vector of POSIXct Objects
-#' @param \dots arguments passed to or from methods.
-#' @keywords chron classes
+#' @describeIn POSIXct_vector default constructor
 POSIXct_vector.default <- function(...)
 {
   # Allocate object for output
