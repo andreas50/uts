@@ -2,21 +2,34 @@
 % Please edit documentation in R/POSIXct_matrix.R
 \name{POSIXct_matrix}
 \alias{POSIXct_matrix}
+\alias{POSIXct_matrix.POSIXct_vector}
 \title{Matrix of POSIXct Objects}
 \usage{
 POSIXct_matrix(x, ...)
+
+\method{POSIXct_matrix}{POSIXct_vector}(x, nrow = 1, ncol = 1,
+  byrow = FALSE, dimnames = NULL, ...)
 }
 \arguments{
 \item{x}{an \R{} object of appropriate type.}
 
+\item{nrow}{coming soon}
+
+\item{ncol}{coming soon}
+
+\item{byrow}{coming soon}
+
+\item{dimnames}{coming soon}
+
 \item{\dots}{arguments passed to or from methods.}
 }
 \description{
-Generic function to create a matrix of POSIXct Objects.
+Create a matrix of \code{POSIXct} objects.
 }
-\details{
-See documentation on method functions for further details.
-}
+\section{Methods (by class)}{
+\itemize{
+\item \code{POSIXct_vector}: create a matrix of \code{POSIXct} objects out of a \code{POSIXct_vector}
+}}
 \seealso{
 \code{\link{POSIXct_vector}}
 }

@@ -2,22 +2,31 @@
 % Please edit documentation in R/POSIXct_vector.R
 \name{POSIXct_vector}
 \alias{POSIXct_vector}
+\alias{POSIXct_vector.default}
 \title{Vector of POSIXct Objects}
 \usage{
 POSIXct_vector(x, ...)
+
+\method{POSIXct_vector}{default}(...)
 }
 \arguments{
 \item{x}{an \R{} object of appropriate type.}
 
 \item{\dots}{arguments passed to or from methods.}
 }
+\value{
+an object of class \code{"POSIXct_vector"}
+}
 \description{
-Generic function to create a vector of POSIXct Objects.
+Create a vector of \code{POSIXct} objects.
 }
-\details{
-See documentation on method functions for further details.
-}
+\section{Methods (by class)}{
+\itemize{
+\item \code{default}: default constructor
+}}
 \seealso{
 \code{\link{POSIXct_matrix}}
 }
+\keyword{chron}
+\keyword{classes}
 
