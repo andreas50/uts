@@ -10,11 +10,9 @@
 #'
 #' Sample values from a time series at given sampling times.
 #' 
-#' @return An vector of samples values with same length as the input \code{x}.
+#' @return An vector of sampled values with same length as the input \code{x}.
 #' @param x a time series object.
 #' @param \dots further arguments passed to or from methods.
-#' 
-# #' @seealso \code{\link[lubridate:ceiling_date]{ceiling_date}}
 #'
 sample_values <- function(x, ...) UseMethod("sample_values")
 
@@ -39,7 +37,7 @@ sample_values <- function(x, ...) UseMethod("sample_values")
 #' # Sample with linear interpolatino
 #'
 sample_values.uts <- function(x, sampling_times, method="last", max_dt=ddays(Inf),
-  tolerance=.Machine$double.eps ^ 0.5)
+  tolerance=.Machine$double.eps ^ 0.5, ...)
 {  
   # Argument checking
   if (!is.POSIXct(sampling_times))

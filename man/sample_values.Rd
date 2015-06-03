@@ -8,7 +8,7 @@
 sample_values(x, ...)
 
 \method{sample_values}{uts}(x, sampling_times, method = "last",
-  max_dt = ddays(Inf), tolerance = .Machine$double.eps^0.5)
+  max_dt = ddays(Inf), tolerance = .Machine$double.eps^0.5, ...)
 }
 \arguments{
 \item{x}{a time series object.}
@@ -23,12 +23,10 @@ sample_values(x, ...)
 
 \item{tolerance}{tolerance for numerical noise in observation times. See \code{\link{num_leq_sorted_arrays}}.}
 
-\item{\dots}{further arguments passed to or from methods.
-
-#}
+\item{\dots}{further arguments passed to or from methods.}
 }
 \value{
-An vector of samples values with same length as the input \code{x}.
+An vector of sampled values with same length as the input \code{x}.
 }
 \description{
 Sample values from a time series at given sampling times.
@@ -43,8 +41,5 @@ Sample values from a time series at given sampling times.
 # Sample the most recent observation
 
 # Sample with linear interpolatino
-}
-\seealso{
-\code{\link[lubridate:ceiling_date]{ceiling_date}}
 }
 
