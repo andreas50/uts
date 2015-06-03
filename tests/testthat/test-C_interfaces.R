@@ -9,11 +9,11 @@ test_that("num_leq_sorted_arrays works",{
 
 test_that("num_leq_sorted_arrays robust to numerical noise",{
   expect_equal(
-    num_leq_sorted_arrays(1 - 1e-13, 0:2, eps=1e-12),
+    num_leq_sorted_arrays(1 - 1e-13, 0:2, tolerance=1e-12),
     2
   )
   expect_equal(
-    num_leq_sorted_arrays(1 + 1e-13, 0:2, eps=1e-12),
+    num_leq_sorted_arrays(1 + 1e-13, 0:2, tolerance=1e-12),
     2
   )
 })
