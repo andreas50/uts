@@ -46,9 +46,8 @@ sample_values.uts <- function(x, sampling_times, method="last", max_dt=ddays(Inf
     stop("'max_lag' is not a duration object")
   if (!(method %in% c("last", "linear")))
     stop("Unknown sampling 'method'")
-  if (length(sampling_times) > 0)
-    if (any(diff(as.double(sampling_times)) <= 0))
-      stop("'sampling_times' needs to be a strictly increasing time sequence")
+  if (any(diff(sampling_times) <= 0))
+    stop("'sampling_times' needs to be a strictly increasing time sequence")
   
   # For each sampling time, determine the most recent observation time, and enforce the 'max_dt' threshold 
   sampling_idx_last <- num_leq_sorted_arrays(sampling_times, x$times, tolerance=tolerance)
