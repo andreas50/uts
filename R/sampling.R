@@ -76,6 +76,7 @@ sample_values.uts <- function(x, sampling_times, method="last", max_dt=ddays(Inf
   
   # Linearly interpolate last and next observation value
   w <- pmax(0, dt_next_observation) / (as.numeric(dt_last_observation) + pmax(0, dt_next_observation))
+  w[perfect_match] <- 1
   w * sampled_values_last + (1-w) * sampled_values_next
 }
 

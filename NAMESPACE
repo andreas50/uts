@@ -4,13 +4,9 @@ useDynLib(uts)
 import(lubridate)
 
 
-### Export classes
-exportClasses(POSIXct_vector)
-exportClasses(POSIXct_matrix)
-exportClasses(uts)
-
-
 ### Export class constructors
+export(POSIXct_vector)
+export(POSIXct_matrix)
 export(uts)
 
 

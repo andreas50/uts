@@ -21,5 +21,15 @@ test_that("Univariate sampling of values works",{
     sample_values(uts1, as.POSIXct(c("2007-11-09 12:01:00", "2007-11-09 15:16:00")), method="linear"),
     c(47.42578125, 47.35000)
   )
+  
+  # Sampling at time that is an observation time
+  expect_equal(
+    sample_values(uts1, uts1$times),
+    uts1$values
+  )
+  expect_equal(
+    sample_values(uts1, uts1$times, method="linear"),
+    uts1$values
+  )
 })
 
