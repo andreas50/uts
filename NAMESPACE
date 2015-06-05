@@ -15,6 +15,7 @@ export(quarterend)
 export(next_business_day, previous_business_day)
 export(as.POSIXct_matrix)
 #
+export(as.uts)
 export(sample_values)
 
 
@@ -29,6 +30,8 @@ S3method(POSIXct_matrix, POSIXct)
 S3method(POSIXct_matrix, POSIXct_vector)
 S3method(as.POSIXct_matrix, POSIXct_vector)
 #
+S3method(as.uts, ts)
+S3method(as.uts, zoo)
 S3method(sample_values, uts)
 
 

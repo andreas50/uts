@@ -6,12 +6,7 @@
 #' 
 #' Create time series that can be used for code examples and testing.
 #' 
-#' @name example_ts
-#' 
-NULL
-
-
-#' @describeIn example_ts a numeric \code{\link{uts}} with six observations
+#' @return \code{ex_ust()} returns a numeric \code{\link{uts}} with six observations.
 #' 
 #' @examples
 #' ex_uts()
@@ -24,7 +19,9 @@ ex_uts <- function()
 }
 
 
-#' @describeIn example_ts a non-numeric \code{\link{uts}} with three observations
+#' @rdname ex_uts
+#' 
+#' @return \code{ex_uts2()} returns a non-numeric \code{\link{uts}} with three observations.
 #' 
 #' @examples
 #' ex_uts2()
