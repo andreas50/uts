@@ -6,7 +6,7 @@
 # Generic functions
 # -----------------
 
-#' Coercion to uts
+#' Coercion to uts object
 #' 
 #' Convert other time series objects to \code{\link{uts}} objects.
 #'
