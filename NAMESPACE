@@ -36,3 +36,7 @@ S3method(sample_values, uts)
 export(num_leq_sorted_arrays)
 export(is.POSIXct_vector)
 export(is.POSIXct_matrix)
+#
+export(ex_uts)
+export(ex_uts2)
+
