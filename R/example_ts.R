@@ -11,7 +11,6 @@
 NULL
 
 
-
 #' @describeIn example_ts a numeric \code{\link{uts}} with six observations
 #' 
 #' @examples

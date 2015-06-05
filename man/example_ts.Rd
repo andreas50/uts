@@ -15,7 +15,7 @@ Create time series that can be used for code examples and testing.
 }
 \section{Functions}{
 \itemize{
-\item \code{ex_uts}: an a numeric \code{\link{uts}} with six observations.
+\item \code{ex_uts}: a numeric \code{\link{uts}} with six observations
 
 \item \code{ex_uts2}: a non-numeric \code{\link{uts}} with three observations
 }}

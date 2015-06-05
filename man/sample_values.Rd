@@ -40,6 +40,6 @@ Sample values from a time series at given sampling times.
 
 # Sample the most recent observation
 
-# Sample with linear interpolatino
+# Sample with linear interpolation
 }
 

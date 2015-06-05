@@ -34,7 +34,7 @@ sample_values <- function(x, ...) UseMethod("sample_values")
 #'  
 #' # Sample the most recent observation
 #' 
-#' # Sample with linear interpolatino
+#' # Sample with linear interpolation
 #'
 sample_values.uts <- function(x, sampling_times, method="last", max_dt=ddays(Inf),
   tolerance=.Machine$double.eps ^ 0.5, ...)
@@ -42,12 +42,16 @@ sample_values.uts <- function(x, sampling_times, method="last", max_dt=ddays(Inf
   # Argument checking
   if (!is.POSIXct(sampling_times))
     stop("'sampling_times' is not a POSIXct' object")
-  if (!is.duration(max_dt))
-    stop("'max_lag' is not a duration object")
-  if (!(method %in% c("last", "linear")))
-    stop("Unknown sampling 'method'")
   if (any(diff(sampling_times) <= 0))
     stop("'sampling_times' needs to be a strictly increasing time sequence")
+  #
+  if (!(method %in% c("last", "linear")))
+    stop("Unknown sampling 'method'")
+  if ((method == "linear") & !is.numeric(x$values))
+    stop("Sampling with linear interpolation is only supported for numeric time series")
+  #
+  if (!is.duration(max_dt))
+    stop("'max_lag' is not a duration object")
   
   # For each sampling time, determine the most recent observation time, and enforce the 'max_dt' threshold 
   sampling_idx_last <- num_leq_sorted_arrays(sampling_times, x$times, tolerance=tolerance)
