@@ -9,7 +9,7 @@ uts(values = c(), times = as.POSIXct(character(0)))
 \arguments{
 \item{values}{a vector of observation values.}
 
-\item{times}{a vector of observation times. Must be of class \code{"POSIXct"} or be coercible using \code{\link{as.POSIXct}}.}
+\item{times}{a vector of strictly increasing observation times. Must be a \code{\link{POSIXct}} object or be coercible using \code{\link{as.POSIXct}}.}
 }
 \value{
 An object of class \code{"uts"}.
