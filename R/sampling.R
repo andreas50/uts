@@ -58,7 +58,7 @@ sample_values.uts <- function(x, sampling_times, method="last", max_dt=ddays(Inf
   sampling_idx_last[sampling_idx_last == 0] <- NA
   sampled_times_last <- x$times[sampling_idx_last]
   dt_last_observation <- as.duration(sampling_times - sampled_times_last) 
-  if (max_dt < Inf)
+  if (max_dt < ddays(Inf))
     sampling_idx_last[dt_last_observation > max_dt] <- NA
   sampled_values_last <- x$values[sampling_idx_last]
   
@@ -73,7 +73,7 @@ sample_values.uts <- function(x, sampling_times, method="last", max_dt=ddays(Inf
   sampling_idx_next <- pmin(length(x$times), sampling_idx_last + !perfect_match)
   sampled_times_next <- x$times[sampling_idx_next]
   dt_next_observation <- as.duration(sampled_times_next - sampling_times)
-  if (max_dt < Inf)
+  if (max_dt < ddays(Inf))
     sampling_idx_next[dt_next_observation > max_dt] <- NA
   sampled_values_next <- x$values[sampling_idx_next]
   

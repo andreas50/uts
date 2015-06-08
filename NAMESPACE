@@ -32,6 +32,7 @@ S3method(as.POSIXct_matrix, POSIXct_vector)
 #
 S3method(as.uts, ts)
 S3method(as.uts, zoo)
+S3method(plot, uts)
 S3method(sample_values, uts)
 
 
