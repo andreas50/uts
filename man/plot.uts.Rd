@@ -21,14 +21,15 @@
 \item{\dots}{other graphical parameters passed to \code{\link[graphics:plot]{plot}}.}
 }
 \description{
-This function is convenience wrapper around \code{\link[graphics:plot.default]{plot.default}} that picks several sensible default arguments
+This function is convenience wrapper around \code{\link[graphics:plot.default]{plot.default}} with several sensible default arguments.
 }
 \examples{
 plot(ex_uts())
 
 # Use custom date formatting for x axis
-# -) this example produces several harmless warning messages, because only axis.POSIXct()
-#    supports this argument
+# -) the "format" argument is passed down to axis.POSIXct()
+# -) this example produces several harmless warning messages, because other
+#    functions that are part of the call chain have no "format" argument
 plot(ex_uts(), format="\%a \%I\%p")
 }
 

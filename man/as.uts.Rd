@@ -4,7 +4,7 @@
 \alias{as.uts}
 \alias{as.uts.ts}
 \alias{as.uts.zoo}
-\title{Coercion to uts object}
+\title{Coercion to uts}
 \usage{
 as.uts(x, ...)
 
