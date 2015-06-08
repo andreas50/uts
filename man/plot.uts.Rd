@@ -10,15 +10,15 @@
 \arguments{
 \item{x}{a numeric \code{\link{uts}} that should be plotted.}
 
-\item{type}{what type of plot should be drawn, see \code{\link[graphics:plot]{plot}}. \code{type="b"} is helpful for highlighting individual observations.}
+\item{type}{what type of plot should be drawn, see \code{\link[graphics:plot.default]{plot.default}}. \code{type="b"} is helpful for highlighting individual observations.}
 
-\item{col}{the colors for lines and points. See \code{\link[graphics:plot]{plot}}.}
+\item{col}{the colors for lines and points. See \code{\link[graphics:plot.default]{plot.default}}.}
 
 \item{xlab}{a label for the x axis.}
 
 \item{ylab}{a label for the y axis.}
 
-\item{\dots}{other graphical parameters passed to \code{\link[graphics:plot]{plot}}.}
+\item{\dots}{other graphical parameters passed to \code{\link[graphics:plot.default]{plot.default}}.}
 }
 \description{
 This function is convenience wrapper around \code{\link[graphics:plot.default]{plot.default}} with several sensible default arguments.
