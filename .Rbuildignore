@@ -1,3 +1,5 @@
 .*\.so$
 .*\.o$
 workflow.txt
+^.*\.Rproj$
+^\.Rproj\.user$

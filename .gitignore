@@ -3,3 +3,4 @@
 *.project
 .settings/
 symbols.rds
+.Rproj.user
