@@ -21,7 +21,7 @@ sample_values <- function(x, ...) UseMethod("sample_values")
 
 #' @describeIn sample_values sample from a \code{"uts"}
 #'
-#' @param sampling_times a strictly increasing sequence of \code{\link{POSIXct}} date-times.
+#' @param time_points a strictly increasing sequence of \code{\link{POSIXct}} date-times.
 #' @param method the sampling method.
 #' \code{"last"} returns the most recent observation value in \code{x} for each sampling time.
 #' \code{"linear"} returns for each sampling time the linearily-interpolated  observation values in \code{x} that immediately preceede and follow each sampling time.
@@ -34,14 +34,14 @@ sample_values <- function(x, ...) UseMethod("sample_values")
 #' # Sample the most recent observation
 #' 
 #' # Sample with linear interpolation
-sample_values.uts <- function(x, sampling_times, method="last", max_dt=ddays(Inf),
+sample_values.uts <- function(x, time_points, method="last", max_dt=ddays(Inf),
   tolerance=.Machine$double.eps ^ 0.5, ...)
 {  
   # Argument checking
-  if (!is.POSIXct(sampling_times))
-    stop("'sampling_times' is not a POSIXct' object")
-  if (any(diff(sampling_times) <= 0))
-    stop("'sampling_times' needs to be a strictly increasing time sequence")
+  if (!is.POSIXct(time_points))
+    stop("'time_points' is not a POSIXct' object")
+  if (any(diff(time_points) <= 0))
+    stop("'time_points' needs to be a strictly increasing time sequence")
   #
   if (!(method %in% c("last", "linear")))
     stop("Unknown sampling 'method'")
@@ -52,10 +52,10 @@ sample_values.uts <- function(x, sampling_times, method="last", max_dt=ddays(Inf
     stop("'max_lag' is not a duration object")
   
   # For each sampling time, determine the most recent observation time, and enforce the 'max_dt' threshold 
-  sampling_idx_last <- num_leq_sorted_arrays(sampling_times, x$times, tolerance=tolerance)
+  sampling_idx_last <- num_leq_sorted_arrays(time_points, x$times, tolerance=tolerance)
   sampling_idx_last[sampling_idx_last == 0] <- NA
   sampled_times_last <- x$times[sampling_idx_last]
-  dt_last_observation <- as.duration(sampling_times - sampled_times_last) 
+  dt_last_observation <- as.duration(time_points - sampled_times_last) 
   if (max_dt < ddays(Inf))
     sampling_idx_last[dt_last_observation > max_dt] <- NA
   sampled_values_last <- x$values[sampling_idx_last]
@@ -67,10 +67,10 @@ sample_values.uts <- function(x, sampling_times, method="last", max_dt=ddays(Inf
   ### code for method="linear" only ###
   
   # For each sampling time, determine the next observation time, and enforce the 'max_dt' threshold
-  perfect_match <- sampling_times %in% x$times
+  perfect_match <- time_points %in% x$times
   sampling_idx_next <- pmin(length(x$times), sampling_idx_last + !perfect_match)
   sampled_times_next <- x$times[sampling_idx_next]
-  dt_next_observation <- as.duration(sampled_times_next - sampling_times)
+  dt_next_observation <- as.duration(sampled_times_next - time_points)
   if (max_dt < ddays(Inf))
     sampling_idx_next[dt_next_observation > max_dt] <- NA
   sampled_values_next <- x$values[sampling_idx_next]
@@ -80,3 +80,44 @@ sample_values.uts <- function(x, sampling_times, method="last", max_dt=ddays(Inf
   w[perfect_match] <- 1
   w * sampled_values_last + (1-w) * sampled_values_next
 }
+
+
+#' Extract or Replace Parts of a uts
+#'
+#' Either extract a sub-sampled time series with the provided observation times. Or insert new observations at the provided observation times, replacing existing observations at the same times (if any).
+#' 
+#' @param x a \code{\link{uts}} object.
+#' @param time_points either a strictly increasing sequence of \code{\link{POSIXct}} date-times, or a \code{uts} with \code{\link{logical}} observation values.
+#' @param \dots further arguments passed to \code{\link{sample_values}}.
+#' 
+#' @examples
+#' ex_uts()[as.POSIXct("2000-01-01")]
+#' #ex_uts()[alltimes(utsv, 2)]
+#' #
+#' times <- as.POSIXct(c("2007-11-08 1:01:00", "2007-11-09  15:16:00"))
+#' ex_uts()[times, max_lag = ddays(1)]
+#' #ex_uts()[!is.na(ex_uts())]
+#' #ex_uts()[ex_uts() > 48]
+`[.uts` <- function(x, time_points, ...)
+{
+  # Special case of POSIXct_vector as sampling times
+  #if (is.POSIXct_vector(time_points)) {
+  #  x <- rep(x, length(time_points))
+  #  return(x[time_points, ...])
+  #}
+
+  # Sample values
+  if (is.POSIXct(time_points))
+    values_new <- sample_values(x, time_points, ...)
+  else if (inherits(time_points, "uts") && is.logical(time_points$values)) {
+    # Sample from logical UTS (use TRUE ticks)
+    time_points <- time_points$times[time_points$values]
+    values_new <- sample_values(x, time_points, ...)
+  } else
+    stop("The 'time_points' argument is of the wrong type")
+  
+  # Return new sampled time series
+  uts(values_new, time_points)
+}
+
+
