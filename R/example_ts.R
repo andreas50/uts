@@ -10,7 +10,6 @@
 #' 
 #' @examples
 #' ex_uts()
-#' 
 ex_uts <- function()
 {
   dates <- c("2007-11-08", "2007-11-08", "2007-11-08", "2007-11-09", "2007-11-09", "2007-11-09")
@@ -25,7 +24,6 @@ ex_uts <- function()
 #' 
 #' @examples
 #' ex_uts2()
-#' 
 ex_uts2 <- function()
 {
   uts(

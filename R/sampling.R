@@ -13,7 +13,6 @@
 #' @return An vector of sampled values with same length as the input \code{x}.
 #' @param x a time series object.
 #' @param \dots further arguments passed to or from methods.
-#'
 sample_values <- function(x, ...) UseMethod("sample_values")
 
 # ----------------------
@@ -35,7 +34,6 @@ sample_values <- function(x, ...) UseMethod("sample_values")
 #' # Sample the most recent observation
 #' 
 #' # Sample with linear interpolation
-#'
 sample_values.uts <- function(x, sampling_times, method="last", max_dt=ddays(Inf),
   tolerance=.Machine$double.eps ^ 0.5, ...)
 {  
@@ -82,5 +80,3 @@ sample_values.uts <- function(x, sampling_times, method="last", max_dt=ddays(Inf
   w[perfect_match] <- 1
   w * sampled_values_last + (1-w) * sampled_values_next
 }
-
-

@@ -1,4 +1,3 @@
-
 #' Plot a uts
 #' 
 #' This function is convenience wrapper around \code{\link[graphics:plot.default]{plot.default}} with several sensible default arguments.
@@ -18,7 +17,6 @@
 #' # -) this example produces several harmless warning messages, because other
 #' #    functions that are part of the call chain have no "format" argument
 #' plot(ex_uts(), format="%a %I%p")
-#'
 plot.uts <- function(x, type="l", col="blue", xlab="", ylab="", ...)
 {
   # Argument checking
@@ -49,3 +47,5 @@ if (0) {
   plot(tmp, xaxt="n")
   axis.POSIXct(1, at=tmp$times, format="%m/%m/%Y")
 }
+
+

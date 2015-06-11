@@ -13,7 +13,6 @@
 #' @return An object of class \code{"uts"}.
 #' @param x a time series object of appropriate type.
 #' @param \dots arguments passed to or from methods.
-#' 
 as.uts <- function(x, ...) UseMethod("as.uts")
 
 
@@ -27,7 +26,6 @@ as.uts <- function(x, ...) UseMethod("as.uts")
 #' # Convert a "ts" time series
 #' ts1 <- ts(1:10, frequency = 4, start = c(1959, 2))
 #' as.uts(ts1)
-#' 
 as.uts.ts <- function(x, ...)
 {
   # Extract values and times
@@ -51,9 +49,9 @@ as.uts.ts <- function(x, ...)
 #'   zoo1 <- zoo::zoo(1:4, as.Date("2015-01-01") + c(1, 3, 7, 9))
 #'   as.uts(zoo1)
 #' }
-#' 
 as.uts.zoo <- function(x, ...)
 {
   uts(as.numeric(x), as.POSIXct(attr(x, "index")))
 }
+
 

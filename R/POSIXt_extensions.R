@@ -18,7 +18,6 @@
 #' 
 #' @keywords chron
 #' @seealso \code{\link[lubridate:ceiling_date]{ceiling_date}}
-#'
 quarterend <- function(x, ...) UseMethod("quarterend")
 
 
@@ -34,7 +33,6 @@ quarterend <- function(x, ...) UseMethod("quarterend")
 #' 
 #' @keywords chron
 #' @seealso \code{\link{previous_business_day}}
-#'
 next_business_day <- function(x, ...) UseMethod("next_business_day")
 
 
@@ -50,7 +48,6 @@ next_business_day <- function(x, ...) UseMethod("next_business_day")
 #' 
 #' @keywords chron
 #' @seealso \code{\link{next_business_day}}
-#'
 previous_business_day <- function(x, ...) UseMethod("previous_business_day")
 
 
@@ -64,7 +61,6 @@ previous_business_day <- function(x, ...) UseMethod("previous_business_day")
 #' # Get the quarter end for a date in 2015Q1 and 2015Q2 
 #' quarterend(as.POSIXct("2015-01-05"))
 #' quarterend(as.POSIXct("2015-04-15"))
-#'
 quarterend.POSIXt <- function(x, ...)
 {
   new_months <- ceiling(month(x) / 3) * 3
@@ -83,7 +79,6 @@ if (0) {
 #' @examples
 #' # 2015-04-20 is a Monday
 #' next_business_day(as.POSIXct("2015-04-20") + days(0:6))
-#'
 next_business_day.POSIXt <- function(x, ...)
 {
   day_of_week <- wday(x)
@@ -100,7 +95,6 @@ next_business_day.POSIXt <- function(x, ...)
 #' @examples
 #' # 2015-04-20 is a Monday
 #' previous_business_day(as.POSIXct("2015-04-20") + days(0:6))
-#'
 previous_business_day.POSIXt <- function(x, ...)
 {
   day_of_week <- wday(x)

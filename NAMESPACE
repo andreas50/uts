@@ -2,6 +2,7 @@ useDynLib(uts)
 
 ### Import packages
 import(lubridate)
+#importFrom(zoo, as.zoo)
 
 
 ### Export class constructors
@@ -32,6 +33,7 @@ S3method(as.POSIXct_matrix, POSIXct_vector)
 #
 S3method(as.uts, ts)
 S3method(as.uts, zoo)
+#S3method(as.zoo, uts)
 S3method(plot, uts)
 S3method(sample_values, uts)
 

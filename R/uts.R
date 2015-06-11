@@ -31,7 +31,6 @@
 #'
 #' # Create an empty "uts"
 #' uts()
-#'
 uts <- function(values=c(), times=as.POSIXct(character(0)))
 {
   # Argument checking
