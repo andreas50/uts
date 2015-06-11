@@ -4,8 +4,7 @@ Date: 2015-05-31
 Title: Unevenly Spaced Time Series
 Author: Andreas Eckner <andreas@eckner.com>
 Maintainer: Andreas Eckner <andreas@eckner.com>
-Imports: lubridate
-Depends: R (>= 3.1)
+Depends: R (>= 3.1), lubridate
 Suggests: testthat, zoo
 Description: This package provides S3 classes for constructing, analyzing, and manipulating
   univariate unevenly-spaced time series. Individual time series can store arbitrary R objects.
