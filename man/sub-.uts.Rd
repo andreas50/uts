@@ -14,7 +14,7 @@
 \item{\dots}{further arguments passed to \code{\link{sample_values}}.}
 }
 \description{
-Either extract a sub-sampled time series with the provided observation times. Or insert new observations at the provided observation times, replacing existing observations at the same times (if any).
+The accessor method extracts a sub-sampled time series with the provided times. The replacement method inserts new observation values at the provided observation times, replacing observations values for already existing observation times (if any).
 }
 \examples{
 ex_uts()[as.POSIXct("2000-01-01")]

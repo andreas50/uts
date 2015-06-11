@@ -24,7 +24,7 @@ These methods apply the methods in base \R{} to the observation values of \code{
 \examples{
 # "Summary" methods
 min(ex_uts())
-any(ex_uts())
+#any(ex_uts() > 45)
 range(ex_uts())
 #
 # "Math" methods

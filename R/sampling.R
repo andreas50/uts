@@ -84,7 +84,7 @@ sample_values.uts <- function(x, time_points, method="last", max_dt=ddays(Inf),
 
 #' Extract or Replace Parts of a uts
 #'
-#' Either extract a sub-sampled time series with the provided observation times. Or insert new observations at the provided observation times, replacing existing observations at the same times (if any).
+#' The accessor method extracts a sub-sampled time series with the provided times. The replacement method inserts new observation values at the provided observation times, replacing observations values for already existing observation times (if any).
 #' 
 #' @param x a \code{\link{uts}} object.
 #' @param time_points either a strictly increasing sequence of \code{\link{POSIXct}} date-times, or a \code{uts} with \code{\link{logical}} observation values.

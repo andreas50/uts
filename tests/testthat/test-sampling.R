@@ -50,3 +50,4 @@ test_that("Sampling of non-numeric time series works",{
   )
 })
 
+
