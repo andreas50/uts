@@ -7,13 +7,13 @@
 \usage{
 sample_values(x, ...)
 
-\method{sample_values}{uts}(x, sampling_times, method = "last",
+\method{sample_values}{uts}(x, time_points, method = "last",
   max_dt = ddays(Inf), tolerance = .Machine$double.eps^0.5, ...)
 }
 \arguments{
 \item{x}{a time series object.}
 
-\item{sampling_times}{a strictly increasing sequence of \code{\link{POSIXct}} date-times.}
+\item{time_points}{a strictly increasing sequence of \code{\link{POSIXct}} date-times.}
 
 \item{method}{the sampling method.
 \code{"last"} returns the most recent observation value in \code{x} for each sampling time.
