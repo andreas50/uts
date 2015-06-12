@@ -1,41 +1,42 @@
-#' S3 Group Generic Methods for uts
-#'
-#' These methods apply the methods in base \R{} to the observation values of \code{\link{uts}} objects.
+#' Summary Group Methods for uts
 #' 
-#' @return An object of class \code{"uts"} with same observation times as the input \code{x}, and observation values the result of applying the provided method to the observation values of input \code{x}.
+#' These methods apply the \code{\link{Summary}} methods in base \R{} to the observation values of \code{\link{uts}} objects.
+#' 
 #' @param x an object of class \code{"uts"}.
 #' @param \dots further arguments passed to or from methods.
 #' 
 #' @seealso \code{\link{groupGeneric}}
-#' @name group_generic_uts
-NULL
-
-
-#' @rdname group_generic_uts
 #' 
 #' @examples
-#' # "Summary" methods 
-#' min(ex_uts())
-#' #any(ex_uts() > 45)
-#' range(ex_uts())
+#' # Get the smallest observation value, ignoring NAs
+#' min(ex_uts(), na.rm=TRUE)
+#' 
+#' # Check if any observation value is larger than 48
+#' #any(ex_uts() > 48)
 Summary.uts <- function(x, ...)
 {
   do.call(.Generic, list(x$values, ...))
 }
 
 
-#' @rdname group_generic_uts 
+#' Math Group Methods for uts
+#' 
+#' These methods apply the \code{\link{Math}} methods in base \R{} to the observation values of \code{\link{uts}} objects.
+#' 
+#' @param x an object of class \code{"uts"}.
+#' @param \dots further arguments passed to or from methods.
+#' 
+#' @seealso \code{\link{groupGeneric}}
 #' 
 #' @examples
-#' #
-#' # "Math" methods
-#' floor(ex_uts())
-#' ceiling(ex_uts())
-#' sqrt(ex_uts())
+#' # Take the base-2 logarithm of the observation values and return the corresponding "uts"
+#' log(ex_uts(), base=2)
+#' 
+#' # Calculate the cumulative product of the observation values and return the corresponding "uts"
 #' cumsum(ex_uts())
 Math.uts <- function(x, ...)
 {
-  x$values <- do.call(.Generic, list(x$values))
+  x$values <- do.call(.Generic, list(x$values, ...))
   x
 }
 if (0) {
