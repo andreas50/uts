@@ -126,7 +126,11 @@ if (0) {
 }
 
 
-# Check if object is a POSIXct_MATRIX
+#' Check if Object is POSIXct_matrix
+#' 
+#' Return \code{TRUE} if \code{x} is an object of class \code{"POSIXct_matrix"}.
+#' 
+#' @param x an \R object.
 is.POSIXct_matrix <- function(x)
 {
   inherits(x, "POSIXct_matrix")

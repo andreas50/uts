@@ -67,7 +67,11 @@ if (0) {
 }
 
 
-# Check if object "is a" POSIXct_vector
+#' Check if Object is POSIXct_vector
+#' 
+#' Return \code{TRUE} if \code{x} is an object of class \code{"POSIXct_vector"}.
+#' 
+#' @param x an \R object.
 is.POSIXct_vector <- function(x)
 {
   inherits(x, "POSIXct_vector")
