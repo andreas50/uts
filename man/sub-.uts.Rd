@@ -9,7 +9,7 @@
 \arguments{
 \item{x}{a \code{"uts"} object.}
 
-\item{time_points}{either a strictly increasing sequence of \code{\link{POSIXct}} date-times, or a \code{uts} with \code{\link{logical}} observation values.}
+\item{time_points}{either a strictly increasing sequence of \code{\link{POSIXct}} date-times, or a \code{"uts"} with \code{\link{logical}} observation values.}
 
 \item{\dots}{further arguments passed to \code{\link{sample_values}}.}
 }

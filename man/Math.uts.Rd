@@ -12,7 +12,7 @@
 \item{\dots}{further arguments passed to or from methods.}
 }
 \description{
-These methods apply the \code{\link{Math}} methods in base \R{} to the observation values of \code{"uts"} objects.
+Apply the \code{\link{Math}} methods in base \R{} to the observation values of \code{"uts"} objects.
 }
 \examples{
 # Take the base-2 logarithm of the observation values and return the corresponding "uts"

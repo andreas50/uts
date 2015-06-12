@@ -48,4 +48,5 @@ export(is.POSIXct_matrix)
 #
 export(ex_uts)
 export(ex_uts2)
-
+#
+export(as.zoo.uts)    # could not figure out how to register S3 method without importing "zoo" package

@@ -12,7 +12,7 @@
 \item{\dots}{further arguments passed to or from methods.}
 }
 \description{
-These methods apply the \code{\link{Summary}} methods in base \R{} to the observation values of \code{"uts"} objects.
+Apply the \code{\link{Summary}} methods in base \R{} to the observation values of \code{"uts"} objects.
 }
 \examples{
 # Get the smallest observation value, ignoring NAs

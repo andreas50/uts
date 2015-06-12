@@ -12,6 +12,8 @@ help(package="uts", help_type="html")
 
 
 # Documentation conventions:
+-) 'of class \code{"class"}' is the convention used in predict.lm, mgcv, chron, etc.
+-) 'duration object' is the convention used in the lubridate package
 @return An object of class \code{"uts"}.
 @param x a \code{"uts"} object.
 @param time_points a strictly increasing sequence of \code{\link{POSIXct}} date-times.
