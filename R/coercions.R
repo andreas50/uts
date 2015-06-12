@@ -55,3 +55,22 @@ as.uts.zoo <- function(x, ...)
 }
 
 
+#' Coercion to zoo
+#' 
+#' @return A \code{\link[zoo:zoo]{zoo}} object.
+#' @param x a \code{"uts"} object.
+#' @param \dots further arguments passed to or from methods.
+#' 
+#' @examples
+#' if (requireNamespace("zoo", quietly = TRUE)) {
+#'   zoo::as.zoo(ex_uts())
+#' }
+# NEXT: how to move into package without requiring installation of "zoo"?
+as.zoo.uts <- function(x)
+{
+  if (!requireNamespace("zoo", quietly=TRUE))
+    stop("Package 'zoo' needed for this function to work")
+  zoo::zoo(x$values, x$times)
+}
+
+
