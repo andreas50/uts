@@ -8,7 +8,7 @@
   ...)
 }
 \arguments{
-\item{x}{a numeric \code{\link{uts}} that should be plotted.}
+\item{x}{a numeric \code{"uts"} object that should be plotted.}
 
 \item{type}{what type of plot should be drawn, see \code{\link[graphics:plot.default]{plot.default}}. \code{type="b"} is helpful for highlighting individual observations.}
 

@@ -7,7 +7,7 @@
 \method{[}{uts}(x, time_points, ...)
 }
 \arguments{
-\item{x}{a \code{\link{uts}} object.}
+\item{x}{a \code{"uts"} object.}
 
 \item{time_points}{either a strictly increasing sequence of \code{\link{POSIXct}} date-times, or a \code{uts} with \code{\link{logical}} observation values.}
 

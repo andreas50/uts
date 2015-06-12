@@ -19,7 +19,7 @@ sample_values <- function(x, ...) UseMethod("sample_values")
 # Method implementations
 # ----------------------
 
-#' @describeIn sample_values sample from a \code{"uts"}
+#' @describeIn sample_values sample from a \code{"uts"} object
 #'
 #' @param time_points a strictly increasing sequence of \code{\link{POSIXct}} date-times.
 #' @param method the sampling method.
@@ -86,7 +86,7 @@ sample_values.uts <- function(x, time_points, method="last", max_dt=ddays(Inf),
 #'
 #' The accessor method extracts a sub-sampled time series with the provided times. The replacement method inserts new observation values at the provided observation times, replacing observations values for already existing observation times (if any).
 #' 
-#' @param x a \code{\link{uts}} object.
+#' @param x a \code{"uts"} object.
 #' @param time_points either a strictly increasing sequence of \code{\link{POSIXct}} date-times, or a \code{uts} with \code{\link{logical}} observation values.
 #' @param \dots further arguments passed to \code{\link{sample_values}}.
 #' 

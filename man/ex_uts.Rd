@@ -10,9 +10,9 @@ ex_uts()
 ex_uts2()
 }
 \value{
-\code{ex_ust()} returns a numeric \code{\link{uts}} with six observations.
+\code{ex_ust()} returns a numeric \code{"uts"} with six observations.
 
-\code{ex_uts2()} returns a non-numeric \code{\link{uts}} with three observations.
+\code{ex_uts2()} returns a non-numeric \code{"uts"}  with three observations.
 }
 \description{
 Create time series that can be used for code examples and testing.

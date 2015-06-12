@@ -7,12 +7,12 @@
 \method{Summary}{uts}(x, ...)
 }
 \arguments{
-\item{x}{an object of class \code{"uts"}.}
+\item{x}{a \code{"uts"} object.}
 
 \item{\dots}{further arguments passed to or from methods.}
 }
 \description{
-These methods apply the \code{\link{Summary}} methods in base \R{} to the observation values of \code{\link{uts}} objects.
+These methods apply the \code{\link{Summary}} methods in base \R{} to the observation values of \code{"uts"} objects.
 }
 \examples{
 # Get the smallest observation value, ignoring NAs

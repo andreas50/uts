@@ -21,7 +21,7 @@ as.uts(x, ...)
 An object of class \code{"uts"}.
 }
 \description{
-Convert other time series objects to \code{\link{uts}} objects.
+Convert other time series objects to \code{"uts"} objects.
 }
 \section{Methods (by class)}{
 \itemize{

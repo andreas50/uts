@@ -8,7 +8,7 @@
 
 #' Coercion to uts
 #' 
-#' Convert other time series objects to \code{\link{uts}} objects.
+#' Convert other time series objects to \code{"uts"} objects.
 #'
 #' @return An object of class \code{"uts"}.
 #' @param x a time series object of appropriate type.

@@ -2,7 +2,7 @@
 #' 
 #' This function is convenience wrapper around \code{\link[graphics:plot.default]{plot.default}} with several sensible default arguments.
 #' 
-#' @param x a numeric \code{\link{uts}} that should be plotted.
+#' @param x a numeric \code{"uts"} object that should be plotted.
 #' @param type what type of plot should be drawn, see \code{\link[graphics:plot.default]{plot.default}}. \code{type="b"} is helpful for highlighting individual observations.
 #' @param col the colors for lines and points. See \code{\link[graphics:plot.default]{plot.default}}.
 #' @param xlab a label for the x axis.

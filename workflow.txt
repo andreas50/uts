@@ -11,6 +11,13 @@ library(uts)
 help(package="uts", help_type="html")
 
 
+# Documentation conventions:
+@return An object of class \code{"uts"}.
+@param x a \code{"uts"} object.
+@param time_points a strictly increasing sequence of \code{\link{POSIXct}} date-times.
+@param max_dt a duration object, specifying ...
+@param \dots further arguments passed to or from methods.
+
 
 # Keywords used:
 -) full list: https://svn.r-project.org/R/trunk/doc/KEYWORDS

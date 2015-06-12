@@ -7,12 +7,12 @@
 \method{Math}{uts}(x, ...)
 }
 \arguments{
-\item{x}{an object of class \code{"uts"}.}
+\item{x}{a \code{"uts"} object.}
 
 \item{\dots}{further arguments passed to or from methods.}
 }
 \description{
-These methods apply the \code{\link{Math}} methods in base \R{} to the observation values of \code{\link{uts}} objects.
+These methods apply the \code{\link{Math}} methods in base \R{} to the observation values of \code{"uts"} objects.
 }
 \examples{
 # Take the base-2 logarithm of the observation values and return the corresponding "uts"

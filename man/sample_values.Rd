@@ -33,7 +33,7 @@ Sample values from a time series at given sampling times.
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{uts}: sample from a \code{"uts"}
+\item \code{uts}: sample from a \code{"uts"} object
 }}
 \examples{
 # Create a numeric "uts"

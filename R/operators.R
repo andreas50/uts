@@ -1,8 +1,8 @@
 #' Summary Group Methods for uts
 #' 
-#' These methods apply the \code{\link{Summary}} methods in base \R{} to the observation values of \code{\link{uts}} objects.
+#' These methods apply the \code{\link{Summary}} methods in base \R{} to the observation values of \code{"uts"} objects.
 #' 
-#' @param x an object of class \code{"uts"}.
+#' @param x a \code{"uts"} object.
 #' @param \dots further arguments passed to or from methods.
 #' 
 #' @seealso \code{\link{groupGeneric}}
@@ -21,9 +21,9 @@ Summary.uts <- function(x, ...)
 
 #' Math Group Methods for uts
 #' 
-#' These methods apply the \code{\link{Math}} methods in base \R{} to the observation values of \code{\link{uts}} objects.
+#' These methods apply the \code{\link{Math}} methods in base \R{} to the observation values of \code{"uts"} objects.
 #' 
-#' @param x an object of class \code{"uts"}.
+#' @param x a \code{"uts"} object.
 #' @param \dots further arguments passed to or from methods.
 #' 
 #' @seealso \code{\link{groupGeneric}}
