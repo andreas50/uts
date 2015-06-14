@@ -6,7 +6,6 @@
 # Generic functions
 # -----------------
 
-
 # ----------------------
 # Method implementations
 # ----------------------
@@ -17,7 +16,7 @@
 #'
 #' @return An object of class \code{"uts"}.
 #' @param values a vector of observation values.
-#' @param times a vector of strictly increasing observation times. Must be a \code{\link{POSIXct}} object or be coercible using \code{\link{as.POSIXct}}.
+#' @param times a vector of strictly increasing observation times. Must be a \code{\link{POSIXct}} object or be coercible using \code{\link{as.POSIXct}}. Observation times cannot be \NA.
 #' 
 #' @keywords ts classes
 #' @examples
@@ -38,11 +37,14 @@ uts <- function(values=c(), times=as.POSIXct(character(0)))
     stop("The number of observation values and observation times does not match")
   if (!is.POSIXct("POSIXct"))
     times <- as.POSIXct(times)
+  if (anyNA(times))
+    stop("Observation times cannot be NA")
   if (any(diff(times) <= 0))
     stop("The observation times need to be a strictly increasing")
   
-  # Create "uts" object
+  # Creat "uts" object
   x <- list(values=values, times=times)
   class(x) <- c("uts", "list")
   x   
 }
+
