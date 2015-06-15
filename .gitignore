@@ -3,6 +3,9 @@
 .Rproj.user
 *.project
 .settings/
-src/*.so
+src/*.dll
 src/*.o
+src/*.so
 src/symbols.rds
+src-i386/
+src-x64/
