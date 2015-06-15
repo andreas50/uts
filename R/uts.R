@@ -82,6 +82,8 @@ na.omit.uts <- function(object, ...)
 #' @param k the number of lags (in units of observations).
 #' @param \dots further arguments passed to or from methods.
 #' 
+#' @note For an evenly-spaced time series (1) shifting observation \emph{times}, and (2) shifting observation \emph{values} essentinally gives the same result (apart from the \code{NA}s that are introduced in the latter case). For unevenly-spaced time series, however, these two operations are quite different. The former only affects the vector observation times (but not the vector of observation values), while the latter only affects the vector observation values (but not the vector of observation times).
+#' 
 #' @seealso \code{\link[stats:lag]{lag}}
 #' @examples
 #' # Shift observations values forward by one observation
