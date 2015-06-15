@@ -2,6 +2,7 @@ useDynLib(uts)
 
 ### Import packages
 import(lubridate)
+importFrom(stats, na.omit)
 #importFrom(zoo, as.zoo)
 
 
@@ -36,6 +37,7 @@ S3method(as.uts, ts)
 S3method(as.uts, zoo)
 #S3method(as.zoo, uts)
 S3method(Math, uts)
+S3method(na.omit, uts)
 S3method(plot, uts)
 S3method(sample_values, uts)
 S3method(Summary, uts)

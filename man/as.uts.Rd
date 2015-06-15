@@ -15,7 +15,7 @@ as.uts(x, ...)
 \arguments{
 \item{x}{a time series object of appropriate type.}
 
-\item{\dots}{arguments passed to or from methods.}
+\item{\dots}{further arguments passed to or from methods.}
 }
 \value{
 An object of class \code{"uts"}.

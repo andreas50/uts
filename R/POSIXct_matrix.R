@@ -11,7 +11,7 @@
 #' Create a matrix of \code{POSIXct} objects.
 #'
 #' @param x an \R{} object of appropriate type.
-#' @param \dots arguments passed to or from methods.
+#' @param \dots further arguments passed to or from methods.
 #' 
 #' @keywords chron classes
 #' @seealso \code{\link{POSIXct_vector}}
@@ -25,7 +25,7 @@ POSIXct_matrix <- function(x, ...) UseMethod("POSIXct_matrix")
 #' See documentation on method functions for further details.
 #'
 #' @param x an \R{} object of appropriate type.
-#' @param \dots arguments passed to or from methods.
+#' @param \dots further arguments passed to or from methods.
 #' @seealso \code{\link{POSIXct_matrix}}
 as.POSIXct_matrix <- function(x, ...) UseMethod("as.POSIXct_matrix")
 

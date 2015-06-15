@@ -12,7 +12,7 @@
 #'
 #' @return an object of class \code{"POSIXct_vector"}
 #' @param x an \R{} object of appropriate type.
-#' @param \dots arguments passed to or from methods.
+#' @param \dots further arguments passed to or from methods.
 #' 
 #' @keywords chron classes
 #' @seealso \code{\link{POSIXct_matrix}}

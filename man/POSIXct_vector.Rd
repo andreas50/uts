@@ -12,7 +12,7 @@ POSIXct_vector(x, ...)
 \arguments{
 \item{x}{an \R{} object of appropriate type.}
 
-\item{\dots}{arguments passed to or from methods.}
+\item{\dots}{further arguments passed to or from methods.}
 }
 \value{
 an object of class \code{"POSIXct_vector"}

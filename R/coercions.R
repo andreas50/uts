@@ -12,7 +12,7 @@
 #'
 #' @return An object of class \code{"uts"}.
 #' @param x a time series object of appropriate type.
-#' @param \dots arguments passed to or from methods.
+#' @param \dots further arguments passed to or from methods.
 as.uts <- function(x, ...) UseMethod("as.uts")
 
 

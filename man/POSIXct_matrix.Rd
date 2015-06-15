@@ -21,7 +21,7 @@ POSIXct_matrix(x, ...)
 
 \item{dimnames}{coming soon}
 
-\item{\dots}{arguments passed to or from methods.}
+\item{\dots}{further arguments passed to or from methods.}
 }
 \description{
 Create a matrix of \code{POSIXct} objects.

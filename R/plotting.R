@@ -12,6 +12,12 @@
 #' @examples
 #' plot(ex_uts())
 #' 
+#' # Plot time series with NAs
+#' tmp <- ex_uts()
+#' tmp$values[2] <- NA
+#' plot(tmp, type="o")         # isolated points are plotted as circles
+#' #plot(na.omit, type="b")
+#' 
 #' # Use custom date formatting for x axis
 #' # -) the "format" argument is passed down to axis.POSIXct()
 #' # -) this example produces several harmless warning messages, because other

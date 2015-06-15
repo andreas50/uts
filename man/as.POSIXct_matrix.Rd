@@ -9,7 +9,7 @@ as.POSIXct_matrix(x, ...)
 \arguments{
 \item{x}{an \R{} object of appropriate type.}
 
-\item{\dots}{arguments passed to or from methods.}
+\item{\dots}{further arguments passed to or from methods.}
 }
 \description{
 Generic function to coerce an object to a POSIXct_matrix.

@@ -13,4 +13,4 @@ If you are contributing to this project, please follow the conventions listed be
 
 # Rd documentation
 -) Use 'An object of class \code{"class"}' or 'A \code{"class"} object' to refer to objects of a certain class. For example: 'An object of class \code{"lm"}' or 'An \code{"lm"} object'
--) Describe the '...' (ellipsis) function argument as "\dots arguments passed to or from methods."
+-) Describe the '...' (ellipsis) function argument as "\dots further arguments passed to or from methods."

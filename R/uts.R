@@ -16,7 +16,7 @@
 #'
 #' @return An object of class \code{"uts"}.
 #' @param values a vector of observation values.
-#' @param times a vector of strictly increasing observation times. Must be a \code{\link{POSIXct}} object or be coercible using \code{\link{as.POSIXct}}. Observation times cannot be \NA.
+#' @param times a vector of strictly increasing observation times. Must be a \code{\link{POSIXct}} object or be coercible using \code{\link{as.POSIXct}}. Observation times cannot be \code{NA}.
 #' 
 #' @keywords ts classes
 #' @examples
@@ -46,5 +46,77 @@ uts <- function(values=c(), times=as.POSIXct(character(0)))
   x <- list(values=values, times=times)
   class(x) <- c("uts", "list")
   x   
+}
+
+
+#' Remove NAs
+#' 
+#' Returns the object with incomplete cases removed.
+#' 
+#' @param object a time series object.
+#' @param \dots further arguments passed to or from methods.
+#' 
+#' @seealso \code{\link[stats:na.fail]{na.fail}}, \code{\link[stats:na.fail]{na.omit}}
+#' @examples
+#' # Remove NAs from a "uts"
+#' tmp <- ex_uts()
+#' tmp$values[c(2, 4)] <- NA
+#' na.omit(tmp)
+na.omit.uts <- function(object, ...)
+{
+  keep <- !is.na(object$values)
+  object$values <- object$values[keep]
+  object$times <- object$times[keep]
+  object
+}
+
+
+#' Lag a Time Series
+#' 
+#' Compute a lagged version of a time series by shifting individual observations values, while keeping the observation times unchanged.
+#' 
+#' The n-th observation of each original time series becomes the (n+k)-th observation of the lagged time series for 1 <= (n+k) <= length(x). Observations without corresponding un-lagged value (for example, the second observation for lag k=3) are set to \code{NA}.
+#' 
+#' @return A time series object with the same class, length, and observation times as \code{x}.
+#' @param x a time series object.
+#' @param k the number of lags (in units of observations).
+#' @param \dots further arguments passed to or from methods.
+#' 
+#' @seealso \code{\link[stats:lag]{lag}}
+#' @examples
+#' # Shift observations values forward by one observation
+#' lag(ex_uts(), k=1)
+#' 
+#' # Shift observations values forward by two observations
+#' lag(ex_uts(), k=-2)
+#' 
+#' # If the lag >= the length of the time series, all observation values are N
+#' lag(ex_uts(), k=6)
+lag.uts <- function(x, k=1, ...)
+{
+  # Nothing to do
+  if (k == 0)
+    return(x)
+  
+  # Special case of |k| >= length(x)
+  k <- as.integer(k)
+  len <- length(x$values)
+  if (abs(k) >= len) { 
+    x$values <- rep(NA, len)
+    return(x)
+  }
+  
+  # Shift observation values
+  values <- x$values
+  if (k < 0)
+    values <- rev(values)
+  values_new <- lag(values, k)
+  values_new[1:abs(k)] <- NA
+  if (k < 0)
+    values_new <- rev(values_new)
+  
+  # Return lagged time series
+  x$values <- values_new
+  x
 }
 
