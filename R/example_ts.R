@@ -20,7 +20,7 @@ ex_uts <- function()
 
 #' @rdname ex_uts
 #' 
-#' @return \code{ex_uts2()} returns a non-numeric \code{"uts"}  with three observations.
+#' @return \code{ex_uts2()} returns a non-numeric \code{"uts"} with three observations.
 #' 
 #' @examples
 #' ex_uts2()
