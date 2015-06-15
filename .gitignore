@@ -1,7 +1,8 @@
+.RData
+.Rhistory
+.Rproj.user
 *.project
 .settings/
-.Rproj.user
-.Rhistory
 src/*.so
 src/*.o
 src/symbols.rds
