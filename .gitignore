@@ -1,6 +1,7 @@
-*.so
-*.o
 *.project
 .settings/
-symbols.rds
 .Rproj.user
+.Rhistory
+src/*.so
+src/*.o
+src/symbols.rds
