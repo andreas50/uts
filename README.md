@@ -8,7 +8,7 @@ I therefore decided to write my own implementation, based on my [research](http:
 
 * 100% of the application logic is in terms of temporal durations (as opposed to number of observations).
 * Individual time series can store arbitrary R objects (not just numbers).
-* Support for time series vectors, matrices, and data frames.
+* Support for time series vectors, matrices, and data frames:
   * These objects can be manipulated like normal R vectors, matrices, and data frames, but with one extra dimension representing time.
   * The individual time series are completely independent of each. In particular, the observation times do not need to be synchronized and the individual time series can have different lengths.
 * Add-on packages provide novel functionality based on my recent research:
