@@ -4,6 +4,17 @@ As of late 2011, to the best of my knowledge, there is no R time series package 
 
 I therefore decided to write my own implementation, based on my [research](http://www.eckner.com/research.html) on this topic.
 
+##### Advantages
+
+* 100% of the application logic is in terms of temporal durations (as opposed to number of observations).
+* Individual time series can store arbitrary R objects (not just numbers).
+* Support for time series vectors, matrices, and data frames.
+  * These objects can be manipulated like normal R vectors, matrices, and data frames, but with one extra dimension representing time.
+  * The individual time series are completely independent of each. In particular, the observation times do not need to be synchronized and the individual time series can have different lengths.
+* Add-on packages provide novel functionality based on my recent research:
+  * utsAlg: moving averages and other rolling time series operators
+  * utsTrendSeasonality: trend and seasonality estimation
+
 ##### Comparison with other packages for irregular time series
 
 * [fts](http://cran.r-project.org/web/packages/fts/index.html): A package with just a few basic functions.
@@ -15,6 +26,7 @@ I therefore decided to write my own implementation, based on my [research](http:
   * Provides a hybrid approach between evenly- and unevenly-spaced time series. For example, the application logic of rolling time series operators is in terms of the number of observations.
   * The support for multivariate time series is somewhat restrictive. Individual time series need to have identical observation times and, in particular, need to be of the same length.
 * [xts](http://cran.r-project.org/web/packages/xts/index.html):
+
 
 ##### Where to start
 
