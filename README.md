@@ -8,8 +8,8 @@ I therefore decided to write my own implementation, based on my [research](http:
 
 * [zoo](http://cran.r-project.org/web/packages/zoo/index.html): Provides a hybrid approach between evenly- and unevenly-spaced time series. For example, the application logic of rolling time series operators is in terms of the number of observations. A key design goal is independence of a particular index/time/date class, while "uts" relies on the [POSIXct](https://stat.ethz.ch/R-manual/R-devel/library/base/html/DateTimeClasses.html) class. 
 * [its](http://cran.r-project.org/web/packages/its/index.html): A package with just a few basic functions.
-* [tseries](http://cran.r-project.org/web/packages/tseries/index.html): This package contains the irts class
-* [fts](http://cran.r-project.org/web/packages/fts/index.html):
+* [tseries](http://cran.r-project.org/web/packages/tseries/index.html): This package contains the "irts" class.
+* [fts](http://cran.r-project.org/web/packages/fts/index.html): A package with just a few basic functions.
 * [xts](http://cran.r-project.org/web/packages/xts/index.html):
 
 ### Where to start
