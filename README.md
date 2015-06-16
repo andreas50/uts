@@ -10,7 +10,10 @@ I therefore decided to write my own implementation, based on my [research](http:
 * [its](http://cran.r-project.org/web/packages/its/index.html): A package with just a few basic functions.
 * [timeSeries](http://cran.r-project.org/web/packages/timeSeries/index.html): Focused on computational finance.
 * [tseries](http://cran.r-project.org/web/packages/tseries/index.html): This package contains the `irts` class.
-* [zoo](http://cran.r-project.org/web/packages/zoo/index.html): Provides a hybrid approach between evenly- and unevenly-spaced time series. For example, the application logic of rolling time series operators is in terms of the number of observations. According to the package vignette, independence of a particular index/time/date class is the most important design goal, while `uts` relies on the [POSIXct](https://stat.ethz.ch/R-manual/R-devel/library/base/html/DateTimeClasses.html) class available in base `R`.
+* [zoo](http://cran.r-project.org/web/packages/zoo/index.html):
+  * According to the package vignette, independence of a particular index/time/date class is the most important design goal, while `uts` relies on the [POSIXct](https://stat.ethz.ch/R-manual/R-devel/library/base/html/DateTimeClasses.html) class available in base `R`.
+  * Provides a hybrid approach between evenly- and unevenly-spaced time series. For example, the application logic of rolling time series operators is in terms of the number of observations.
+  * The support for multivariate time series is somewhat restrictive. Individual time series need to have identical observation times and, in particular, need to be of the same length.
 * [xts](http://cran.r-project.org/web/packages/xts/index.html):
 
 ##### Where to start
