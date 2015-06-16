@@ -4,7 +4,7 @@ As of late 2011, to the best of my knowledge, there is no R time series package 
 
 I therefore decided to write my own implementation, based on my [research](http://www.eckner.com/research.html) on this topic.
 
-### Comparison with other packages for irregular time series
+##### Comparison with other packages for irregular time series
 
 * [fts](http://cran.r-project.org/web/packages/fts/index.html): A package with just a few basic functions.
 * [its](http://cran.r-project.org/web/packages/its/index.html): A package with just a few basic functions.
@@ -13,7 +13,7 @@ I therefore decided to write my own implementation, based on my [research](http:
 * [zoo](http://cran.r-project.org/web/packages/zoo/index.html): Provides a hybrid approach between evenly- and unevenly-spaced time series. For example, the application logic of rolling time series operators is in terms of the number of observations. According to the package vignette, independence of a particular index/time/date class is the most important design goal, while `uts` relies on the [POSIXct](https://stat.ethz.ch/R-manual/R-devel/library/base/html/DateTimeClasses.html) class available in base `R`.
 * [xts](http://cran.r-project.org/web/packages/xts/index.html):
 
-### Where to start
+##### Where to start
 
 * A sample analysis (coming later)
 * The package vignette (coming later)
