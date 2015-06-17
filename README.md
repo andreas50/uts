@@ -23,8 +23,8 @@ I therefore decided to write my own implementation, based on my [research](http:
 * [tseries](http://cran.r-project.org/web/packages/tseries/index.html): This package contains the `irts` class.
 * [zoo](http://cran.r-project.org/web/packages/zoo/index.html):
   * According to the package vignette, independence of a particular index/time/date class is the most important design goal, while `uts` relies on the [POSIXct](https://stat.ethz.ch/R-manual/R-devel/library/base/html/DateTimeClasses.html) class available in base `R`.
-  * Provides a hybrid approach between evenly- and unevenly-spaced time series. For example, the application logic of rolling time series operators is in terms of the number of observations.
-  * The support for multivariate time series is somewhat restrictive. Individual time series need to have identical observation times and, in particular, need to be of the same length.
+  * Provides a hybrid approach between evenly- and unevenly-spaced time series. For example, the application logic of rolling time series operators is in terms of the number of observations. Similarly, indexing into a time series is in terms of number of observations (e.g. get observations 3 thorugh 7), as opposed to observation times (get observations that fall inbetween two time points).
+  * The support for multivariate time series is somewhat restrictive. Individual time series need to have identical observation times and, in particular, need to be of the same length. Moreover, indicidual time series can only store objects of the same type, because the data is stored in a matrix, although there a plans to eventually supported mixed types via data frames.
 * [xts](http://cran.r-project.org/web/packages/xts/index.html):
 
 
