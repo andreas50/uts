@@ -2,7 +2,8 @@ useDynLib(uts)
 
 ### Import packages
 import(lubridate)
-importFrom(stats, na.omit)
+#importFrom(base, print, summary)
+importFrom(stats, lag, na.omit)
 #importFrom(zoo, as.zoo)
 
 
@@ -35,11 +36,13 @@ S3method(as.POSIXct_matrix, POSIXct_vector)
 S3method("[", uts)
 S3method(as.uts, ts)
 S3method(as.uts, zoo)
-#S3method(as.zoo, uts)
+S3method(lag, uts)
 S3method(Math, uts)
 S3method(na.omit, uts)
 S3method(plot, uts)
+S3method(print, uts)
 S3method(sample_values, uts)
+S3method(summary, uts)
 S3method(Summary, uts)
 
 

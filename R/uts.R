@@ -49,6 +49,55 @@ uts <- function(values=c(), times=as.POSIXct(character(0)))
 }
 
 
+#' Object Summary
+#'  
+#' @param object a time series object.
+#' @param \dots further arguments passed to or from methods.
+#' 
+#' @seealso \code{\link[base:summary]{summary}}
+#' @examples
+#' summary(ex_uts())
+summary.uts <- function(object, ...)
+{
+  summary(object$values)
+}
+
+
+#' Print Values
+#' 
+#' @param x a time series object.
+#' @param style the printing style. Either \code{"horizontal"} (the default), "vertical" or "plain" (which first prints the data and then the index).
+#' @param \dots further arguments passed to or from methods.
+#' 
+#' @seealso \code{\link[base:print]{print}}
+#' @examples
+#' print(ex_uts())
+#' print(ex_uts(), style="vertical")
+#' print(ex_uts(), style="plain")
+#' uts()
+print.uts <- function (x, style="horizontal", ...) 
+{
+  # Trivial case of no observations
+  if (length(x$values) == 0) {
+    cat("No observations available.\n")
+    return(invisible(x))
+  }
+    
+  style <- match.arg(style, c("horizontal", "vertical", "plain"))
+  if (style == "vertical") {
+    out <- as.matrix(x$values)
+    rownames(out) <- as.character(x$times)
+    colnames(out) <- "values"
+    print(out, ...)
+  } else if (style == "horizontal") {
+    out <- x$values
+    names(out) <- x$times
+    print(out, ...)
+  } else
+    print.default(x, ...)
+}
+
+
 #' Remove NAs
 #' 
 #' Returns the object with incomplete cases removed.
@@ -94,6 +143,7 @@ na.omit.uts <- function(object, ...)
 #' 
 #' # If the lag >= the length of the time series, all observation values are N
 #' lag(ex_uts(), k=6)
+#' lag(ex_uts(), k=-6)
 lag.uts <- function(x, k=1, ...)
 {
   # Nothing to do
@@ -109,16 +159,10 @@ lag.uts <- function(x, k=1, ...)
   }
   
   # Shift observation values
-  values <- x$values
-  if (k < 0)
-    values <- rev(values)
-  values_new <- lag(values, k)
-  values_new[1:abs(k)] <- NA
-  if (k < 0)
-    values_new <- rev(values_new)
-  
-  # Return lagged time series
-  x$values <- values_new
+  if (k > 0)
+    x$values <- c(rep(NA, k), x$values[1:(len-k)])
+  else
+    x$values <- c(x$values[(1-k):len], rep(NA, abs(k)))
   x
 }
 

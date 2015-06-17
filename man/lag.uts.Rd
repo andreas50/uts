@@ -34,6 +34,7 @@ lag(ex_uts(), k=-2)
 
 # If the lag >= the length of the time series, all observation values are N
 lag(ex_uts(), k=6)
+lag(ex_uts(), k=-6)
 }
 \seealso{
 \code{\link[stats:lag]{lag}}
