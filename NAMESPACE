@@ -2,9 +2,7 @@ useDynLib(uts)
 
 ### Import packages
 import(lubridate)
-#importFrom(base, print, summary)
 importFrom(stats, lag, na.omit)
-#importFrom(zoo, as.zoo)
 
 
 ### Export class constructors
@@ -14,7 +12,6 @@ export(uts)
 
 
 ### Export generic methods
-#export(quarterend)
 export(next_business_day, previous_business_day)
 export(as.POSIXct_matrix)
 #
@@ -23,7 +20,6 @@ export(sample_values)
 
 
 ### Register S3 methods (needed if a package is imported but not attached to the search path)
-#S3method(quarterend, POSIXt)
 S3method(next_business_day, POSIXt)
 S3method(previous_business_day, POSIXt)
 #
