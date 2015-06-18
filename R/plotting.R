@@ -26,7 +26,7 @@
 plot.uts <- function(x, type="l", col="blue", xlab="", ylab="", ...)
 {
   # Argument checking
-  if (length(x$values) == 0)
+  if (length(x) == 0)
     stop("Cannot plot time series of zero length")
   if (!is.numeric(x$values))
     stop("Can only plot numeric time series")

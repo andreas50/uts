@@ -49,12 +49,32 @@ uts <- function(values=c(), times=as.POSIXct(character(0)))
 }
 
 
+#' Length of an Object
+#' 
+#' For a univariate time series, get the number of observations. For a multi-variate time series, get the total number of time series.
+#' 
+#' @param x a time series object.
+#' 
+#' @seealso \code{\link{length}}
+#' @examples 
+#' length(ex_uts())
+length.uts <- function(x)
+{
+  length(x$times)
+}
+
+
 #' Object Summary
+#' 
+#' Call \code{\link{summary}} on the values of a time series.
+#' 
+#' @note
+#' This method only exists because \code{\link{summary.default}} produces an error message when called with a \code{"uts"} object.
 #'  
 #' @param object a time series object.
 #' @param \dots further arguments passed to or from methods.
 #' 
-#' @seealso \code{\link[base:summary]{summary}}
+#' @keywords internal
 #' @examples
 #' summary(ex_uts())
 summary.uts <- function(object, ...)
@@ -78,8 +98,8 @@ summary.uts <- function(object, ...)
 print.uts <- function (x, style="horizontal", ...) 
 {
   # Trivial case of no observations
-  if (length(x$values) == 0) {
-    cat("No observations available.\n")
+  if (length(x) == 0) {
+    cat("No observations available at this time.\n")
     return(invisible(x))
   }
     
@@ -152,7 +172,7 @@ lag.uts <- function(x, k=1, ...)
   
   # Special case of |k| >= length(x)
   k <- as.integer(k)
-  len <- length(x$values)
+  len <- length(x)
   if (abs(k) >= len) { 
     x$values <- rep(NA, len)
     return(x)

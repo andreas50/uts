@@ -68,7 +68,7 @@ sample_values.uts <- function(x, time_points, method="last", max_dt=ddays(Inf),
   
   # For each sampling time, determine the next observation time, and enforce the 'max_dt' threshold
   perfect_match <- time_points %in% x$times
-  sampling_idx_next <- pmin(length(x$times), sampling_idx_last + !perfect_match)
+  sampling_idx_next <- pmin(length(x), sampling_idx_last + !perfect_match)
   sampled_times_next <- x$times[sampling_idx_next]
   dt_next_observation <- as.duration(sampled_times_next - time_points)
   if (max_dt < ddays(Inf))

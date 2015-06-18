@@ -12,12 +12,13 @@
 \item{\dots}{further arguments passed to or from methods.}
 }
 \description{
-Object Summary
+Call \code{\link{summary}} on the values of a time series.
+}
+\note{
+This method only exists because \code{\link{summary.default}} produces an error message when called with a \code{"uts"} object.
 }
 \examples{
 summary(ex_uts())
 }
-\seealso{
-\code{\link[base:summary]{summary}}
-}
+\keyword{internal}
 
