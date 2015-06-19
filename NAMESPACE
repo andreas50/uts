@@ -36,6 +36,7 @@ S3method(lag, uts)
 S3method(length, uts)
 S3method(Math, uts)
 S3method(na.omit, uts)
+#S3method(Ops, uts)
 S3method(plot, uts)
 S3method(print, uts)
 S3method(sample_values, uts)
@@ -46,10 +47,12 @@ S3method(Summary, uts)
 
 ### Miscellaneous functions
 export(num_leq_sorted_arrays)
+export(sorted_union)
 export(is.POSIXct_vector)
 export(is.POSIXct_matrix)
 #
 export(ex_uts)
 export(ex_uts2)
+export(is.uts)
 #
 export(as.zoo.uts)    # could not figure out how to register S3 method without importing "zoo" package

@@ -10,13 +10,9 @@
 //#include <stdio.h>
 
 
-// Declare function prototypes to be exported to shared library
-//void sorted_array_position(double a[], int *na, double b[], int *nb, int pos[]);
-
-
-// Declare internal helper function prototypes
-//void quickselect(double values[], int *n, int *k, double *out);
-//void rollingQuantile_I_helper(double values[], double times[], int *n, int *m, double values_new[], double *tau);
+#ifndef min
+#define min(a,b) (((a) < (b)) ? (a) : (b))
+#endif
 
 
 /*
@@ -35,4 +31,49 @@ void num_leq_sorted_arrays(const double a[], const int *na, const double b[], co
 	  j++;
     pos[i] = j;
   }
+}
+
+
+/* 
+ * For two sorted arrays, return an array containing the sorted union of (unique) elements
+ * as well as the length of the output array.
+ * 
+ * Values less than 'tolerance' apart are considered identical and ommitted.
+ */
+void sorted_union(const double a[], const int *na, const double b[], const int *nb, const double *tolerance,
+                  double res[], int *length)
+{
+  unsigned i=0, j=0, k=0;
+  double previous_value, next_value;
+  
+  // Initialize previously inserted value to a value smaller than all elements in 'a' and 'b'
+  if (*na == 0)
+    previous_value = b[0] - 1;
+  else if (*nb == 0)
+    previous_value = a[0] - 1;
+  else
+    previous_value = min(a[0], b[0]) - 1;
+  
+  // Fill the output array with elements from 'a' and 'b'
+  while ((i < *na) | (j < *nb)) 
+  {
+    // Determine the next candidate value to be saved
+    if ((i < *na) && ((j == *nb) | (a[i] < b[j]))) {
+      next_value = a[i];   
+      i++; 
+    } else {
+      next_value = b[j];
+      j++;
+    }
+    
+    // Only save values larger than the previous inserted value + eps
+    if (next_value > previous_value + *tolerance) {
+      res[k] = next_value;
+      previous_value = next_value;
+      k++;
+    }
+  }  
+ 
+  // Save the length of the merged array
+  *length = k;
 }

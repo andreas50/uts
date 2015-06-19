@@ -50,3 +50,41 @@ num_leq_sorted_arrays <- function(a, b, tolerance=0)
     as.double(b), as.integer(length(b)), pos = res)$pos
 }
 
+
+
+#' Sorted Union
+#' 
+#' For two sorted one-dimensional arrays \code{a} and \code{b}, determine the sorted union of elements.
+#' 
+#' @return A vector of same length as \code{a}.
+#' @param a a sorted vector of numbers.
+#' @param b a sorted vector of numbers.
+#' @param tolerance tolerance for numerical noise.
+#' 
+#' @examples
+#' sorted_union(1:3, 2:4)
+#' 
+#' # Numerical noise < tolerance has no effect
+#' sorted_union(0, 1e-14)
+#' sorted_union(0, 1e-14, tolerance=1e-12)
+#' sorted_union(c(0, 1e-14), 2, tolerance=1e-12)
+#' 
+#' # Trivial cases
+#' sorted_union(1:10, c())
+#' sorted_union(c(), 1:10)
+sorted_union <- function(a, b, tolerance=0)
+{
+  # Preprocessing and trivial cases
+  na <- as.integer(length(a))
+  nb <- as.integer(length(b))
+  if (na == 0)
+    return(b)
+  if (nb == 0)
+    return(a)
+  
+  # Call C-function
+  res <- .C("sorted_union", as.double(a), na, as.double(b), nb, tolerance=as.double(tolerance),
+            res=numeric(na + nb), length=integer(1))
+  res$res[1:res$length]
+}
+
