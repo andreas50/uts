@@ -49,6 +49,25 @@ uts <- function(values=c(), times=as.POSIXct(character(0)))
 }
 
 
+#' Is Object a uts?
+#' 
+#' Return \code{TRUE} if and only if the argument is a \code{"uts"} object.
+#'  
+#' @param x an \R object.
+#' 
+#' @keywords internal
+#' @examples
+#' is.uts(ex_uts())
+#' is.uts(5)
+is.uts <- function(x)
+{
+  inherits(x, "uts")
+}
+if (0) {
+  is.uts(VIX)
+} 
+
+
 #' Number of Observations
 #' 
 #' Return the number of time series observations.
