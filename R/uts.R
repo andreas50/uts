@@ -49,13 +49,16 @@ uts <- function(values=c(), times=as.POSIXct(character(0)))
 }
 
 
-#' Length of an Object
+#' Number of Observations
 #' 
-#' For a univariate time series, get the number of observations. For a multi-variate time series, get the total number of time series.
+#' Return the number of time series observations.
 #' 
-#' @param x a time series object.
+#' @note
+#' This methods only exists because the default implementation of \code{\link{length}} from base \R returns the number of fields in the internal representation of a \code{"uts"} object, instead of the number of observations.
 #' 
-#' @seealso \code{\link{length}}
+#' @param x a \code{"uts"} object.
+#' 
+#' @keywords internal
 #' @examples 
 #' length(ex_uts())
 length.uts <- function(x)
@@ -64,14 +67,14 @@ length.uts <- function(x)
 }
 
 
-#' Object Summary
+#' Summary of Time Series Values
 #' 
-#' Call \code{\link{summary}} on the values of a time series.
+#' This method calls \code{\link{summary}} from base \R with observation values of a time series.
 #' 
 #' @note
-#' This method only exists because \code{\link{summary.default}} produces an error message when called with a \code{"uts"} object.
+#' This method only exists because \code{\link{summary.default}} produces an error message.
 #'  
-#' @param object a time series object.
+#' @param x a \code{"uts"} object.
 #' @param \dots further arguments passed to or from methods.
 #' 
 #' @keywords internal
@@ -80,6 +83,26 @@ length.uts <- function(x)
 summary.uts <- function(object, ...)
 {
   summary(object$values)
+}
+
+
+#' Internal Structure of uts
+#' 
+#' Compactly display the internal structure of a \code{"uts"} object.
+#' 
+#' @note
+#' This methods only exists because the default implementation of \code{\link{str}} from base \R produces an error message.
+#'  
+#' @param object a \code{"uts"} object.
+#' @param \dots further arguments passed to or from methods.
+#' 
+#' @keywords internal
+#' @examples
+#' str(ex_uts())
+#' str(ex_uts2())
+str.uts <- function(object, ...)
+{
+  str(unclass(object), ...)
 }
 
 

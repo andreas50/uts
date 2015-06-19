@@ -2,20 +2,20 @@
 % Please edit documentation in R/uts.R
 \name{summary.uts}
 \alias{summary.uts}
-\title{Object Summary}
+\title{Summary of Time Series Values}
 \usage{
 \method{summary}{uts}(object, ...)
 }
 \arguments{
-\item{object}{a time series object.}
+\item{x}{a \code{"uts"} object.}
 
 \item{\dots}{further arguments passed to or from methods.}
 }
 \description{
-Call \code{\link{summary}} on the values of a time series.
+This method calls \code{\link{summary}} from base \R with observation values of a time series.
 }
 \note{
-This method only exists because \code{\link{summary.default}} produces an error message when called with a \code{"uts"} object.
+This method only exists because \code{\link{summary.default}} produces an error message.
 }
 \examples{
 summary(ex_uts())

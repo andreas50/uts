@@ -2,20 +2,21 @@
 % Please edit documentation in R/uts.R
 \name{length.uts}
 \alias{length.uts}
-\title{Length of an Object}
+\title{Number of Observations}
 \usage{
 \method{length}{uts}(x)
 }
 \arguments{
-\item{x}{a time series object.}
+\item{x}{a \code{"uts"} object.}
 }
 \description{
-For a univariate time series, get the number of observations. For a multi-variate time series, get the total number of time series.
+Return the number of time series observations.
+}
+\note{
+This methods only exists because the default implementation of \code{\link{length}} from base \R returns the number of fields in the internal representation of a \code{"uts"} object, instead of the number of observations.
 }
 \examples{
 length(ex_uts())
 }
-\seealso{
-\code{\link{length}}
-}
+\keyword{internal}
 

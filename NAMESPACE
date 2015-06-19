@@ -39,6 +39,7 @@ S3method(na.omit, uts)
 S3method(plot, uts)
 S3method(print, uts)
 S3method(sample_values, uts)
+S3method(str, uts)
 S3method(summary, uts)
 S3method(Summary, uts)
 
