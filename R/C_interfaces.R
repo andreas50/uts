@@ -14,6 +14,7 @@
 #' @param b a sorted vector of numbers.
 #' @param tolerance tolerance for numerical noise.
 #' 
+#' @keywords internal
 #' @examples
 #' # The second vector has
 #' # -) 0 elements leq (less-than-or-equal) -3
@@ -61,6 +62,7 @@ num_leq_sorted_arrays <- function(a, b, tolerance=0)
 #' @param b a sorted vector of numbers.
 #' @param tolerance tolerance for numerical noise.
 #' 
+#' @keywords internal
 #' @examples
 #' sorted_union(1:3, 2:4)
 #' 

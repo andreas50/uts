@@ -31,4 +31,5 @@ sorted_union(c(0, 1e-14), 2, tolerance=1e-12)
 sorted_union(1:10, c())
 sorted_union(c(), 1:10)
 }
+\keyword{internal}
 

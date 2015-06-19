@@ -41,4 +41,5 @@ num_leq_sorted_arrays(1:5, 1:5)
 num_leq_sorted_arrays(c(), 1:5)
 num_leq_sorted_arrays(1:5, c())
 }
+\keyword{internal}
 
