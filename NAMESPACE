@@ -17,6 +17,7 @@ export(as.POSIXct_matrix)
 #
 export(as.uts)
 export(sample_values)
+export(which)
 
 
 ### Register S3 methods (needed if a package is imported but not attached to the search path)
@@ -43,6 +44,8 @@ S3method(sample_values, uts)
 S3method(str, uts)
 S3method(summary, uts)
 S3method(Summary, uts)
+S3method(which, default)
+S3method(which, uts)
 
 
 ### Miscellaneous functions

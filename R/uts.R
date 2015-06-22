@@ -228,3 +228,42 @@ lag.uts <- function(x, k=1, ...)
   x
 }
 
+
+#' Generic which function
+#'
+#' The function is needed, because \code{\link[base:which]{which}} of base \R is not generic.
+#' 
+#' @note
+#' As recommended in Section 7.1 ("Adding new generics") of "Writing R Extensions", the implementation of \code{\link{which.default}} has been made a wrapper around \code{\link[base:which]{base::which}}.
+#' 
+#' @param x an \R object.
+#' @param \dots further arguments passed to or from methods.
+which <- function(x, ...) UseMethod("which")
+
+
+#' @describeIn which simply calls the default implementation of base \R
+which.default <- function(x, ...) base::which(x, ...)
+
+
+#' Which observation values are TRUE?
+#' 
+#' For a logical \code{"uts"} (i.e. a \code{"uts"} with logical observation values), get the observation times with \code{TRUE} observation value.
+#' 
+#' @param x a \code{"uts"} object.
+#' @param \dots further arguments passed to or from methods.
+#' 
+#' @seealso \code{\link{which}}
+#' @examples
+#' which(ex_uts() > 48)
+which.uts <- function(x, ...)
+{
+  # Argument checking
+  if (!is.logical(x$values))
+    stop("The observation values or not logical")
+
+  if (length(x) > 0)
+    x$times[which(x$values)]
+  else
+    as.POSIXct(character(0))
+}
+
