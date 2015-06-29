@@ -245,13 +245,12 @@ which.uts <- function(x, ...)
 
 #' Merge two or more uts
 #' 
-#' Merge two or more \code{"uts"} into a single time series. For observation times that show up in more than one time series, the observation value of the first \code{"uts"} in the argument with such observation time is used.
+#' Merge two or more \code{"uts"} into a single time series. For observation times that show up in more than one time series, the observation value of the first \code{"uts"} in the argument list with such observation time is used.
 #' 
 #' @param x,y \code{"uts"} objects.
 #' @param tolerance tolerance for numerical noise in observation times.
 #' @param \dots further arguments passed to or from methods.
 #' 
-#' @seealso \code{\link{which}}
 #' @examples
 #' merge(ex_uts(), ex_uts())
 #' merge(ex_uts(), ex_uts2())

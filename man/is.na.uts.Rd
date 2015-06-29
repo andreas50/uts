@@ -9,11 +9,11 @@
 \arguments{
 \item{x}{a \code{"uts"} object.}
 }
+\value{
+A logical \code{"uts"} (i.e. a \code{"uts"} with \code{\link{logical}} observation values), indicating which observation values are \code{NA}.
+}
 \description{
 Find missing values.
-}
-\details{
-\code{is.na} returns a logical \code{"uts"}, i.e. a \code{"uts"} with \code{\link{logical}} observation values, indication which observation values are \code{NA}.
 }
 \examples{
 # Set observation to NA
@@ -24,6 +24,6 @@ test$values[c(2, 4)] <- NA      # NEXT: use replacement using time points
 is.na(test)
 }
 \seealso{
-\code{\link{na.omit}}
+\code{\link[na.omit.uts]{na.omit}}
 }
 

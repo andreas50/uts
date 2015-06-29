@@ -9,7 +9,7 @@
 #' @param object a time series object.
 #' @param \dots further arguments passed to or from methods.
 #' 
-#' @seealso \code{\link[stats:na.fail]{na.fail}}, \code{\link[stats:na.fail]{na.omit}}
+#' @seealso \code{\link[is.na.uts]{is.na}}, \code{\link[stats:na.fail]{na.fail}}, \code{\link[stats:na.fail]{na.omit}}
 #' @examples
 #' # Remove NAs from a "uts"
 #' tmp <- ex_uts()
@@ -28,11 +28,10 @@ na.omit.uts <- function(object, ...)
 #' 
 #' Find missing values.
 #' 
-#' \code{is.na} returns a logical \code{"uts"}, i.e. a \code{"uts"} with \code{\link{logical}} observation values, indication which observation values are \code{NA}.
-#' 
+#' @return A logical \code{"uts"} (i.e. a \code{"uts"} with \code{\link{logical}} observation values), indicating which observation values are \code{NA}.
 #' @param x a \code{"uts"} object.
 #' 
-#' @seealso \code{\link{na.omit}}
+#' @seealso \code{\link[na.omit.uts]{na.omit}}
 #' @examples
 #' # Set observation to NA
 #' test <- ex_uts()

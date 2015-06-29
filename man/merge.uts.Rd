@@ -14,14 +14,11 @@
 \item{\dots}{further arguments passed to or from methods.}
 }
 \description{
-Merge two or more \code{"uts"} into a single time series. For observation times that show up in more than one time series, the observation value of the first \code{"uts"} in the argument with such observation time is used.
+Merge two or more \code{"uts"} into a single time series. For observation times that show up in more than one time series, the observation value of the first \code{"uts"} in the argument list with such observation time is used.
 }
 \examples{
 merge(ex_uts(), ex_uts())
 merge(ex_uts(), ex_uts2())
 merge(uts(), ex_uts())
-}
-\seealso{
-\code{\link{which}}
 }
 
