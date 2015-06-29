@@ -15,7 +15,7 @@ which(x, ...)
 \item{\dots}{further arguments passed to or from methods.}
 }
 \description{
-This function is needed, because \code{\link[base:which]{which}} of base \R is not generic.
+The function is needed, because \code{\link[base:which]{which}} of base \R is not generic.
 }
 \section{Methods (by class)}{
 \itemize{

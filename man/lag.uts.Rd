@@ -7,14 +7,14 @@
 \method{lag}{uts}(x, k = 1, ...)
 }
 \arguments{
-\item{x}{a time series object.}
+\item{x}{a \code{"uts"} object.}
 
 \item{k}{the number of lags (in units of observations).}
 
 \item{\dots}{further arguments passed to or from methods.}
 }
 \value{
-A time series object with the same class, length, and observation times as \code{x}.
+A \code{"uts"} object with the observation times (and in particular, of the same length) as \code{x}.
 }
 \description{
 Compute a lagged version of a time series by shifting individual observations values, while keeping the observation times unchanged.

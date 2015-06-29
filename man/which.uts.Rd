@@ -7,7 +7,7 @@
 \method{which}{uts}(x, ...)
 }
 \arguments{
-\item{x}{a \code{"uts"} object.}
+\item{x}{a \code{"uts"} object with \code{\link{logical}} observation values.}
 
 \item{\dots}{further arguments passed to or from methods.}
 }
