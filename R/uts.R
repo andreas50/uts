@@ -63,9 +63,6 @@ is.uts <- function(x)
 {
   inherits(x, "uts")
 }
-if (0) {
-  is.uts(VIX)
-} 
 
 
 #' Number of Observations
@@ -160,36 +157,14 @@ print.uts <- function (x, style="horizontal", ...)
 }
 
 
-#' Remove NAs
-#' 
-#' Returns the object with incomplete cases removed.
-#' 
-#' @param object a time series object.
-#' @param \dots further arguments passed to or from methods.
-#' 
-#' @seealso \code{\link[stats:na.fail]{na.fail}}, \code{\link[stats:na.fail]{na.omit}}
-#' @examples
-#' # Remove NAs from a "uts"
-#' tmp <- ex_uts()
-#' tmp$values[c(2, 4)] <- NA
-#' na.omit(tmp)
-na.omit.uts <- function(object, ...)
-{
-  keep <- !is.na(object$values)
-  object$values <- object$values[keep]
-  object$times <- object$times[keep]
-  object
-}
-
-
 #' Lag a Time Series
 #' 
 #' Compute a lagged version of a time series by shifting individual observations values, while keeping the observation times unchanged.
 #' 
 #' The n-th observation of each original time series becomes the (n+k)-th observation of the lagged time series for 1 <= (n+k) <= length(x). Observations without corresponding un-lagged value (for example, the second observation for lag k=3) are set to \code{NA}.
 #' 
-#' @return A time series object with the same class, length, and observation times as \code{x}.
-#' @param x a time series object.
+#' @return A \code{"uts"} object with the observation times (and in particular, of the same length) as \code{x}.
+#' @param x a \code{"uts"} object.
 #' @param k the number of lags (in units of observations).
 #' @param \dots further arguments passed to or from methods.
 #' 
@@ -249,7 +224,7 @@ which.default <- function(x, ...) base::which(x, ...)
 #' 
 #' For a logical \code{"uts"} (i.e. a \code{"uts"} with logical observation values), get the observation times with \code{TRUE} observation value.
 #' 
-#' @param x a \code{"uts"} object.
+#' @param x a \code{"uts"} object with \code{\link{logical}} observation values.
 #' @param \dots further arguments passed to or from methods.
 #' 
 #' @seealso \code{\link{which}}
@@ -265,5 +240,40 @@ which.uts <- function(x, ...)
     x$times[which(x$values)]
   else
     as.POSIXct(character(0))
+}
+
+
+#' Merge two or more uts
+#' 
+#' Use data of first-supplied times series, if there are multiple observations at a point in time
+#' 
+#' @param x,y \code{"uts"} objects.
+#' @param tolerance tolerance for numerical noise in observation times.
+#' @param \dots further arguments passed to or from methods.
+#' 
+#' @seealso \code{\link{which}}
+#' @examples
+#' merge(ex_uts(), ex_uts())
+#' merge(ex_uts(), ex_uts2())
+#' merge(uts(), ex_uts())
+merge.uts <- function(x, y, tolerance=.Machine$double.eps ^ 0.5, ...)
+{
+  # Determine the union of observation times 
+  utsv <- c(x, y, c(...))
+  all_times <- x$times
+  for (j in 2:length(utsv))
+    all_times <- sorted_union(all_times$times, utsv[[j]]$times, tolerance=tolerance)
+  attributes(all_times) <- attributes(x$times)
+  
+  # Merge observation values, with priority determined by the order of arguments
+  values <- numeric(length(all_times))
+  for (j in length(utsv):1) {
+    uts <- utsv[[j]]
+    pos <- num_leq_sorted_arrays(uts$times, all_times, tolerance=tolerance)
+    values[pos] <- uts$values
+  }
+  
+  # Return single merged "uts"
+  uts(values, all_times)
 }
 
