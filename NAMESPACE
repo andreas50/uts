@@ -33,9 +33,11 @@ S3method(as.POSIXct_matrix, POSIXct_vector)
 S3method("[", uts)
 S3method(as.uts, ts)
 S3method(as.uts, zoo)
+S3method(is.na, uts)
 S3method(lag, uts)
 S3method(length, uts)
 S3method(Math, uts)
+S3method(merge, uts)
 S3method(na.omit, uts)
 S3method(Ops, uts)
 S3method(plot, uts)
@@ -59,3 +61,4 @@ export(ex_uts2)
 export(is.uts)
 #
 export(as.zoo.uts)    # could not figure out how to register S3 method without importing "zoo" package
+
