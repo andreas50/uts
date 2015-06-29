@@ -8,21 +8,17 @@
 }
 \arguments{
 \item{x}{a \code{"uts"} object.}
-
-\item{value}{\code{"POSIXct"} date-times for which to set the corresponding observation value to \code{NA}.}
 }
 \description{
 Find missing values.
 }
 \details{
 \code{is.na} returns a logical \code{"uts"}, i.e. a \code{"uts"} with \code{\link{logical}} observation values, indication which observation values are \code{NA}.
-
-\code{is.na<-} allows to set certain observation values to \code{NA}.
 }
 \examples{
 # Set observation to NA
 test <- ex_uts()
-test$values[c(2, 4)] <- NA
+test$values[c(2, 4)] <- NA      # NEXT: use replacement using time points
 
 # Get logical "uts", indicating which observations are NA
 is.na(test)

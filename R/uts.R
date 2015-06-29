@@ -245,7 +245,7 @@ which.uts <- function(x, ...)
 
 #' Merge two or more uts
 #' 
-#' Use data of first-supplied times series, if there are multiple observations at a point in time
+#' Merge two or more \code{"uts"} into a single time series. For observation times that show up in more than one time series, the observation value of the first \code{"uts"} in the argument with such observation time is used.
 #' 
 #' @param x,y \code{"uts"} objects.
 #' @param tolerance tolerance for numerical noise in observation times.
@@ -259,10 +259,10 @@ which.uts <- function(x, ...)
 merge.uts <- function(x, y, tolerance=.Machine$double.eps ^ 0.5, ...)
 {
   # Determine the union of observation times 
-  utsv <- c(x, y, c(...))
+  utsv <- c(list(x, y), list(...))
   all_times <- x$times
   for (j in 2:length(utsv))
-    all_times <- sorted_union(all_times$times, utsv[[j]]$times, tolerance=tolerance)
+    all_times <- sorted_union(all_times, utsv[[j]]$times, tolerance=tolerance)
   attributes(all_times) <- attributes(x$times)
   
   # Merge observation values, with priority determined by the order of arguments

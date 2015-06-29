@@ -36,7 +36,7 @@ na.omit.uts <- function(object, ...)
 #' @examples
 #' # Set observation to NA
 #' test <- ex_uts()
-#' test$values[c(2, 4)] <- NA
+#' test$values[c(2, 4)] <- NA      # NEXT: use replacement using time points
 #' 
 #' # Get logical "uts", indicating which observations are NA
 #' is.na(test)
