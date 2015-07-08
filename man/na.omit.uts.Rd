@@ -21,6 +21,8 @@ tmp$values[c(2, 4)] <- NA
 na.omit(tmp)
 }
 \seealso{
-\code{\link[is.na.uts]{is.na}}, \code{\link[stats:na.fail]{na.fail}}, \code{\link[stats:na.fail]{na.omit}}
+\code{\link[base:is.na]{is.na}}, \code{\link[stats:na.fail]{na.fail}}, \code{\link[stats:na.fail]{na.omit}} in base \R.
+
+\code{\link{is.na}} for \code{"uts"} objects.
 }
 
