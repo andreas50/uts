@@ -15,6 +15,7 @@
 #' @param \dots further arguments passed to or from methods.
 sample_values <- function(x, ...) UseMethod("sample_values")
 
+
 # ----------------------
 # Method implementations
 # ----------------------

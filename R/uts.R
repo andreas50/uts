@@ -276,3 +276,37 @@ merge.uts <- function(x, y, tolerance=.Machine$double.eps ^ 0.5, ...)
   uts(values, all_times)
 }
 
+
+#' First and Last Observation Time
+#' 
+#' For a \code{"uts"} get the first and last observation time.
+#' 
+#' @return \code{start()} returns the first observation time.
+#' @param x a \code{"uts"} object.
+#' @param \dots further arguments passed to or from methods.
+#' 
+#' @examples
+#' start(ex_uts())
+start.uts <- function(x, ...)
+{
+  if (length(x) > 0)
+    x$times[1]
+  else
+    NA
+}
+
+
+#' @rdname start.uts
+#' 
+#' @return \code{end()} returns the last observation time.
+#' 
+#' @examples
+#' end(ex_uts())
+end.uts <- function(x, ...)
+{
+  if (length(x) > 0)
+    x$times[length(x$times)]
+  else
+    NA
+}
+
