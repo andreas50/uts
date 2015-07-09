@@ -310,3 +310,39 @@ end.uts <- function(x, ...)
     NA
 }
 
+
+#' Time Window
+#' 
+#' Extract a subperiod time series between times \code{start} and \code{end}.
+#' 
+#' @param x a \code{"uts"} object.
+#' @param start the start time of the period of interest.
+#' @param end the end time of the period of interest.
+#' @param \dots further arguments passed to or from methods.
+#' 
+#' @examples
+#' window(ex_uts(), start=as.POSIXct("2007-11-08"), end=as.POSIXct("2007-11-09"))
+window.uts <- function(x, start=start(x), end=end(x), ...)
+{
+  # Argument checking
+  if (length(x) == 0)
+    return(x)
+  if (!is.POSIXct(start))
+    start <- as.POSIXct(start)
+  if (!is.POSIXct(end))
+    end <- as.POSIXct(end)
+  
+  # Determine observations in [start, end] window
+  start_pos <- sum(x$times < start) + 1
+  end_pos <- sum(x$times <= end)
+  if (start_pos <= end_pos)
+    used_pos <- start_pos:end_pos
+  else
+    used_pos <- c()
+  
+  # Drop observations outside window
+  x$values <- x$values[used_pos]
+  x$times <- x$times[used_pos]
+  x
+}
+
