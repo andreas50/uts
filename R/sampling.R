@@ -85,28 +85,23 @@ sample_values.uts <- function(x, time_points, method="last", max_dt=ddays(Inf),
 
 #' Extract or Replace Parts of a uts
 #'
-#' The accessor method extracts a sub-sampled time series with the provided times. The replacement method inserts new observation values at the provided observation times, replacing observations values for already existing observation times (if any).
+#' The accessor method (\code{"["}) extracts a sub-sampled time series with the provided times. The replacement method (\code{"[<-"}) inserts observation values at the provided observation times, replacing observations values for already existing observation times (if any).
 #' 
 #' @param x a \code{"uts"} object.
 #' @param time_points either a strictly increasing sequence of \code{\link{POSIXct}} date-times, or a \code{"uts"} with \code{\link{logical}} observation values.
 #' @param \dots further arguments passed to \code{\link{sample_values}}.
 #' 
 #' @examples
+#' # Sample at single time point
 #' ex_uts()[as.POSIXct("2000-01-01")]
-#' #ex_uts()[alltimes(utsv, 2)]
-#' #
-#' times <- as.POSIXct(c("2007-11-08 1:01:00", "2007-11-09  15:16:00"))
-#' ex_uts()[times, max_lag = ddays(1)]
-#' #ex_uts()[!is.na(ex_uts())]
-#' #ex_uts()[ex_uts() > 48]
+#' 
+#' # Sample at multiple time points, optionally restricting the maximum time difference
+#' # between sampling and observation times
+#' times <- as.POSIXct(c("2007-11-08 11:01:00", "2007-11-09 15:16:00"))
+#' ex_uts()[times]
+#' ex_uts()[times, max_dt = dhours(1)]
 `[.uts` <- function(x, time_points, ...)
 {
-  # Special case of POSIXct_vector as sampling times
-  #if (is.POSIXct_vector(time_points)) {
-  #  x <- rep(x, length(time_points))
-  #  return(x[time_points, ...])
-  #}
-
   # Sample values
   if (is.POSIXct(time_points))
     values_new <- sample_values(x, time_points, ...)
@@ -121,4 +116,44 @@ sample_values.uts <- function(x, time_points, method="last", max_dt=ddays(Inf),
   uts(values_new, time_points)
 }
 
+
+
+#' @rdname sub-.uts
+#' 
+#' @param value a vector of observation values to insert at the time points \code{time_points}.
+#' 
+#' @examples
+#' # Insert multiple numeric values
+#' test <- ex_uts()
+#' test[Sys.time() + ddays(1:2)] <- c(51, 52)
+#' 
+#' # Insert non-numeric value
+#' test <- ex_uts()
+#' test[Sys.time() + ddays(3)] <- list(cat=1, dog=2)
+#' 
+#' # Replacement times from logical "uts"
+#' test <- ex_uts()
+#' test[test >= 48] <- 50
+`[<-.uts` <- function(x, time_points, ..., value)
+{
+  # Determine time points for insertion
+  if (is.uts(time_points))
+    time_points <- time_points$times[!is.na(time_points$values) & time_points$values]
+  num_times <- length(time_points)
+  
+  # Determine values for insertion
+  if (length(value) == 1)
+    value <- rep(value, num_times)
+  num_values <- length(value)
+  if ((num_values > num_times) & (num_times == 1)) {
+    value <- list(value)
+    num_values <- 1
+  }
+  if (num_values != num_times)
+    stop("The number of time points to replace/insert does not match the number of observation values provided.")
+  
+  # Do insertion via merge()
+  uts_inseration <- uts(value, time_points)
+  merge(uts_inseration, x, ...)
+}
 

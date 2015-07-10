@@ -2,27 +2,44 @@
 % Please edit documentation in R/sampling.R
 \name{[.uts}
 \alias{[.uts}
+\alias{[<-.uts}
 \title{Extract or Replace Parts of a uts}
 \usage{
 \method{[}{uts}(x, time_points, ...)
+
+\method{[}{uts}(x, time_points, ...) <- value
 }
 \arguments{
 \item{x}{a \code{"uts"} object.}
 
 \item{time_points}{either a strictly increasing sequence of \code{\link{POSIXct}} date-times, or a \code{"uts"} with \code{\link{logical}} observation values.}
 
+\item{value}{a vector of observation values to insert at the time points \code{time_points}.}
+
 \item{\dots}{further arguments passed to \code{\link{sample_values}}.}
 }
 \description{
-The accessor method extracts a sub-sampled time series with the provided times. The replacement method inserts new observation values at the provided observation times, replacing observations values for already existing observation times (if any).
+The accessor method (\code{"["}) extracts a sub-sampled time series with the provided times. The replacement method (\code{"[<-"}) inserts observation values at the provided observation times, replacing observations values for already existing observation times (if any).
 }
 \examples{
+# Sample at single time point
 ex_uts()[as.POSIXct("2000-01-01")]
-#ex_uts()[alltimes(utsv, 2)]
-#
-times <- as.POSIXct(c("2007-11-08 1:01:00", "2007-11-09  15:16:00"))
-ex_uts()[times, max_lag = ddays(1)]
-#ex_uts()[!is.na(ex_uts())]
-#ex_uts()[ex_uts() > 48]
+
+# Sample at multiple time points, optionally restricting the maximum time difference
+# between sampling and observation times
+times <- as.POSIXct(c("2007-11-08 11:01:00", "2007-11-09 15:16:00"))
+ex_uts()[times]
+ex_uts()[times, max_dt = dhours(1)]
+# Insert multiple numeric values
+test <- ex_uts()
+test[Sys.time() + ddays(1:2)] <- c(51, 52)
+
+# Insert non-numeric value
+test <- ex_uts()
+test[Sys.time() + ddays(3)] <- list(cat=1, dog=2)
+
+# Replacement times from logical "uts"
+test <- ex_uts()
+test[test >= 48] <- 50
 }
 
