@@ -346,3 +346,29 @@ window.uts <- function(x, start=start(x), end=end(x), ...)
   x
 }
 
+
+#' Coerce to a Data Frame
+#'
+#' Flatten a \code{"uts"} to a two-column \code{data.frame}, with the observation times in first column and observation values in the second column. The column names are \code{"time"} and \code{"value"}.
+#' 
+#' @note Only time series with atomic observation values can be coerced to a \code{data.frame}.
+#' 
+#' @param x a \code{"uts"} object.
+#' @param \dots arguments passed to \code{\link{format.POSIXct}}.
+#' 
+#' @examples
+#' as.data.frame(ex_uts())
+#' as.data.frame(uts(c("cat", "dog"), Sys.time() + days(1:2)), format="%Y-%m-%d")
+as.data.frame.uts <- function(x,  ...)
+{
+  # Argument checking
+  if (!is.atomic(x$values))
+    stop("Only time series with atomic observation values can be coerced to a data.frame")
+  
+  # Flatten the data
+  if (length(x) == 0)
+    values <- numeric(0)
+  else
+    values <- x$values
+  data.frame(time=format(x$times, ...), value=values, stringsAsFactors=FALSE)
+}
