@@ -9,3 +9,4 @@ src/*.so
 src/symbols.rds
 src-i386/
 src-x64/
+inst/doc
