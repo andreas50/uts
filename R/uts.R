@@ -279,7 +279,7 @@ merge.uts <- function(x, y, tolerance=.Machine$double.eps ^ 0.5, ...)
 
 #' First and Last Observation Time
 #' 
-#' For a \code{"uts"} get the first and last observation time.
+#' Get the first and last observation time, respectively.
 #' 
 #' @return \code{start()} returns the first observation time.
 #' @param x a \code{"uts"} object.
