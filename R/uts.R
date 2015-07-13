@@ -321,9 +321,15 @@ end.uts <- function(x, ...)
 #' @param \dots further arguments passed to or from methods.
 #' 
 #' @examples
+#' window(ex_uts(), start=as.POSIXct("2007-11-09"))
 #' window(ex_uts(), start=as.POSIXct("2007-11-08"), end=as.POSIXct("2007-11-09"))
-window.uts <- function(x, start=start(x), end=end(x), ...)
+window.uts <- function(x, start=NULL, end=NULL, ...)
 {
+  if (is.null(start))
+    start <- start(x, 3)
+  if (is.null(end))
+    end <- end(x, 2)
+  
   # Argument checking
   if (length(x) == 0)
     return(x)

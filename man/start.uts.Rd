@@ -20,7 +20,7 @@
 \code{end()} returns the last observation time.
 }
 \description{
-For a \code{"uts"} get the first and last observation time.
+Get the first and last observation time, respectively.
 }
 \examples{
 start(ex_uts())

@@ -4,7 +4,7 @@
 \alias{window.uts}
 \title{Time Window}
 \usage{
-\method{window}{uts}(x, start = start(x), end = end(x), ...)
+\method{window}{uts}(x, start = NULL, end = NULL, ...)
 }
 \arguments{
 \item{x}{a \code{"uts"} object.}
@@ -19,6 +19,7 @@
 Extract a subperiod time series between times \code{start} and \code{end}.
 }
 \examples{
+window(ex_uts(), start=as.POSIXct("2007-11-09"))
 window(ex_uts(), start=as.POSIXct("2007-11-08"), end=as.POSIXct("2007-11-09"))
 }
 
