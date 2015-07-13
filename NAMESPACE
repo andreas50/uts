@@ -12,7 +12,7 @@ export(uts)
 
 
 ### Export generic methods
-export(next_business_day, previous_business_day)
+export(next_weekday, previous_weekday)
 export(as.POSIXct_matrix)
 #
 export(as.uts)
@@ -21,8 +21,8 @@ export(which)
 
 
 ### Register S3 methods (needed if a package is imported but not attached to the search path)
-S3method(next_business_day, POSIXt)
-S3method(previous_business_day, POSIXt)
+S3method(next_weekday, POSIXt)
+S3method(previous_weekday, POSIXt)
 #
 S3method(POSIXct_vector, default)
 #
