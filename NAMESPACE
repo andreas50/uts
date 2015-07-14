@@ -2,7 +2,7 @@ useDynLib(uts)
 
 ### Import packages
 import(lubridate)
-importFrom(stats, lag, na.omit, start, end, window)
+importFrom(stats, cycle, frequency, lag, na.omit, start, end, window)
 
 
 ### Export class constructors
@@ -21,7 +21,9 @@ S3method("[<-", uts)
 S3method(as.uts, ts)
 S3method(as.uts, zoo)
 S3method(as.data.frame, uts)
+S3method(cycle, uts)
 S3method(end, uts)
+S3method(frequency, uts)
 S3method(is.na, uts)
 S3method(lag, uts)
 S3method(length, uts)
