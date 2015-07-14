@@ -6,30 +6,16 @@ importFrom(stats, lag, na.omit, start, end, window)
 
 
 ### Export class constructors
-export(POSIXct_vector)
-export(POSIXct_matrix)
 export(uts)
 
 
 ### Export generic methods
-export(next_weekday, previous_weekday)
-export(as.POSIXct_matrix)
-#
 export(as.uts)
 export(sample_values)
 export(which)
 
 
 ### Register S3 methods (needed if a package is imported but not attached to the search path)
-S3method(next_weekday, POSIXt)
-S3method(previous_weekday, POSIXt)
-#
-S3method(POSIXct_vector, default)
-#
-S3method(POSIXct_matrix, POSIXct)
-S3method(POSIXct_matrix, POSIXct_vector)
-S3method(as.POSIXct_matrix, POSIXct_vector)
-#
 S3method("[", uts)
 S3method("[<-", uts)
 S3method(as.uts, ts)
@@ -58,8 +44,6 @@ S3method(window, uts)
 ### Miscellaneous functions
 export(num_leq_sorted_arrays)
 export(sorted_union)
-export(is.POSIXct_vector)
-export(is.POSIXct_matrix)
 #
 export(ex_uts)
 export(ex_uts2)
