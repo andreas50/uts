@@ -378,3 +378,23 @@ as.data.frame.uts <- function(x,  ...)
     values <- x$values
   data.frame(time=format(x$times, ...), value=values, stringsAsFactors=FALSE)
 }
+
+
+#' Observation Times
+#' 
+#' Get the observation times.
+#' 
+#' @note This method exits primarily for compatability with the \code{\link[stats]{time}} method for \code{"ts"} objects.
+#' @note The observation times of a \code{"uts"} object \code{x} can also be accessed using \code{x$times}. However, using \code{time(x)} is preferable, because it does not rely on the internal object representation.
+#' 
+#' @return A \code{\link{POSIXct}} object with the observation times of \code{x}.
+#' @param x a \code{"uts"} object with \code{\link{logical}} observation values.
+#' @param \dots further arguments passed to or from methods.
+#' 
+#' @examples
+#' time(ex_uts())
+#' identical(time(ex_uts()), ex_uts()$times)     # TRUE
+time.uts <- function(x, ...)
+{
+  x$times
+}
