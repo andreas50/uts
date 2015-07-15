@@ -24,4 +24,5 @@ The function is needed, because \code{\link[base:which.min]{which.min}} of base 
 \note{
 As recommended in Section 7.1 ("Adding new generics") of "Writing R Extensions", the implementation of \code{\link{which.min.default}} has been made a wrapper around \code{\link[base:which.min]{base::which.min}}.
 }
+\keyword{internal}
 

@@ -15,10 +15,13 @@
 #' 
 #' @param x an \R object.
 #' @param \dots further arguments passed to or from methods.
+#' 
+#' @keywords internal
 which <- function(x, ...) UseMethod("which")
 
 
 #' @describeIn which simply calls the default implementation of base \R
+#' @keywords internal
 which.default <- function(x, ...) base::which(x, ...)
 
 
@@ -58,11 +61,14 @@ which.uts <- function(x, ...)
 #' 
 #' @param x an \R object.
 #' @param \dots further arguments passed to or from methods.
+#' 
+#' @keywords internal
 which.max <- function(x, ...) UseMethod("which.max")
 
 
 #' @describeIn which.max simply calls the default implementation of base \R
 #' @method which.max default
+#' @keywords internal
 which.max.default <- function(x, ...) base::which.max(x)
 
 
@@ -102,11 +108,14 @@ which.max.uts <- function(x, ...)
 #' 
 #' @param x an \R object.
 #' @param \dots further arguments passed to or from methods.
+#' 
+#' @keywords internal
 which.min <- function(x, ...) UseMethod("which.min")
 
 
 #' @describeIn which.min simply calls the default implementation of base \R
 #' @method which.min default
+#' @keywords internal
 which.min.default <- function(x, ...) base::which.min(x)
 
 

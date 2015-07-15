@@ -24,4 +24,5 @@ The function is needed, because \code{\link[base:which.max]{which.max}} of base 
 \note{
 As recommended in Section 7.1 ("Adding new generics") of "Writing R Extensions", the implementation of \code{\link{which.max.default}} has been made a wrapper around \code{\link[base:which.max]{base::which.max}}.
 }
+\keyword{internal}
 

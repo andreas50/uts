@@ -24,4 +24,5 @@ The function is needed, because \code{\link[base:which]{which}} of base \R is no
 \note{
 As recommended in Section 7.1 ("Adding new generics") of "Writing R Extensions", the implementation of \code{\link{which.default}} has been made a wrapper around \code{\link[base:which]{base::which}}.
 }
+\keyword{internal}
 
