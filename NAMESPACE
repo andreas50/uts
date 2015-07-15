@@ -13,6 +13,8 @@ export(uts)
 export(as.uts)
 export(sample_values)
 export(which)
+export(which.max)
+export(which.min)
 
 
 ### Register S3 methods (needed if a package is imported but not attached to the search path)
@@ -41,6 +43,10 @@ S3method(Summary, uts)
 S3method(time, uts)
 S3method(which, default)
 S3method(which, uts)
+S3method(which.max, default)
+S3method(which.max, uts)
+S3method(which.min, default)
+S3method(which.min, uts)
 S3method(window, uts)
 
 

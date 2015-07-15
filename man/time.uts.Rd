@@ -20,7 +20,7 @@ Get the observation times.
 \note{
 This method exits primarily for compatability with the \code{\link[stats]{time}} method for \code{"ts"} objects.
 
-The observation times of a \code{"uts"} object \code{x} can also be accessed using \code{x$times}. However, using \code{time(x)} is preferable, because it does not rely on the internal object representation.
+The observation times of a \code{"uts"} object \code{x} can also be accessed using \code{x$times}. However, using \code{time(x)} does not rely on the internal object representation.
 }
 \examples{
 time(ex_uts())
