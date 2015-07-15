@@ -37,7 +37,10 @@ sample_values <- function(x, ...) UseMethod("sample_values")
 #' # Sample with linear interpolation
 sample_values.uts <- function(x, time_points, method="last", max_dt=ddays(Inf),
   tolerance=.Machine$double.eps ^ 0.5, ...)
-{  
+{ 
+  # Remark: If it wasn't for the 'max_dt' argument, the approx() function could be used.
+  #         For example: approx(x$times, x$values, xout=time_points, method="linear", rule=1:2)
+  
   # Argument checking
   if (!is.POSIXct(time_points))
     stop("'time_points' is not a POSIXct' object")
