@@ -1,4 +1,4 @@
-#' Lag a Obseration Value
+#' Lag Obseration Values
 #' 
 #' Compute a lagged version of a time series by shifting individual observations values, while keeping the observation times unchanged.
 #' 
@@ -48,7 +48,7 @@ lag.uts <- function(x, k=1, ...)
 
 #' Lag Observation Times
 #'
-#' Shift the observation times of a time series by a given amount forward.
+#' Lag observation times of a time series by a given amount. In other words, add a certain amount of time to each observation time.
 #'
 #' @note For an evenly-spaced time series (1) shifting observation \emph{times}, and (2) shifting observation \emph{values} essentinally gives the same result (apart from the \code{NA}s that are introduced in the latter case). For unevenly-spaced time series, however, these two operations are quite different. The former only affects the observation times (but not the observation values), while the latter only affects the observation values (but not the observation times).
 #'

@@ -2,7 +2,7 @@
 % Please edit documentation in R/lag.R
 \name{lag.uts}
 \alias{lag.uts}
-\title{Lag a Obseration Value}
+\title{Lag Obseration Values}
 \usage{
 \method{lag}{uts}(x, k = 1, ...)
 }

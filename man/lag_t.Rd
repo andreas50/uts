@@ -17,7 +17,7 @@ lag_t(x, ...)
 \item{\dots}{further arguments passed to or from methods.}
 }
 \description{
-Shift the observation times of a time series by a given amount forward.
+Lag observation times of a time series by a given amount. In other words, add a certain amount of time to each observation time.
 }
 \section{Methods (by class)}{
 \itemize{
