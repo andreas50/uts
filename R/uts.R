@@ -157,53 +157,6 @@ print.uts <- function (x, style="horizontal", ...)
 }
 
 
-#' Lag a Time Series
-#' 
-#' Compute a lagged version of a time series by shifting individual observations values, while keeping the observation times unchanged.
-#' 
-#' The n-th observation of each original time series becomes the (n+k)-th observation of the lagged time series for 1 <= (n+k) <= length(x). Observations without corresponding un-lagged value (for example, the second observation for lag k=3) are set to \code{NA}.
-#' 
-#' @return A \code{"uts"} object with the observation times (and in particular, of the same length) as \code{x}.
-#' @param x a \code{"uts"} object.
-#' @param k the number of lags (in units of observations).
-#' @param \dots further arguments passed to or from methods.
-#' 
-#' @note For an evenly-spaced time series (1) shifting observation \emph{times}, and (2) shifting observation \emph{values} essentinally gives the same result (apart from the \code{NA}s that are introduced in the latter case). For unevenly-spaced time series, however, these two operations are quite different. The former only affects the vector observation times (but not the vector of observation values), while the latter only affects the vector observation values (but not the vector of observation times).
-#' 
-#' @seealso \code{\link[stats:lag]{lag}}
-#' @examples
-#' # Shift observations values forward by one observation
-#' lag(ex_uts(), k=1)
-#' 
-#' # Shift observations values forward by two observations
-#' lag(ex_uts(), k=-2)
-#' 
-#' # If the lag >= the length of the time series, all observation values are N
-#' lag(ex_uts(), k=6)
-#' lag(ex_uts(), k=-6)
-lag.uts <- function(x, k=1, ...)
-{
-  # Nothing to do
-  if (k == 0)
-    return(x)
-  
-  # Special case of |k| >= length(x)
-  k <- as.integer(k)
-  len <- length(x)
-  if (abs(k) >= len) { 
-    x$values <- rep(NA, len)
-    return(x)
-  }
-  
-  # Shift observation values
-  if (k > 0)
-    x$values <- c(rep(NA, k), x$values[1:(len-k)])
-  else
-    x$values <- c(x$values[(1-k):len], rep(NA, abs(k)))
-  x
-}
-
-
 #' Merge two or more uts
 #' 
 #' Merge two or more \code{"uts"} into a single time series. For observation times that show up in more than one time series, the observation value of the first \code{"uts"} in the argument list with such observation time is used.
@@ -345,7 +298,6 @@ as.data.frame.uts <- function(x,  ...)
 #' 
 #' Get the observation times.
 #' 
-#' @note This method exits primarily for compatability with the \code{\link[stats]{time}} method for \code{"ts"} objects.
 #' @note The observation times of a \code{"uts"} object \code{x} can also be accessed using \code{x$times}. However, using \code{time(x)} does not rely on the internal object representation.
 #' 
 #' @return A \code{\link{POSIXct}} object with the observation times of \code{x}.
