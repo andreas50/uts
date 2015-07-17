@@ -18,7 +18,7 @@ A \code{\link{POSIXct}} object with the observation times of \code{x}.
 Get the observation times.
 }
 \note{
-The observation times of a \code{"uts"} object \code{x} can also be accessed using \code{x$times}. However, using \code{time(x)} does not rely on the internal object representation.
+The observation times of a \code{"uts"} object \code{x} can also be accessed using \code{x$times}. However, using \code{time(x)} relies on the internal object representation.
 }
 \examples{
 time(ex_uts())

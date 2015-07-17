@@ -2,14 +2,6 @@
 # UTS (Unevenly-spaced Time Series) S3 class #
 ##############################################
 
-# -----------------
-# Generic functions
-# -----------------
-
-# ----------------------
-# Method implementations
-# ----------------------
-
 #' Unevenly-spaced Time Series
 #' 
 #' Create an unevenly-spaced time series (\code{"uts"}) object from a vector of observation values and a vector of observation times of matching length.
@@ -298,7 +290,7 @@ as.data.frame.uts <- function(x,  ...)
 #' 
 #' Get the observation times.
 #' 
-#' @note The observation times of a \code{"uts"} object \code{x} can also be accessed using \code{x$times}. However, using \code{time(x)} does not rely on the internal object representation.
+#' @note The observation times of a \code{"uts"} object \code{x} can also be accessed using \code{x$times}. However, using \code{time(x)} relies on the internal object representation.
 #' 
 #' @return A \code{\link{POSIXct}} object with the observation times of \code{x}.
 #' @param x a \code{"uts"} object with \code{\link{logical}} observation values.
