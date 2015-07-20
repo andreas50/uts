@@ -23,7 +23,7 @@ Compute a lagged version of a time series by shifting individual observations va
 The n-th observation of each original time series becomes the (n+k)-th observation of the lagged time series for 1 <= (n+k) <= length(x). Observations without corresponding un-lagged value (for example, the second observation for lag k=3) are set to \code{NA}.
 }
 \note{
-For an evenly-spaced time series (1) shifting observation \emph{times}, and (2) shifting observation \emph{values} essentinally gives the same result (apart from the \code{NA}s that are introduced in the latter case). For unevenly-spaced time series, however, these two operations are quite different. The former only affects the observation times (but not the observation values), while the latter only affects the observation values (but not the observation times).
+For an evenly-spaced time series (1) shifting observation \emph{times}, and (2) shifting observation \emph{values} essentinally gives the same result (apart from the \code{NA}s that are introduced in the latter case). For unevenly-spaced time series, however, these two operations are quite different. The former affects only the observation times (but not the observation values), while the latter affects only the observation values (but not the observation times).
 }
 \examples{
 # Shift observations values forward by one observation

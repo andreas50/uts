@@ -9,7 +9,7 @@
 #' @param k the number of lags (in units of observations).
 #' @param \dots further arguments passed to or from methods.
 #' 
-#' @note For an evenly-spaced time series (1) shifting observation \emph{times}, and (2) shifting observation \emph{values} essentinally gives the same result (apart from the \code{NA}s that are introduced in the latter case). For unevenly-spaced time series, however, these two operations are quite different. The former only affects the observation times (but not the observation values), while the latter only affects the observation values (but not the observation times).
+#' @note For an evenly-spaced time series (1) shifting observation \emph{times}, and (2) shifting observation \emph{values} essentinally gives the same result (apart from the \code{NA}s that are introduced in the latter case). For unevenly-spaced time series, however, these two operations are quite different. The former affects only the observation times (but not the observation values), while the latter affects only the observation values (but not the observation times).
 #' 
 #' @seealso \code{\link[stats:lag]{lag}} in base \R.
 #' @seealso #' @seealso \code{\link{lag_t}} allows to shift observation \emph{times}, as opposed to observation \emph{values}.
@@ -50,7 +50,7 @@ lag.uts <- function(x, k=1, ...)
 #'
 #' Lag observation times of a time series by a given amount. In other words, add a certain amount of time to each observation time.
 #'
-#' @note For an evenly-spaced time series (1) shifting observation \emph{times}, and (2) shifting observation \emph{values} essentinally gives the same result (apart from the \code{NA}s that are introduced in the latter case). For unevenly-spaced time series, however, these two operations are quite different. The former only affects the observation times (but not the observation values), while the latter only affects the observation values (but not the observation times).
+#' @note For an evenly-spaced time series (1) shifting observation \emph{times}, and (2) shifting observation \emph{values} essentinally gives the same result (apart from the \code{NA}s that are introduced in the latter case). For unevenly-spaced time series, however, these two operations are quite different. The former affects only the observation times (but not the observation values), while the latter affects only the observation values (but not the observation times).
 #'
 #' @param x a time series object of appropriate type.
 #' @param lag_t a \code{\link[lubridate]{duration}} object, specifying how much to shift the observation times of \code{x} forward.
