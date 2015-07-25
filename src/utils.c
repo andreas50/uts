@@ -16,13 +16,13 @@
 
 
 /*
- * Assume given two sorted vectors 'a' and 'b'. For each element a[i], determine the number of
- * elements in 'b' than are less than or equal (leq) to this value.
+ * Assume given two sorted numeric vectors 'a' and 'b'. For each element a[i], determine the number
+ * of elements in 'b' than are less than or equal (leq) to this value.
  *
- * Equivalently, because the arrays are sorted, for or each element a[i] determine the maximum
+ * Equivalently, because the vectors are sorted, for or each element a[i] determine the maximum
  * index j such that b[j-1] <= a[i].
 */
-void num_leq_sorted_arrays(const double a[], const int *na, const double b[], const int *nb, int pos[])
+void num_leq_sorted(const double a[], const int *na, const double b[], const int *nb, int pos[])
 {
   unsigned int i=0, j=0;
 
@@ -35,8 +35,8 @@ void num_leq_sorted_arrays(const double a[], const int *na, const double b[], co
 
 
 /* 
- * For two sorted arrays, return an array containing the sorted union of (unique) elements
- * as well as the length of the output array.
+ * For two sorted numeric vectors, return a vector containing the sorted union of (unique) elements
+ * as well as the length of the output vector.
  * 
  * Values less than 'tolerance' apart are considered identical and ommitted.
  */
@@ -54,7 +54,7 @@ void sorted_union(const double a[], const int *na, const double b[], const int *
   else
     previous_value = min(a[0], b[0]) - 1;
   
-  // Fill the output array with elements from 'a' and 'b'
+  // Fill the output vector with elements from 'a' and 'b'
   while ((i < *na) | (j < *nb)) 
   {
     // Determine the next candidate value to be saved
@@ -74,6 +74,6 @@ void sorted_union(const double a[], const int *na, const double b[], const int *
     }
   }  
  
-  // Save the length of the merged array
+  // Save the length of the merged vector
   *length = k;
 }

@@ -174,7 +174,7 @@ merge.uts <- function(x, y, tolerance=.Machine$double.eps ^ 0.5, ...)
   values <- numeric(length(all_times))
   for (j in length(utsv):1) {
     uts <- utsv[[j]]
-    pos <- num_leq_sorted_arrays(uts$times, all_times, tolerance=tolerance)
+    pos <- num_leq_sorted(uts$times, all_times, tolerance=tolerance)
     values[pos] <- uts$values
   }
   

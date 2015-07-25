@@ -21,7 +21,7 @@ sample_values(x, ...)
 
 \item{max_dt}{a duration object, specifying the maximum time difference between each sampling time and the observation times in \code{x} used for determining the sampled value. Return \code{NA} as sampled value for sampling times for which this threshold is exceeded.}
 
-\item{tolerance}{tolerance for numerical noise in observation times. See \code{\link{num_leq_sorted_arrays}}.}
+\item{tolerance}{tolerance for numerical noise in observation times. See \code{\link{num_leq_sorted}}.}
 
 \item{\dots}{further arguments passed to or from methods.}
 }

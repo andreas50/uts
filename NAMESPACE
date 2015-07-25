@@ -53,7 +53,7 @@ S3method(window, uts)
 
 
 ### Miscellaneous functions
-export(num_leq_sorted_arrays)
+export(num_leq_sorted)
 export(sorted_union)
 #
 export(ex_uts)

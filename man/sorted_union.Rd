@@ -17,7 +17,7 @@ sorted_union(a, b, tolerance = 0)
 A vector of same length as \code{a}.
 }
 \description{
-For two sorted one-dimensional arrays \code{a} and \code{b}, determine the sorted union of elements.
+For two sorted numeric vectors \code{a} and \code{b}, determine the sorted union of elements.
 }
 \examples{
 sorted_union(1:3, 2:4)
