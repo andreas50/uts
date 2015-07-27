@@ -1,0 +1,29 @@
+---
+title: "uts: Unevenly-spaced Time Series"
+author: "Andreas Eckner"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{uts: Unevenly-spaced Time Series}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+An Unevenly-spaced Time Series (uts) is a sequence of observation time and value pairs (tn, Xn) with strictly increasing observation times. As opposed to equally spaced time series, the spacing of observation times may not be constant.
+
+## Comparison with other packages for irregular time series
+
+
+
+## Indexing
+
+
+
+## Recylcing rules
+
+`R` uses a variety of rules for handling arithmetic between vectors and arrays of different lengths. These are commonly known as *recycling rules*, see Section 5.4.1 of "An introduction to R" for a complete list.
+
+Arithmetic with `uts` objects only keeps a few rules that do not make strong implicit assumptions about what exactly the user wants to do. Specifically:
+
+* `uts` objects are always recycled.
+* Only `uts_vector` objects of length one are recycled.
