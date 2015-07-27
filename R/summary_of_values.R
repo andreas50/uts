@@ -1,0 +1,70 @@
+##############################################################
+# Methods that calculate summaries on the observation values #
+##############################################################
+
+
+#' Summary of Time Series Values
+#' 
+#' This method calls \code{\link{summary}} from base \R with observation values of a time series.
+#' 
+#' @note
+#' This method only exists because \code{\link{summary.default}} produces an error message.
+#'  
+#' @param x a \code{"uts"} object.
+#' @param \dots further arguments passed to or from methods.
+#' 
+#' @keywords internal
+#' @examples
+#' summary(ex_uts())
+summary.uts <- function(object, ...)
+{
+  summary(object$values)
+}
+
+
+#' Generic sd function
+#'
+#' The function is needed, because \code{\link[stats:sd]{sd}} of base \R is not generic.
+#' 
+#' @note
+#' As recommended in Section 7.1 ("Adding new generics") of "Writing R Extensions", the implementation of \code{\link{sd.default}} has been made a wrapper around \code{\link[stats:sd]{stats::sd}}.
+#' 
+#' @param x an \R object.
+#' @param \dots further arguments passed to or from methods.
+#' 
+#' @keywords internal
+sd <- function(x, ...) UseMethod("sd")
+
+#' @describeIn sd simply calls the default implementation of base \R
+#' @keywords internal
+sd.default <- function(x, ...) stats::sd(x, ...)
+
+
+
+#' Mean and Standard Deviation
+#' 
+#' Calculate the mean and standard deviation of the observation values.
+#' 
+#' @return \code{mean()} returns the arithmetic mean of the observation values.
+#' @param x a \code{"uts"} object.
+#' @param \dots further arguments passed to or from methods.
+#' 
+#' @seealso \code{\link[base:mean]{mean}} and \code{\link[stats:sd]{sd}} in base \R.
+#' @examples
+#' mean(ex_uts())
+mean.uts <- function(x, ...)
+{
+  mean(x$values, ...)
+}
+
+
+#' @rdname mean.uts
+#' 
+#' @return \code{sd()} returns the standard devation of t he observation values.
+#' 
+#' @examples
+#' sd(ex_uts())
+sd.uts <- function(x, ...)
+{
+  sd(x$values, ...)
+}
