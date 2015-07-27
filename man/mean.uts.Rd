@@ -2,10 +2,13 @@
 % Please edit documentation in R/summary_of_values.R
 \name{mean.uts}
 \alias{mean.uts}
+\alias{median.uts}
 \alias{sd.uts}
-\title{Mean and Standard Deviation}
+\title{Mean, Median, and Standard Deviation}
 \usage{
 \method{mean}{uts}(x, ...)
+
+\method{median}{uts}(x, ...)
 
 \method{sd}{uts}(x, ...)
 }
@@ -17,16 +20,19 @@
 \value{
 \code{mean()} returns the arithmetic mean of the observation values.
 
-\code{sd()} returns the standard devation of t he observation values.
+\code{median()} returns the median of the observation values.
+
+\code{sd()} returns the standard devation of the observation values.
 }
 \description{
-Calculate the mean and standard deviation of the observation values.
+Calculate the mean, median, and standard deviation, respectively, of the observation values.
 }
 \examples{
 mean(ex_uts())
+median(ex_uts())
 sd(ex_uts())
 }
 \seealso{
-\code{\link[base:mean]{mean}} and \code{\link[stats:sd]{sd}} in base \R.
+\code{\link[base:mean]{mean}}, \code{\link[stats:median]{median}}, and \code{\link[stats:sd]{sd}} in base \R.
 }
 
