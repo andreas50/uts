@@ -303,3 +303,12 @@ time.uts <- function(x, ...)
 {
   x$times
 }
+
+
+
+#' Calculate the overall time series mean of an UTS
+mean.uts <- function(x, ...)
+{
+  mean(x$values, ...)
+}
+
