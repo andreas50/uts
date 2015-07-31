@@ -2,7 +2,7 @@
 #' 
 #' Compute a lagged version of a time series by shifting individual observations values, while keeping the observation times unchanged.
 #' 
-#' The n-th observation of each original time series becomes the (n+k)-th observation of the lagged time series for 1 <= (n+k) <= length(x). Observations without corresponding un-lagged value (for example, the second observation for lag k=3) are set to \code{NA}.
+#' The n-th observation of each original time series becomes the (n+k)-th observation of the lagged time series for 1 <= (n+k) <= length(x). Observations without corresponding un-lagged value (for example, the second observation for lag \code{k=3}) are set to \code{NA}.
 #' 
 #' @return A \code{"uts"} object with the observation times (and in particular, of the same length) as \code{x}.
 #' @param x a \code{"uts"} object.
