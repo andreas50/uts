@@ -2,16 +2,37 @@
 % Please edit documentation in R/diff.R
 \name{diff_t}
 \alias{diff_t}
+\alias{diff_t.uts}
 \title{Rolling Differences}
 \usage{
 diff_t(x, ...)
+
+\method{diff_t}{uts}(x, by = NULL, scale = "abs", ...)
 }
 \arguments{
 \item{x}{a time series object.}
 
+\item{by}{a \code{\link[lubridate]{duration}} object, specifying over which time horizon to calculate differences in observation values.}
+
+\item{scale}{on which scale to calculate differences. Either \code{"abs"} for absolute differences \code{X[t] - X[t - by]}, \code{"rel"} for relative differences \code{X[t] / X[t - by] - 1}, or \code{"log"} for logarithmic differences \code{log(X[t] / X[t - by])}.}
+
 \item{\dots}{further arguments passed to or from methods.}
 }
 \description{
-Rolling Differences
+Return a time series with differences over a fixed time horizon. Observations times for which no difference can be calculated (i.e. times \code{t_i} with \code{t_i - by < t_1}) are dropped from the output.
+}
+\section{Methods (by class)}{
+\itemize{
+\item \code{uts}: rolling difference for a \code{"uts"} object.
+}}
+\note{
+For an evenly-spaced time series, calculating differences over (1) a certain number of observations (e.g. over four observations for quarterly data), and (2) over a fixed time horizon (e.g. over one year) gives the same result. For unevenly-spaced time series, however, these two operations are quite different.
+}
+\examples{
+diff_t(ex_uts(), by=ddays(1))
+diff_t(ex_uts(), by=ddays(5)) # an empty time series, because the time difference is too large
+}
+\seealso{
+\code{\link{diff}} allows to calculate differences over a fixed \emph{number of observations}, as opposed to \emph{time horizon}.
 }
 

@@ -4,22 +4,22 @@
 \alias{diff.uts}
 \title{Lagged Differences}
 \usage{
-\method{diff}{uts}(x, lag = 1, scale = "log", ...)
+\method{diff}{uts}(x, lag = 1, scale = "abs", ...)
 }
 \arguments{
 \item{x}{a \code{"uts"} object.}
 
 \item{lag}{an integer indicating which lag to use.}
 
-\item{scale}{on which scale to calculate lagged differences. Either \code{"abs"} for absolute differences \code{X[n] - X[n - lag]}, \code{"rel"} for relative differences \code{X[n] / X[n - lag] - 1}, or \code{"log"} for logarithmic differences \code{log(X[n] / X[n - lag])}.}
+\item{scale}{on which scale to calculate differences. Either \code{"abs"} for absolute differences \code{X[n] - X[n - lag]}, \code{"rel"} for relative differences \code{X[n] / X[n - lag] - 1}, or \code{"log"} for logarithmic differences \code{log(X[n] / X[n - lag])}.}
 
 \item{\dots}{further arguments passed to or from methods.}
 }
 \description{
-Return a time series with suitably lagged differences between the observation values.
+Return a time series with suitably lagged differences of the observation values. Observation times without corresponding lagged observation time (for example, the second observation for \code{lag=3}) are dropped from the output.
 }
 \note{
-Observations times without corresponding lagged value (for example, the second observation for \code{lag=3}) are dropped from the output.
+For an evenly-spaced time series, calculating differences over (1) a certain number of observations (e.g. over four observations for quarterly data), and (2) over a fixed time horizon (e.g. over one year) gives the same result. For unevenly-spaced time series, however, these two operations are quite different.
 }
 \examples{
 diff(ex_uts())
@@ -28,6 +28,8 @@ diff(ex_uts(), scale="log")
 diff(ex_uts(), lag=10)     # an empty time series, because the lag is too large
 }
 \seealso{
-\code{\link{lag}}, \code{\link{lag_t}}, and \code{\link{diff_t}}
+\code{\link[base:diff]{diff}} in base \R.
+
+\code{\link{diff_t}} allows to calculate differences over a fixed \emph{time horizon}, as opposed to \emph{number of observations}.
 }
 

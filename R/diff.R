@@ -1,21 +1,22 @@
 #' Lagged Differences
 #'
-#' Return a time series with suitably lagged differences between the observation values.
-#' 
-#' @note Observations times without corresponding lagged value (for example, the second observation for \code{lag=3}) are dropped from the output.
+#' Return a time series with suitably lagged differences of the observation values. Observation times without corresponding lagged observation time (for example, the second observation for \code{lag=3}) are dropped from the output.
 #' 
 #' @param x a \code{"uts"} object.
 #' @param lag an integer indicating which lag to use.
-#' @param scale on which scale to calculate lagged differences. Either \code{"abs"} for absolute differences \code{X[n] - X[n - lag]}, \code{"rel"} for relative differences \code{X[n] / X[n - lag] - 1}, or \code{"log"} for logarithmic differences \code{log(X[n] / X[n - lag])}.
+#' @param scale on which scale to calculate differences. Either \code{"abs"} for absolute differences \code{X[n] - X[n - lag]}, \code{"rel"} for relative differences \code{X[n] / X[n - lag] - 1}, or \code{"log"} for logarithmic differences \code{log(X[n] / X[n - lag])}.
 #' @param \dots further arguments passed to or from methods.
 #' 
-#' @seealso \code{\link{lag}}, \code{\link{lag_t}}, and \code{\link{diff_t}}
+#' @note For an evenly-spaced time series, calculating differences over (1) a certain number of observations (e.g. over four observations for quarterly data), and (2) over a fixed time horizon (e.g. over one year) gives the same result. For unevenly-spaced time series, however, these two operations are quite different.
+#' 
+#' @seealso \code{\link[base:diff]{diff}} in base \R.
+#' @seealso \code{\link{diff_t}} allows to calculate differences over a fixed \emph{time horizon}, as opposed to \emph{number of observations}.
 #' @examples
 #' diff(ex_uts())
 #' diff(ex_uts(), lag=-3)
 #' diff(ex_uts(), scale="log")
 #' diff(ex_uts(), lag=10)     # an empty time series, because the lag is too large
-diff.uts <- function(x, lag=1, scale="log", ...)
+diff.uts <- function(x, lag=1, scale="abs", ...)
 {
   # Trivial case
   if (length(x) <= abs(lag))
@@ -48,19 +49,44 @@ diff.uts <- function(x, lag=1, scale="log", ...)
 
 #' Rolling Differences
 #' 
+#' Return a time series with differences over a fixed time horizon. Observations times for which no difference can be calculated (i.e. times \code{t_i} with \code{t_i - by < t_1}) are dropped from the output.
+#' 
 #' @param x a time series object.
+#' @param by a \code{\link[lubridate]{duration}} object, specifying over which time horizon to calculate differences in observation values.
+#' @param scale on which scale to calculate differences. Either \code{"abs"} for absolute differences \code{X[t] - X[t - by]}, \code{"rel"} for relative differences \code{X[t] / X[t - by] - 1}, or \code{"log"} for logarithmic differences \code{log(X[t] / X[t - by])}.
 #' @param \dots further arguments passed to or from methods.
+#' 
+#' @note For an evenly-spaced time series, calculating differences over (1) a certain number of observations (e.g. over four observations for quarterly data), and (2) over a fixed time horizon (e.g. over one year) gives the same result. For unevenly-spaced time series, however, these two operations are quite different.
 diff_t <- function(x, ...) UseMethod("diff_t")
   
-  
-#' Rolling Differences
+
+#' @describeIn diff_t rolling difference for a \code{"uts"} object.  
 #' 
-#' @param x a \code{"uts"} object.
-#' @param \dots further arguments passed to or from methods.
-#' 
-#' @seealso \code{\link{lag}}, \code{\link{lag_t}}, and \code{\link{diff}}
+#' @seealso \code{\link{diff}} allows to calculate differences over a fixed \emph{number of observations}, as opposed to \emph{time horizon}.
 #' @examples
-#' diff_t(ex_uts())
-diff_t.uts <- function(x, ...)
+#' diff_t(ex_uts(), by=ddays(1))
+#' diff_t(ex_uts(), by=ddays(5)) # an empty time series, because the time difference is too large
+diff_t.uts <- function(x, by=NULL, scale="abs", ...)
 {
+  # Argument checking
+  if (!is.duration(by))
+    stop("The 'by' is not a 'duration' object.")
+  if (is.na(by))
+    stop("The return horizon is NA")
+
+  # Calculate lagged time series
+  x_lag <- lag_t(x[x$times - by], by)
+  
+  # Calculate difference on desired scale
+  if (scale == "abs")
+    out <- x - x_lag
+  else if (scale == "rel")
+    out <- x / x_lag - 1
+  else if (scale == "log")
+    out <- log(x / x_lag)
+  else
+    stop("Unknown scale")
+  
+  # Drop observation times without matching lagged value
+  window(out, start(x) + by)
 }
