@@ -2,7 +2,7 @@
 % Please edit documentation in R/lag.R
 \name{lag.uts}
 \alias{lag.uts}
-\title{Lag Obseration Values}
+\title{Lag Observation Values}
 \usage{
 \method{lag}{uts}(x, k = 1, ...)
 }
@@ -14,16 +14,16 @@
 \item{\dots}{further arguments passed to or from methods.}
 }
 \value{
-A \code{"uts"} object with the observation times (and in particular, of the same length) as \code{x}.
+A \code{"uts"} object with the same observation times (apart from dropped observations) as \code{x}.
 }
 \description{
-Compute a lagged version of a time series by shifting individual observations values, while keeping the observation times unchanged.
+Compute a lagged version of a time series by shifting individual observations values.
 }
 \details{
-The n-th observation of each original time series becomes the (n+k)-th observation of the lagged time series for 1 <= (n+k) <= length(x). Observations without corresponding un-lagged value (for example, the second observation for lag \code{k=3}) are set to \code{NA}.
+Each observation time-value tuple \eqn{(t[n], X[n])} in the original time series is replaced by \eqn{(t[n], X[n-k])} in the lagged time series. Observations without corresponding un-lagged value (for example, the second observation for lag \code{k=3}) are dropped from the output.
 }
 \note{
-For an evenly-spaced time series (1) shifting observation \emph{times}, and (2) shifting observation \emph{values} essentinally gives the same result (apart from the \code{NA}s that are introduced in the latter case). For unevenly-spaced time series, however, these two operations are quite different. The former affects only the observation times (but not the observation values), while the latter affects only the observation values (but not the observation times).
+For an evenly-spaced time series (1) shifting observation \emph{times}, and (2) shifting observation \emph{values} essentinally gives the same result. For unevenly-spaced time series, however, these two operations are quite different. The former affects only the observation \emph{times}, while the latter affects only the observation \emph{values} (apart from observations that are dropped).
 }
 \examples{
 # Shift observations values forward by one observation
@@ -32,14 +32,11 @@ lag(ex_uts(), k=1)
 # Shift observations values forward by two observations
 lag(ex_uts(), k=-2)
 
-# If the lag >= the length of the time series, all observation values are N
+# If the lag 'k' is >= the length of the time series, all observations are dropped
 lag(ex_uts(), k=6)
-lag(ex_uts(), k=-6)
 }
 \seealso{
 \code{\link[stats:lag]{lag}} in base \R.
-
-#'
 
 \code{\link{lag_t}} allows to shift observation \emph{times}, as opposed to observation \emph{values}.
 }
