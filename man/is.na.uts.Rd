@@ -26,6 +26,6 @@ is.na(test)
 \seealso{
 \code{\link[base:is.na]{is.na}}, \code{\link[stats:na.fail]{na.fail}}, \code{\link[stats:na.fail]{na.omit}} in base \R.
 
-\code{\link{na.omit}} for \code{"uts"} objects.
+\code{\link[na.omit.uts]{na.omit}} for \code{"uts"} objects.
 }
 
