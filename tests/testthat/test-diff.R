@@ -14,9 +14,9 @@ test_that("diff works",{
   )
   
   # Regression tests
-  expect_equal_to_reference(diff(ex_uts()), file="test_diff_1.rds")
-  expect_equal_to_reference(diff(ex_uts(), lag=-3), file="test_lag_minus_3.rds")
-  expect_equal_to_reference(diff(ex_uts(), scale="log"), file="test_lag_log_scale.rds")
+  expect_equal_to_reference(diff(ex_uts()), file="test-diff_1.rds")
+  expect_equal_to_reference(diff(ex_uts(), lag=-3), file="test-lag_minus_3.rds")
+  expect_equal_to_reference(diff(ex_uts(), scale="log"), file="test-lag_log_scale.rds")
 })
 
 
@@ -39,5 +39,5 @@ test_that("diff_t works",{
   )
   
   # Regression tests
-  expect_equal_to_reference(diff_t(ex_uts(), ddays(1)), file="test_diff_1_day.rds")
+  expect_equal_to_reference(diff_t(ex_uts(), ddays(1)), file="test-diff_1_day.rds")
 })

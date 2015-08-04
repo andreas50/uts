@@ -36,10 +36,17 @@ Sample values from a time series at given sampling times.
 \item \code{uts}: sample from a \code{"uts"} object
 }}
 \examples{
-# Create a numeric "uts"
-
 # Sample the most recent observation
+times <- as.POSIXct(c("2007-11-09", "2007-11-10"))
+sample_values(ex_uts(), times)
 
 # Sample with linear interpolation
+sample_values(ex_uts(), times, method="linear")
+
+# Sample a non-numeric time series
+sample_values(ex_uts2(), times)
+
+# Error, because only numeric time series can be linearly interpolated
+\dontrun{sample_values(ex_uts2(), as.POSIXct("2007-01-01"), method="linear")}
 }
 

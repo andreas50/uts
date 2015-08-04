@@ -8,8 +8,8 @@ test_that("lag works",{
   )
   
   # Regression tests
-  expect_equal_to_reference(lag(ex_uts(), k=1), file="test_lag_1.rds")
-  expect_equal_to_reference(lag(ex_uts(), k=-2), file="test_lag_minus_2.rds")
+  expect_equal_to_reference(lag(ex_uts(), k=1), file="test-lag_1.rds")
+  expect_equal_to_reference(lag(ex_uts(), k=-2), file="test-lag_minus_2.rds")
 })
 
 
@@ -26,5 +26,5 @@ test_that("lag_t works",{
   )
   
   # Regression tests
-  expect_equal_to_reference(lag_t(ex_uts(), dhours(7.5)), file="test_lag_t.rds")
+  expect_equal_to_reference(lag_t(ex_uts(), dhours(7.5)), file="test-lag_t.rds")
 })
