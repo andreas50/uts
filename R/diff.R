@@ -4,7 +4,7 @@
 #' 
 #' @param x a \code{"uts"} object.
 #' @param lag an integer indicating which lag to use.
-#' @param scale on which scale to calculate differences. Either \code{"abs"} for absolute differences \code{X[n] - X[n - lag]}, \code{"rel"} for relative differences \code{X[n] / X[n - lag] - 1}, or \code{"log"} for logarithmic differences \code{log(X[n] / X[n - lag])}.
+#' @param scale on which scale to calculate differences. Either \code{"abs"} for absolute differences \code{x[n] - x[n - lag]}, \code{"rel"} for relative differences \code{x[n] / x[n - lag] - 1}, or \code{"log"} for logarithmic differences \code{log(x[n] / x[n - lag])}.
 #' @param \dots further arguments passed to or from methods.
 #' 
 #' @note For an evenly-spaced time series, calculating differences over (1) a certain number of observations (e.g. over four observations for quarterly data), and (2) over a fixed time horizon (e.g. over one year) gives the same result. For unevenly-spaced time series, however, these two operations are quite different.
@@ -49,11 +49,15 @@ diff.uts <- function(x, lag=1, scale="abs", ...)
 
 #' Rolling Differences
 #' 
-#' Return a time series with differences over a fixed time horizon. Observations times for which no difference can be calculated (i.e. times \code{t_i} with \code{t_i - by < t_1}) are dropped from the output.
+#' Return a time series with differences over a fixed time horizon.
+#' 
+#' The time series difference at observation time \code{t} for time horizon \code{by} is calculated between the values \code{x_t} and \code{x[t - by]} on a suitable scale. Here, \code{x[t - by]} is the sampled value of \code{x} at time \code{t - by}, see \code{\link{sample_values}}.
+#' 
+#' Observations times for which no difference can be calculated (i.e. times \code{t_i} with \code{t_i - by < t_1}) are dropped from the output.
 #' 
 #' @param x a time series object.
 #' @param by a \code{\link[lubridate]{duration}} object, specifying over which time horizon to calculate differences in observation values.
-#' @param scale on which scale to calculate differences. Either \code{"abs"} for absolute differences \code{X[t] - X[t - by]}, \code{"rel"} for relative differences \code{X[t] / X[t - by] - 1}, or \code{"log"} for logarithmic differences \code{log(X[t] / X[t - by])}.
+#' @param scale on which scale to calculate differences. Either \code{"abs"} for absolute differences \code{x_t - x[t - by]}, \code{"rel"} for relative differences \code{x_t / x[t - by] - 1}, or \code{"log"} for logarithmic differences \code{log(x_t / x[t - by])}.
 #' @param \dots further arguments passed to or from methods.
 #' 
 #' @note For an evenly-spaced time series, calculating differences over (1) a certain number of observations (e.g. over four observations for quarterly data), and (2) over a fixed time horizon (e.g. over one year) gives the same result. For unevenly-spaced time series, however, these two operations are quite different.

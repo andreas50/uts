@@ -11,7 +11,7 @@
 
 \item{lag}{an integer indicating which lag to use.}
 
-\item{scale}{on which scale to calculate differences. Either \code{"abs"} for absolute differences \code{X[n] - X[n - lag]}, \code{"rel"} for relative differences \code{X[n] / X[n - lag] - 1}, or \code{"log"} for logarithmic differences \code{log(X[n] / X[n - lag])}.}
+\item{scale}{on which scale to calculate differences. Either \code{"abs"} for absolute differences \code{x[n] - x[n - lag]}, \code{"rel"} for relative differences \code{x[n] / x[n - lag] - 1}, or \code{"log"} for logarithmic differences \code{log(x[n] / x[n - lag])}.}
 
 \item{\dots}{further arguments passed to or from methods.}
 }

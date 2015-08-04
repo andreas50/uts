@@ -14,12 +14,17 @@ diff_t(x, ...)
 
 \item{by}{a \code{\link[lubridate]{duration}} object, specifying over which time horizon to calculate differences in observation values.}
 
-\item{scale}{on which scale to calculate differences. Either \code{"abs"} for absolute differences \code{X[t] - X[t - by]}, \code{"rel"} for relative differences \code{X[t] / X[t - by] - 1}, or \code{"log"} for logarithmic differences \code{log(X[t] / X[t - by])}.}
+\item{scale}{on which scale to calculate differences. Either \code{"abs"} for absolute differences \code{x_t - x[t - by]}, \code{"rel"} for relative differences \code{x_t / x[t - by] - 1}, or \code{"log"} for logarithmic differences \code{log(x_t / x[t - by])}.}
 
 \item{\dots}{further arguments passed to or from methods.}
 }
 \description{
-Return a time series with differences over a fixed time horizon. Observations times for which no difference can be calculated (i.e. times \code{t_i} with \code{t_i - by < t_1}) are dropped from the output.
+Return a time series with differences over a fixed time horizon.
+}
+\details{
+The time series difference at observation time \code{t} for time horizon \code{by} is calculated between the values \code{x_t} and \code{x[t - by]} on a suitable scale. Here, \code{x[t - by]} is the sampled value of \code{x} at time \code{t - by}, see \code{\link{sample_values}}.
+
+Observations times for which no difference can be calculated (i.e. times \code{t_i} with \code{t_i - by < t_1}) are dropped from the output.
 }
 \section{Methods (by class)}{
 \itemize{
