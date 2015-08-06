@@ -1,18 +1,18 @@
-#' Lag Obseration Values
+#' Lag Observation Values
 #' 
-#' Compute a lagged version of a time series by shifting individual observations values, while keeping the observation times unchanged.
+#' Compute a lagged version of a time series by shifting individual observations values.
 #' 
-#' The n-th observation of each original time series becomes the (n+k)-th observation of the lagged time series for 1 <= (n+k) <= length(x). Observations without corresponding un-lagged value (for example, the second observation for lag k=3) are set to \code{NA}.
+#' Each observation time-value tuple \eqn{(t[n], x[n])} in the original time series is replaced by \eqn{(t[n], x[n-k])} in the lagged time series. Observations without corresponding un-lagged value (for example, the second observation for lag \code{k=3}) are dropped from the output.
 #' 
-#' @return A \code{"uts"} object with the observation times (and in particular, of the same length) as \code{x}.
+#' @return A \code{"uts"} object with the same observation times (apart from dropped observations) as \code{x}.
 #' @param x a \code{"uts"} object.
 #' @param k the number of lags (in units of observations).
 #' @param \dots further arguments passed to or from methods.
 #' 
-#' @note For an evenly-spaced time series (1) shifting observation \emph{times}, and (2) shifting observation \emph{values} essentinally gives the same result (apart from the \code{NA}s that are introduced in the latter case). For unevenly-spaced time series, however, these two operations are quite different. The former only affects the observation times (but not the observation values), while the latter only affects the observation values (but not the observation times).
+#' @note For an evenly-spaced time series (1) shifting observation \emph{times}, and (2) shifting observation \emph{values} essentinally gives the same result. For unevenly-spaced time series, however, these two operations are quite different. The former affects only the observation \emph{times}, while the latter affects only the observation \emph{values} (apart from observations that are dropped).
 #' 
 #' @seealso \code{\link[stats:lag]{lag}} in base \R.
-#' @seealso #' @seealso \code{\link{lag_t}} allows to shift observation \emph{times}, as opposed to observation \emph{values}.
+#' @seealso \code{\link{lag_t}} allows to shift observation \emph{times}, as opposed to observation \emph{values}.
 #' @examples
 #' # Shift observations values forward by one observation
 #' lag(ex_uts(), k=1)
@@ -20,28 +20,35 @@
 #' # Shift observations values forward by two observations
 #' lag(ex_uts(), k=-2)
 #' 
-#' # If the lag >= the length of the time series, all observation values are N
+#' # If the lag 'k' is >= the length of the time series, all observations are dropped
 #' lag(ex_uts(), k=6)
-#' lag(ex_uts(), k=-6)
 lag.uts <- function(x, k=1, ...)
 {
   # Nothing to do
   if (k == 0)
     return(x)
   
-  # Special case of |k| >= length(x)
-  k <- as.integer(k)
+  # Trivial case
   len <- length(x)
-  if (abs(k) >= len) { 
-    x$values <- rep(NA, len)
-    return(x)
-  }
+  if (length(x) <= abs(k))
+    return(uts())
   
   # Shift observation values
   if (k > 0)
-    x$values <- c(rep(NA, k), x$values[1:(len-k)])
+    x$values <- c(rep(NA, k), x$values[1L:(len-k)])
   else
-    x$values <- c(x$values[(1-k):len], rep(NA, abs(k)))
+    x$values <- c(x$values[(1L-k):len], rep(NA, abs(k)))
+  
+  # Drop observation times without matching lagged value
+  if (k > 0) {
+    x$values <- x$values[-(1L:k)]
+    x$times <- x$times[-(1L:k)]
+  }
+  if (k < 0) {
+    drop <- (len - abs(k) + 1L):len
+    x$values <- x$values[-drop]
+    x$times <- x$times[-drop]
+  }
   x
 }
 
@@ -50,7 +57,7 @@ lag.uts <- function(x, k=1, ...)
 #'
 #' Lag observation times of a time series by a given amount. In other words, add a certain amount of time to each observation time.
 #'
-#' @note For an evenly-spaced time series (1) shifting observation \emph{times}, and (2) shifting observation \emph{values} essentinally gives the same result (apart from the \code{NA}s that are introduced in the latter case). For unevenly-spaced time series, however, these two operations are quite different. The former only affects the observation times (but not the observation values), while the latter only affects the observation values (but not the observation times).
+#' @note For an evenly-spaced time series (1) shifting observation \emph{times}, and (2) shifting observation \emph{values} essentinally gives the same result. For unevenly-spaced time series, however, these two operations are quite different. The former affects only the observation \emph{times}, while the latter affects only the observation \emph{values} (apart from observations that are dropped).
 #'
 #' @param x a time series object of appropriate type.
 #' @param lag_t a \code{\link[lubridate]{duration}} object, specifying how much to shift the observation times of \code{x} forward.
@@ -76,5 +83,4 @@ lag_t.uts <- function(x, lag_t, ...)
   x$times <- x$times + lag_t
   x
 }
-
 

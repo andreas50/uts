@@ -75,24 +75,6 @@ length.uts <- function(x)
 }
 
 
-#' Summary of Time Series Values
-#' 
-#' This method calls \code{\link{summary}} from base \R with observation values of a time series.
-#' 
-#' @note
-#' This method only exists because \code{\link{summary.default}} produces an error message.
-#'  
-#' @param x a \code{"uts"} object.
-#' @param \dots further arguments passed to or from methods.
-#' 
-#' @keywords internal
-#' @examples
-#' summary(ex_uts())
-summary.uts <- function(object, ...)
-{
-  summary(object$values)
-}
-
 
 #' Internal Structure of uts
 #' 
@@ -196,7 +178,7 @@ merge.uts <- function(x, y, tolerance=.Machine$double.eps ^ 0.5, ...)
 start.uts <- function(x, ...)
 {
   if (length(x) > 0)
-    x$times[1]
+    x$times[1L]
   else
     NA
 }
@@ -303,3 +285,5 @@ time.uts <- function(x, ...)
 {
   x$times
 }
+
+

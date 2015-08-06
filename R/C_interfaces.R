@@ -87,6 +87,6 @@ sorted_union <- function(a, b, tolerance=0)
   # Call C-function
   res <- .C("sorted_union", as.double(a), na, as.double(b), nb, tolerance=as.double(tolerance),
             res=numeric(na + nb), length=integer(1))
-  res$res[1:res$length]
+  res$res[1L:res$length]
 }
 
