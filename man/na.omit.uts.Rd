@@ -23,6 +23,6 @@ na.omit(tmp)
 \seealso{
 \code{\link[base:is.na]{is.na}}, \code{\link[stats:na.fail]{na.fail}}, \code{\link[stats:na.fail]{na.omit}} in base \R.
 
-\code{\link[is.na.uts]{is.na}} for \code{"uts"} objects.
+\code{\link[=is.na.uts]{is.na}} for \code{"uts"} objects.
 }
 
