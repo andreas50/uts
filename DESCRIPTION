@@ -4,15 +4,15 @@ Date: 2015-08-03
 Title: Unevenly-spaced Time Series
 Author: Andreas Eckner <andreas@eckner.com>
 Maintainer: Andreas Eckner <andreas@eckner.com>
-Depends: R (>= 3.1), stats, lubridate
+Depends: R (>= 3.1), lubridate
 Suggests: testthat, knitr
 Enhances: zoo
 Description: This package provides S3 classes for constructing, analyzing, and
     manipulating univariate unevenly-spaced time series. Individual time series
     can store arbitrary R objects. R users familiar with vectors, matrices, and
     data frames should find it is straightforward to work with the corresponding
-    time series objects, because the usage of many functions ([, [[, length, etc.)
-    is completely analogous.
+    time series objects, because the usage of many functions
+    (such as [, [[, length, etc.) is completely analogous.
 License: GPL-2 | GPL-3
 URL: www.eckner.com
 VignetteBuilder: knitr
