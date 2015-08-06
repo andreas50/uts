@@ -35,17 +35,17 @@ lag.uts <- function(x, k=1, ...)
   
   # Shift observation values
   if (k > 0)
-    x$values <- c(rep(NA, k), x$values[1:(len-k)])
+    x$values <- c(rep(NA, k), x$values[1L:(len-k)])
   else
-    x$values <- c(x$values[(1-k):len], rep(NA, abs(k)))
+    x$values <- c(x$values[(1L-k):len], rep(NA, abs(k)))
   
   # Drop observation times without matching lagged value
   if (k > 0) {
-    x$values <- x$values[-(1:k)]
-    x$times <- x$times[-(1:k)]
+    x$values <- x$values[-(1L:k)]
+    x$times <- x$times[-(1L:k)]
   }
   if (k < 0) {
-    drop <- (len - abs(k) + 1):len
+    drop <- (len - abs(k) + 1L):len
     x$values <- x$values[-drop]
     x$times <- x$times[-drop]
   }

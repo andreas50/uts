@@ -34,12 +34,12 @@ diff.uts <- function(x, lag=1, scale="abs", ...)
   
   # Drop observation times without matching lagged value
   if (lag > 0) {
-    out$values <- out$values[-(1:lag)]
-    out$times <- out$times[-(1:lag)]
+    out$values <- out$values[-(1L:lag)]
+    out$times <- out$times[-(1L:lag)]
   }
   if (lag < 0) {
     len <- length(out)
-    drop <- (len - abs(lag) + 1):len
+    drop <- (len - abs(lag) + 1L):len
     out$values <- out$values[-drop]
     out$times <- out$times[-drop]
   }
@@ -74,7 +74,7 @@ diff_t.uts <- function(x, by=NULL, scale="abs", ...)
 {
   # Argument checking
   if (!is.duration(by))
-    stop("The 'by' is not a 'duration' object.")
+    stop("The 'by' is not a 'duration' object")
   if (is.na(by))
     stop("The return horizon is NA")
 

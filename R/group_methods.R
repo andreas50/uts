@@ -81,7 +81,7 @@ Ops.uts <- function(e1, e2)
     if (min(length(e1), length(e2)) == 0)
       return(uts())
     all_times <- sorted_union(e1$times, e2$times, tolerance=.Machine$double.eps ^ 0.5)
-    all_times <- all_times[all_times >= min(e1$times[1], e2$times[2])]
+    all_times <- all_times[all_times >= min(e1$times[1L], e2$times[2L])]
     attributes(all_times) <- attributes(e1$times)
     
     # Sample values
