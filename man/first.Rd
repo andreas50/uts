@@ -19,13 +19,13 @@ Return the first value of an \R object.
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{uts}: Return the first observation \emph{value} of a \code{"uts"} object. Unlike the method \code{first()} in package \href{https://cran.r-project.org/web/packages/xts/}{xts}, this implementation does not support arguments \code{n} and \code{keep}, because this functionality is already provided by \code{head()} and \code{heat_t()}.
+\item \code{uts}: Return the first observation \emph{value} of a \code{"uts"} object. Unlike method \code{first()} in package \href{https://cran.r-project.org/web/packages/xts/}{xts}, arguments \code{n} and \code{keep} are not supported. Instead, this functionality is provided by \code{head()} and \code{heat_t()}.
 }}
 \examples{
 first(ex_uts())
 }
 \seealso{
-\code{last()}
+\code{\link{last}}
 
 \code{\link{start}} and \code{\link{end}} return, respectively, the first and last obvservation \emph{time} from a time series.
 }

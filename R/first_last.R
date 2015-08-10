@@ -9,12 +9,12 @@
 #' @param x an \R object.
 #' @param \dots further arguments passed to or from methods.
 #' 
-#' @seealso \code{last()}
+#' @seealso \code{\link{last}}
 #' @seealso \code{\link{start}} and \code{\link{end}} return, respectively, the first and last obvservation \emph{time} from a time series.
 first <- function(x, ...) UseMethod("first")
 
 
-#' @describeIn first Return the first observation \emph{value} of a \code{"uts"} object. Unlike the method \code{first()} in package \href{https://cran.r-project.org/web/packages/xts/}{xts}, this implementation does not support arguments \code{n} and \code{keep}, because this functionality is already provided by \code{head()} and \code{heat_t()}.
+#' @describeIn first Return the first observation \emph{value} of a \code{"uts"} object. Unlike method \code{first()} in package \href{https://cran.r-project.org/web/packages/xts/}{xts}, arguments \code{n} and \code{keep} are not supported. Instead, this functionality is provided by \code{head()} and \code{heat_t()}.
 #' 
 #' @examples
 #' first(ex_uts())
@@ -32,12 +32,12 @@ first.uts <- function(x, ...)
 #' @param x an \R object.
 #' @param \dots further arguments passed to or from methods.
 #' 
-#' @seealso \code{first()}
+#' @seealso \code{\link{first}}
 #' @seealso \code{\link{start}} and \code{\link{end}} return, respectively, the first and last obvservation \emph{time} from a time series.
 last <- function(x, ...) UseMethod("last")
 
 
-#' @describeIn last Return the last observation \emph{value} of a \code{"uts"} object. Unlike the method \code{last()} in package \href{https://cran.r-project.org/web/packages/xts/}{xts}, this implementation does not support arguments \code{n} and \code{keep}, because this functionality is already provided by \code{tail()} and \code{tail_t()}.
+#' @describeIn last Return the last observation \emph{value} of a \code{"uts"} object. Unlike method \code{last()} in package \href{https://cran.r-project.org/web/packages/xts/}{xts}, arguments \code{n} and \code{keep} are not supported. Instead, this functionality is provided by \code{tail()} and \code{tail_t()}.
 #' 
 #' @examples
 #' first(ex_uts())

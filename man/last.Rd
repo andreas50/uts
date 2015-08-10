@@ -19,13 +19,13 @@ Return the last value of an \R object.
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{uts}: Return the last observation \emph{value} of a \code{"uts"} object. Unlike the method \code{last()} in package \href{https://cran.r-project.org/web/packages/xts/}{xts}, this implementation does not support arguments \code{n} and \code{keep}, because this functionality is already provided by \code{tail()} and \code{tail_t()}.
+\item \code{uts}: Return the last observation \emph{value} of a \code{"uts"} object. Unlike method \code{last()} in package \href{https://cran.r-project.org/web/packages/xts/}{xts}, arguments \code{n} and \code{keep} are not supported. Instead, this functionality is provided by \code{tail()} and \code{tail_t()}.
 }}
 \examples{
 first(ex_uts())
 }
 \seealso{
-\code{first()}
+\code{\link{first}}
 
 \code{\link{start}} and \code{\link{end}} return, respectively, the first and last obvservation \emph{time} from a time series.
 }
