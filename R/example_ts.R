@@ -42,8 +42,9 @@ ex_uts2 <- function()
 #' @keywords datasets
 #' @seealso The \code{\link[datasets:co2]{co2}} dataset in base \R is very similar, but ends in 1997 and has several missing values filled in using linear interpolation.
 #' @examples
-#' co2 <- download_co2()
-#' plot(co2)
+#' co2_ml <- download_co2()
+#' plot(co2_ml)
+#' table(diff(time(co2_ml)))    # most observations are one month apart
 download_co2 <- function(file="ftp://aftp.cmdl.noaa.gov/products/trends/co2/co2_mm_mlo.txt")
 {
   # Download data into temporary file
@@ -64,7 +65,7 @@ download_co2 <- function(file="ftp://aftp.cmdl.noaa.gov/products/trends/co2/co2_
   month <- sapply(data_split, function(x) x[2])
   start_of_month <- ISOdate(year, month, 1, hour=0, tz="HST")
   end_of_month <- ceiling_date(start_of_month + dseconds(1), unit="month")
-  mid_month <- start_of_month + difftime(start_of_month, end_of_month) / 2
+  mid_month <- start_of_month + difftime(end_of_month, start_of_month) / 2
   
   # Extract observation values and return "uts" object
   values <- as.numeric(sapply(data_split, function(x) x[4]))
