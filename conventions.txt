@@ -4,6 +4,7 @@ If you are contributing to this project, please follow the conventions listed be
 # Code
 -) Use spaces for tabs and a tab width of 2 spaces
 -) For variable and function names, use lower case and separate words by an underscore, for example: "x", "get_item", "test_value"
+-) Diagnostic messages should not end with a period
 
 
 # Comments

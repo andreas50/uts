@@ -15,5 +15,5 @@ LaTeX: pdfLaTeX
 BuildType: Package
 PackageUseDevtools: Yes
 PackageInstallArgs: --no-multiarch --with-keep.source
-PackageBuildBinaryArgs: --no-multiarch --with-keep.source --byte-compile
+PackageBuildBinaryArgs: --no-multiarch --with-keep.source --byte-compile --timings
 PackageRoxygenize: rd

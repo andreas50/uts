@@ -43,7 +43,7 @@ num_leq_sorted <- function(a, b, tolerance=0)
   
   # Input checking
   if (anyNA(a) | anyNA(b))
-    stop("NAs are not allowed as input.")
+    stop("NAs are not allowed as input")
   
   # Call C function
   res <- integer(length(a))

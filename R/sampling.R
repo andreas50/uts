@@ -160,7 +160,7 @@ sample_values.uts <- function(x, time_points, method="last", max_dt=ddays(Inf),
     num_values <- 1
   }
   if (num_values != num_times)
-    stop("The number of time points to replace/insert does not match the number of observation values provided.")
+    stop("The number of time points to replace/insert does not match the number of observation values provided")
   
   # Do insertion via merge()
   uts_inseration <- uts(value, time_points)
