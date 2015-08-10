@@ -17,6 +17,9 @@ test_that("diff works",{
   expect_equal_to_reference(diff(ex_uts()), file="test-diff_1.rds")
   expect_equal_to_reference(diff(ex_uts(), lag=-3), file="test-lag_minus_3.rds")
   expect_equal_to_reference(diff(ex_uts(), scale="log"), file="test-lag_log_scale.rds")
+  
+  # Intentional error
+  expect_error(diff(ex_uts(), ddays(1)))
 })
 
 

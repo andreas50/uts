@@ -18,6 +18,10 @@
 #' diff(ex_uts(), lag=10)     # an empty time series, because the lag is too large
 diff.uts <- function(x, lag=1, scale="abs", ...)
 {
+  # Argument checking
+  if (is.duration(lag))
+    stop("The 'lag' is a duration object instead of an integer")
+  
   # Trivial case
   if (length(x) <= abs(lag))
     return(uts())

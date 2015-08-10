@@ -24,6 +24,10 @@
 #' lag(ex_uts(), k=6)
 lag.uts <- function(x, k=1, ...)
 {
+  # Argument checking
+  if (is.duration(k))
+    stop("The lag 'k' is a duration object instead of an integer")
+  
   # Nothing to do
   if (k == 0)
     return(x)

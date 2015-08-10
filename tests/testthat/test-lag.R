@@ -10,6 +10,9 @@ test_that("lag works",{
   # Regression tests
   expect_equal_to_reference(lag(ex_uts(), k=1), file="test-lag_1.rds")
   expect_equal_to_reference(lag(ex_uts(), k=-2), file="test-lag_minus_2.rds")
+  
+  # Intentional error
+  expect_error(lag(ex_uts(), ddays(1)))
 })
 
 
