@@ -61,6 +61,7 @@ S3method(window, uts)
 
 
 ### Miscellaneous functions
+export(download_co2)
 export(num_leq_sorted)
 export(sorted_union)
 #
