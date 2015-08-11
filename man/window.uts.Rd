@@ -22,4 +22,7 @@ Extract a subperiod time series between times \code{start} and \code{end}.
 window(ex_uts(), start=as.POSIXct("2007-11-09"))
 window(ex_uts(), start=as.POSIXct("2007-11-08"), end=as.POSIXct("2007-11-09"))
 }
+\seealso{
+\code{\link{head}}, \code{\link{head_t}}, \code{\link{tail}}, \code{\link{tail_t}} for other methods that extract a subperiod time series.
+}
 

@@ -174,6 +174,7 @@ merge.uts <- function(x, y, tolerance=.Machine$double.eps ^ 0.5, ...)
 #' @param end the end time of the period of interest.
 #' @param \dots further arguments passed to or from methods.
 #' 
+#' @seealso \code{\link{head}}, \code{\link{head_t}}, \code{\link{tail}}, \code{\link{tail_t}} for other methods that extract a subperiod time series.
 #' @examples
 #' window(ex_uts(), start=as.POSIXct("2007-11-09"))
 #' window(ex_uts(), start=as.POSIXct("2007-11-08"), end=as.POSIXct("2007-11-09"))
