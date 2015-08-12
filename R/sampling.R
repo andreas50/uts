@@ -64,7 +64,7 @@ sample_values.uts <- function(x, time_points, method="last", max_dt=ddays(Inf),
   
   # For each sampling time, determine the most recent observation time, and enforce the 'max_dt' threshold 
   sampling_idx_last <- num_leq_sorted(time_points, x$times, tolerance=tolerance)
-  sampling_idx_last[sampling_idx_last == 0] <- NA
+  sampling_idx_last[sampling_idx_last == 0L] <- NA
   sampled_times_last <- x$times[sampling_idx_last]
   dt_last_observation <- as.duration(time_points - sampled_times_last) 
   if (max_dt < ddays(Inf))

@@ -44,7 +44,7 @@ which.uts <- function(x, ...)
   if (length(x) > 0)
     x$times[which(x$values)]
   else
-    as.POSIXct(character(0))
+    as.POSIXct(character())
 }
 
 

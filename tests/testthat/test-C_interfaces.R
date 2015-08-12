@@ -25,7 +25,7 @@ test_that("num_leq_sorted correctly handles trivial cses",{
   )
   expect_equal(
     num_leq_sorted(c(), 1:5),
-    numeric(0)
+    numeric()
   )
   expect_equal(
     num_leq_sorted(1:5, c()),
