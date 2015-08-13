@@ -78,7 +78,7 @@ Ops.uts <- function(e1, e2)
   # Binary operator
   if (is.uts(e1) & is.uts(e2)) {
     # Determine time points of output time series
-    if (min(length(e1), length(e2)) == 0)
+    if (min(length(e1), length(e2)) == 0L)
       return(uts())
     all_times <- sorted_union(e1$times, e2$times, tolerance=.Machine$double.eps ^ 0.5)
     all_times <- all_times[all_times >= min(e1$times[1L], e2$times[2L])]

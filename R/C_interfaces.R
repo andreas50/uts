@@ -36,9 +36,9 @@
 num_leq_sorted <- function(a, b, tolerance=0)
 {
   # Trivial cases
-  if (length(a) == 0)
+  if (length(a) == 0L)
     return(numeric())
-  if (length(b) == 0)
+  if (length(b) == 0L)
     return(rep(0, length(a)))
   
   # Input checking
@@ -79,9 +79,9 @@ sorted_union <- function(a, b, tolerance=0)
   # Preprocessing and trivial cases
   na <- as.integer(length(a))
   nb <- as.integer(length(b))
-  if (na == 0)
+  if (na == 0L)
     return(b)
-  if (nb == 0)
+  if (nb == 0L)
     return(a)
   
   # Call C-function

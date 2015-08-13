@@ -29,7 +29,7 @@ lag.uts <- function(x, k=1, ...)
     stop("The lag 'k' is a duration object instead of an integer")
   
   # Nothing to do
-  if (k == 0)
+  if (k == 0L)
     return(x)
   
   # Trivial case

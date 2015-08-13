@@ -22,7 +22,7 @@
 #'
 #' # Create an empty "uts"
 #' uts()
-uts <- function(values=c(), times=as.POSIXct(character(0)))
+uts <- function(values=c(), times=as.POSIXct(character()))
 {
   # Argument checking
   if (length(values) != length(times))
@@ -111,7 +111,7 @@ str.uts <- function(object, ...)
 print.uts <- function (x, style="horizontal", ...) 
 {
   # Trivial case of no observations
-  if (length(x) == 0) {
+  if (length(x) == 0L) {
     cat("No observations available at this time.\n")
     return(invisible(x))
   }
@@ -186,7 +186,7 @@ window.uts <- function(x, start=NULL, end=NULL, ...)
     end <- end(x, 2)
   
   # Argument checking
-  if (length(x) == 0)
+  if (length(x) == 0L)
     return(x)
   if (!is.POSIXct(start))
     start <- as.POSIXct(start)
@@ -227,8 +227,8 @@ as.data.frame.uts <- function(x,  ...)
     stop("Only time series with atomic observation values can be coerced to a data.frame")
   
   # Flatten the data
-  if (length(x) == 0)
-    values <- numeric(0)
+  if (length(x) == 0L)
+    values <- numeric()
   else
     values <- x$values
   data.frame(time=format(x$times, ...), value=values, stringsAsFactors=FALSE)
