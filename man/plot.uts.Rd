@@ -4,11 +4,13 @@
 \alias{plot.uts}
 \title{Plot a uts}
 \usage{
-\method{plot}{uts}(x, type = "l", col = "blue", xlab = "", ylab = "",
-  ...)
+\method{plot}{uts}(x, max_dt = ddays(Inf), type = "l", col = "blue",
+  xlab = "", ylab = "", ...)
 }
 \arguments{
 \item{x}{a numeric \code{"uts"} object that should be plotted.}
+
+\item{max_dt}{a non-negative \code{\link[lubridate]{duration}} object. Consecutive observations are not connected by a line in the graph, if they are more than this amount apart in time.}
 
 \item{type}{what type of plot should be drawn, see \code{\link[graphics:plot.default]{plot.default}}. \code{type="b"} is helpful for highlighting individual observations.}
 
@@ -25,6 +27,7 @@ This function is convenience wrapper around \code{\link[graphics:plot.default]{p
 }
 \examples{
 plot(ex_uts())
+plot(ex_uts(), max_dt=dhours(12))   # don't connect points more than 12 hours apart
 
 # Plot time series with NAs
 tmp <- ex_uts()
