@@ -56,7 +56,8 @@ split_segments <- function(x, max_dt)
 #' 
 #' @examples
 #' plot(ex_uts())
-#' plot(ex_uts(), max_dt=dhours(12))   # don't connect points more than 12 hours apart
+#' plot(ex_uts(), max_dt=dhours(12), type="b")   # don't connect points more than 12 hours apart
+#' plot(ex_uts(), max_dt=dhours(2), type="b")
 #' 
 #' # Plot time series with NAs
 #' tmp <- ex_uts()
@@ -84,24 +85,5 @@ plot.uts <- function(x, max_dt=ddays(Inf), type="l", col="blue", xlab="", ylab="
   segments <- split_segments(x, max_dt=max_dt)
   for (segment in segments)
     lines(segment$times, segment$values, col=col, type=type, ...)
-}
-if (0) {
-  plot(ex_uts())
-  plot(ex_uts(), type="b")
-  plot(ex_uts(), type="o")
-  plot(ex_uts(), type="n")  # empty plot
-  #
-  plot(SPX)
-  plot(subperiod(SPX, "2000-01-01", "2005-01-01"))
-  plot(subperiod(SPX, "2000-01-01", "2001-01-01"))
-  plot(subperiod(SPX, "2000-01-01", "2000-01-30"))
-  plot(subperiod(SPX, "2000-01-01", "2000-01-30"), format="%m/%d")   # works, but gives tons of warning messages. Only axis.POSIXct() uses this argument
-  
-  # Manual axis plotting
-  # -) bad: still need to pick reasonable tick positions
-  # -) NEXT: how to pass 'format' argument directly to plot.default?
-  tmp <- subperiod(SPX, "2000-01-01", "2001-01-01")
-  plot(tmp, xaxt="n")
-  axis.POSIXct(1, at=tmp$times, format="%m/%m/%Y")
 }
 

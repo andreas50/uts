@@ -27,7 +27,8 @@ This function is convenience wrapper around \code{\link[graphics:plot.default]{p
 }
 \examples{
 plot(ex_uts())
-plot(ex_uts(), max_dt=dhours(12))   # don't connect points more than 12 hours apart
+plot(ex_uts(), max_dt=dhours(12), type="b")   # don't connect points more than 12 hours apart
+plot(ex_uts(), max_dt=dhours(2), type="b")
 
 # Plot time series with NAs
 tmp <- ex_uts()
