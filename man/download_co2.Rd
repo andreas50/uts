@@ -11,7 +11,7 @@
 \item{file}{the download location of the CO2 dataset.}
 }
 \description{
-This function downloads the monthly average atmospheric CO2 concentration (in parts per million), as measured at the Mauna Loa observatory, from the NOAA website. Please see \url{http://www.esrl.noaa.gov/gmd/ccgg/trends/} for a detailed description. The downloaded data is subsequently imported into \R and returned as a \code{\link{uts}} object.
+This function downloads the monthly average atmospheric CO2 concentration (in parts per million), as measured at the Mauna Loa observatory, from a website by the \href{http://www.esrl.noaa.gov/gmd/ccgg/trends/}{NOAA Earth System Research Laboratory}. The downloaded data is subsequently imported into \R and returned as a \code{\link{uts}} object.
 }
 \examples{
 co2_ml <- download_co2()

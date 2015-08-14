@@ -35,7 +35,7 @@ ex_uts2 <- function()
 
 #' Mauna Loa Atmospheric CO2 Concentration
 #' 
-#' This function downloads the monthly average atmospheric CO2 concentration (in parts per million), as measured at the Mauna Loa observatory, from the NOAA website. Please see \url{http://www.esrl.noaa.gov/gmd/ccgg/trends/} for a detailed description. The downloaded data is subsequently imported into \R and returned as a \code{\link{uts}} object. 
+#' This function downloads the monthly average atmospheric CO2 concentration (in parts per million), as measured at the Mauna Loa observatory, from a website by the \href{http://www.esrl.noaa.gov/gmd/ccgg/trends/}{NOAA Earth System Research Laboratory}. The downloaded data is subsequently imported into \R and returned as a \code{\link{uts}} object. 
 #' 
 #' @param file the download location of the CO2 dataset.
 #' 
@@ -44,7 +44,7 @@ ex_uts2 <- function()
 #' @examples
 #' co2_ml <- download_co2()
 #' plot(co2_ml)
-#' table(diff(time(co2_ml)))    # most observations are one month apart
+#' table(diff(time(co2_ml)))    # most consecutive observations are one month apart
 download_co2 <- function(file="ftp://aftp.cmdl.noaa.gov/products/trends/co2/co2_mm_mlo.txt")
 {
   # Download data into temporary file
