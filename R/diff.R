@@ -20,7 +20,7 @@ diff.uts <- function(x, lag=1, scale="abs", ...)
 {
   # Argument checking
   if (is.duration(lag))
-    stop("The 'lag' is a duration object instead of an integer")
+    stop("'lag' is a duration object instead of an integer")
   
   # Trivial case
   if (length(x) <= abs(lag))
@@ -78,9 +78,9 @@ diff_t.uts <- function(x, by=NULL, scale="abs", ...)
 {
   # Argument checking
   if (!is.duration(by))
-    stop("The 'by' is not a 'duration' object")
+    stop("'by' is not a 'duration' object")
   if (is.na(by))
-    stop("The return horizon is NA")
+    stop("The return horizon 'by' is NA")
 
   # Calculate lagged time series
   x_lag <- lag_t(x[x$times - by], by)

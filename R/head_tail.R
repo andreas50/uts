@@ -20,6 +20,10 @@
 #' head(ex_uts(), -6)
 head.uts <- function(x, n=6L, ...)
 {
+  # Argument checking
+  if (is.duration(n))
+    stop("'n' is a duration object instead of an integer")
+  
   # Determine affected indices
   pos <- seq(length=min(abs(n), length(x)))
   
@@ -46,6 +50,10 @@ head.uts <- function(x, n=6L, ...)
 #' tail(ex_uts(), -6)
 tail.uts <- function(x, n=6L, ...)
 {
+  # Argument checking
+  if (is.duration(n))
+    stop("'n' is a duration object instead of an integer")
+  
   # Determine affected indices
   len <- length(x)
   n_capped <- min(abs(n), len)
