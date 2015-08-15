@@ -75,13 +75,12 @@ length.uts <- function(x)
 }
 
 
-
 #' Internal Structure of uts
 #' 
 #' Compactly display the internal structure of a \code{"uts"} object.
 #' 
 #' @note
-#' This methods only exists because the default implementation of \code{\link{str}} from base \R produces an error message.
+#' This methods only exists because the default implementation of \code{\link{str}} in base \R produces an error message.
 #'  
 #' @param object a \code{"uts"} object.
 #' @param \dots further arguments passed to or from methods.
