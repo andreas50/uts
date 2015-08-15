@@ -16,7 +16,7 @@ This function downloads the monthly average atmospheric CO2 concentration (in pa
 \examples{
 co2_ml <- download_co2()
 plot(co2_ml)
-table(diff(time(co2_ml)))    # most observations are one month apart
+table(diff(time(co2_ml)))    # most consecutive observations are one month apart
 }
 \seealso{
 The \code{\link[datasets:co2]{co2}} dataset in base \R is very similar, but ends in 1997 and has several missing values filled in using linear interpolation.
