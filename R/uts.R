@@ -1,6 +1,6 @@
-##############################################
-# UTS (Unevenly-spaced Time Series) S3 class #
-##############################################
+###################################
+# Constructor and basic functions #
+###################################
 
 #' Unevenly-spaced Time Series
 #' 
@@ -251,5 +251,3 @@ time.uts <- function(x, ...)
 {
   x$times
 }
-
-
