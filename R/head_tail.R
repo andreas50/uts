@@ -2,7 +2,6 @@
 # Head and Tail (in terms of number of observations) #
 ######################################################
 
-
 #' Return the First or Last Part
 #' 
 #' Return a subperiod time series with the first or last part. The length of the output is specified in terms of the \emph{number of observations}.
