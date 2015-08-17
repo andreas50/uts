@@ -37,14 +37,12 @@ S3method(cycle, uts)
 S3method(diff, uts)
 S3method(diff_t, uts)
 S3method(end, uts)
-S3method(first, uts)
 S3method(frequency, uts)
 S3method(head, uts)
 S3method(head_t, uts)
 S3method(is.na, uts)
 S3method(lag, uts)
 S3method(lag_t, uts)
-S3method(last, uts)
 S3method(length, uts)
 S3method(Math, uts)
 S3method(mean, uts)
@@ -73,15 +71,21 @@ S3method(which.min, uts)
 S3method(window, uts)
 
 
-### Miscellaneous functions
+### S3 methods that cause problems when registered with S3method()
+export(as.zoo.uts)  # could not figure out how to register S3 method without importing "zoo" package
+export(first.uts)   # otherwise loading the "xts" package masks this method on the search path
+export(last.uts)    # otherwise loading the "xts" package masks this method on the search path
+
+
+### Sample time series
 export(download_co2)
+export(ex_uts)
+export(ex_uts2)
+
+
+### Miscellaneous functions
+export(is.uts)
 export(num_leq_sorted)
 export(split_segments)
 export(sorted_union)
-#
-export(ex_uts)
-export(ex_uts2)
-export(is.uts)
-#
-export(as.zoo.uts)    # could not figure out how to register S3 method without importing "zoo" package
 
