@@ -3,12 +3,15 @@
 \name{as.uts}
 \alias{as.uts}
 \alias{as.uts.ts}
+\alias{as.uts.xts}
 \alias{as.uts.zoo}
 \title{Coercion to uts}
 \usage{
 as.uts(x, ...)
 
 \method{as.uts}{ts}(x, ...)
+
+\method{as.uts}{xts}(x, ...)
 
 \method{as.uts}{zoo}(x, ...)
 }
@@ -27,12 +30,20 @@ Convert other time series objects to \code{"uts"} objects.
 \itemize{
 \item \code{ts}: convert a \code{\link[stats:ts]{ts}} object
 
+\item \code{xts}: convert a \code{\link[xts:xts]{xts}} object
+
 \item \code{zoo}: convert a \code{\link[zoo:zoo]{zoo}} object
 }}
 \examples{
 # Convert a "ts" time series
 ts1 <- ts(1:10, frequency = 4, start = c(1959, 2))
 as.uts(ts1)
+#
+# Convert an "xts" time series
+if (requireNamespace("xts", quietly = TRUE)) {
+  xts1 <- xts::xts(1:4, as.Date("2015-01-01") + c(1, 3, 7, 9))
+  as.uts(xts1)
+}
 #
 # Convert a "zoo" time series
 if (requireNamespace("zoo", quietly = TRUE)) {

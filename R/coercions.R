@@ -2,10 +2,6 @@
 # Convert objects back and forth between other R time series classes #
 ######################################################################
 
-# -----------------
-# Generic functions
-# -----------------
-
 #' Coercion to uts
 #' 
 #' Convert other time series objects to \code{"uts"} objects.
@@ -15,10 +11,6 @@
 #' @param \dots further arguments passed to or from methods.
 as.uts <- function(x, ...) UseMethod("as.uts")
 
-
-# ----------------------
-# Method implementations
-# ----------------------
 
 #' @describeIn as.uts convert a \code{\link[stats:ts]{ts}} object
 #' 
@@ -40,6 +32,21 @@ as.uts.ts <- function(x, ...)
 }
 
 
+#' @describeIn as.uts convert a \code{\link[xts:xts]{xts}} object
+#' 
+#' @examples
+#' #
+#' # Convert an "xts" time series
+#' if (requireNamespace("xts", quietly = TRUE)) {
+#'   xts1 <- xts::xts(1:4, as.Date("2015-01-01") + c(1, 3, 7, 9))
+#'   as.uts(xts1)
+#' }
+as.uts.xts <- function(x, ...)
+{
+  as.uts(zoo::as.zoo(x, ...))
+}
+
+
 #' @describeIn as.uts convert a \code{\link[zoo:zoo]{zoo}} object
 #' 
 #' @examples
@@ -55,6 +62,7 @@ as.uts.zoo <- function(x, ...)
 }
 
 
+
 #' Coercion to zoo
 #' 
 #' @return A \code{\link[zoo:zoo]{zoo}} object.
@@ -65,7 +73,6 @@ as.uts.zoo <- function(x, ...)
 #' if (requireNamespace("zoo", quietly = TRUE)) {
 #'   zoo::as.zoo(ex_uts())
 #' }
-# NEXT: how to move into package without requiring installation of "zoo"?
 as.zoo.uts <- function(x)
 {
   if (!requireNamespace("zoo", quietly=TRUE))
@@ -73,4 +80,21 @@ as.zoo.uts <- function(x)
   zoo::zoo(x$values, x$times)
 }
 
+
+#' Coercion to xts
+#' 
+#' @return An \code{\link[xts:xts]{xts}} object.
+#' @param x a \code{"uts"} object.
+#' @param \dots further arguments passed to or from methods.
+#' 
+#' @examples
+#' if (requireNamespace("xts", quietly = TRUE)) {
+#'   xts::as.xts(ex_uts())
+#' }
+as.xts.uts <- function(x)
+{
+  if (!requireNamespace("xts", quietly=TRUE))
+    stop("Package 'xts' needed for this function to work")
+  xts::xts(x$values, x$times)
+}
 

@@ -31,6 +31,7 @@ export(which.min)
 S3method("[", uts)
 S3method("[<-", uts)
 S3method(as.uts, ts)
+S3method(as.uts, xts)
 S3method(as.uts, zoo)
 S3method(as.data.frame, uts)
 S3method(cycle, uts)
@@ -73,6 +74,7 @@ S3method(window, uts)
 
 ### S3 methods that cause problems when registered with S3method()
 export(as.zoo.uts)  # could not figure out how to register S3 method without importing "zoo" package
+export(as.xts.uts)  # could not figure out how to register S3 method without importing "xts" package
 export(first.uts)   # otherwise loading the "xts" package masks this method on the search path
 export(last.uts)    # otherwise loading the "xts" package masks this method on the search path
 
