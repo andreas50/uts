@@ -23,7 +23,7 @@ NULL
 #' \dontrun{frequency(ex_uts())}
 frequency.uts <- function(x, ...)
 {
-  stop("Unevenly-spaced time series ('uts') objects do not have a frequency attribute")
+  stop("Unevenly spaced time series ('uts') objects do not have a frequency attribute")
 }
 
 
@@ -33,7 +33,7 @@ frequency.uts <- function(x, ...)
 #' \dontrun{cycle(ex_uts())}
 cycle.uts <- function(x, ...)
 {
-  stop("Unevenly-spaced time series ('uts') objects do not have observation cycles")
+  stop("Unevenly spaced time series ('uts') objects do not have observation cycles")
 }
 
 

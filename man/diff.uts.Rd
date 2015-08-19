@@ -19,7 +19,7 @@
 Return a time series with suitably lagged differences of the observation values. Observation times without corresponding lagged observation time (for example, the second observation for \code{lag=3}) are dropped from the output.
 }
 \note{
-For an evenly-spaced time series, calculating differences over (1) a certain number of observations (e.g. over four observations for quarterly data), and (2) over a fixed time horizon (e.g. over one year) gives the same result. For unevenly-spaced time series, however, these two operations are quite different.
+For an evenly spaced time series, calculating differences over (1) a certain number of observations (e.g. over four observations for quarterly data), and (2) over a fixed time horizon (e.g. over one year) gives the same result. For unevenly spaced time series, however, these two operations are quite different.
 }
 \examples{
 diff(ex_uts())

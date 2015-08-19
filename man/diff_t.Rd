@@ -31,7 +31,7 @@ Observations times for which no difference can be calculated (i.e. times \code{t
 \item \code{uts}: rolling difference for a \code{"uts"} object.
 }}
 \note{
-For an evenly-spaced time series, calculating differences over (1) a certain number of observations (e.g. over four observations for quarterly data), and (2) over a fixed time horizon (e.g. over one year) gives the same result. For unevenly-spaced time series, however, these two operations are quite different.
+For an evenly spaced time series, calculating differences over (1) a certain number of observations (e.g. over four observations for quarterly data), and (2) over a fixed time horizon (e.g. over one year) gives the same result. For unevenly spaced time series, however, these two operations are quite different.
 }
 \examples{
 diff_t(ex_uts(), by=ddays(1))

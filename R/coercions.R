@@ -62,7 +62,6 @@ as.uts.zoo <- function(x, ...)
 }
 
 
-
 #' Coercion to zoo
 #' 
 #' @return A \code{\link[zoo:zoo]{zoo}} object.

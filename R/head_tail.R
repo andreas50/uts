@@ -6,7 +6,7 @@
 #' 
 #' Return a subperiod time series with the first or last part. The length of the output is specified in terms of the \emph{number of observations}.
 #' 
-#' @note For an evenly-spaced time series, the methods \code{head()} and \code{head_t()} (or \code{tail()} and \code{tail_t()}) essentially work the same. For unevenly-spaced time series, however, they are quite different. The subperiod window of the former is determined by the observation \emph{values}, while for the latter it is determined by the observation \emph{times}.
+#' @note For an evenly spaced time series, the methods \code{head()} and \code{head_t()} (or \code{tail()} and \code{tail_t()}) essentially work the same. For unevenly spaced time series, however, they are quite different. The subperiod window of the former is determined by the observation \emph{values}, while for the latter it is determined by the observation \emph{times}.
 #' 
 #' @param x a \code{"uts"} object.
 #' @param n a single integer. If positive, length of the the resulting time series. If negative, all but the \code{n} last/first number of observations of \code{x}.

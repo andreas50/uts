@@ -7,7 +7,7 @@
 #' @param scale on which scale to calculate differences. Either \code{"abs"} for absolute differences \code{x[n] - x[n - lag]}, \code{"rel"} for relative differences \code{x[n] / x[n - lag] - 1}, or \code{"log"} for logarithmic differences \code{log(x[n] / x[n - lag])}.
 #' @param \dots further arguments passed to or from methods.
 #' 
-#' @note For an evenly-spaced time series, calculating differences over (1) a certain number of observations (e.g. over four observations for quarterly data), and (2) over a fixed time horizon (e.g. over one year) gives the same result. For unevenly-spaced time series, however, these two operations are quite different.
+#' @note For an evenly spaced time series, calculating differences over (1) a certain number of observations (e.g. over four observations for quarterly data), and (2) over a fixed time horizon (e.g. over one year) gives the same result. For unevenly spaced time series, however, these two operations are quite different.
 #' 
 #' @seealso \code{\link[base:diff]{diff}} in base \R.
 #' @seealso \code{\link{diff_t}} allows to calculate differences over a fixed \emph{time horizon}, as opposed to \emph{number of observations}.
@@ -64,7 +64,7 @@ diff.uts <- function(x, lag=1, scale="abs", ...)
 #' @param scale on which scale to calculate differences. Either \code{"abs"} for absolute differences \code{x_t - x[t - by]}, \code{"rel"} for relative differences \code{x_t / x[t - by] - 1}, or \code{"log"} for logarithmic differences \code{log(x_t / x[t - by])}.
 #' @param \dots further arguments passed to or from methods.
 #' 
-#' @note For an evenly-spaced time series, calculating differences over (1) a certain number of observations (e.g. over four observations for quarterly data), and (2) over a fixed time horizon (e.g. over one year) gives the same result. For unevenly-spaced time series, however, these two operations are quite different.
+#' @note For an evenly spaced time series, calculating differences over (1) a certain number of observations (e.g. over four observations for quarterly data), and (2) over a fixed time horizon (e.g. over one year) gives the same result. For unevenly spaced time series, however, these two operations are quite different.
 diff_t <- function(x, ...) UseMethod("diff_t")
   
 

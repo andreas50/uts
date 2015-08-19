@@ -24,7 +24,7 @@ Return a subperiod time series with the terminal part, where the length is speci
 \item \code{uts}: terminal subperiod time seried for \code{"uts"} object.
 }}
 \note{
-For an evenly-spaced time series, the methods \code{tail()} and \code{tail_t()} essentially work the same. For unevenly-spaced time series, however, they are quite different. The subperiod window of the former is determined by the observation \emph{values}, while for the latter it is determined by the observation \emph{times}.
+For an evenly spaced time series, the methods \code{tail()} and \code{tail_t()} essentially work the same. For unevenly spaced time series, however, they are quite different. The subperiod window of the former is determined by the observation \emph{values}, while for the latter it is determined by the observation \emph{times}.
 }
 \examples{
 tail_t(ex_uts(), ddays(1))

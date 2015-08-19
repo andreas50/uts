@@ -4,7 +4,7 @@
 
 #' Unevenly-spaced Time Series
 #' 
-#' Create an unevenly-spaced time series (\code{"uts"}) object from a vector of observation values and a vector of observation times of matching length.
+#' Create an unevenly spaced time series (\code{"uts"}) object from a vector of observation values and a vector of observation times of matching length.
 #'
 #' @return An object of class \code{"uts"}.
 #' @param values a vector of observation values.

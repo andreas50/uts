@@ -6,7 +6,7 @@
 #' 
 #' Return a subperiod time series with the initial part, where the length is specified in terms of the \emph{temporal length}.
 #' 
-#' @note For an evenly-spaced time series, the methods \code{head()} and \code{head_t()} essentially work the same. For unevenly-spaced time series, however, they are quite different. The subperiod window of the former is determined by the observation \emph{values}, while for the latter it is determined by the observation \emph{times}.
+#' @note For an evenly spaced time series, the methods \code{head()} and \code{head_t()} essentially work the same. For unevenly spaced time series, however, they are quite different. The subperiod window of the former is determined by the observation \emph{values}, while for the latter it is determined by the observation \emph{times}.
 #' 
 #' @param x a time series object.
 #' @param width a \code{\link[lubridate]{duration}} object, specifying the temporal width of the initial subperiod time series.
@@ -34,7 +34,7 @@ head_t.uts <- function(x, width, ...)
 #' 
 #' Return a subperiod time series with the terminal part, where the length is specified in terms of the \emph{temporal length}.
 #' 
-#' @note For an evenly-spaced time series, the methods \code{tail()} and \code{tail_t()} essentially work the same. For unevenly-spaced time series, however, they are quite different. The subperiod window of the former is determined by the observation \emph{values}, while for the latter it is determined by the observation \emph{times}.
+#' @note For an evenly spaced time series, the methods \code{tail()} and \code{tail_t()} essentially work the same. For unevenly spaced time series, however, they are quite different. The subperiod window of the former is determined by the observation \emph{values}, while for the latter it is determined by the observation \emph{times}.
 #' 
 #' @param x a time series object.
 #' @param width a \code{\link[lubridate]{duration}} object, specifying the temporal width of the terminal subperiod time series.
