@@ -20,7 +20,7 @@ first <- function(x, ...) UseMethod("first")
 #' first(ex_uts())
 first.uts <- function(x, ...)
 {
-  x$values[1]
+  x$values[[1]]
 }
 
 
@@ -43,5 +43,5 @@ last <- function(x, ...) UseMethod("last")
 #' first(ex_uts())
 last.uts <- function(x, ...)
 {
-  x$values[length(x$values)]
+  x$values[[length(x$values)]]
 }
