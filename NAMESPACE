@@ -2,7 +2,7 @@
 useDynLib(uts)
 
 
-### Import from other packages
+### Imports from other packages
 import(lubridate)
 importFrom(stats, cycle, end, frequency, lag, median, na.omit, sd, start, time, window)
 importFrom(utils, head, tail)

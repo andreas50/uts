@@ -35,9 +35,17 @@ Convert other time series objects to \code{"uts"} objects.
 \item \code{zoo}: convert a \code{\link[zoo:zoo]{zoo}} object
 }}
 \examples{
-# Convert a "ts" time series
+# Convert a quarterly "ts" time series
 ts1 <- ts(1:10, frequency = 4, start = c(1959, 2))
 as.uts(ts1)
+
+# Convert a monthly "ts" time series
+ts2 <- ts(1:10, frequency = 12, start = c(1959, 8))
+as.uts(ts2)
+
+# Convert a yearly 'ts" time series
+ts3 <- ts(1:10, frequency = 1, start = 1959)
+as.uts(ts3)
 #
 # Convert an "xts" time series
 if (requireNamespace("xts", quietly = TRUE)) {

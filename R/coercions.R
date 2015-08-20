@@ -15,9 +15,17 @@ as.uts <- function(x, ...) UseMethod("as.uts")
 #' @describeIn as.uts convert a \code{\link[stats:ts]{ts}} object
 #' 
 #' @examples
-#' # Convert a "ts" time series
+#' # Convert a quarterly "ts" time series
 #' ts1 <- ts(1:10, frequency = 4, start = c(1959, 2))
 #' as.uts(ts1)
+#' 
+#' # Convert a monthly "ts" time series
+#' ts2 <- ts(1:10, frequency = 12, start = c(1959, 8))
+#' as.uts(ts2)
+#' 
+#' # Convert a yearly 'ts" time series
+#' ts3 <- ts(1:10, frequency = 1, start = 1959)
+#' as.uts(ts3)
 as.uts.ts <- function(x, ...)
 {
   # Extract values and times
