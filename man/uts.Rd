@@ -4,7 +4,7 @@
 \alias{uts}
 \title{Unevenly-spaced Time Series}
 \usage{
-uts(values = c(), times = as.POSIXct(character()))
+uts(values = numeric(), times = as.POSIXct(character()))
 }
 \arguments{
 \item{values}{a vector of observation values.}

@@ -22,7 +22,7 @@
 #'
 #' # Create an empty "uts"
 #' uts()
-uts <- function(values=c(), times=as.POSIXct(character()))
+uts <- function(values=numeric(), times=as.POSIXct(character()))
 {
   # Argument checking
   if (length(values) != length(times))
@@ -141,6 +141,7 @@ print.uts <- function (x, style="horizontal", ...)
 #' @examples
 #' merge(ex_uts(), ex_uts())
 #' merge(ex_uts(), ex_uts2())
+#' merge(ex_uts2(), ex_uts())
 #' merge(uts(), ex_uts())
 merge.uts <- function(x, y, tolerance=.Machine$double.eps ^ 0.5, ...)
 {
