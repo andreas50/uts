@@ -12,7 +12,7 @@
 #' min(ex_uts(), na.rm=TRUE)
 #' 
 #' # Check if any observation value is larger than 48
-#' #any(ex_uts() > 48)
+#' any(ex_uts() > 48)
 Summary.uts <- function(x, ...)
 {
   do.call(.Generic, list(x$values, ...))
