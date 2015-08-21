@@ -2,7 +2,6 @@
 # Methods that calculate summaries of the observation values #
 ##############################################################
 
-
 #' Summary of Time Series Values
 #' 
 #' This method calls \code{\link{summary}} from base \R with observation values of a time series.
