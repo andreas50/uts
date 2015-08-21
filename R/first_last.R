@@ -20,9 +20,11 @@ first <- function(x, ...) UseMethod("first")
 #' first(ex_uts())
 first.uts <- function(x, ...)
 {
-  x$values[[1]]
+  if (length(x) > 0)
+    x$values[[1]]
+  else
+    NULL
 }
-
 
 
 #' Last Value
@@ -43,5 +45,8 @@ last <- function(x, ...) UseMethod("last")
 #' first(ex_uts())
 last.uts <- function(x, ...)
 {
-  x$values[[length(x$values)]]
+  if (length(x) > 0)
+    x$values[[length(x$values)]]
+  else
+    NULL
 }

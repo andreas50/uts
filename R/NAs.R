@@ -18,9 +18,6 @@
 #' na.omit(tmp)
 na.omit.uts <- function(object, ...)
 {
-  if (length(object) == 0)
-    return(object)
-  
   keep <- !is.na(object$values)
   object$values <- object$values[keep]
   object$times <- object$times[keep]
