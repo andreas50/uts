@@ -13,7 +13,7 @@ start.uts <- function(x, ...)
   if (length(x) > 0)
     x$times[1L]
   else
-    NA
+    as.POSIXct(NA)
 }
 
 
@@ -28,5 +28,5 @@ end.uts <- function(x, ...)
   if (length(x) > 0)
     x$times[length(x$times)]
   else
-    NA
+    as.POSIXct(NA)
 }
