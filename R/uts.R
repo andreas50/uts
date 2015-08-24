@@ -57,24 +57,6 @@ is.uts <- function(x)
 }
 
 
-#' Number of Observations
-#' 
-#' Return the number of time series observations.
-#' 
-#' @note
-#' This methods only exists because the default implementation of \code{\link{length}} from base \R returns the number of fields in the internal representation of a \code{"uts"} object, instead of the number of observations.
-#' 
-#' @param x a \code{"uts"} object.
-#' 
-#' @keywords internal
-#' @examples 
-#' length(ex_uts())
-length.uts <- function(x)
-{
-  length(x$times)
-}
-
-
 #' Internal Structure of uts
 #' 
 #' Compactly display the internal structure of a \code{"uts"} object.

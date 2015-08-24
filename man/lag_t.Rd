@@ -10,7 +10,7 @@ lag_t(x, ...)
 \method{lag_t}{uts}(x, lag_t, ...)
 }
 \arguments{
-\item{x}{a time series object of appropriate type.}
+\item{x}{a time series object.}
 
 \item{lag_t}{a \code{\link[lubridate]{duration}} object, specifying how much to shift the observation times of \code{x} forward.}
 
