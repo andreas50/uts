@@ -15,7 +15,7 @@ length_t(x, ...)
 \item{\dots}{further arguments passed to or from methods.}
 }
 \value{
-A \code{\link{difftime}} object.
+A \code{\link[lubridate]{duration}} object.
 }
 \description{
 Return the temporal length of a time series, i.e. the time difference between the first and last observation time.

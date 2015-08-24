@@ -15,10 +15,10 @@ test_that("length works",{
 test_that("length_t works",{
   expect_equal(
     length_t(ex_uts()),
-    diff(range(ex_uts()$times))
+    as.duration(diff(range(ex_uts()$times)))
   )
   expect_equal(
     length_t(uts()),
-    as.difftime(NA_real_, units="secs")
+    as.duration(NA)
   )
 })

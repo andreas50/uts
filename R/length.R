@@ -22,7 +22,7 @@ length.uts <- function(x)
 #'
 #' @note For an evenly spaced time series there is a one-to-one correspondence between (1) the \emph{number} of observations, and (2) \emph{temporal} length. For unevenly spaced time series, however, these two concepts are quite different.
 #'
-#' @return A \code{\link{difftime}} object.
+#' @return A \code{\link[lubridate]{duration}} object.
 #' @param x a time series object.
 #' @param \dots further arguments passed to or from methods.
 #' 
@@ -38,5 +38,5 @@ length_t <- function(x, ...) UseMethod("length_t")
 #' length_t(uts())
 length_t.uts <- function(x,  ...)
 {
-  end(x) - start(x)
+  as.duration(end(x) - start(x))
 }
