@@ -13,6 +13,14 @@ An Unevenly-spaced Time Series (uts) is a sequence of observation time and value
 
 ## Comparison with other packages for irregular time series
 
+| Time series operation           | In terms of observations | In terms of time units|
+|---------------------------------|--------------------------|-----------------------|
+| Get the length                  | length | length_t |
+| Get initial subperiod           | head | head_t |
+| Get terminal subperiod          | tail | tail_t |
+| Delay observations              | lag | lag_t |
+| Calculate differences over time | diff | diff_t |
+
 
 
 ## Indexing
