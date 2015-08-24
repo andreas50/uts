@@ -13,14 +13,18 @@ An Unevenly-spaced Time Series (uts) is a sequence of observation time and value
 
 ## Comparison with other packages for irregular time series
 
-| Time series operation           | In terms of observations | In terms of time units|
-|---------------------------------|--------------------------|-----------------------|
+| Time series operation           | In terms of observations | In terms of time units |
+|---------------------------------|--------------------------|------------------------|
 | Get the length                  | length | length_t |
 | Get initial subperiod           | head | head_t |
 | Get terminal subperiod          | tail | tail_t |
 | Delay observations              | lag | lag_t |
 | Calculate differences over time | diff | diff_t |
 
+
+Methods that operate in terms of observations typically have an integer argument, specifying the number of consecutive observations involved in the operation.
+
+On the other hand, methods that operate in terms of time units typically have a duration object as an argument, specifying the width of a rolling time window. Observations falling into this time window or involved in the operation, and the number of such observations varies over time depending on the observation density.
 
 
 ## Indexing
