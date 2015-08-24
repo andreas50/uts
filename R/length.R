@@ -6,9 +6,10 @@
 #' 
 #' @param x a \code{"uts"} object.
 #' 
-#' @keywords internal
+#' @seealso \code{\link{length_t}} allows to get the temporal length of a time series.
 #' @examples 
 #' length(ex_uts())
+#' length(uts())
 length.uts <- function(x)
 {
   length(x$times)

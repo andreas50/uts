@@ -17,6 +17,9 @@ For an evenly spaced time series there is a one-to-one correspondence between (1
 }
 \examples{
 length(ex_uts())
+length(uts())
 }
-\keyword{internal}
+\seealso{
+\code{\link{length_t}} allows to get the temporal length of a time series.
+}
 
