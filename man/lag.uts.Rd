@@ -17,7 +17,7 @@
 A \code{"uts"} object with the same observation times (apart from dropped observations) as \code{x}.
 }
 \description{
-Compute a lagged version of a time series by shifting individual observations values.
+Compute a lagged version of a time series by shifting observation values.
 }
 \details{
 Each observation time-value tuple \eqn{(t[n], x[n])} in the original time series is replaced by \eqn{(t[n], x[n-k])} in the lagged time series. Observations without corresponding un-lagged value (for example, the second observation for lag \code{k=3}) are dropped from the output.

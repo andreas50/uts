@@ -17,7 +17,7 @@ lag_t(x, ...)
 \item{\dots}{further arguments passed to or from methods.}
 }
 \description{
-Lag observation times of a time series by a given amount. In other words, add a certain amount of time to each observation time.
+Compute a lagged version of a time series by shifting observation \emph{times}. Each observation time is shifted by the same temporal amount, thereby causing a shift in the time series sample path.
 }
 \section{Methods (by class)}{
 \itemize{

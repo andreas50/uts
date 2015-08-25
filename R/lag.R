@@ -1,6 +1,6 @@
 #' Lag Observation Values
 #' 
-#' Compute a lagged version of a time series by shifting individual observations values.
+#' Compute a lagged version of a time series by shifting observation values.
 #' 
 #' Each observation time-value tuple \eqn{(t[n], x[n])} in the original time series is replaced by \eqn{(t[n], x[n-k])} in the lagged time series. Observations without corresponding un-lagged value (for example, the second observation for lag \code{k=3}) are dropped from the output.
 #' 
@@ -59,7 +59,7 @@ lag.uts <- function(x, k=1, ...)
 
 #' Lag Observation Times
 #'
-#' Lag observation times of a time series by a given amount. In other words, add a certain amount of time to each observation time.
+#' Compute a lagged version of a time series by shifting observation \emph{times}. Each observation time is shifted by the same temporal amount, thereby causing a shift in the time series sample path.
 #'
 #' @note For an evenly spaced time series (1) shifting observation \emph{times}, and (2) shifting observation \emph{values} essentinally gives the same result. For unevenly spaced time series, however, these two operations are quite different. The former affects only the observation \emph{times}, while the latter affects only the observation \emph{values} (apart from observations that are dropped).
 #'
