@@ -13,19 +13,19 @@ An Unevenly-spaced Time Series (uts) is a sequence of observation time and value
 
 ## Comparison with other packages for irregular time series
 
-| Time series operation           | In terms of observations | In terms of time units |
-|---------------------------------|--------------------------|------------------------|
-| Get the length                  | length | length_t |
-| Get initial subperiod           | head | head_t |
-| Get terminal subperiod          | tail | tail_t |
-| Delay observations              | lag | lag_t |
-| Calculate differences over time | diff | diff_t |
+| Time series operation           | In terms of number of observations | In terms of time window |
+|---------------------------------|------------------------------------|-------------------------|
+| Get initial subperiod           | `head` | `head_t` |
+| Get terminal subperiod          | `tail` | `tail_t` |
+| Delay observations              | `lag` | `lag_t` |
+| Calculate differences over time | `diff` | `diff_t` |
+| Get the length                  | `length` | `length_t` |
 
+Methods that operate in terms of number of observations typically specify that number using an integer argument.
 
-Methods that operate in terms of observations typically have an integer argument, specifying the number of consecutive observations involved in the operation.
+On the other hand, methods that operate in terms of a time window typically have an argument specifying the temporal width (also know as *duration*) of this time window[^1]. The number of observations falling into this window depends on the observation density of the time series.
 
-On the other hand, methods that operate in terms of time units typically have a duration object as an argument, specifying the width of a rolling time window. Observations falling into this time window or involved in the operation, and the number of such observations varies over time depending on the observation density.
-
+[^1]: `length` and `length_t` are exceptions. Instead of requiring an integer or duration argument, respectively, they return such a value.
 
 ## Indexing
 
