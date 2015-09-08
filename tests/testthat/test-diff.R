@@ -2,13 +2,13 @@ context("diff")
 
 test_that("diff works",{
   # Trivial case
-  expect_equal(
+  expect_identical(
     diff(ex_uts(), lag=0),
     uts(rep(0, length(ex_uts())), ex_uts()$times)
   )
   
   # Empty time series as results
-  expect_equal(
+  expect_identical(
     diff(ex_uts(), lag=length(ex_uts())),
     uts()
   )
@@ -25,15 +25,15 @@ test_that("diff works",{
 
 test_that("diff_t works",{
   # Trivial case
-  expect_equal(
+  expect_identical(
     lag_t(ex_uts(), ddays(0)),
     ex_uts()
   )
   
   # Empty time series as results
-  expect_equal(
+  expect_identical(
     length(diff_t(ex_uts(), by=as.duration(end(ex_uts()) - start(ex_uts())) + dseconds(1))),
-    0
+    0L
   )
   
   # Intentional error

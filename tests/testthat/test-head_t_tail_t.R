@@ -9,11 +9,11 @@ test_that("head_t works",{
   expect_error(head_t(uts()))
   
   # Entire time series returned if window width equal to temporal length of time series
-  expect_equal(
+  expect_identical(
     head_t(ex_uts(), as.duration(end(ex_uts()) - start(ex_uts()))),
     ex_uts()
   )
-  expect_equal(
+  expect_identical(
     head_t(uts(), ddays(1)),
     uts()
   )
@@ -29,11 +29,11 @@ test_that("tail_t works",{
   expect_error(tail_t(uts()))
   
   # Entire time series returned if window width equal to temporal length of time series
-  expect_equal(
+  expect_identical(
     tail_t(ex_uts(), as.duration(end(ex_uts()) - start(ex_uts()))),
     ex_uts()
   )
-  expect_equal(
+  expect_identical(
     tail_t(uts(), ddays(1)),
     uts()
   )

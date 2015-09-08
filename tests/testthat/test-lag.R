@@ -2,7 +2,7 @@ context("lag")
 
 test_that("lag works",{
   # Trivial case
-  expect_equal(
+  expect_identical(
     lag(ex_uts(), k=6),
     uts()
   )
@@ -18,7 +18,7 @@ test_that("lag works",{
 
 test_that("lag_t works",{
   # Trivial case
-  expect_equal(
+  expect_identical(
     lag_t(ex_uts(), ddays(0)),
     ex_uts()
   )

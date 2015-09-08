@@ -9,7 +9,7 @@ test_that("head works",{
   
 
   # Entire time series returned if requested length >= time series length
-  expect_equal(
+  expect_identical(
     head(ex_uts(), length(ex_uts())),
     ex_uts()
   )
@@ -25,7 +25,7 @@ test_that("tail works",{
   
   
   # Entire time series returned if requested length >= time series length
-  expect_equal(
+  expect_identical(
     tail(ex_uts(), length(ex_uts())),
     ex_uts()
   )

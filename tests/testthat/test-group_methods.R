@@ -1,7 +1,7 @@
 context("group_methods")
 
 test_that("Summary works",{
-  expect_equal(
+  expect_identical(
     min(ex_uts(), na.rm=TRUE),
     min(ex_uts()$values)
   )
@@ -15,11 +15,11 @@ test_that("Summary works",{
 
 
 test_that("Math works",{
-  expect_equal(
+  expect_identical(
     log(ex_uts(), base=2)$values,
     log(ex_uts()$values, base=2)
   )
-  expect_equal(
+  expect_identical(
     cumsum(ex_uts())$values,
     cumsum(ex_uts()$values)
   )
