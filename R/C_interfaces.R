@@ -37,9 +37,9 @@ num_leq_sorted <- function(a, b, tolerance=0)
 {
   # Trivial cases
   if (length(a) == 0L)
-    return(numeric())
+    return(integer())
   if (length(b) == 0L)
-    return(rep(0, length(a)))
+    return(rep(0L, length(a)))
   
   # Input checking
   if (anyNA(a) | anyNA(b))
