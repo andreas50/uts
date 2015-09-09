@@ -1,6 +1,11 @@
 context("C utility functions")
 
 test_that("num_leq_sorted works",{
+  # Argument checking
+  expect_error(num_leq_sorted(c(), NA))
+  expect_error(num_leq_sorted(c(), c(), tolerance=NA))
+  expect_error(num_leq_sorted(c(), c(), tolerance=-1))
+  
   expect_identical(
     num_leq_sorted(c(-3, 1, 3, 5, 7), c(0, 1, 4, 9, 16)),
     as.integer(c(0, 2, 2, 3, 3))
@@ -41,6 +46,11 @@ test_that("num_leq_sorted correctly handles trivial cses",{
 
 
 test_that("sorted_union works",{
+  # Argument checking
+  expect_error(sorted_union(c(), NA))
+  expect_error(sorted_union(c(), c(), tolerance=NA))
+  expect_error(sorted_union(c(), c(), tolerance=-1))
+  
   expect_identical(
     sorted_union(1:3, 2:4),
     as.numeric(1:4)

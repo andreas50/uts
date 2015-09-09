@@ -11,7 +11,7 @@ sorted_union(a, b, tolerance = 0)
 
 \item{b}{a sorted vector of numbers.}
 
-\item{tolerance}{a non-negative number, indicating the tolerance for numerical noise.}
+\item{tolerance}{a non-negative number, indicating the tolerance for numerical noise. Specifically, numbers in \code{a} and \code{b} are appended one by one and in the appropriate order to the output vector. However, a number is only added if it is more than \code{tolerance} larger than the most recently added number.}
 }
 \value{
 A numeric vector.
