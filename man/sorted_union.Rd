@@ -11,10 +11,10 @@ sorted_union(a, b, tolerance = 0)
 
 \item{b}{a sorted vector of numbers.}
 
-\item{tolerance}{tolerance for numerical noise.}
+\item{tolerance}{a non-negative number, indicating the tolerance for numerical noise.}
 }
 \value{
-A vector of same length as \code{a}.
+A numeric vector.
 }
 \description{
 For two sorted numeric vectors \code{a} and \code{b}, determine the sorted union of elements.

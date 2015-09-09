@@ -11,10 +11,10 @@ num_leq_sorted(a, b, tolerance = 0)
 
 \item{b}{a sorted vector of numbers.}
 
-\item{tolerance}{tolerance for numerical noise.}
+\item{tolerance}{a non-negative number, idicating the tolerance for numerical noise.}
 }
 \value{
-A vector of same length as \code{a}.
+An integer vector of same length as \code{a}.
 }
 \description{
 Assume given two sorted numeric vectors \code{a} and \code{b}. For each element \code{a[i]}, determine the number of elements in \code{b} that are less than or equal (leq) to this value.

@@ -9,10 +9,10 @@
 #' @note
 #' Equivalently, because the input vectors are sorted, for each element \code{a[i]} determine the maximum index \code{j} with \code{b[j] <= a[i]}. 
 #' 
-#' @return A vector of same length as \code{a}.
+#' @return An integer vector of same length as \code{a}.
 #' @param a a sorted vector of numbers.
 #' @param b a sorted vector of numbers.
-#' @param tolerance tolerance for numerical noise.
+#' @param tolerance a non-negative number, idicating the tolerance for numerical noise.
 #' 
 #' @keywords internal
 #' @examples
@@ -35,15 +35,19 @@
 #' num_leq_sorted(1:5, c())
 num_leq_sorted <- function(a, b, tolerance=0)
 {
+  # Argument checking
+  if (is.na(tolerance))
+    stop("'tolerance' is NA")
+  if (tolerance < 0)
+    stop("'tolerance' is negative")
+  if (anyNA(a) | anyNA(b))
+    stop("NAs are not allowed as input")
+  
   # Trivial cases
   if (length(a) == 0L)
     return(integer())
   if (length(b) == 0L)
     return(rep(0L, length(a)))
-  
-  # Input checking
-  if (anyNA(a) | anyNA(b))
-    stop("NAs are not allowed as input")
   
   # Call C function
   res <- integer(length(a))
@@ -52,15 +56,14 @@ num_leq_sorted <- function(a, b, tolerance=0)
 }
 
 
-
 #' Sorted Union
 #' 
 #' For two sorted numeric vectors \code{a} and \code{b}, determine the sorted union of elements.
 #' 
-#' @return A vector of same length as \code{a}.
+#' @return A numeric vector.
 #' @param a a sorted vector of numbers.
 #' @param b a sorted vector of numbers.
-#' @param tolerance tolerance for numerical noise.
+#' @param tolerance a non-negative number, indicating the tolerance for numerical noise.
 #' 
 #' @keywords internal
 #' @examples
@@ -76,17 +79,17 @@ num_leq_sorted <- function(a, b, tolerance=0)
 #' sorted_union(c(), 1:10)
 sorted_union <- function(a, b, tolerance=0)
 {
-  # Preprocessing and trivial cases
-  na <- as.integer(length(a))
-  nb <- as.integer(length(b))
-  if (na == 0L)
-    return(b)
-  if (nb == 0L)
-    return(a)
+  # Argument checking
+  if (is.na(tolerance))
+    stop("'tolerance' is NA")
+  if (tolerance < 0)
+    stop("'tolerance' is negative")
+  if (anyNA(a) | anyNA(b))
+    stop("NAs are not allowed as input")
   
   # Call C-function
-  res <- .C("sorted_union", as.double(a), na, as.double(b), nb, tolerance=as.double(tolerance),
-            res=numeric(na + nb), length=integer(1))
+  res <- .C("sorted_union", as.double(a), length(a), as.double(b), length(b),
+    tolerance=as.double(tolerance), res=numeric(length(a) + length(b)), length=integer(1))
   res$res[1L:res$length]
 }
 
