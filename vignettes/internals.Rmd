@@ -1,0 +1,21 @@
+---
+title: "uts Internals"
+author: "Andreas Eckner"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{uts Internals}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+This document provides an overview of the internal functions of the `uts` package. These functions are typically to needed by ordinary users, but might be of interest to developers seeking the extend the package.
+
+### Internal representation of `uts` objects
+
+A `uts` object is a list of length two with class attribute `c("uts", "list")`. The two list entries are vectors of equal length and are called `values` and `times`.
+
+The former is an `R` vector of arbitrary mode, containing the observation *values*. The latter is a `POSIXct` vector of strictly increasing observation *times*.
+
+
+### Internal functions
