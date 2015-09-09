@@ -48,11 +48,11 @@ void sorted_union(const double a[], const int *na, const double b[], const int *
   
   // Initialize previously inserted value to a value smaller than all elements in 'a' and 'b'
   if (*na == 0)
-    previous_value = b[0] - 1;
+    previous_value = b[0] - *tolerance - 1;
   else if (*nb == 0)
-    previous_value = a[0] - 1;
+    previous_value = a[0] - *tolerance - 1;
   else
-    previous_value = min(a[0], b[0]) - 1;
+    previous_value = min(a[0], b[0]) - *tolerance - 1;
   
   // Fill the output vector with elements from 'a' and 'b'
   while ((i < *na) | (j < *nb)) 
