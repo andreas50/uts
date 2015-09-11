@@ -28,7 +28,7 @@ test_that("num_leq_sorted robust to numerical noise",{
   )
 })
 
-test_that("num_leq_sorted correctly handles trivial cses",{
+test_that("num_leq_sorted correctly handles trivial cases",{
   expect_identical(
     num_leq_sorted(1:5, 1:5),
     1:5

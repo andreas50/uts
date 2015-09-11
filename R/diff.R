@@ -22,10 +22,6 @@ diff.uts <- function(x, lag=1, scale="abs", ...)
   if (is.duration(lag))
     stop("'lag' is a duration object instead of an integer")
   
-  # Trivial case
-  if (length(x) <= abs(lag))
-    return(uts())
-  
   # Calculate lagged difference on desired scale
   if (scale == "abs")
     out <- x - lag(x, k=lag)

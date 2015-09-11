@@ -43,12 +43,6 @@ num_leq_sorted <- function(a, b, tolerance=0)
   if (anyNA(a) | anyNA(b))
     stop("NAs are not allowed as input")
   
-  # Trivial cases
-  if (length(a) == 0L)
-    return(integer())
-  if (length(b) == 0L)
-    return(rep(0L, length(a)))
-  
   # Call C function
   res <- integer(length(a))
   .C("num_leq_sorted", as.double(a + tolerance), as.integer(length(a)),

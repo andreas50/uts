@@ -26,6 +26,13 @@ void num_leq_sorted(const double a[], const int *na, const double b[], const int
 {
   unsigned int i=0, j=0;
 
+  // Trivial case
+  if (*nb == 0) {
+    for (i = 0; i < *na; i++)
+      pos[i] = 0;
+    return;
+  }
+  
   for (i = 0; i < *na; i++) {
     while ((j < *nb) && (b[j] <= a[i]))
 	  j++;

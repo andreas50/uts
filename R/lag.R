@@ -34,7 +34,7 @@ lag.uts <- function(x, k=1, ...)
   
   # Trivial case
   len <- length(x)
-  if (length(x) <= abs(k))
+  if (len <= abs(k))
     return(uts())
   
   # Shift observation values

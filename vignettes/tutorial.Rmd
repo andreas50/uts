@@ -31,7 +31,7 @@ On the other hand, methods that operate in terms of a time window typically have
 
 
 
-## Recylcing rules
+## Recycling rules
 
 `R` uses a variety of rules for handling arithmetic between vectors and arrays of different lengths. These are commonly known as *recycling rules*, see Section 5.4.1 of "An introduction to R" for a complete list.
 

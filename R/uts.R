@@ -91,7 +91,7 @@ str.uts <- function(object, ...)
 #' uts()
 print.uts <- function (x, style="horizontal", ...) 
 {
-  # Trivial case of no observations
+  # Special case of empty time series
   if (length(x) == 0L) {
     cat("No observations available at this time.\n")
     return(invisible(x))
