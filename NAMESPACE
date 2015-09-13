@@ -1,18 +1,18 @@
-### Load dynamic library with compliled C code
+# Load dynamic library with compliled C code
 useDynLib(uts)
 
 
-### Imports from other packages
+# Imports from other packages
 import(lubridate)
 importFrom(stats, cycle, end, frequency, lag, median, na.omit, sd, start, time, window)
 importFrom(utils, head, tail)
 
 
-### Export class constructors
+# Export class constructors
 export(uts)
 
 
-### Export generic methods
+# Export generic methods
 export(as.uts)
 export(diff_t)
 export(first)
@@ -28,7 +28,7 @@ export(which.max)
 export(which.min)
 
 
-### Register S3 methods (needed if a package is imported but not attached to the search path)
+# Register S3 methods (needed if a package is imported but not attached to the search path)
 S3method("[", uts)
 S3method("[<-", uts)
 S3method(as.uts, ts)
@@ -74,20 +74,24 @@ S3method(which.min, uts)
 S3method(window, uts)
 
 
-### S3 methods that cause problems when registered with S3method()
-export(as.zoo.uts)  # could not figure out how to register S3 method without importing "zoo" package
-export(as.xts.uts)  # could not figure out how to register S3 method without importing "xts" package
-export(first.uts)   # otherwise loading the "xts" package masks this method on the search path
-export(last.uts)    # otherwise loading the "xts" package masks this method on the search path
+# S3 methods that cause problems when registered with S3method()
+# 1.) A method for a generic in a enhanced/suggested package cannot be registered.
+#     See chapter 8 of "R packages" by Hadley Wickham.
+export(as.zoo.uts)    # would need to create "zoo" package dependency
+export(as.xts.uts)    # would need to create "xts" package dependency
+# 2.) Otherwise loading the "xts" package masks these methods on the search path.
+#     Not clear why?
+export(first.uts)
+export(last.uts)
 
 
-### Sample time series
+# Sample time series
 export(download_co2)
 export(ex_uts)
 export(ex_uts2)
 
 
-### Miscellaneous functions
+# Miscellaneous functions
 export(is.uts)
 export(num_leq_sorted)
 export(split_segments)
