@@ -64,7 +64,7 @@ lag.uts <- function(x, k=1, ...)
 #' @note For an evenly spaced time series (1) shifting observation \emph{times}, and (2) shifting observation \emph{values} essentinally gives the same result. For unevenly spaced time series, however, these two operations are quite different. The former affects only the observation \emph{times}, while the latter affects only the observation \emph{values} (apart from observations that are dropped).
 #'
 #' @param x a time series object.
-#' @param lag_t a \code{\link[lubridate]{duration}} object, specifying how much to shift the observation times of \code{x} forward.
+#' @param lag_t a finite \code{\link[lubridate]{duration}} object, specifying how much to shift the observation times of \code{x} forward.
 #' @param \dots further arguments passed to or from methods.
 #' 
 #' @seealso \code{\link{lag.uts}} allows to shift observation \emph{values}, as opposed to observation \emph{times}.
@@ -82,6 +82,8 @@ lag_t.uts <- function(x, lag_t, ...)
   # Argument checking
   if (!is.duration(lag_t))
     stop("The lag_t is not a 'duration' object")
+  if (!is.finite(lag_t))
+    stop("'lag_t' is not finite")
   
   # Shift observation times
   x$times <- x$times + lag_t

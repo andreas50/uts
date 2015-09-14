@@ -22,6 +22,11 @@ diff.uts <- function(x, lag=1, scale="abs", ...)
   if (is.duration(lag))
     stop("'lag' is a duration object instead of an integer")
   
+  # Trivial case
+  len <- length(x)
+  if (len <= abs(lag))
+    return(uts())
+  
   # Calculate lagged difference on desired scale
   if (scale == "abs")
     out <- x - lag(x, k=lag)
@@ -56,7 +61,7 @@ diff.uts <- function(x, lag=1, scale="abs", ...)
 #' Observations times for which no difference can be calculated (i.e. times \code{t_i} with \code{t_i - by < t_1}) are dropped from the output.
 #' 
 #' @param x a time series object.
-#' @param by a \code{\link[lubridate]{duration}} object, specifying over which time horizon to calculate differences in observation values.
+#' @param by a finite \code{\link[lubridate]{duration}} object, specifying over which time horizon to calculate differences in observation values.
 #' @param scale on which scale to calculate differences. Either \code{"abs"} for absolute differences \code{x_t - x[t - by]}, \code{"rel"} for relative differences \code{x_t / x[t - by] - 1}, or \code{"log"} for logarithmic differences \code{log(x_t / x[t - by])}.
 #' @param \dots further arguments passed to or from methods.
 #' 
@@ -77,6 +82,8 @@ diff_t.uts <- function(x, by=NULL, scale="abs", ...)
     stop("'by' is not a 'duration' object")
   if (is.na(by))
     stop("The return horizon 'by' is NA")
+  if (!is.finite(by))
+    stop("'by' is not finite")
 
   # Calculate lagged time series
   x_lag <- lag_t(x[x$times - by], by)

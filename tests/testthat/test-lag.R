@@ -1,9 +1,17 @@
 context("lag")
 
 test_that("lag works",{
-  # Trivial case
+  # Trivial cases
   expect_identical(
     lag(ex_uts(), k=6),
+    uts()
+  )
+  expect_identical(
+    lag(ex_uts(), k=Inf),
+    uts()
+  )
+  expect_identical(
+    lag(ex_uts(), k=-Inf),
     uts()
   )
   
@@ -17,11 +25,12 @@ test_that("lag works",{
 
 
 test_that("lag_t works",{
-  # Trivial case
+  # Trivial cases
   expect_identical(
     lag_t(ex_uts(), ddays(0)),
     ex_uts()
   )
+  expect_error(lag_t(ex_uts(), ddays(Inf)))
   
   # Intentional error
   expect_error(

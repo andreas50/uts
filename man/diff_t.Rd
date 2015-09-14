@@ -12,7 +12,7 @@ diff_t(x, ...)
 \arguments{
 \item{x}{a time series object.}
 
-\item{by}{a \code{\link[lubridate]{duration}} object, specifying over which time horizon to calculate differences in observation values.}
+\item{by}{a finite \code{\link[lubridate]{duration}} object, specifying over which time horizon to calculate differences in observation values.}
 
 \item{scale}{on which scale to calculate differences. Either \code{"abs"} for absolute differences \code{x_t - x[t - by]}, \code{"rel"} for relative differences \code{x_t / x[t - by] - 1}, or \code{"log"} for logarithmic differences \code{log(x_t / x[t - by])}.}
 

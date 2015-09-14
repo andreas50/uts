@@ -12,6 +12,10 @@ test_that("diff works",{
     diff(ex_uts(), lag=length(ex_uts())),
     uts()
   )
+  expect_identical(
+    diff(ex_uts(), lag=-Inf),
+    uts()
+  )
   
   # Regression tests
   expect_equal_to_reference(diff(ex_uts()), file="test-diff_1.rds")
@@ -24,6 +28,10 @@ test_that("diff works",{
 
 
 test_that("diff_t works",{
+  # Argument checking
+  expect_error(diff_t(ex_uts(), 3))
+  expect_error(diff_t(ex_uts(), ddays(Inf)))
+  
   # Trivial case
   expect_identical(
     lag_t(ex_uts(), ddays(0)),
@@ -34,11 +42,6 @@ test_that("diff_t works",{
   expect_identical(
     length(diff_t(ex_uts(), by=as.duration(end(ex_uts()) - start(ex_uts())) + dseconds(1))),
     0L
-  )
-  
-  # Intentional error
-  expect_error(
-    diff_t(ex_uts(), 3)
   )
   
   # Regression tests

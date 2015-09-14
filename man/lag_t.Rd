@@ -12,7 +12,7 @@ lag_t(x, ...)
 \arguments{
 \item{x}{a time series object.}
 
-\item{lag_t}{a \code{\link[lubridate]{duration}} object, specifying how much to shift the observation times of \code{x} forward.}
+\item{lag_t}{a finite \code{\link[lubridate]{duration}} object, specifying how much to shift the observation times of \code{x} forward.}
 
 \item{\dots}{further arguments passed to or from methods.}
 }
