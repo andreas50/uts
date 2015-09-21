@@ -20,8 +20,8 @@ test_that("num_leq_sorted and num_leq_sorted_R give the same result",{
   expect_identical(num_leq_sorted(a, b), num_leq_sorted_R(a, b))
   
   set.seed(1)
-  a <- sort(runif(1000) * 1000)
-  b <- sort(runif(1000) * 1000)
+  a <- sort(runif(1000))
+  b <- sort(runif(1000))
   expect_identical(num_leq_sorted(a, b), num_leq_sorted_R(a, b))
 })
 
