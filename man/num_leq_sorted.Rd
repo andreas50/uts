@@ -7,9 +7,9 @@
 num_leq_sorted(a, b, tolerance = 0)
 }
 \arguments{
-\item{a}{a sorted vector of numbers.}
+\item{a}{a sorted, i.e. non-decreasing, vector of numbers.}
 
-\item{b}{a sorted vector of numbers.}
+\item{b}{a sorted, i.e. non-decreasing, vector of numbers.}
 
 \item{tolerance}{a non-negative number, indicating the tolerance for numerical noise.}
 }

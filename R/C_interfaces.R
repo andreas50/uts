@@ -10,8 +10,8 @@
 #' Equivalently, because the input vectors are sorted, for each element \code{a[i]} determine the maximum index \code{j} with \code{b[j] <= a[i]}. 
 #' 
 #' @return An integer vector of same length as \code{a}.
-#' @param a a sorted vector of numbers.
-#' @param b a sorted vector of numbers.
+#' @param a a sorted, i.e. non-decreasing, vector of numbers.
+#' @param b a sorted, i.e. non-decreasing, vector of numbers.
 #' @param tolerance a non-negative number, indicating the tolerance for numerical noise.
 #' 
 #' @keywords internal
@@ -43,9 +43,9 @@ num_leq_sorted <- function(a, b, tolerance=0)
   if (anyNA(a) | anyNA(b))
     stop("NAs are not allowed as input")
   if (any(diff(a) < 0))
-    stop("'a' is not strictly increasing")
+    stop("'a' is not sorted")
   if (any(diff(b) < 0))
-    stop("'b' is not strictly increasing")
+    stop("'a' is not sorted")
   
   # Call C function
   res <- integer(length(a))
