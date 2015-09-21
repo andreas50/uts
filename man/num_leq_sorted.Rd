@@ -11,7 +11,7 @@ num_leq_sorted(a, b, tolerance = 0)
 
 \item{b}{a sorted vector of numbers.}
 
-\item{tolerance}{a non-negative number, idicating the tolerance for numerical noise.}
+\item{tolerance}{a non-negative number, indicating the tolerance for numerical noise.}
 }
 \value{
 An integer vector of same length as \code{a}.

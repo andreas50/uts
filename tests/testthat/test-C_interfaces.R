@@ -5,11 +5,24 @@ test_that("num_leq_sorted works",{
   expect_error(num_leq_sorted(c(), NA))
   expect_error(num_leq_sorted(c(), c(), tolerance=NA))
   expect_error(num_leq_sorted(c(), c(), tolerance=-1))
+  expect_error(num_leq_sorted(2:1, c()))
+  expect_error(num_leq_sorted(c(), 2:1))
   
   expect_identical(
     num_leq_sorted(c(-3, 1, 3, 5, 7), c(0, 1, 4, 9, 16)),
     as.integer(c(0, 2, 2, 3, 3))
   )
+})
+
+test_that("num_leq_sorted and num_leq_sorted_R give the same result",{
+  a <- c(-3, 1, 3, 5, 7)
+  b <- c(0, 1, 4, 9, 16)
+  expect_identical(num_leq_sorted(a, b), num_leq_sorted_R(a, b))
+  
+  set.seed(1)
+  a <- sort(runif(1000) * 1000)
+  b <- sort(runif(1000) * 1000)
+  expect_identical(num_leq_sorted(a, b), num_leq_sorted_R(a, b))
 })
 
 test_that("num_leq_sorted robust to numerical noise",{

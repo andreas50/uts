@@ -12,7 +12,7 @@
 #' @return An integer vector of same length as \code{a}.
 #' @param a a sorted vector of numbers.
 #' @param b a sorted vector of numbers.
-#' @param tolerance a non-negative number, idicating the tolerance for numerical noise.
+#' @param tolerance a non-negative number, indicating the tolerance for numerical noise.
 #' 
 #' @keywords internal
 #' @examples
@@ -42,11 +42,42 @@ num_leq_sorted <- function(a, b, tolerance=0)
     stop("'tolerance' is negative")
   if (anyNA(a) | anyNA(b))
     stop("NAs are not allowed as input")
+  if (any(diff(a) < 0))
+    stop("'a' is not strictly increasing")
+  if (any(diff(b) < 0))
+    stop("'b' is not strictly increasing")
   
   # Call C function
   res <- integer(length(a))
   .C("num_leq_sorted", as.double(a + tolerance), as.integer(length(a)),
     as.double(b), as.integer(length(b)), pos = res)$pos
+}
+
+
+#' R implementation of num_leq_sorted
+#'
+#' This functions is identical to \code{\link{num_leq_sorted}}, except that a) the input vectors need to be strictly increasing, andb) there is no numerical noise tolerance support. It exists solely for testing the C implementation.
+#'
+#' @return An integer vector of same length as \code{a}.
+#' @param a a strictly increasing vector of numbers.
+#' @param b a strictly increasing vector of numbers.
+#'
+#' @keywords internal
+#' @examples
+#' num_leq_sorted_R(c(-3, 1, 3, 5, 7), c(0, 1, 4, 9, 16))
+num_leq_sorted_R <- function(a, b)
+{
+  # Argument checking
+  if (anyNA(a) | anyNA(b))
+    stop("NAs are not allowed as input")
+  if (any(diff(a) <= 0))
+    stop("'a' is not strictly increasing")
+  if (any(diff(b) <= 0))
+    stop("'b' is not strictly increasing")
+  
+  all_values <- sort(union(a, b))
+  cum_available <- cumsum(all_values %in% b)
+  cum_available[all_values %in% a]
 }
 
 

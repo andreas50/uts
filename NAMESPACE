@@ -94,5 +94,6 @@ export(ex_uts2)
 # Miscellaneous functions
 export(is.uts)
 export(num_leq_sorted)
+export(num_leq_sorted_R)
 export(split_segments)
 export(sorted_union)
