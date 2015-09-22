@@ -62,10 +62,9 @@ void sorted_union(const double a[], const int *na, const double b[], const int *
     previous_value = min(a[0], b[0]) - *tolerance - 1;
   
   // Fill the output vector with elements from 'a' and 'b'
-  while ((i < *na) | (j < *nb)) 
-  {
+  while ((i < *na) || (j < *nb)) {
     // Determine the next candidate value to be saved
-    if ((i < *na) && ((j == *nb) | (a[i] < b[j]))) {
+    if ((i < *na) && ((j == *nb) || (a[i] < b[j]))) {
       next_value = a[i];   
       i++; 
     } else {
@@ -73,7 +72,7 @@ void sorted_union(const double a[], const int *na, const double b[], const int *
       j++;
     }
     
-    // Only save values larger than the previous inserted value + eps
+    // Only save values larger than (previous_inserted_value + eps)
     if (next_value > previous_value + *tolerance) {
       res[k] = next_value;
       previous_value = next_value;
