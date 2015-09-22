@@ -17,7 +17,7 @@ sorted_union(a, b, tolerance = 0)
 A numeric vector.
 }
 \description{
-For two sorted numeric vectors \code{a} and \code{b}, determine the sorted union of elements.
+For two sorted numeric vectors \code{a} and \code{b}, determine the sorted union of unique elements.
 }
 \examples{
 sorted_union(1:3, 2:4)

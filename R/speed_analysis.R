@@ -16,7 +16,7 @@ if (0) {
   system.time(for (j in 1:1000) num_leq_sorted(a, b))
   
   # Profile C implementation
-  # -) ~63% of time spent in C code
+  # -) ~2/3s of time spent in C code
   Rprof(interval=0.01)
   for (j in 1:1e4) num_leq_sorted(a, b)
   Rprof(NULL)

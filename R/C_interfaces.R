@@ -56,7 +56,7 @@ num_leq_sorted <- function(a, b, tolerance=0)
 
 #' R implementation of num_leq_sorted
 #'
-#' This functions is identical to \code{\link{num_leq_sorted}}, except that a) the input vectors need to be strictly increasing, andb) there is no numerical noise tolerance support. It exists solely for testing the C implementation.
+#' This functions is identical to \code{\link{num_leq_sorted}} except that a) the input vectors need to be strictly increasing, andb) there is no numerical noise tolerance support. It exists solely for testing the C implementation.
 #'
 #' @return An integer vector of same length as \code{a}.
 #' @param a a strictly increasing vector of numbers.
@@ -83,7 +83,7 @@ num_leq_sorted_R <- function(a, b)
 
 #' Sorted Union
 #' 
-#' For two sorted numeric vectors \code{a} and \code{b}, determine the sorted union of elements.
+#' For two sorted numeric vectors \code{a} and \code{b}, determine the sorted union of unique elements.
 #' 
 #' @return A numeric vector.
 #' @param a a sorted vector of numbers.
@@ -111,10 +111,31 @@ sorted_union <- function(a, b, tolerance=0)
     stop("'tolerance' is negative")
   if (anyNA(a) | anyNA(b))
     stop("NAs are not allowed as input")
+  if (is.unsorted(a))
+    stop("'a' is not sorted")
+  if (is.unsorted(b))
+    stop("'b' is not sorted")
   
   # Call C-function
   res <- .C("sorted_union", as.double(a), length(a), as.double(b), length(b),
     tolerance=as.double(tolerance), res=numeric(length(a) + length(b)), length=integer(1))
   res$res[1L:res$length]
+}
+
+
+#' R implementation of sorted_union
+#'
+#' This functions is identical to \code{\link{sorted_union}} except that a) the input vectors don't need to be sorted, and b) there is no numerical noise tolerance support. It exists solely for testing the C implementation.
+#'
+#' @return A numeric vector.
+#' @param a a sorted vector of numbers.
+#' @param b a sorted vector of numbers.
+#'
+#' @keywords internal
+#' @examples
+#' sorted_union_R(1:3, 2:4)
+sorted_union_R <- function(a, b)
+{
+  unique(sort(c(a, b)))
 }
 

@@ -56,13 +56,16 @@ test_that("num_leq_sorted correctly handles trivial cases",{
   )
 })
 
-
+#################################################
 
 test_that("sorted_union works",{
   # Argument checking
   expect_error(sorted_union(c(), NA))
   expect_error(sorted_union(c(), c(), tolerance=NA))
   expect_error(sorted_union(c(), c(), tolerance=-1))
+  expect_error(sorted_union(2:1, c()))
+  expect_error(sorted_union(c(), 2:1))
+  
   
   expect_identical(
     sorted_union(1:3, 2:4),
@@ -102,4 +105,15 @@ test_that("sorted_union robust to numerical noise",{
   )
 })
 
+
+test_that("sorted_union and sorted_union_R give the same result",{
+  a <- c(1, 1:3)
+  b <- c(2:4, 4)
+  expect_identical(sorted_union(a, b), sorted_union_R(a, b))
+  
+  set.seed(1)
+  a <- round(sort(runif(1000)))
+  b <- round(sort(runif(1000)))
+  expect_identical(sorted_union(a, b), sorted_union_R(a, b))
+})
 

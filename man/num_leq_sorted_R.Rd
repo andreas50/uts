@@ -15,7 +15,7 @@ num_leq_sorted_R(a, b)
 An integer vector of same length as \code{a}.
 }
 \description{
-This functions is identical to \code{\link{num_leq_sorted}}, except that a) the input vectors need to be strictly increasing, andb) there is no numerical noise tolerance support. It exists solely for testing the C implementation.
+This functions is identical to \code{\link{num_leq_sorted}} except that a) the input vectors need to be strictly increasing, andb) there is no numerical noise tolerance support. It exists solely for testing the C implementation.
 }
 \examples{
 num_leq_sorted_R(c(-3, 1, 3, 5, 7), c(0, 1, 4, 9, 16))
