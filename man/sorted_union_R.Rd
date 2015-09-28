@@ -15,7 +15,7 @@ sorted_union_R(a, b)
 A numeric vector.
 }
 \description{
-This functions is identical to \code{\link{sorted_union}} except that a) the input vectors don't need to be sorted, and b) there is no numerical noise tolerance support. It exists solely for testing the C implementation.
+This function is identical to \code{\link{sorted_union}} except that a) the input vectors don't need to be sorted, and b) there is no numerical noise tolerance support. It exists solely for testing the C implementation.
 }
 \examples{
 sorted_union_R(1:3, 2:4)
