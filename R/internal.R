@@ -5,11 +5,11 @@
 #' \code{uts} methods:
 #' \itemize{
 #'   \item \code{\link{is.uts}}
-#'   \item \code{\link{mean}}
-#'   \item \code{\link{median}}
-#'   \item \code{\link{sd}}
-#'   \item \code{\link{str}}
-#'   \item \code{\link{summary}}
+#'   \item \code{\link[=mean.uts]{mean}}
+#'   \item \code{\link[=median.uts]{median}}
+#'   \item \code{\link[=sd.uts]{sd}}
+#'   \item \code{\link[=str.uts]{str}}
+#'   \item \code{\link[=summary.uts]{summary}}
 #' }
 #' 
 #' Helper functions:
@@ -33,8 +33,8 @@
 #' 
 #' Methods that exists solely ensure that methods intended for \code{\link{ts}} objects in base \R are not accidentally applied to \code{"uts"} objects:
 #' \itemize{
-#'   \item \code{\link{cycle}}
-#'   \item \code{\link{frequency}}
+#'   \item \code{\link[=cycle.uts]{cycle}}
+#'   \item \code{\link[=frequency.uts]{frequency}}
 #' }
 #' 
 #' @name uts-internal
