@@ -53,14 +53,14 @@ sample_values.uts <- function(x, time_points, method="last", max_dt=ddays(Inf),
     stop("'time_points' is not a POSIXct' object")
   if (any(diff(time_points) <= 0))
     stop("'time_points' needs to be a strictly increasing time sequence")
-  #
   if (!(method %in% c("last", "linear")))
     stop("Unknown sampling 'method'")
   if ((method == "linear") & !is.numeric(x$values))
     stop("Sampling with linear interpolation is only supported for numeric time series")
-  #
   if (!is.duration(max_dt))
-    stop("'max_lag' is not a duration object")
+    stop("'max_dt' is not a duration object")
+  if (as.numeric(max_dt) < 0)
+    stop("'max_dt' is negative")
   
   # For each sampling time, determine the most recent observation time, and enforce the 'max_dt' threshold 
   sampling_idx_last <- num_leq_sorted(time_points, x$times, tolerance=tolerance)
@@ -78,8 +78,7 @@ sample_values.uts <- function(x, time_points, method="last", max_dt=ddays(Inf),
   ### code for method="linear" only ###
   
   # For each sampling time, determine the next observation time, and enforce the 'max_dt' threshold
-  perfect_match <- time_points %in% x$times
-  sampling_idx_next <- pmin(length(x), sampling_idx_last + !perfect_match)
+  sampling_idx_next <- pmin(sampling_idx_last + 1, length(x))
   sampled_times_next <- x$times[sampling_idx_next]
   dt_next_observation <- as.duration(sampled_times_next - time_points)
   if (max_dt < ddays(Inf))
@@ -88,7 +87,7 @@ sample_values.uts <- function(x, time_points, method="last", max_dt=ddays(Inf),
   
   # Linearly interpolate last and next observation value
   w <- pmax(0, dt_next_observation) / (as.numeric(dt_last_observation) + pmax(0, dt_next_observation))
-  w[perfect_match] <- 1
+  w[sampling_idx_last == length(x)] <- 1
   w * sampled_values_last + (1-w) * sampled_values_next
 }
 
