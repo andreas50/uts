@@ -1,5 +1,20 @@
 context("sampling")
 
+test_that("sample_values argument checking works",{
+  # For the sampling times
+  expect_error(sample_values(ex_uts(), "abc"))
+  expect_error(sample_values(ex_uts(), as.POSIXct(c("2012-01-01", "2011-01-01"))))
+  
+  # For max_dt
+  expect_error(sample_values(ex_uts(), as.POSIXct(c("2007-01-01", "2011-01-01")), max_dt=5))
+  expect_error(sample_values(ex_uts(), as.POSIXct(c("2007-01-01", "2011-01-01")), max_dt=ddays(-5)))
+  
+  # For the method
+  expect_error(sample_values(ex_uts(), as.POSIXct(c("2007-01-01", "2011-01-01")), method="abc"))
+  expect_error(sample_values(ex_uts2(), as.POSIXct("2007-01-01"), method="linear"))
+})
+
+  
 test_that("Sampling of numeric time series works",{
   expect_identical(
     sample_values(ex_uts(), as.POSIXct(c("2007-01-01", "2011-01-01")), method="linear"),
@@ -34,9 +49,6 @@ test_that("Sampling of non-numeric time series works",{
   expect_identical(
     sample_values(ex_uts2(), as.POSIXct("2007-01-01")),
     list(NULL)
-  )
-  expect_error(
-    sample_values(ex_uts2(), as.POSIXct("2007-01-01"), method="linear")
   )
   expect_identical(
     sample_values(ex_uts2(), as.POSIXct(c("2007-11-09 12:01:00", "2007-11-09 15:16:00"))),
