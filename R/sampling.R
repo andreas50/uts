@@ -51,7 +51,7 @@ sample_values.uts <- function(x, time_points, method="last", max_dt=ddays(Inf),
   # Argument checking
   if (!is.POSIXct(time_points))
     stop("'time_points' is not a POSIXct' object")
-  if (any(diff(time_points) <= 0))
+  if (is.unsorted(time_points, strictly=TRUE))
     stop("'time_points' needs to be a strictly increasing time sequence")
   if (!(method %in% c("last", "linear")))
     stop("Unknown sampling 'method'")
