@@ -15,7 +15,7 @@
 #' Helper functions:
 #' \itemize{
 #'   \item \code{\link{num_leq_sorted}}
-#'   \item \code
+#'   \item \code{\link{num_leq_sorted_R}}
 #'   \item \code{\link{num_less_sorted}}
 #'   \item \code{\link{sorted_union}}
 #'   \item \code{\link{sorted_union_R}}
