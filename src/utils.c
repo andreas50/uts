@@ -41,6 +41,32 @@ void num_leq_sorted(const double a[], const int *na, const double b[], const int
 }
 
 
+/*
+ * Assume given two sorted numeric vectors 'a' and 'b'. For each element a[i], determine the number
+ * of elements in 'b' than are strictly less than this value.
+ *
+ * Equivalently, because the vectors are sorted, for or each element a[i] determine the maximum
+ * index j such that b[j-1] < a[i].
+ */
+void num_less_sorted(const double a[], const int *na, const double b[], const int *nb, int pos[])
+{
+  unsigned int i=0, j=0;
+  
+  // Trivial case
+  if (*nb == 0) {
+    for (i = 0; i < *na; i++)
+      pos[i] = 0;
+    return;
+  }
+  
+  for (i = 0; i < *na; i++) {
+    while ((j < *nb) && (b[j] < a[i]))
+      j++;
+    pos[i] = j;
+  }
+}
+
+
 /* 
  * For two sorted numeric vectors, return a vector containing the sorted union of (unique) elements
  * as well as the length of the output vector.

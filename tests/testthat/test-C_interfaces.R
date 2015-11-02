@@ -8,6 +8,21 @@ test_that("num_leq_sorted works",{
   expect_error(num_leq_sorted(2:1, c()))
   expect_error(num_leq_sorted(c(), 2:1))
   
+  # Trivial cases
+  expect_identical(
+    num_leq_sorted(1:5, 1:5),
+    1:5
+  )
+  expect_identical(
+    num_leq_sorted(c(), 1:5),
+    integer()
+  )
+  expect_identical(
+    num_leq_sorted(1:5, c()),
+    rep(0L, 5)
+  )
+  
+  # Case from example
   expect_identical(
     num_leq_sorted(c(-3, 1, 3, 5, 7), c(0, 1, 4, 9, 16)),
     as.integer(c(0, 2, 2, 3, 3))
@@ -41,20 +56,37 @@ test_that("num_leq_sorted robust to numerical noise",{
   )
 })
 
-test_that("num_leq_sorted correctly handles trivial cases",{
+
+#################################################
+
+test_that("num_less_sorted works",{
+  # Argument checking
+  expect_error(num_less_sorted(c(), NA))
+  expect_error(num_less_sorted(2:1, c()))
+  expect_error(num_less_sorted(c(), 2:1))
+  
+  # Trivial cases
   expect_identical(
-    num_leq_sorted(1:5, 1:5),
-    1:5
+    num_less_sorted(1:5, 1:5),
+    0:4
   )
   expect_identical(
-    num_leq_sorted(c(), 1:5),
+    num_less_sorted(c(), 1:5),
     integer()
   )
   expect_identical(
-    num_leq_sorted(1:5, c()),
+    num_less_sorted(1:5, c()),
     rep(0L, 5)
   )
+  
+  # Case from example
+  expect_identical(
+    num_less_sorted(c(-3, 1, 3, 5, 7), c(0, 1, 4, 9, 16)),
+    as.integer(c(0, 1, 2, 3, 3))
+  )
 })
+
+
 
 #################################################
 

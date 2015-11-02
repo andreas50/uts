@@ -7,7 +7,7 @@
 #' Assume given two sorted numeric vectors \code{a} and \code{b}. For each element \code{a[i]}, determine the number of elements in \code{b} that are less than or equal (leq) to this value.
 #' 
 #' @note
-#' Equivalently, because the input vectors are sorted, for each element \code{a[i]} determine the maximum index \code{j} with \code{b[j] <= a[i]}. 
+#' Equivalently, because the input vectors are sorted, for each element \code{a[i]} determine the maximum index \code{j} with \code{b[j] <= a[i]}.
 #' 
 #' @return An integer vector of same length as \code{a}.
 #' @param a a sorted, i.e. non-decreasing, vector of numbers.
@@ -15,6 +15,7 @@
 #' @param tolerance a non-negative number, indicating the tolerance for numerical noise.
 #' 
 #' @keywords internal
+#' @seealso \code{\link{num_less_sorted}} for a less-than comparison of two sorted vectors.
 #' @examples
 #' # The second vector has
 #' # -) 0 elements leq (less-than-or-equal) -3
@@ -51,6 +52,49 @@ num_leq_sorted <- function(a, b, tolerance=0)
   res <- integer(length(a))
   .C("num_leq_sorted", as.double(a + tolerance), as.integer(length(a)),
     as.double(b), as.integer(length(b)), pos = res)$pos
+}
+
+
+#' Less-Than Comparison of Sorted Vectors
+#' 
+#' Assume given two sorted numeric vectors \code{a} and \code{b}. For each element \code{a[i]}, determine the number of elements in \code{b} that are less than this value.
+#' 
+#' @note
+#' Equivalently, because the input vectors are sorted, for each element \code{a[i]} determine the maximum index \code{j} with \code{b[j] < a[i]}. 
+#' 
+#' @return An integer vector of same length as \code{a}.
+#' @param a a sorted, i.e. non-decreasing, vector of numbers.
+#' @param b a sorted, i.e. non-decreasing, vector of numbers.
+#' 
+#' @keywords internal
+#' @seealso \code{\link{num_leq_sorted}} for a less-than-or-equqal comparison of two sorted vectors.
+#' @examples
+#' # The second vector has
+#' # -) 0 elements less than -3
+#' # -) 1 element less than 1
+#' # -) 2 elements less than 3
+#' # -) 3 elements less than 5
+#' # -) 3 elements less than 7
+#' num_less_sorted(c(-3, 1, 3, 5, 7), c(0, 1, 4, 9, 16))
+#' 
+#' # Trivial cases
+#' num_less_sorted(1:5, 1:5)
+#' num_less_sorted(c(), 1:5)
+#' num_less_sorted(1:5, c())
+num_less_sorted <- function(a, b, tolerance=0)
+{
+  # Argument checking
+  if (anyNA(a) | anyNA(b))
+    stop("NAs are not allowed as input")
+  if (is.unsorted(a))
+    stop("'a' is not sorted")
+  if (is.unsorted(b))
+    stop("'b' is not sorted")
+  
+  # Call C function
+  res <- integer(length(a))
+  .C("num_less_sorted", as.double(a), as.integer(length(a)),
+     as.double(b), as.integer(length(b)), pos = res)$pos
 }
 
 

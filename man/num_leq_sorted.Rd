@@ -41,5 +41,8 @@ num_leq_sorted(1:5, 1:5)
 num_leq_sorted(c(), 1:5)
 num_leq_sorted(1:5, c())
 }
+\seealso{
+\code{\link{num_less_sorted}} for a less-than comparison of two sorted vectors.
+}
 \keyword{internal}
 
