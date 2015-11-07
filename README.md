@@ -1,6 +1,8 @@
 An Unevenly-spaced Time Series (uts) is a sequence of observation time and value pairs (t<sub>n</sub>, X<sub>n</sub>) with strictly increasing observation times. As opposed to equally spaced time series, the spacing of observation times may not be constant.
 
-As of late 2011, to the best of my knowledge, there is no R time series package that provides 100% of the application logic in terms of this definition. Either directly or indirectly, existing implementations fall back on equally-spaced data for some of their functionality. For example, the window width of a rolling time series operator might be specified in term of the number of observations (e.g. 7 observations) instead of a temporal duration (e.g. 6 hours).
+As of late 2011, to the best of my knowledge, there is no `R` time series package that allows to write 100% of the application logic in terms of this definition. Either directly or indirectly, existing implementations fall back on equally spaced data for some of their functionality. For example, the window width of a rolling time series operator, such as a moving average, is usually specified in terms of the number of observations (e.g. 7 observations) instead of a temporal duration (e.g. 6 hours).
+
+Even when a time series is equally spaced, it is often conceptually preferable to define operations using a temporal duration, such as a "moving average over the past year", instead via the number of observations. Should the frequency of the time series change at a later date, the code for the analysis would not need updating. Similarly, this way the same analysis can be carried out on several time series with different frequencies, without having to keep track of the individual observation frequencies.
 
 I therefore decided to write my own implementation, based on my [research](http://www.eckner.com/research.html) on this topic.
 
@@ -8,11 +10,12 @@ I therefore decided to write my own implementation, based on my [research](http:
 
 * 100% of the application logic is in terms of temporal durations (as opposed to number of observations).
 * Individual time series can store arbitrary R objects (not just numbers).
-* Support for time series vectors, matrices, and data frames:
-  * These objects can be manipulated like normal R vectors, matrices, and data frames, but with one extra dimension representing time.
-  * The individual time series are completely independent of each. In particular, the observation times do not need to be synchronized and the individual time series can have different lengths.
-* Add-on packages provide novel functionality based on my recent research:
-  * utsAlg: moving averages and other rolling time series operators
+* Add-on packages provide novel functionality:
+  * utsData: example data sets
+  * utsMultivariate: time series vectors, matrices, and data frames
+    * These objects can be manipulated like normal R vectors, matrices, and data frames, but with one extra dimension representing time.
+    * The individual time series are completely independent of each. In particular, the observation times do not need to be
+  * utsOperators: moving averages and other rolling time series operators
   * utsTrendSeasonality: trend and seasonality estimation
 
 ##### Comparison with other packages for irregular time series
