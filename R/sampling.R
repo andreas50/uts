@@ -55,7 +55,7 @@ sample_values.uts <- function(x, time_points, method="last", max_dt=ddays(Inf),
     stop("'time_points' needs to be a strictly increasing time sequence")
   if (!(method %in% c("last", "linear")))
     stop("Unknown sampling 'method'")
-  if ((method == "linear") & !is.numeric(x$values))
+  if ((method == "linear") && !is.numeric(x$values))
     stop("Sampling with linear interpolation is only supported for numeric time series")
   if (!is.duration(max_dt))
     stop("'max_dt' is not a duration object")
@@ -147,14 +147,14 @@ sample_values.uts <- function(x, time_points, method="last", max_dt=ddays(Inf),
 {
   # Determine time points for insertion
   if (is.uts(time_points))
-    time_points <- time_points$times[!is.na(time_points$values) & time_points$values]
+    time_points <- time_points$times[!is.na(time_points$values) && time_points$values]
   num_times <- length(time_points)
   
   # Determine values for insertion
   if (length(value) == 1)
     value <- rep(value, num_times)
   num_values <- length(value)
-  if ((num_values > num_times) & (num_times == 1)) {
+  if ((num_values > num_times) && (num_times == 1)) {
     value <- list(value)
     num_values <- 1
   }

@@ -76,7 +76,7 @@ Ops.uts <- function(e1, e2)
   }
   
   # Binary operator
-  if (is.uts(e1) & is.uts(e2)) {
+  if (is.uts(e1) && is.uts(e2)) {
     # Determine time points of output time series
     if (min(length(e1), length(e2)) == 0L)
       return(uts())
@@ -90,7 +90,7 @@ Ops.uts <- function(e1, e2)
     
     # Generate output
     out <- uts(do.call(.Generic, list(values1, values2)), all_times)
-  }  else if (is(e2, "numeric") | is(e2, "integer")) {
+  }  else if (is(e2, "numeric") || is(e2, "integer")) {
     out <- e1
     out$values <- do.call(.Generic, list(e1$values,  e2))
   } else {
