@@ -164,7 +164,7 @@ sorted_union <- function(a, b, tolerance=0)
   na <- length(a)
   nb <- length(b)
   res <- .C("sorted_union", as.double(a), na, as.double(b), nb,
-    tolerance=as.double(tolerance), res=numeric(na + nb), length=integer(1))
+    tolerance=as.double(tolerance), res=numeric(na + nb), length=integer(1L))
   res$res[1L:res$length]
 }
 

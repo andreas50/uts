@@ -12,7 +12,7 @@ if (0) {
   a <- sort(runif(1e4))
   b <- sort(runif(1e4))
   
-  # R vs. C: 3.43s vs. 0.25s
+  # R vs. C: 4.10s vs. 0.28s
   system.time(for (j in 1:1000) num_leq_sorted_R(a, b))
   system.time(for (j in 1:1000) num_leq_sorted(a, b))
   
@@ -33,12 +33,12 @@ if (0) {
   a <- sort(runif(1e4))
   b <- sort(runif(1e4))
   
-  # R vs. C: 6.06s vs. 2.43s
-  system.time(for (j in 1:5000) sorted_union_R(a, b))
-  system.time(for (j in 1:5000) sorted_union(a, b))
+  # R vs. C: 2.90s vs. 1.18s
+  system.time(for (j in 1:2000) sorted_union_R(a, b))
+  system.time(for (j in 1:2000) sorted_union(a, b))
   
   # Profile C implementation
-  # -) ~40% of time spent in C code
+  # -) ~30% of time spent in C code
   Rprof(interval=0.01)
   for (j in 1:1e4) sorted_union(a, b)
   Rprof(NULL)
