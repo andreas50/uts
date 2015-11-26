@@ -1,0 +1,57 @@
+---
+title: "uts Develoepr Notes"
+author: "Andreas Eckner"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{uts Internals}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+This document provides details on the inner workings of the `uts` package, knowledge of which might be useful to developers seeking the extend the package. In addition, the document lays out coding and commenting guidelines for package contributors.
+
+## Internal representation of `uts` objects
+
+A `uts` object is a list of length two with class attribute `c("uts", "list")`. The two list entries are vectors of equal length and are called `values` and `times`.
+
+The former is an `R` vector of arbitrary mode, containing the observation *values*. The latter is a `POSIXct` vector of strictly increasing observation *times*.
+
+
+## Internal functions
+
+The package contains a variety of funcions that are typically to needed by ordinary users, but might be of interest to developers seeking the extend the package. To view the list of functions (including links to their documentation), either type
+
+    > ?`uts-internal`
+
+on the `R` command prompt, or go the HTML help page of the package and select entry `uts-internal`.
+
+
+## Documentation conventions
+
+To ensure that function are documented in a consistent manner, please follow the conventions below.
+
+### Function/Method parameter descriptions
+
+To refer to an object of a given class "cl", write `an object of class \code{"cl"}` (which is the convention used in the help of predict.lm, mgcv, chron, etc.) rather than `a "cl" object`.
+
+However, for objects of class "duration" it is fine to use the language `a duration object` (which is the convention used in the `lubridate` package).
+
+As reference, here are is a list of commonly used parameter descriptions:
+
+* @return An object of class \code{"uts"}.
+* @param x a \code{"uts"} object.
+* @param time_points a strictly increasing sequence of \code{\link{POSIXct}} date-times.
+* @param max_dt a duration object, specifying ...
+* @param \dots further arguments passed to or from methods.
+
+### Function/Method keywords used
+
+The following keywords were used for documenting data sets and functions (for a full list see https://svn.r-project.org/R/trunk/doc/KEYWORDS):
+
+* classes ... constructors
+* ts ... time series constructors 
+* chron ... POSIXt functions
+* datasets ... for Lynx data
+* internal ... objects not part of the API
+
