@@ -1,5 +1,5 @@
 ---
-title: "uts Develoepr Notes"
+title: "uts: Developer Notes"
 author: "Andreas Eckner"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
@@ -9,7 +9,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-This document provides details on the inner workings of the `uts` package, knowledge of which might be useful to developers seeking the extend the package. In addition, the document lays out coding and commenting guidelines for package contributors.
+This document describes the inner workings of the `uts` package, which might be useful to developers seeking the extend the functionality. In addition, the document lays out coding and commenting guidelines for package contributors.
 
 ## Internal representation of `uts` objects
 
@@ -20,18 +20,38 @@ The former is an `R` vector of arbitrary mode, containing the observation *value
 
 ## Internal functions
 
-The package contains a variety of funcions that are typically to needed by ordinary users, but might be of interest to developers seeking the extend the package. To view the list of functions (including links to their documentation), either type
+The package contains a variety of functions that are typically to needed by ordinary users, but might be of interest to developers seeking the extend the package. To view the list of functions (including links to their documentation), either type
 
     > ?`uts-internal`
 
 on the `R` command prompt, or go the HTML help page of the package and select entry `uts-internal`.
 
 
+## Criteria for package inclusion
+
+Whether or not a function is a good candidate for inclusion in this package depends on the answers to the following questions:
+
+1. What fraction of end users are likely to use it?
+2. Is it a method implementation for a generic function in base `R`?
+3. How easy would a user be able to find it using a search engine (including the one that is part of `R`'s HTML help) compared to rewriting it from scratch?
+
+As an example, consider a `uts` method that outputs a summary of the observation values of a time series:
+```
+summary.uts <- function(object, ...)
+{
+  summary(object$values)
+}
+```
+Although the method is trivial to rewrite from scratch (failing condition #3), many end users are likely to use it, either consciously or inadvertently, because `summary()` is a generic function in base `R`. Meeting conditions #1 and #2 this method is therefore part of the `uts` package, even though it has been marked using the keyword `internal` and therefore does not show up in the package index.
+
+On the other hand, consider a `uts` method that removes consecutive observations from a time series that are less than a certain (temporal) amount apart and for which the observation values are identical (how would you call such a function?). Only a minority of users will be interested in this functionality, and the functionality is difficult to define using a search engine term. Failing all three conditions, this method is therefore not part of the `uts` package, even though I have already written it for an analysis of mine.
+
+
 ## Documentation conventions
 
 To ensure that function are documented in a consistent manner, please follow the conventions below.
 
-### Function/Method parameter descriptions
+### Function parameter descriptions
 
 To refer to an object of a given class "cl", write `an object of class \code{"cl"}` (which is the convention used in the help of predict.lm, mgcv, chron, etc.) rather than `a "cl" object`.
 
@@ -45,7 +65,7 @@ As reference, here are is a list of commonly used parameter descriptions:
 * @param max_dt a duration object, specifying ...
 * @param \dots further arguments passed to or from methods.
 
-### Function/Method keywords used
+### Function keywords used
 
 The following keywords were used for documenting data sets and functions (for a full list see https://svn.r-project.org/R/trunk/doc/KEYWORDS):
 
