@@ -4,7 +4,7 @@ author: "Andreas Eckner"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{uts Internals}
+  %\VignetteIndexEntry{uts Developer Notes}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -27,13 +27,16 @@ The package contains a variety of functions that are typically to needed by ordi
 on the `R` command prompt, or go the HTML help page of the package and select entry `uts-internal`.
 
 
-## Criteria for package inclusion
+## Criteria for package inclusion of your function
 
-Whether or not a function is a good candidate for inclusion in this package depends on the answers to the following questions:
+Whether your function is a good candidate for inclusion in this package depends on the answers to the following questions:
 
 1. What fraction of end users are likely to use it?
 2. Is it a method implementation for a generic function in base `R`?
-3. How easy would a user be able to find it using a search engine (including the one that is part of `R`'s HTML help) compared to rewriting it from scratch?
+3. How easy would a user be able to find it using a search engine (including the one that is part of `R`'s HTML help) compared to writing the code from scratch?
+4. Does it do one thing and do it well?
+
+There is no hard threshold, but generally your function should meet a majority of these conditions.
 
 As an example, consider a `uts` method that outputs a summary of the observation values of a time series:
 ```
@@ -42,9 +45,12 @@ summary.uts <- function(object, ...)
   summary(object$values)
 }
 ```
-Although the method is trivial to rewrite from scratch (failing condition #3), many end users are likely to use it, either consciously or inadvertently, because `summary()` is a generic function in base `R`. Meeting conditions #1 and #2 this method is therefore part of the `uts` package, even though it has been marked using the keyword `internal` and therefore does not show up in the package index.
+Although the code is trivial to write from scratch, failing condition #3, many end users are likely to use it, either consciously or inadvertently, because `summary()` is a generic function in base `R`. Meeting conditions #1, #2, and #4 this method is therefore part of the `uts` package, even though it has been marked using the keyword `internal` and therefore does not show up in the package index.
 
-On the other hand, consider a `uts` method that removes consecutive observations from a time series that are less than a certain (temporal) amount apart and for which the observation values are identical (how would you call such a function?). Only a minority of users will be interested in this functionality, and the functionality is difficult to define using a search engine term. Failing all three conditions, this method is therefore not part of the `uts` package, even though I have already written it for an analysis of mine.
+On the other hand, consider a `uts` method that removes consecutive observations from a time series that are less than a certain (temporal) amount apart and for which the observation values are identical (how would you call such a function?). Only a minority of users will be interested in this functionality, and the functionality is difficult to define using a search engine term. Failing the first three conditions, this method is therefore not part of the `uts` package, even though I have already written it for an analysis of mine.
+
+Finally, consider a `uts` method that plots a time series `x` within a certain time window (for example, plot the daily maximum temperature in New York in year 2010). This function actually does two different things: (i) restrict a time series to a certain time period, and (ii) plot the resulting time series. The desired behavior can easily be achieved by combining the `window()` and `plot()` method. Failing conditions #3 and #4, no subperiod plotting method has been included in the package. Moreover, the `plot.uts` method does not have arguments for picking a plotting time window.
+
 
 
 ## Documentation conventions
