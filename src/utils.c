@@ -2,13 +2,6 @@
  * Various helper functions
  */
 
-//#include <Rinternals.h>
-//#include <R_ext/Rdynload.h>
-//#include <assert.h>
-//#include <math.h>
-//#include <stdlib.h>
-//#include <stdio.h>
-
 
 #ifndef min
 #define min(a,b) (((a) < (b)) ? (a) : (b))
