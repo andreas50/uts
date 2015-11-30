@@ -1,0 +1,83 @@
+---
+title: "uts: Developer Notes"
+author: "Andreas Eckner"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{uts Developer Notes}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+This document describes the inner workings of the `uts` package, which might be useful to developers seeking the extend the functionality. In addition, the document lays out coding and commenting guidelines for package contributors.
+
+## Internal representation of `uts` objects
+
+A `uts` object is a list of length two with class attribute `c("uts", "list")`. The two list entries are vectors of equal length and are called `values` and `times`.
+
+The former is an `R` vector of arbitrary mode, containing the observation *values*. The latter is a `POSIXct` vector of strictly increasing observation *times*.
+
+
+## Internal functions
+
+The package contains a variety of functions that are typically to needed by ordinary users, but might be of interest to developers seeking the extend the package. To view the list of functions (including links to their documentation), either type
+
+    > ?`uts-internal`
+
+on the `R` command prompt, or go the HTML help page of the package and select entry `uts-internal`.
+
+
+## Criteria for package inclusion of your function
+
+Whether your function is a good candidate for inclusion in this package depends on the answers to the following questions:
+
+1. What fraction of end users are likely to use it?
+2. Is it a method implementation for a generic function in base `R`?
+3. How easy would a user be able to find it using a search engine (including the one that is part of `R`'s HTML help) compared to writing the code from scratch?
+4. Does it do one thing and do it well?
+
+There is no hard threshold, but generally your function should meet a majority of these conditions.
+
+As an example, consider a `uts` method that outputs a summary of the observation values of a time series:
+```
+summary.uts <- function(object, ...)
+{
+  summary(object$values)
+}
+```
+Although the code is trivial to write from scratch, failing condition #3, many end users are likely to use it, either consciously or inadvertently, because `summary()` is a generic function in base `R`. Meeting conditions #1, #2, and #4 this method is therefore part of the `uts` package, even though it has been marked using the keyword `internal` and therefore does not show up in the package index.
+
+On the other hand, consider a `uts` method that removes consecutive observations from a time series that are less than a certain (temporal) amount apart and for which the observation values are identical (how would you call such a function?). Only a minority of users will be interested in this functionality, and the functionality is difficult to define using a search engine term. Failing the first three conditions, this method is therefore not part of the `uts` package, even though I have already written it for an analysis of mine.
+
+Finally, consider a `uts` method that plots a time series `x` within a certain time window (for example, plot the daily maximum temperature in New York in year 2010). This function actually does two different things: (i) restrict a time series to a certain time period, and (ii) plot the resulting time series. The desired behavior can easily be achieved by combining the `window()` and `plot()` method. Failing conditions #3 and #4, no subperiod plotting method has been included in the package. Moreover, the `plot.uts` method does not have arguments for picking a plotting time window.
+
+
+
+## Documentation conventions
+
+To ensure that function are documented in a consistent manner, please follow the conventions below.
+
+### Function parameter descriptions
+
+To refer to an object of a given class "cl", write `an object of class \code{"cl"}` (which is the convention used in the help of predict.lm, mgcv, chron, etc.) rather than `a "cl" object`.
+
+However, for objects of class "duration" it is fine to use the language `a duration object` (which is the convention used in the `lubridate` package).
+
+As reference, here are is a list of commonly used parameter descriptions:
+
+* @return An object of class \code{"uts"}.
+* @param x a \code{"uts"} object.
+* @param time_points a strictly increasing sequence of \code{\link{POSIXct}} date-times.
+* @param max_dt a duration object, specifying ...
+* @param \dots further arguments passed to or from methods.
+
+### Function keywords used
+
+The following keywords were used for documenting data sets and functions (for a full list see https://svn.r-project.org/R/trunk/doc/KEYWORDS):
+
+* classes ... constructors
+* ts ... time series constructors 
+* chron ... POSIXt functions
+* datasets ... for Lynx data
+* internal ... objects not part of the API
+
