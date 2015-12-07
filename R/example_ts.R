@@ -6,7 +6,7 @@
 #' 
 #' Create time series that can be used for code examples and testing.
 #' 
-#' @return \code{ex_ust()} returns a numeric \code{"uts"} with six observations.
+#' @return \code{ex_uts()} returns a numeric \code{"uts"} with six observations.
 #' 
 #' @examples
 #' ex_uts()

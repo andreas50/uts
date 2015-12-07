@@ -44,7 +44,7 @@ head_t.uts <- function(x, width, ...)
 tail_t <- function(x, ...) UseMethod("tail_t")
 
 
-#' @describeIn tail_t terminal subperiod time seried for \code{"uts"} object.
+#' @describeIn tail_t terminal subperiod time series for \code{"uts"} object.
 #' 
 #' @examples
 #' tail_t(ex_uts(), ddays(1))

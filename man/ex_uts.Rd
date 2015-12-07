@@ -10,7 +10,7 @@ ex_uts()
 ex_uts2()
 }
 \value{
-\code{ex_ust()} returns a numeric \code{"uts"} with six observations.
+\code{ex_uts()} returns a numeric \code{"uts"} with six observations.
 
 \code{ex_uts2()} returns a non-numeric \code{"uts"} with three observations.
 }
