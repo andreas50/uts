@@ -52,10 +52,23 @@ On the other hand, consider a `uts` method that removes consecutive observations
 Finally, consider a `uts` method that plots a time series `x` within a certain time window (for example, plot the daily maximum temperature in New York in year 2010). This function actually does two different things: (i) restrict a time series to a certain time period, and (ii) plot the resulting time series. The desired behavior can easily be achieved by combining the `window()` and `plot()` method. Failing conditions #3 and #4, no subperiod plotting method has been included in the package. Moreover, the `plot.uts` method does not have arguments for picking a plotting time window.
 
 
+## Coding conventions
 
-## Documentation conventions
+To ensure that code is writting in a consistent manner, please follow the conventions below.
 
-To ensure that function are documented in a consistent manner, please follow the conventions below.
+* Use spaces for tabs and a tab width of 2 spaces.
+* For variable and function names, use lower case words and separate them by an underscore character `_`. For example: "x", "get_item", "test_value".
+* Diagnostic messages (produced by error() and warning()) should not end with a period.
+* Do not *manually* write multi-line comments. Such comments are difficult to edit and reformat. Instead, use a text editor that supports automatic word wrapping, for example:
+    * Eclipse (Word-Wrap plugin)
+    * RStudio (Options/Code/Editing/Softwrap),
+    * UltraEdit (Configuration/Editor/Word_Wrap),
+    8 Notepad++ (View/Word_Wrap).
+
+
+## Rd documentation conventions
+
+To ensure that the package help has a consistent format, please follow the conventions below.
 
 ### Function parameter descriptions
 
