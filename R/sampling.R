@@ -147,8 +147,8 @@ sample_values.uts <- function(x, time_points, method="last", max_dt=ddays(Inf),
 {
   # Determine time points for insertion
   if (is.uts(time_points))
-    time_points <- time_points$times[!is.na(time_points$values) && time_points$values]
-  num_times <- length(time_points)
+    time_points <- time_points$times[!is.na(time_points$values) & time_points$values]
+  num_times <- length(time_points) 
   
   # Determine values for insertion
   if (length(value) == 1)

@@ -63,3 +63,10 @@ test_that("Sampling of non-numeric time series works",{
 })
 
 
+test_that("[ and [<- argument checking works",{
+  ts <- ex_uts()
+  expect_error(ts[ts])
+  expect_error(ts[ts] <- 5)
+})
+
+
