@@ -146,8 +146,11 @@ sample_values.uts <- function(x, time_points, method="last", max_dt=ddays(Inf),
 `[<-.uts` <- function(x, time_points, ..., value)
 {
   # Determine time points for insertion
-  if (is.uts(time_points))
+  if (is.uts(time_points)) {
+    if (!is.logical(time_points$values))
+      stop("Only time series with logical observation values can be used for sampling")
     time_points <- time_points$times[!is.na(time_points$values) & time_points$values]
+  }
   num_times <- length(time_points) 
   
   # Determine values for insertion

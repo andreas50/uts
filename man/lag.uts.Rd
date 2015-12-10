@@ -36,8 +36,8 @@ lag(ex_uts(), k=-2)
 lag(ex_uts(), k=6)
 }
 \seealso{
-\code{\link[stats:lag]{lag}} in base \R.
-
 \code{\link{lag_t}} allows to shift observation \emph{times}, as opposed to observation \emph{values}.
+
+\code{\link[stats:lag]{lag}} in base \R.
 }
 

@@ -28,8 +28,8 @@ diff(ex_uts(), scale="log")
 diff(ex_uts(), lag=10)     # an empty time series, because the lag is too large
 }
 \seealso{
-\code{\link[base:diff]{diff}} in base \R.
-
 \code{\link{diff_t}} allows to calculate differences over a fixed \emph{time horizon}, as opposed to \emph{number of observations}.
+
+\code{\link[base:diff]{diff}} in base \R.
 }
 

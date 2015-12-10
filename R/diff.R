@@ -9,8 +9,9 @@
 #' 
 #' @note For an evenly spaced time series, calculating differences over (1) a certain number of observations (e.g. over four observations for quarterly data), and (2) over a fixed time horizon (e.g. over one year) gives the same result. For unevenly spaced time series, however, these two operations are quite different.
 #' 
-#' @seealso \code{\link[base:diff]{diff}} in base \R.
 #' @seealso \code{\link{diff_t}} allows to calculate differences over a fixed \emph{time horizon}, as opposed to \emph{number of observations}.
+#' @seealso \code{\link[base:diff]{diff}} in base \R.
+#' 
 #' @examples
 #' diff(ex_uts())
 #' diff(ex_uts(), lag=-3)

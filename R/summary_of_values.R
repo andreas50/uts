@@ -48,6 +48,7 @@ sd.default <- function(x, ...) stats::sd(x, ...)
 #' @param \dots further arguments passed to or from methods.
 #' 
 #' @seealso \code{\link[base:mean]{mean}}, \code{\link[stats:median]{median}}, and \code{\link[stats:sd]{sd}} in base \R.
+#' 
 #' @examples
 #' mean(ex_uts())
 mean.uts <- function(x, ...)
