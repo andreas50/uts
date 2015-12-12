@@ -29,7 +29,7 @@ test_that("is.na works",{
   # Empty POSIXct object returned if no NAs present
   expect_identical(
     which(is.na(ex_uts())),
-    as.POSIXct(character())
+    as.POSIXct(character(), tz="America/New_York")
   )
   expect_identical(
     which(is.na(uts())),
