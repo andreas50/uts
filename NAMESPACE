@@ -88,6 +88,7 @@ export(last.uts)
 # Sample time series
 export(ex_uts)
 export(ex_uts2)
+export(ex_uts3)
 
 
 # Miscellaneous functions

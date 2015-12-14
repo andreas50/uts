@@ -33,3 +33,22 @@ ex_uts2 <- function()
   )
 }
 
+
+#' @rdname ex_uts
+#' 
+#' @return \code{ex_uts3()} returns a daily \code{"uts"} that starts in 1/1/2000. The observation values are drawn from normal distribution with mean 0 and standard deviation 1. For reproducability, the random numbers are draw with fixed initial \code{\link[=set.seed]{seed}}.
+#' @param n an integer, specifying the length of the desired time series.
+#' 
+#' @examples
+#' plot(ex_uts3())
+#' plot(cumsum(ex_uts3()))
+ex_uts3 <- function(n=1000L)
+{
+  seed <- .Random.seed
+  on.exit(set.seed(seed))
+  
+  set.seed(1L)
+  uts(rnorm(n), as.POSIXct("2000-01-01") + days(1L:n))
+}
+
+

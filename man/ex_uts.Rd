@@ -3,16 +3,24 @@
 \name{ex_uts}
 \alias{ex_uts}
 \alias{ex_uts2}
+\alias{ex_uts3}
 \title{Example Time Series}
 \usage{
 ex_uts()
 
 ex_uts2()
+
+ex_uts3(n = 1000L)
+}
+\arguments{
+\item{n}{an integer, specifying the length of the desired time series.}
 }
 \value{
 \code{ex_uts()} returns a numeric \code{"uts"} with six observations.
 
 \code{ex_uts2()} returns a non-numeric \code{"uts"} with three observations.
+
+\code{ex_uts3()} returns a daily \code{"uts"} that starts in 1/1/2000. The observation values are drawn from normal distribution with mean 0 and standard deviation 1. For reproducability, the random numbers are draw with fixed initial \code{\link[=set.seed]{seed}}.
 }
 \description{
 Create time series that can be used for code examples and testing.
@@ -20,5 +28,7 @@ Create time series that can be used for code examples and testing.
 \examples{
 ex_uts()
 ex_uts2()
+plot(ex_uts3())
+plot(cumsum(ex_uts3()))
 }
 
