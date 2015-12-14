@@ -16,20 +16,22 @@ test_that("sample_values argument checking works",{
 
   
 test_that("Sampling of numeric time series works",{
+  tz <- tz(time(ex_uts()))
+  
   expect_identical(
-    sample_values(ex_uts(), as.POSIXct(c("2007-01-01", "2011-01-01")), method="linear"),
+    sample_values(ex_uts(), as.POSIXct(c("2007-01-01", "2011-01-01"), tz=tz), method="linear"),
     c(NA, 47.350)
   )
   expect_identical(
-    sample_values(ex_uts(), as.POSIXct("2011-01-01"), method="linear", max_dt=dyears(1)),
+    sample_values(ex_uts(), as.POSIXct("2011-01-01", tz=tz), method="linear", max_dt=dyears(1)),
     NA_real_
   )
   expect_identical(
-    sample_values(ex_uts(), as.POSIXct(c("2007-11-09 12:01:00", "2007-11-09 15:16:00"))),
+    sample_values(ex_uts(), as.POSIXct(c("2007-11-09 12:01:00", "2007-11-09 15:16:00"), tz=tz)),
     c(47.50, 47.35)
   )
   expect_identical(
-    sample_values(ex_uts(), as.POSIXct(c("2007-11-09 12:01:00", "2007-11-09 15:16:00")), method="linear"),
+    sample_values(ex_uts(), as.POSIXct(c("2007-11-09 12:01:00", "2007-11-09 15:16:00"), tz=tz), method="linear"),
     c(47.42578125, 47.35)
   )
   
@@ -46,12 +48,14 @@ test_that("Sampling of numeric time series works",{
 
 
 test_that("Sampling of non-numeric time series works",{
+  tz <- tz(time(ex_uts()))
+  
   expect_identical(
-    sample_values(ex_uts2(), as.POSIXct("2007-01-01")),
+    sample_values(ex_uts2(), as.POSIXct("2007-01-01", tz=tz)),
     list(NULL)
   )
   expect_identical(
-    sample_values(ex_uts2(), as.POSIXct(c("2007-11-09 12:01:00", "2007-11-09 15:16:00"))),
+    sample_values(ex_uts2(), as.POSIXct(c("2007-11-09 12:01:00", "2007-11-09 15:16:00"), tz=tz)),
     list(c("a", "B"), 3.1415)
   )
   

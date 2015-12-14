@@ -159,6 +159,8 @@ merge.uts <- function(x, y, tolerance=.Machine$double.eps ^ 0.5, ...)
 #' @seealso \code{\link{head}}, \code{\link{head_t}}, \code{\link{tail}}, \code{\link{tail_t}} for other methods that extract a subperiod time series.
 #' @examples
 #' window(ex_uts(), start=as.POSIXct("2007-11-09"))
+#' window(ex_uts(), start=as.POSIXct("2007-11-09", tz="America/New_York"))
+#' window(ex_uts(), start=as.POSIXct("2007-11-09", tz="Australia/Sydney"))
 #' window(ex_uts(), start=as.POSIXct("2007-11-08"), end=as.POSIXct("2007-11-09"))
 window.uts <- function(x, start=NULL, end=NULL, ...)
 {
