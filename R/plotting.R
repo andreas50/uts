@@ -81,9 +81,17 @@ plot.uts <- function(x, max_dt=ddays(Inf), type="l", col="blue", xlab="", ylab="
   # Set up empty plotting canvas
   plot(x$times, x$values, type="n", col=col, xlab=xlab, ylab=ylab, ...)
   
+  # Remove plot.default() arguments that are not part of plot.xy()
+  args <- c(list(...), type=type, col=col)
+  drop <- names(args) %in% c("ann", "asp", "axes", "frame.plot", "log", "main", "panel.first", "sub", "xlab", "xlim", "ylab", "ylim")
+  args <- args[!drop]
+  
   # Plot individual segments
   segments <- split_segments(x, max_dt=max_dt)
-  for (segment in segments)
-    lines(segment$times, segment$values, col=col, type=type, ...)
+  for (segment in segments) {
+    xy <- xy.coords(segment$times, segment$values)
+    args_seg <- c(xy=list(xy), args)
+    do.call(plot.xy, args_seg)
+  }
 }
 
