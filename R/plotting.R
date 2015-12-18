@@ -44,7 +44,7 @@ split_segments <- function(x, max_dt)
 
 #' Plot a uts
 #' 
-#' This function is convenience wrapper around \code{\link[graphics:plot.default]{plot.default}} with several sensible default arguments.
+#' A convenience wrapper around \code{\link[graphics:plot.default]{plot.default}} with several sensible default arguments.
 #' 
 #' @param x a numeric \code{"uts"} object that should be plotted.
 #' @param max_dt a non-negative \code{\link[lubridate]{duration}} object. Consecutive observations are not connected by a line in the graph, if they are more than this amount apart in time.

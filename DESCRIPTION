@@ -10,7 +10,7 @@ Depends:
 Suggests:
     testthat,
     knitr
-Enhances: xts, zoo
+Enhances: tseries, xts, zoo
 Description: An S3 class for constructing, analyzing, and manipulating
     univariate unevenly spaced time series (uts). A time series can store
     arbitrary R objects. R users familiar with vectors, matrices, and data

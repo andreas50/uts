@@ -4,7 +4,7 @@
 
 #' Summary of Time Series Values
 #' 
-#' This method calls \code{\link{summary}} from base \R with observation values of a time series.
+#' Apply \code{\link{summary}} from base \R to the observation values of a time series.
 #' 
 #' @note
 #' This method only exists because \code{\link{summary.default}} produces an error message.

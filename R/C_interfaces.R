@@ -100,7 +100,7 @@ num_less_sorted <- function(a, b, tolerance=0)
 
 #' R implementation of num_leq_sorted
 #'
-#' This function is identical to \code{\link{num_leq_sorted}} except that a) the input vectors need to be strictly increasing, andb) there is no numerical noise tolerance support. It exists solely for testing the C implementation.
+#' This function is identical to \code{\link{num_leq_sorted}} except that a) the input vectors need to be strictly increasing, and b) there is no numerical noise tolerance support. It exists solely for testing the C implementation.
 #'
 #' @return An integer vector of same length as \code{a}.
 #' @param a a strictly increasing vector of numbers.
