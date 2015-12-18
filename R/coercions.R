@@ -70,6 +70,37 @@ as.uts.zoo <- function(x, ...)
 }
 
 
+#' @describeIn as.uts convert a \code{\link[tseries:irts]{irts}} object
+#' 
+#' @examples
+#' #
+#' # Convert an "irts" time series
+#' if (requireNamespace("tseries", quietly = TRUE)) {
+#'   irts1 <- tseries::irts(as.POSIXct("2015-01-01") + days(c(1, 3, 7, 9)), 1:4)
+#'   as.uts(irts1)
+#'   
+#'   # Multivariate 'irts' objects need to be converted using as.uts_vector()
+#'   \dontrun{
+#'      t <- cumsum(rexp(10, rate = 0.1))
+#'      v <- matrix(rnorm(20), nrow=10)
+#'      irts2 <- tseries::irts(t, v)
+#'      as.uts(irts2)
+#'   }
+#' }
+as.uts.irts <- function(x, ...)
+{
+  # Argument checking
+  if (!is.null(dim(x$value)))
+    stop("Only univariate 'irts' objects can be converted to 'uts' object. Use as.uts_vector() instead")
+  
+  # Clean messed up class attributed of observations times
+  times <- x$time
+  class(times) <- class(as.POSIXct(character()))
+  
+  uts(x$value, times)
+}
+
+
 #' Coercion to zoo
 #' 
 #' @return A \code{\link[zoo:zoo]{zoo}} object.
@@ -103,5 +134,23 @@ as.xts.uts <- function(x)
   if (!requireNamespace("xts", quietly=TRUE))
     stop("Package 'xts' needed for this function to work")
   xts::xts(x$values, x$times)
+}
+
+
+#' Coercion to irts
+#' 
+#' @return A \code{\link[tseries:irts]{irts}} object.
+#' @param x a \code{"uts"} object.
+#' @param \dots further arguments passed to or from methods.
+#' 
+#' @examples
+#' if (requireNamespace("tseries", quietly = TRUE)) {
+#'   tseries::as.irts(ex_uts())
+#' }
+as.irts.uts <- function(x)
+{
+  if (!requireNamespace("tseries", quietly=TRUE))
+    stop("Package 'tseries' needed for this function to work")
+  tseries::irts(x$times, x$values)
 }
 

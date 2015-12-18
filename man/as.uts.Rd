@@ -2,6 +2,7 @@
 % Please edit documentation in R/coercions.R
 \name{as.uts}
 \alias{as.uts}
+\alias{as.uts.irts}
 \alias{as.uts.ts}
 \alias{as.uts.xts}
 \alias{as.uts.zoo}
@@ -14,6 +15,8 @@ as.uts(x, ...)
 \method{as.uts}{xts}(x, ...)
 
 \method{as.uts}{zoo}(x, ...)
+
+\method{as.uts}{irts}(x, ...)
 }
 \arguments{
 \item{x}{a time series object of appropriate type.}
@@ -33,6 +36,8 @@ Convert other time series objects to \code{"uts"} objects.
 \item \code{xts}: convert a \code{\link[xts:xts]{xts}} object
 
 \item \code{zoo}: convert a \code{\link[zoo:zoo]{zoo}} object
+
+\item \code{irts}: convert a \code{\link[tseries:irts]{irts}} object
 }}
 \examples{
 # Convert a quarterly "ts" time series
@@ -57,6 +62,20 @@ if (requireNamespace("xts", quietly = TRUE)) {
 if (requireNamespace("zoo", quietly = TRUE)) {
   zoo1 <- zoo::zoo(1:4, as.Date("2015-01-01") + c(1, 3, 7, 9))
   as.uts(zoo1)
+}
+#
+# Convert an "irts" time series
+if (requireNamespace("tseries", quietly = TRUE)) {
+  irts1 <- tseries::irts(as.POSIXct("2015-01-01") + days(c(1, 3, 7, 9)), 1:4)
+  as.uts(irts1)
+  
+  # Multivariate 'irts' objects need to be converted using as.uts_vector()
+  \dontrun{
+     t <- cumsum(rexp(10, rate = 0.1))
+     v <- matrix(rnorm(20), nrow=10)
+     irts2 <- tseries::irts(t, v)
+     as.uts(irts2)
+  }
 }
 }
 
