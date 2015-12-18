@@ -66,7 +66,7 @@ as.uts.xts <- function(x, ...)
 #' }
 as.uts.zoo <- function(x, ...)
 {
-  uts(as.numeric(x), as.POSIXct(attr(x, "index")))
+  uts(as.numeric(x), as.POSIXct(as.character(attr(x, "index"))))
 }
 
 

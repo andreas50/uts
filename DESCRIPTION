@@ -4,8 +4,12 @@ Date: 2015-12-04
 Title: Unevenly-spaced Time Series
 Author: Andreas Eckner <andreas@eckner.com>
 Maintainer: Andreas Eckner <andreas@eckner.com>
-Depends: R (>= 3.1), lubridate
-Suggests: testthat, knitr
+Depends:
+    R (>= 3.1),
+    lubridate (>= 1.5.0)
+Suggests:
+    testthat,
+    knitr
 Enhances: xts, zoo
 Description: An S3 class for constructing, analyzing, and manipulating
     univariate unevenly spaced time series (uts). A time series can store
@@ -16,3 +20,4 @@ Description: An S3 class for constructing, analyzing, and manipulating
 License: GPL-2 | GPL-3
 URL: www.eckner.com
 VignetteBuilder: knitr
+RoxygenNote: 5.0.1
