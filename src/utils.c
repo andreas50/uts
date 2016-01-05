@@ -7,16 +7,14 @@
 */
 void num_leq_sorted(const double a[], const int *na, const double b[], const int *nb, int pos[])
 {
-  unsigned int i, j=0;
-
   // Trivial case
   if (*nb == 0) {
-    for (i = 0; i < *na; i++)
+    for (int i = 0; i < *na; i++)
       pos[i] = 0;
     return;
   }
   
-  for (i = 0; i < *na; i++) {
+  for (int i=0, j=0; i < *na; i++) {
     while ((j < *nb) && (b[j] <= a[i]))
 	    j++;
     pos[i] = j;
@@ -33,16 +31,14 @@ void num_leq_sorted(const double a[], const int *na, const double b[], const int
  */
 void num_less_sorted(const double a[], const int *na, const double b[], const int *nb, int pos[])
 {
-  unsigned int i, j=0;
-  
   // Trivial case
   if (*nb == 0) {
-    for (i = 0; i < *na; i++)
+    for (int i=0; i < *na; i++)
       pos[i] = 0;
     return;
   }
   
-  for (i = 0; i < *na; i++) {
+  for (int i=0, j=0; i < *na; i++) {
     while ((j < *nb) && (b[j] < a[i]))
       j++;
     pos[i] = j;
@@ -59,7 +55,7 @@ void num_less_sorted(const double a[], const int *na, const double b[], const in
 void sorted_union(const double a[], const int *na, const double b[], const int *nb, const double *tolerance,
                   double res[], int *length)
 {
-  unsigned i=0, j=0, k=0;
+  int i=0, j=0, k=0;
   double previous_value, next_value;
   
   // Initialize previously inserted value to a value smaller than all elements in 'a' and 'b'
