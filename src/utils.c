@@ -1,14 +1,4 @@
 /*
- * Various helper functions
- */
-
-
-#ifndef min
-#define min(a,b) (((a) < (b)) ? (a) : (b))
-#endif
-
-
-/*
  * Assume given two sorted numeric vectors 'a' and 'b'. For each element a[i], determine the number
  * of elements in 'b' than are less than or equal (leq) to this value.
  *
@@ -78,7 +68,7 @@ void sorted_union(const double a[], const int *na, const double b[], const int *
   else if (*nb == 0)
     previous_value = a[0] - *tolerance - 1;
   else
-    previous_value = min(a[0], b[0]) - *tolerance - 1;
+    previous_value = (a[0] < b[0] ? a[0] : b[0]) - *tolerance - 1;
   
   // Fill the output vector with elements from 'a' and 'b'
   while ((i < *na) || (j < *nb)) {
