@@ -7,7 +7,7 @@
 */
 void num_leq_sorted(const double a[], const int *na, const double b[], const int *nb, int pos[])
 {
-  unsigned int i=0, j=0;
+  unsigned int i, j=0;
 
   // Trivial case
   if (*nb == 0) {
@@ -18,7 +18,7 @@ void num_leq_sorted(const double a[], const int *na, const double b[], const int
   
   for (i = 0; i < *na; i++) {
     while ((j < *nb) && (b[j] <= a[i]))
-	  j++;
+	    j++;
     pos[i] = j;
   }
 }
@@ -33,7 +33,7 @@ void num_leq_sorted(const double a[], const int *na, const double b[], const int
  */
 void num_less_sorted(const double a[], const int *na, const double b[], const int *nb, int pos[])
 {
-  unsigned int i=0, j=0;
+  unsigned int i, j=0;
   
   // Trivial case
   if (*nb == 0) {
