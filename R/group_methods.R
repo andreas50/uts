@@ -90,10 +90,14 @@ Ops.uts <- function(e1, e2)
     
     # Generate output
     out <- uts(do.call(.Generic, list(values1, values2)), all_times)
-  }  else if (is(e2, "numeric") || is(e2, "integer")) {
+  } else if (is(e2, "numeric")) {
+    if (length(e2) != 1)
+      stop("Group methods 'Ops' between a 'uts' and a numeric vector work only for numeric vectors of length one, i.e. for a single number")
     out <- e1
     out$values <- do.call(.Generic, list(e1$values,  e2))
   } else {
+    if (length(e1) != 1)
+      stop("Group methods 'Ops' between a 'uts' and a numeric vector work only for numeric vectors of length one, i.e. for a single number")
     out <- e2
     out$values <- do.call(.Generic, list(e1,  e2$values))
   }

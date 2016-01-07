@@ -1,5 +1,20 @@
 context("operators")
 
+test_that("'Ops' group methods work",{
+  # Argument checking
+  expect_error(ex_uts() + 1:2)
+  
+  expect_identical(
+    (ex_uts() + 20)$values,
+    ex_uts()$values + 20
+  )
+  expect_identical(
+    (20 + ex_uts())$values,
+    20 + ex_uts()$values
+  )
+})
+
+
 test_that("'Summary' group methods work",{
   expect_identical(
     min(ex_uts()),

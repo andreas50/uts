@@ -44,7 +44,7 @@ void sorted_union(const double a[], const int *na, const double b[], const int *
   int i=0, j=0, k=0;
   double previous_value, next_value;
   
-  // Initialize previously inserted value to a value smaller than all elements in 'a' and 'b'
+  // Initialize previously inserted value to a dummy value smaller than all elements in 'a' and 'b'
   if (*na == 0)
     previous_value = b[0] - *tolerance - 1;
   else if (*nb == 0)
