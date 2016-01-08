@@ -9,7 +9,8 @@ Depends:
     lubridate (>= 1.5.0)
 Suggests:
     testthat,
-    knitr
+    knitr,
+    utsMultivariate
 Enhances: tseries, xts, zoo
 Description: An S3 class for constructing, analyzing, and manipulating
     univariate unevenly spaced time series (uts). A time series can store
