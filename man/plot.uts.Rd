@@ -8,7 +8,7 @@
   xlab = "", ylab = "", ...)
 }
 \arguments{
-\item{x}{a numeric \code{"uts"} object that should be plotted.}
+\item{x}{a \code{"uts"} object with numeric or logical observation values.}
 
 \item{max_dt}{a non-negative \code{\link[lubridate]{duration}} object. Consecutive observations are not connected by a line in the graph, if they are more than this amount apart in time.}
 

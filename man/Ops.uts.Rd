@@ -17,7 +17,7 @@ Apply the \code{\link{Ops}} methods in base \R{} to the observation values of \c
 \note{
 For unary oparations, the output time series has the same observation times as the input time series.
 
-For binary operations involving two time series \code{uts1} and \code{uts2}, the output time series has the union of observation times of \code{uts1} and \code{uts2}, but excluding times before \emph{both} time series have their initial observation. The method for determining these times is unaffected by numerical noise less than \code{sqrt(\link[=.Machine]{.Machine$double.eps})}.
+For binary operations involving two time series \code{e1} and \code{e2}, the output time series has the union of observation times of \code{e1} and \code{e2}, but excluding times before \emph{both} time series have their initial observation. The method for determining these times is unaffected by numerical noise less than \code{sqrt(\link[=.Machine]{.Machine$double.eps})}.
 }
 \examples{
 # Unary oparators
