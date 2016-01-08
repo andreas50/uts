@@ -1,6 +1,6 @@
 Package: uts
-Version: 0.10.0.9000
-Date: 2015-12-04
+Version: 0.11.0
+Date: 2016-01-08
 Title: Unevenly-spaced Time Series
 Author: Andreas Eckner <andreas@eckner.com>
 Maintainer: Andreas Eckner <andreas@eckner.com>
