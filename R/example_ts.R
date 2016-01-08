@@ -36,7 +36,7 @@ ex_uts2 <- function()
 
 #' @rdname ex_uts
 #' 
-#' @return \code{ex_uts3()} returns a daily \code{"uts"} that starts in 1/1/2000. The observation values are drawn from normal distribution with mean 0 and standard deviation 1. For reproducability, the random numbers are draw with fixed initial \code{\link[=set.seed]{seed}}.
+#' @return \code{ex_uts3()} returns a daily \code{"uts"} that starts in 1/1/2000. The observation values are drawn from a normal distribution with mean 0 and standard deviation 1. For reproducability, the random numbers are draw with fixed initial \code{\link[=set.seed]{seed}}.
 #' @param n an integer, specifying the length of the desired time series.
 #' 
 #' @examples

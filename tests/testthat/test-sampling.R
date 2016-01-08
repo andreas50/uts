@@ -47,6 +47,21 @@ test_that("Sampling of numeric time series works",{
 })
 
 
+test_that("Sampling of logical time series works",{
+  tz <- tz(time(ex_uts()))
+  
+  expect_identical(
+    sample_values(ex_uts() >= min(ex_uts()), as.POSIXct(c("2007-01-01", "2011-01-01"), tz=tz)),
+    c(NA, TRUE)
+  )
+  expect_identical(
+    sample_values(ex_uts() > max(ex_uts()), as.POSIXct(c("2007-11-09 12:01:00", "2007-11-09 15:16:00"), tz=tz)),
+    c(FALSE, FALSE)
+  )
+})
+
+
+
 test_that("Sampling of non-numeric time series works",{
   tz <- tz(time(ex_uts()))
   

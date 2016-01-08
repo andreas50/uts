@@ -3,6 +3,13 @@ context("operators")
 test_that("'Ops' group methods work",{
   # Argument checking
   expect_error(ex_uts() + 1:2)
+  expect_error(1:2 + ex_uts())
+  #
+  expect_error("a" + ex_uts())
+  expect_error(ex_uts() + "a")
+  #
+  expect_error(ex_uts2() + 1)
+  expect_error(1 + ex_uts2())
   
   expect_identical(
     (ex_uts() + 20)$values,

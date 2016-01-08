@@ -17,6 +17,9 @@ An object of class \code{"uts"}.
 \description{
 Create an unevenly spaced time series (\code{"uts"}) object from a vector of observation values and a vector of observation times of matching length.
 }
+\details{
+As shown in the example below, it is possible to store arbitrary \R objects in a \code{"uts"} object. However, some time series operations (e.g. arithmetic operations) require the observation values to be either \code{\link{numeric}}, \code{\link{logical}}, or \code{\link{complex}}.
+}
 \examples{
 # Create a numeric "uts"
 dts <- c("2007-11-08", "2007-11-08", "2007-11-08", "2007-11-09", "2007-11-09", "2007-11-09")

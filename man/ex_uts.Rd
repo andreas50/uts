@@ -20,7 +20,7 @@ ex_uts3(n = 1000L)
 
 \code{ex_uts2()} returns a non-numeric \code{"uts"} with three observations.
 
-\code{ex_uts3()} returns a daily \code{"uts"} that starts in 1/1/2000. The observation values are drawn from normal distribution with mean 0 and standard deviation 1. For reproducability, the random numbers are draw with fixed initial \code{\link[=set.seed]{seed}}.
+\code{ex_uts3()} returns a daily \code{"uts"} that starts in 1/1/2000. The observation values are drawn from a normal distribution with mean 0 and standard deviation 1. For reproducability, the random numbers are draw with fixed initial \code{\link[=set.seed]{seed}}.
 }
 \description{
 Create time series that can be used for code examples and testing.

@@ -69,6 +69,12 @@ if (0) {
 #' 48 >= ex_uts()
 Ops.uts <- function(e1, e2)
 {
+  # Argument checking
+  if (is.uts(e1) && !is.numeric(e1$values) && !is.logical(e1$values) && !is.complex(e1$values))
+    stop("Not a numeric, logical, or complex time series")
+  if (!missing(e2) && is.uts(e2) && !is.numeric(e2$values) && !is.logical(e2$values) && !is.complex(e2$values))
+    stop("Not a numeric, logical, or complex time series")
+  
   # Unary operator
   if (missing(e2)) {
     e1$values <- do.call(.Generic, list(e1$values))

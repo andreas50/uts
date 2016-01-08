@@ -46,7 +46,7 @@ split_segments <- function(x, max_dt)
 #' 
 #' A convenience wrapper around \code{\link[graphics:plot.default]{plot.default}} with several sensible default arguments.
 #' 
-#' @param x a numeric \code{"uts"} object that should be plotted.
+#' @param x a \code{"uts"} object with numeric or logical observation values.
 #' @param max_dt a non-negative \code{\link[lubridate]{duration}} object. Consecutive observations are not connected by a line in the graph, if they are more than this amount apart in time.
 #' @param type what type of plot should be drawn, see \code{\link[graphics:plot.default]{plot.default}}. \code{type="b"} is helpful for highlighting individual observations.
 #' @param col the colors for lines and points. See \code{\link[graphics:plot.default]{plot.default}}.
@@ -75,8 +75,8 @@ plot.uts <- function(x, max_dt=ddays(Inf), type="l", col="blue", xlab="", ylab="
   # Argument checking
   if (length(x) == 0L)
     stop("Cannot plot time series of zero length")
-  if (!is.numeric(x$values))
-    stop("Can only plot numeric time series")
+  if (!is.numeric(x$values) && !is.logical(x$values))
+    stop("Can only plot time series with numeric or logical observation values")
 
   # Set up empty plotting canvas
   plot(x$times, x$values, type="n", col=col, xlab=xlab, ylab=ylab, ...)

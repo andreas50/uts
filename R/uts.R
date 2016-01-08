@@ -5,6 +5,8 @@
 #' Unevenly-spaced Time Series
 #' 
 #' Create an unevenly spaced time series (\code{"uts"}) object from a vector of observation values and a vector of observation times of matching length.
+#' 
+#' As shown in the example below, it is possible to store arbitrary \R objects in a \code{"uts"} object. However, some time series operations (e.g. arithmetic operations) require the observation values to be either \code{\link{numeric}}, \code{\link{logical}}, or \code{\link{complex}}.
 #'
 #' @return An object of class \code{"uts"}.
 #' @param values a vector of observation values.
