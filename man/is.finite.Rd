@@ -4,7 +4,7 @@
 \alias{is.finite.uts}
 \alias{is.infinite.uts}
 \alias{is.nan.uts}
-\title{Finite, Infinite and NaN Numbers}
+\title{Finite, Infinite and NaN Observation Values}
 \usage{
 \method{is.finite}{uts}(x)
 

@@ -1,4 +1,4 @@
-#' Finite, Infinite and NaN Numbers
+#' Finite, Infinite and NaN Observation Values
 #' 
 #' Find finite, infinite, and NaN observation values.
 #' 

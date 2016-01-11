@@ -25,7 +25,7 @@ which <- function(x, ...) UseMethod("which")
 which.default <- function(x, ...) base::which(x, ...)
 
 
-#' Which observation values are TRUE?
+#' For which Observation Times are Observation Values TRUE?
 #' 
 #' For a logical \code{"uts"} (i.e. a \code{"uts"} with logical observation values), get the observation times with \code{TRUE} observation value.
 #' 
@@ -72,7 +72,7 @@ which.max <- function(x, ...) UseMethod("which.max")
 which.max.default <- function(x, ...) base::which.max(x)
 
 
-#' Which observation time has the largest/smallest observation value?
+#' Which Observation Time has the largest/smallest Observation Value?
 #' 
 #' Determine the temporal location (i.e. observation time) of the first maximum or minimum observation value.
 #' 

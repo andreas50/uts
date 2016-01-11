@@ -2,7 +2,7 @@
 % Please edit documentation in R/NAs.R
 \name{na.omit.uts}
 \alias{na.omit.uts}
-\title{Remove NAs}
+\title{Remove NA Observation Values}
 \usage{
 \method{na.omit}{uts}(object, ...)
 }

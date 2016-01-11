@@ -2,7 +2,7 @@
 # First and last observation value #
 ####################################
 
-#' First Value
+#' First Observation Value
 #'
 #' Return the first value of an \R object.
 #' 
@@ -27,7 +27,7 @@ first.uts <- function(x, ...)
 }
 
 
-#' Last Value
+#' Last Observation Value
 #'
 #' Return the last value of an \R object.
 #' 

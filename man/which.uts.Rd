@@ -2,7 +2,7 @@
 % Please edit documentation in R/which.R
 \name{which.uts}
 \alias{which.uts}
-\title{Which observation values are TRUE?}
+\title{For which Observation Times are Observation Values TRUE?}
 \usage{
 \method{which}{uts}(x, ...)
 }

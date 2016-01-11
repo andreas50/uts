@@ -79,7 +79,7 @@ str.uts <- function(object, ...)
 }
 
 
-#' Print Values
+#' Print Observation Times and Values
 #' 
 #' @param x a time series object.
 #' @param style the printing style. Either \code{"horizontal"} (the default), "vertical" or "plain" (which first prints the data and then the index).

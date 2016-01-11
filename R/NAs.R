@@ -2,7 +2,7 @@
 # Handling of NAs #
 ###################
 
-#' Remove NAs
+#' Remove NA Observation Values
 #' 
 #' Returns the object with incomplete cases removed.
 #' 
@@ -26,7 +26,7 @@ na.omit.uts <- function(object, ...)
 }
 
 
-#' Not Available / Missing Values
+#' Not Available / Missing Observation Values
 #' 
 #' Find missing values.
 #' 

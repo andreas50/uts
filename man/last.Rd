@@ -3,7 +3,7 @@
 \name{last}
 \alias{last}
 \alias{last.uts}
-\title{Last Value}
+\title{Last Observation Value}
 \usage{
 last(x, ...)
 

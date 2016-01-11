@@ -3,7 +3,7 @@
 \name{first}
 \alias{first}
 \alias{first.uts}
-\title{First Value}
+\title{First Observation Value}
 \usage{
 first(x, ...)
 

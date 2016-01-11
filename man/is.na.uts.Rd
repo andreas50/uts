@@ -2,7 +2,7 @@
 % Please edit documentation in R/NAs.R
 \name{is.na.uts}
 \alias{is.na.uts}
-\title{Not Available / Missing Values}
+\title{Not Available / Missing Observation Values}
 \usage{
 \method{is.na}{uts}(x)
 }

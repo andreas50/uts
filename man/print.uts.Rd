@@ -2,7 +2,7 @@
 % Please edit documentation in R/uts.R
 \name{print.uts}
 \alias{print.uts}
-\title{Print Values}
+\title{Print Observation Times and Values}
 \usage{
 \method{print}{uts}(x, style = "horizontal", ...)
 }
@@ -14,7 +14,7 @@
 \item{\dots}{further arguments passed to or from methods.}
 }
 \description{
-Print Values
+Print Observation Times and Values
 }
 \examples{
 print(ex_uts())
