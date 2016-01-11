@@ -8,12 +8,18 @@
 \method{Ops}{list}(e1, e2)
 }
 \arguments{
-\item{e1, e2}{either \code{"uts"} objects or numeric numbers.}
-
-\item{\dots}{further arguments passed to or from methods.}
+\item{e1, e2}{either \code{"uts"} objects or compatible \R objects of length one, where compatability depends on the type of operation performed.}
 }
 \description{
-Apply the \code{\link{Ops}} methods in base \R{} to \code{"uts"} objects.
+Apply the \code{\link{Ops}} group methods in base \R{} to the observation values of \code{"uts"} objects.
+}
+\details{
+For compatability with the S3 classes defined in the \code{utsMultivariate} package, the Ops methods are defined fo
+}
+\note{
+For unary oparations, the output time series has the same observation times as the input time series.
+
+For binary operations involving two time series \code{e1} and \code{e2}, the output time series has the union of observation times of \code{e1} and \code{e2}, but excluding times before \emph{both} time series have their initial observation. The method for determining these times is unaffected by numerical noise less than \code{sqrt(\link[=.Machine]{.Machine$double.eps})}.
 }
 \examples{
 # Unary oparators

@@ -10,7 +10,7 @@ test_that("Ops argument checking works",{
 
 
 test_that("Ops group methods work",{
-  # Numeric uts
+  # Arithmetic
   expect_identical(
     (ex_uts() + 20)$values,
     ex_uts()$values + 20

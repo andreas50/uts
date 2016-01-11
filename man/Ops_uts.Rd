@@ -2,22 +2,22 @@
 % Please edit documentation in R/group_methods.R
 \name{Ops_uts}
 \alias{Ops_uts}
-\title{Ops Group Methods for uts}
+\title{Ops Group Methods Helper}
 \usage{
 Ops_uts(e1, e2, .Generic)
 }
 \arguments{
-\item{e1, e2}{either \code{"uts"} objects or numeric, logical, or complex numbers.}
+\item{e1, e2}{see \code{\link{Ops.uts}}.}
 
-\item{\dots}{further arguments passed to or from methods.}
+\item{.Generic}{a character vector naming the generic function.}
 }
 \description{
-Apply the \code{\link{Ops}} methods in base \R{} to the observation values of \code{"uts"} objects.
+A helper function that does the actual work for the \code{\link{Ops.uts}}.
 }
-\note{
-For unary oparations, the output time series has the same observation times as the input time series.
-
-For binary operations involving two time series \code{e1} and \code{e2}, the output time series has the union of observation times of \code{e1} and \code{e2}, but excluding times before \emph{both} time series have their initial observation. The method for determining these times is unaffected by numerical noise less than \code{sqrt(\link[=.Machine]{.Machine$double.eps})}.
+\examples{
+Ops_uts(ex_uts(), ex_uts(), "+")         # arithmetic
+Ops_uts(ex_uts(), ex_uts(), ">")         # comparison
+!Ops_uts(ex_uts() > 48, .Generic="!")    # logical operator
 }
 \seealso{
 \code{\link{groupGeneric}}

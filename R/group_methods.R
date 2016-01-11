@@ -44,18 +44,20 @@ if (0) {
 }
 
 
-#' Ops Group Methods for uts
+#' Ops Group Methods Helper
 #' 
-#' Apply the \code{\link{Ops}} methods in base \R{} to the observation values of \code{"uts"} objects.
+#' A helper function that does the actual work for the \code{\link{Ops.uts}}.
 #' 
-#' @note For unary oparations, the output time series has the same observation times as the input time series.
-#' @note For binary operations involving two time series \code{e1} and \code{e2}, the output time series has the union of observation times of \code{e1} and \code{e2}, but excluding times before \emph{both} time series have their initial observation. The method for determining these times is unaffected by numerical noise less than \code{sqrt(\link[=.Machine]{.Machine$double.eps})}.
-#' 
-#' @param e1,e2 either \code{"uts"} objects or numeric, logical, or complex numbers.
-#' @param \dots further arguments passed to or from methods.
+#' @param e1,e2 see \code{\link{Ops.uts}}.
+#' @param .Generic a character vector naming the generic function.
 #' 
 #' @keywords internal
 #' @seealso \code{\link{groupGeneric}}
+#' 
+#' @examples
+#' Ops_uts(ex_uts(), ex_uts(), "+")         # arithmetic
+#' Ops_uts(ex_uts(), ex_uts(), ">")         # comparison
+#' !Ops_uts(ex_uts() > 48, .Generic="!")    # logical operator
 Ops_uts <- function(e1, e2, .Generic)
 {
   # Unary operator
@@ -96,10 +98,14 @@ Ops_uts <- function(e1, e2, .Generic)
 
 #' Ops Group Methods
 #' 
-#' Apply the \code{\link{Ops}} methods in base \R{} to \code{"uts"} objects.
+#' Apply the \code{\link{Ops}} group methods in base \R{} to the observation values of \code{"uts"} objects.
 #' 
-#' @param e1,e2 either \code{"uts"} objects or numeric numbers.
-#' @param \dots further arguments passed to or from methods.
+#' For compatability with the S3 classes defined in the \code{utsMultivariate} package, the Ops methods are defined fo
+#' 
+#' @note For unary oparations, the output time series has the same observation times as the input time series.
+#' @note For binary operations involving two time series \code{e1} and \code{e2}, the output time series has the union of observation times of \code{e1} and \code{e2}, but excluding times before \emph{both} time series have their initial observation. The method for determining these times is unaffected by numerical noise less than \code{sqrt(\link[=.Machine]{.Machine$double.eps})}.
+#' 
+#' @param e1,e2 either \code{"uts"} objects or compatible \R objects of length one, where compatability depends on the type of operation performed.
 #' 
 #' @aliases Ops.uts
 #' @seealso \code{\link{groupGeneric}}
@@ -134,13 +140,18 @@ Ops.list <- function(e1, e2)
   
   # Binary operator
   cl2 <- class(e2)[1]
-  if ((cl1 %in% c("numeric", "integer", "logical", "complex", "uts")) &&
-      (cl2 %in% c("numeric", "integer", "logical", "complex", "uts")))
-    return(Ops_uts(e1, e2, .Generic=.Generic))
+  if ((cl1 == "uts_vector") || (cl2 == "uts_vector")) {
+    if (!requireNamespace("utsMultivariate", quietly=TRUE))
+        stop("Package 'utsMultivariate' needed for this function to work")
+      else
+        utsMultivariate::Ops_uts_vector(e1, e2, .Generic=.Generic)
+  } else if ((cl1 == "uts") || (cl2 == "uts")) {
+    Ops_uts(e1, e2, .Generic=.Generic)
+  } else
+    stop("This class does not support Ops operators")
   
   
   # Call appropriate function
-  stop("Not implemented yet")
 #   if ((cl1 %in% c("uts_matrix", "uts_vector") || (cl1 %in% c("numeric", "integer") && length(e1) == 1)) &
 #        (cl2 %in% c("uts_matrix", "uts_vector") || (cl2 %in% c("numeric", "integer") && length(e2) == 1)))
 #     Ops_uts_vector(e1, e2, .Generic)

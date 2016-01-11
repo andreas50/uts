@@ -78,14 +78,16 @@ S3method(which.min, uts)
 S3method(window, uts)
 
 
-# S3 methods that cause problems when registered with S3method()
-# 1.) A method for a generic in a enhanced/suggested package cannot be registered.
+# S3 methods that cause problems when registered with S3method() instead of export():
+# 1.) A method for a generic in an enhanced/suggested package cannot be registered.
 #     See chapter 8 of "R packages" by Hadley Wickham.
 export(as.irts.uts)   # would need to create "tseries" package dependency
 export(as.xts.uts)    # would need to create "xts" package dependency
 export(as.zoo.uts)    # would need to create "zoo" package dependency
-# 2.) Otherwise loading the "xts" package masks these methods on the search path.
-#     Not clear why?
+# 2.) Otherwise loading the "xts" package (which also contains a generic "first" and "last")
+#     makes these methods inaccessible on the search path.
+#     The reason is that S3method() does not export an object from the namespace. Therefore,
+#     if the generic is in another package, that generic won't be able to find the method.
 export(first.uts)
 export(last.uts)
 
