@@ -4,8 +4,6 @@ context("group methods")
 
 test_that("Ops argument checking works",{
   expect_error(ex_uts() + 1:2)
-  expect_error("a" + ex_uts())
-  expect_error(ex_uts2() + 1)
 })
 
 

@@ -14,12 +14,12 @@
 Apply the \code{\link{Ops}} group methods in base \R{} to the observation values of \code{"uts"} objects.
 }
 \details{
-For compatability with the S3 classes defined in the \code{utsMultivariate} package, the Ops methods are defined fo
+For compatability with the S3 classes defined in the \code{utsMultivariate} package, the Ops group methods are implemented via \code{Ops.list} instead of \code{Ops.uts}.
 }
 \note{
 For unary oparations, the output time series has the same observation times as the input time series.
 
-For binary operations involving two time series \code{e1} and \code{e2}, the output time series has the union of observation times of \code{e1} and \code{e2}, but excluding times before \emph{both} time series have their initial observation. The method for determining these times is unaffected by numerical noise less than \code{sqrt(\link[=.Machine]{.Machine$double.eps})}.
+For binary operations involving two time series \code{e1} and \code{e2}, the output time series has the union of observation times of \code{e1} and \code{e2}, but excluding times before the first observation time of either time series. The method for determining these times is unaffected by numerical noise less than \code{sqrt(\link[=.Machine]{.Machine$double.eps})}.
 }
 \examples{
 # Unary oparators

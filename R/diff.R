@@ -39,10 +39,6 @@ diff.uts <- function(x, lag=1, scale="abs", ...)
     stop("Unknown scale")
   
   # Drop observation times without matching lagged value
-  if (lag > 0) {
-    out$values <- out$values[-(1L:lag)]
-    out$times <- out$times[-(1L:lag)]
-  }
   if (lag < 0) {
     len <- length(out)
     drop <- (len - abs(lag) + 1L):len
