@@ -7,6 +7,8 @@
 #' Create an unevenly spaced time series (\code{"uts"}) object from a vector of observation values and a vector of observation times of matching length.
 #' 
 #' As shown in the example below, it is possible to store arbitrary \R objects in a \code{"uts"} object. However, some time series operations (e.g. arithmetic operations) require the observation values to be either \code{\link{numeric}}, \code{\link{logical}}, or \code{\link{complex}}.
+#' 
+#' @note A virtual class \code{"uts_virtual"} exists from which \code{"uts"}, \code{"uts_vector"}, \code{"uts_matrix"}, and \code{"uts_data_frame"} inherit (see package \code{utsMultivariate} for the latter three classes): it is used to allow operations such as subtraction to mix the classes.
 #'
 #' @return An object of class \code{"uts"}.
 #' @param values a vector of observation values.
@@ -38,8 +40,24 @@ uts <- function(values=numeric(), times=as.POSIXct(character()))
   
   # Creat "uts" object
   x <- list(values=values, times=times)
-  class(x) <- c("uts", "list")
+  class(x) <- c("uts", "uts_virtual")
   x   
+}
+
+
+#' Is Object a uts_virtual?
+#' 
+#' Return \code{TRUE} if and only if the argument is a \code{"uts_virtual"} object.
+#'  
+#' @param x an \R object.
+#' 
+#' @keywords internal
+#' @examples
+#' is.uts_virtual(ex_uts())
+#' is.uts_virtual(5)
+is.uts_virtual <- function(x)
+{
+  inherits(x, "uts_virtual")
 }
 
 

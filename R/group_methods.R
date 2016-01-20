@@ -121,7 +121,7 @@ Ops_uts <- function(e1, e2, .Generic)
 #' ex_uts() / ex_uts()
 #' ex_uts() > 48
 #' 48 >= ex_uts()
-Ops.list <- function(e1, e2)
+Ops.uts_virtual <- function(e1, e2)
 {
   # Unary operator
   cl1 <- intersect(class(e1), c("uts_matrix", "uts_data_frame", "uts_vector", "uts"))[1]
