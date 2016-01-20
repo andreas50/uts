@@ -4,7 +4,7 @@
 
 #' Less-Than-Or-Equal Comparison of Sorted Vectors
 #' 
-#' Assume given two sorted numeric vectors \code{a} and \code{b}. For each element \code{a[i]}, determine the number of elements in \code{b} that are less than or equal (leq) to this value.
+#' For two sorted numeric vectors \code{a} and \code{b}, for each element \code{a[i]} determine the number of elements in \code{b} that are less than or equal (leq) to this value.
 #' 
 #' @note
 #' Equivalently, because the input vectors are sorted, for each element \code{a[i]} determine the maximum index \code{j} with \code{b[j] <= a[i]}.
@@ -49,15 +49,15 @@ num_leq_sorted <- function(a, b, tolerance=0)
     stop("'b' is not sorted")
   
   # Call C function
-  res <- integer(length(a))
+  num_leq <- integer(length(a))
   .C("num_leq_sorted", as.double(a + tolerance), as.integer(length(a)),
-    as.double(b), as.integer(length(b)), pos = res)$pos
+    as.double(b), as.integer(length(b)), num_leq=num_leq)$num_leq
 }
 
 
 #' Less-Than Comparison of Sorted Vectors
 #' 
-#' Assume given two sorted numeric vectors \code{a} and \code{b}. For each element \code{a[i]}, determine the number of elements in \code{b} that are less than this value.
+#' For two sorted numeric vectors \code{a} and \code{b}, for each element \code{a[i]} determine the number of elements in \code{b} that are less than this value.
 #' 
 #' @note
 #' Equivalently, because the input vectors are sorted, for each element \code{a[i]} determine the maximum index \code{j} with \code{b[j] < a[i]}. 
@@ -92,9 +92,9 @@ num_less_sorted <- function(a, b, tolerance=0)
     stop("'b' is not sorted")
   
   # Call C function
-  res <- integer(length(a))
+  num_less <- integer(length(a))
   .C("num_less_sorted", as.double(a), as.integer(length(a)),
-     as.double(b), as.integer(length(b)), pos = res)$pos
+     as.double(b), as.integer(length(b)), num_less=num_less)$num_less
 }
 
 

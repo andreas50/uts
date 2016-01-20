@@ -15,7 +15,7 @@ num_less_sorted(a, b, tolerance = 0)
 An integer vector of same length as \code{a}.
 }
 \description{
-Assume given two sorted numeric vectors \code{a} and \code{b}. For each element \code{a[i]}, determine the number of elements in \code{b} that are less than this value.
+For two sorted numeric vectors \code{a} and \code{b}, for each element \code{a[i]} determine the number of elements in \code{b} that are less than this value.
 }
 \note{
 Equivalently, because the input vectors are sorted, for each element \code{a[i]} determine the maximum index \code{j} with \code{b[j] < a[i]}.

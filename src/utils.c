@@ -1,33 +1,33 @@
 /*
- * Assume given two sorted numeric vectors 'a' and 'b'. For each element a[i], determine the number
- * of elements in 'b' than are less than or equal (leq) to this value.
+ * For two sorted numeric vectors 'a' and 'b', ror each element a[i] determine the number
+ * of elements in 'b' that are less than or equal (leq) to this value.
  *
  * Equivalently, because the vectors are sorted, for or each element a[i] determine the maximum
  * index j such that b[j-1] <= a[i].
 */
-void num_leq_sorted(const double a[], const int *na, const double b[], const int *nb, int pos[])
+void num_leq_sorted(const double a[], const int *na, const double b[], const int *nb, int num_leq[])
 {
   for (int i=0, j=0; i < *na; i++) {
     while ((j < *nb) && (b[j] <= a[i]))
 	    j++;
-    pos[i] = j;
+    num_leq[i] = j;
   }
 }
 
 
 /*
- * Assume given two sorted numeric vectors 'a' and 'b'. For each element a[i], determine the number
- * of elements in 'b' than are strictly less than this value.
+ * For two sorted numeric vectors 'a' and 'b', for each element a[i] determine the number
+ * of elements in 'b' that are less than this value.
  *
  * Equivalently, because the vectors are sorted, for or each element a[i] determine the maximum
  * index j such that b[j-1] < a[i].
  */
-void num_less_sorted(const double a[], const int *na, const double b[], const int *nb, int pos[])
+void num_less_sorted(const double a[], const int *na, const double b[], const int *nb, int num_less[])
 {
   for (int i=0, j=0; i < *na; i++) {
     while ((j < *nb) && (b[j] < a[i]))
       j++;
-    pos[i] = j;
+    num_less[i] = j;
   }
 }
 
