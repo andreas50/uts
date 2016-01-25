@@ -4,6 +4,8 @@
 #' 
 #' \code{uts} methods:
 #' \itemize{
+#'   \item \code{\link{is.uts}}
+#'   \item \code{\link{is.uts_virtual}}
 #'   \item \code{\link[=mean.uts]{mean}}
 #'   \item \code{\link[=median.uts]{median}}
 #'   \item \code{\link[=sd.uts]{sd}}

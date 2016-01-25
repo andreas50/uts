@@ -53,6 +53,7 @@ uts <- function(values=numeric(), times=as.POSIXct(character()))
 #' 
 #' @description \code{is.uts} returns \code{TRUE} if its argument is a \code{"uts"} object.
 #' 
+#' @keywords internal
 #' @param x an \R object.
 is.uts <- function(x)
 {
@@ -62,6 +63,7 @@ is.uts <- function(x)
 
 #' @rdname uts
 #' 
+#' @keywords internal
 #' @description \code{is.uts_virtual} returns \code{TRUE} if its argument is a \code{"uts_virtual"} object.
 is.uts_virtual <- function(x)
 {

@@ -52,5 +52,6 @@ is.uts(ex_uts())
 is.uts_virtual(ex_uts())
 }
 \keyword{classes}
+\keyword{internal}
 \keyword{ts}
 
