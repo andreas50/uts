@@ -14,7 +14,7 @@
 \item{\dots}{further arguments passed to or from methods.}
 }
 \description{
-Print Observation Times and Values
+Print the observation time and values in one of two different formats.
 }
 \examples{
 print(ex_uts())

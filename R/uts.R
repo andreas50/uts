@@ -26,6 +26,10 @@
 #'
 #' # Create an empty "uts"
 #' uts()
+#' 
+#' # All of the following are TRUE
+#' is.uts(ex_uts())
+#' is.uts_virtual(ex_uts())
 uts <- function(values=numeric(), times=as.POSIXct(character()))
 {
   # Argument checking
@@ -45,35 +49,23 @@ uts <- function(values=numeric(), times=as.POSIXct(character()))
 }
 
 
-#' Is Object a uts_virtual?
+#' @rdname uts
 #' 
-#' Return \code{TRUE} if and only if the argument is a \code{"uts_virtual"} object.
-#'  
+#' @description \code{is.uts} returns \code{TRUE} if its argument is a \code{"uts"} object.
+#' 
 #' @param x an \R object.
-#' 
-#' @keywords internal
-#' @examples
-#' is.uts_virtual(ex_uts())
-#' is.uts_virtual(5)
-is.uts_virtual <- function(x)
-{
-  inherits(x, "uts_virtual")
-}
-
-
-#' Is Object a uts?
-#' 
-#' Return \code{TRUE} if and only if the argument is a \code{"uts"} object.
-#'  
-#' @param x an \R object.
-#' 
-#' @keywords internal
-#' @examples
-#' is.uts(ex_uts())
-#' is.uts(5)
 is.uts <- function(x)
 {
   inherits(x, "uts")
+}
+
+
+#' @rdname uts
+#' 
+#' @description \code{is.uts_virtual} returns \code{TRUE} if its argument is a \code{"uts_virtual"} object.
+is.uts_virtual <- function(x)
+{
+  inherits(x, "uts_virtual")
 }
 
 
@@ -98,6 +90,8 @@ str.uts <- function(object, ...)
 
 
 #' Print Observation Times and Values
+#' 
+#' Print the observation time and values in one of two different formats.
 #' 
 #' @param x a time series object.
 #' @param style the printing style. Either \code{"horizontal"} (the default), "vertical" or "plain" (which first prints the data and then the index).
@@ -129,6 +123,7 @@ print.uts <- function (x, style="horizontal", ...)
     print(out, ...)
   } else
     print.default(x, ...)
+  invisible(x)
 }
 
 
