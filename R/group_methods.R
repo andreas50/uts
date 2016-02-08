@@ -124,7 +124,7 @@ Ops_uts <- function(e1, e2, .Generic)
 Ops.uts_virtual <- function(e1, e2)
 {
   # Unary operator
-  cl1 <- intersect(class(e1), c("uts_matrix", "uts_data_frame", "uts_vector", "uts"))[1]
+  cl1 <- intersect(class(e1), c("uts_matrix", "uts_vector", "uts"))[1]
   if (is.na(cl1))
     cl1 <- "other"
   if (missing(e2)) {
@@ -141,7 +141,7 @@ Ops.uts_virtual <- function(e1, e2)
 
   
   # Binary operator
-  cl2 <- intersect(class(e2), c("uts_matrix", "uts_data_frame", "uts_vector", "uts"))[1]
+  cl2 <- intersect(class(e2), c("uts_matrix", "uts_vector", "uts"))[1]
   if (is.na(cl2))
     cl2 <- "other"
   if ((cl1 == "uts_vector") || (cl2 == "uts_vector")) {
