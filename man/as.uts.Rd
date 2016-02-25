@@ -30,17 +30,17 @@ as.uts(x, ...)
 An object of class \code{"uts"}.
 }
 \description{
-Convert time series objects from other R package to \code{"uts"} objects.
+Convert univariate time series objects from other R package to \code{"uts"} objects.
 }
 \section{Methods (by class)}{
 \itemize{
 \item \code{ts}: convert a \code{\link[stats:ts]{ts}} object
 
-\item \code{fts}: convert a \code{\link[fts:fts]{fts}} object
+\item \code{fts}: convert an \code{\link[fts:fts]{fts}} object
 
-\item \code{irts}: convert a \code{\link[tseries:irts]{irts}} object
+\item \code{irts}: convert an \code{\link[tseries:irts]{irts}} object
 
-\item \code{xts}: convert a \code{\link[xts:xts]{xts}} object
+\item \code{xts}: convert an \code{\link[xts:xts]{xts}} object
 
 \item \code{zoo}: convert a \code{\link[zoo:zoo]{zoo}} object
 }}
@@ -63,18 +63,10 @@ if (requireNamespace("fts", quietly = TRUE)) {
   as.uts(fts1)
 }
 
-#' # Convert an "irts"
+# Convert an "irts"
 if (requireNamespace("tseries", quietly = TRUE)) {
   irts1 <- tseries::irts(as.POSIXct("2015-01-01") + days(c(1, 3, 7, 9)), 1:4)
   as.uts(irts1)
-  
-  # Multivariate 'irts' objects need to be converted using as.uts_vector()
-  \dontrun{
-     t <- cumsum(rexp(10, rate = 0.1))
-     v <- matrix(rnorm(20), nrow=10)
-     irts2 <- tseries::irts(t, v)
-     as.uts(irts2)
-  }
 }
 
 # Convert an "xts"
@@ -88,5 +80,8 @@ if (requireNamespace("zoo", quietly = TRUE)) {
   zoo1 <- zoo::zoo(1:4, as.Date("2015-01-01") + c(1, 3, 7, 9))
   as.uts(zoo1)
 }
+}
+\seealso{
+\code{\link[utsMultivariate:as.uts_vector]{as.uts_vector}} (in package \code{utsMultivariate}) for converting multivariate time series.
 }
 

@@ -8,11 +8,13 @@
 
 #' Coercion to uts
 #' 
-#' Convert time series objects from other R package to \code{"uts"} objects.
+#' Convert univariate time series objects from other R package to \code{"uts"} objects.
 #'
 #' @return An object of class \code{"uts"}.
 #' @param x a time series object of appropriate type.
 #' @param \dots further arguments passed to or from methods.
+#' 
+#' @seealso \code{\link[utsMultivariate:as.uts_vector]{as.uts_vector}} (in package \code{utsMultivariate}) for converting multivariate time series. 
 as.uts <- function(x, ...) UseMethod("as.uts")
 
 
@@ -37,18 +39,10 @@ as.uts <- function(x, ...) UseMethod("as.uts")
 #'   as.uts(fts1)
 #' }
 #' 
-#' #' # Convert an "irts"
+#' # Convert an "irts"
 #' if (requireNamespace("tseries", quietly = TRUE)) {
 #'   irts1 <- tseries::irts(as.POSIXct("2015-01-01") + days(c(1, 3, 7, 9)), 1:4)
 #'   as.uts(irts1)
-#'   
-#'   # Multivariate 'irts' objects need to be converted using as.uts_vector()
-#'   \dontrun{
-#'      t <- cumsum(rexp(10, rate = 0.1))
-#'      v <- matrix(rnorm(20), nrow=10)
-#'      irts2 <- tseries::irts(t, v)
-#'      as.uts(irts2)
-#'   }
 #' }
 #' 
 #' # Convert an "xts"
@@ -64,6 +58,10 @@ as.uts <- function(x, ...) UseMethod("as.uts")
 #' }
 as.uts.ts <- function(x, ...)
 {
+  # Require univariate time series
+  if (!is.null(ncol(x)) && (ncol(x) > 1))
+    stop("Only univariate 'ts' objects can be converted to a 'uts' object. Use as.uts_vector() in package utsMultivariate for multivariate time series")  
+  
   # Extract values and times
   times <- date_decimal(as.numeric(time(x)), tz="")
   values <- as.numeric(x)
@@ -76,20 +74,24 @@ as.uts.ts <- function(x, ...)
 }
 
 
-#' @describeIn as.uts convert a \code{\link[fts:fts]{fts}} object
+#' @describeIn as.uts convert an \code{\link[fts:fts]{fts}} object
 as.uts.fts <- function(x, ...)
 {
+  # Require univariate time series
+  if (!is.null(ncol(x)) && (ncol(x) > 1))
+    stop("Only univariate 'fts' objects can be converted to a 'uts' object. Use as.uts_vector() in package utsMultivariate for multivariate time series")
+  
   # The "fts" class inherits from "zoo"
   as.uts.zoo(x, ...)
 }
 
 
-#' @describeIn as.uts convert a \code{\link[tseries:irts]{irts}} object
+#' @describeIn as.uts convert an \code{\link[tseries:irts]{irts}} object
 as.uts.irts <- function(x, ...)
 {
-  # Argument checking
-  if (!is.null(dim(x$value)))
-    stop("Only univariate 'irts' objects can be converted to 'uts' object. Use as.uts_vector() instead")
+  # Require univariate time series
+  if (!is.null(ncol(x)) && (ncol(x) > 1))
+    stop("Only univariate 'irts' objects can be converted to a 'uts' object. Use as.uts_vector() in package utsMultivariate for multivariate time series")
   
   # Clean messed up class attributed of observations times
   times <- x$time
@@ -99,9 +101,13 @@ as.uts.irts <- function(x, ...)
 }
 
 
-#' @describeIn as.uts convert a \code{\link[xts:xts]{xts}} object
+#' @describeIn as.uts convert an \code{\link[xts:xts]{xts}} object
 as.uts.xts <- function(x, ...)
 {
+  # Require univariate time series
+  if (!is.null(ncol(x)) && (ncol(x) > 1))
+    stop("Only univariate 'xts' objects can be converted to a 'uts' object. Use as.uts_vector() in package utsMultivariate for multivariate time series")  
+  
   as.uts(zoo::as.zoo(x, ...))
 }
 
@@ -109,6 +115,10 @@ as.uts.xts <- function(x, ...)
 #' @describeIn as.uts convert a \code{\link[zoo:zoo]{zoo}} object
 as.uts.zoo <- function(x, ...)
 {
+  # Require univariate time series
+  if (!is.null(ncol(x)) && (ncol(x) > 1))
+    stop("Only univariate 'zoo' objects can be converted to a 'uts' object. Use as.uts_vector() in package utsMultivariate for multivariate time series")
+  
   uts(as.numeric(x), as.POSIXct(as.character(attr(x, "index"))))
 }
 
