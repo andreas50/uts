@@ -82,6 +82,6 @@ if (requireNamespace("zoo", quietly = TRUE)) {
 }
 }
 \seealso{
-\code{\link[utsMultivariate:as.uts_vector]{as.uts_vector}} (in package \code{utsMultivariate}) for converting multivariate time series.
+\code{as.uts_vector} (in package \code{utsMultivariate}) for converting multivariate time series.
 }
 

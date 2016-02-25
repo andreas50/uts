@@ -14,7 +14,7 @@
 #' @param x a time series object of appropriate type.
 #' @param \dots further arguments passed to or from methods.
 #' 
-#' @seealso \code{\link[utsMultivariate:as.uts_vector]{as.uts_vector}} (in package \code{utsMultivariate}) for converting multivariate time series. 
+#' @seealso \code{as.uts_vector} (in package \code{utsMultivariate}) for converting multivariate time series. 
 as.uts <- function(x, ...) UseMethod("as.uts")
 
 
@@ -160,6 +160,24 @@ as.xts.uts <- function(x)
   if (!requireNamespace("xts", quietly=TRUE))
     stop("Package 'xts' needed for this function to work")
   xts::xts(x$values, x$times)
+}
+
+
+#' Coercion to fts
+#' 
+#' @return An \code{\link[fts:fts]{fts}} object.
+#' @param x a \code{"uts"} object.
+#' @param \dots further arguments passed to or from methods.
+#' 
+#' @examples
+#' if (requireNamespace("fts", quietly = TRUE)) {
+#'   fts::as.fts(ex_uts())
+#' }
+as.fts.uts <- function(x)
+{
+  if (!requireNamespace("fts", quietly=TRUE))
+    stop("Package 'fts' needed for this function to work")
+  fts::fts(x$times, x$values)
 }
 
 
