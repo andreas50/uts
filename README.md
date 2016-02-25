@@ -20,7 +20,6 @@ I therefore decided to design a new time series package, partially based on my [
 
 ##### Comparison with other packages for irregular time series
 
-* [fts](http://cran.r-project.org/web/packages/fts/index.html): An extension of `zoo` that provides many (stock) trading indivators and interface to `tslib` (a time series library in C++).
 * [its](http://cran.r-project.org/web/packages/its/index.html): An S4 implementation with a few basic methods. Not under active developement.
 * [timeSeries](http://cran.r-project.org/web/packages/timeSeries/index.html): Focused on computational finance.
 * [tseries](http://cran.r-project.org/web/packages/tseries/index.html): This package contains the `irts` class.
@@ -30,7 +29,7 @@ I therefore decided to design a new time series package, partially based on my [
   * [Take out after further review] Indexing into a time series is in terms of observation numbers (e.g. get observations at integer indices 5, 6, and 9), as opposed to in terms of observation times (e.g. get sampled observations at given time points).
   * The support for multivariate time series is somewhat restrictive. Individual time series need to have identical observation times and, in particular, need to be of the same length. Moreover, indicidual time series can only store objects of the same type, because the data is stored in a matrix, although there a plans to eventually supported mixed types via data frames.
 * [xts](http://cran.r-project.org/web/packages/xts/index.html): An extension of `zoo` that facilitates inter-class operability.
-
+* [fts](http://cran.r-project.org/web/packages/fts/index.html): An extension of `zoo` that provides many (stock) trading indicators and interface to `tslib` (a time series library in C++).
 
 ##### Where to start
 
