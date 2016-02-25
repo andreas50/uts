@@ -20,9 +20,6 @@ I therefore decided to design a new time series package, partially based on my [
 
 ##### Comparison with other packages for irregular time series
 
-* [its](http://cran.r-project.org/web/packages/its/index.html): An S4 implementation with a few basic methods. Not under active developement.
-* [timeSeries](http://cran.r-project.org/web/packages/timeSeries/index.html): Focused on computational finance.
-* [tseries](http://cran.r-project.org/web/packages/tseries/index.html): This package contains the `irts` class.
 * [zoo](http://cran.r-project.org/web/packages/zoo/index.html):
   * According to the package vignette, independence of a particular index/time/date class is the most important design goal, while `uts` relies on the [POSIXct](https://stat.ethz.ch/R-manual/R-devel/library/base/html/DateTimeClasses.html) class available in base `R`.
   * Provides a hybrid approach between evenly- and unevenly-spaced time series. For example, the application logic of rolling time series operators is in terms of the number of observations.
@@ -30,6 +27,10 @@ I therefore decided to design a new time series package, partially based on my [
   * The support for multivariate time series is somewhat restrictive. Individual time series need to have identical observation times and, in particular, need to be of the same length. Moreover, indicidual time series can only store objects of the same type, because the data is stored in a matrix, although there a plans to eventually supported mixed types via data frames.
 * [xts](http://cran.r-project.org/web/packages/xts/index.html): An extension of `zoo` that facilitates inter-class operability.
 * [fts](http://cran.r-project.org/web/packages/fts/index.html): An extension of `zoo` that provides many (stock) trading indicators and interface to `tslib` (a time series library in C++).
+* [its](http://cran.r-project.org/web/packages/its/index.html): An S4 implementation with a few basic methods. Not under active developement.
+* [timeSeries](http://cran.r-project.org/web/packages/timeSeries/index.html): Focused on computational finance.
+* [tseries](http://cran.r-project.org/web/packages/tseries/index.html): This package contains the `irts` class.
+
 
 ##### Where to start
 
