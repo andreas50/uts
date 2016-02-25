@@ -109,7 +109,7 @@ print.uts <- function (x, style="horizontal", ...)
 {
   # Special case of zero length
   if (length(x) == 0L) {
-    cat("uts(0)")
+    cat("uts(0)\n")
     return(invisible(x))
   }
     

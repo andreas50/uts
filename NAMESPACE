@@ -31,6 +31,7 @@ export(which.min)
 # Register S3 methods (needed if a package is imported but not attached to the search path)
 S3method("[", uts)
 S3method("[<-", uts)
+S3method(as.uts, fts)
 S3method(as.uts, irts)
 S3method(as.uts, ts)
 S3method(as.uts, xts)
@@ -81,6 +82,7 @@ S3method(window, uts)
 # S3 methods that cause problems when registered with S3method() instead of export():
 # 1.) A method for a generic in an enhanced/suggested package cannot be registered.
 #     See chapter 8 of "R packages" by Hadley Wickham.
+#export(as.fts.uts)    # would need to create "fts" package dependency
 export(as.irts.uts)   # would need to create "tseries" package dependency
 export(as.xts.uts)    # would need to create "xts" package dependency
 export(as.zoo.uts)    # would need to create "zoo" package dependency

@@ -2,9 +2,13 @@
 # Convert objects back and forth between other R time series classes #
 ######################################################################
 
+######################
+# Coercion to ""uts" #
+######################
+
 #' Coercion to uts
 #' 
-#' Convert other time series objects to \code{"uts"} objects.
+#' Convert time series objects from other R package to \code{"uts"} objects.
 #'
 #' @return An object of class \code{"uts"}.
 #' @param x a time series object of appropriate type.
@@ -15,17 +19,49 @@ as.uts <- function(x, ...) UseMethod("as.uts")
 #' @describeIn as.uts convert a \code{\link[stats:ts]{ts}} object
 #' 
 #' @examples
-#' # Convert a quarterly "ts" time series
+#' # Convert a quarterly "ts"
 #' ts1 <- ts(1:10, frequency = 4, start = c(1959, 2))
 #' as.uts(ts1)
 #' 
-#' # Convert a monthly "ts" time series
+#' # Convert a monthly "ts"
 #' ts2 <- ts(1:10, frequency = 12, start = c(1959, 8))
 #' as.uts(ts2)
 #' 
-#' # Convert a yearly 'ts" time series
+#' # Convert a yearly 'ts"
 #' ts3 <- ts(1:10, frequency = 1, start = 1959)
 #' as.uts(ts3)
+#' 
+#' # Convert an "fts"
+#' if (requireNamespace("fts", quietly = TRUE)) {
+#'   fts1 <- fts::fts(index=as.POSIXct("2016-01-01") + dhours(c(1, 4, 27)), data=c(5,4,7))
+#'   as.uts(fts1)
+#' }
+#' 
+#' #' # Convert an "irts"
+#' if (requireNamespace("tseries", quietly = TRUE)) {
+#'   irts1 <- tseries::irts(as.POSIXct("2015-01-01") + days(c(1, 3, 7, 9)), 1:4)
+#'   as.uts(irts1)
+#'   
+#'   # Multivariate 'irts' objects need to be converted using as.uts_vector()
+#'   \dontrun{
+#'      t <- cumsum(rexp(10, rate = 0.1))
+#'      v <- matrix(rnorm(20), nrow=10)
+#'      irts2 <- tseries::irts(t, v)
+#'      as.uts(irts2)
+#'   }
+#' }
+#' 
+#' # Convert an "xts"
+#' if (requireNamespace("xts", quietly = TRUE)) {
+#'   xts1 <- xts::xts(1:4, as.Date("2015-01-01") + c(1, 3, 7, 9))
+#'   as.uts(xts1)
+#' }
+#' 
+#' # Convert a "zoo"
+#' if (requireNamespace("zoo", quietly = TRUE)) {
+#'   zoo1 <- zoo::zoo(1:4, as.Date("2015-01-01") + c(1, 3, 7, 9))
+#'   as.uts(zoo1)
+#' }
 as.uts.ts <- function(x, ...)
 {
   # Extract values and times
@@ -40,53 +76,15 @@ as.uts.ts <- function(x, ...)
 }
 
 
-#' @describeIn as.uts convert a \code{\link[xts:xts]{xts}} object
-#' 
-#' @examples
-#' #
-#' # Convert an "xts" time series
-#' if (requireNamespace("xts", quietly = TRUE)) {
-#'   xts1 <- xts::xts(1:4, as.Date("2015-01-01") + c(1, 3, 7, 9))
-#'   as.uts(xts1)
-#' }
-as.uts.xts <- function(x, ...)
+#' @describeIn as.uts convert a \code{\link[fts:fts]{fts}} object
+as.uts.fts <- function(x, ...)
 {
-  as.uts(zoo::as.zoo(x, ...))
-}
-
-
-#' @describeIn as.uts convert a \code{\link[zoo:zoo]{zoo}} object
-#' 
-#' @examples
-#' #
-#' # Convert a "zoo" time series
-#' if (requireNamespace("zoo", quietly = TRUE)) {
-#'   zoo1 <- zoo::zoo(1:4, as.Date("2015-01-01") + c(1, 3, 7, 9))
-#'   as.uts(zoo1)
-#' }
-as.uts.zoo <- function(x, ...)
-{
-  uts(as.numeric(x), as.POSIXct(as.character(attr(x, "index"))))
+  # The "fts" class inherits from "zoo"
+  as.uts.zoo(x, ...)
 }
 
 
 #' @describeIn as.uts convert a \code{\link[tseries:irts]{irts}} object
-#' 
-#' @examples
-#' #
-#' # Convert an "irts" time series
-#' if (requireNamespace("tseries", quietly = TRUE)) {
-#'   irts1 <- tseries::irts(as.POSIXct("2015-01-01") + days(c(1, 3, 7, 9)), 1:4)
-#'   as.uts(irts1)
-#'   
-#'   # Multivariate 'irts' objects need to be converted using as.uts_vector()
-#'   \dontrun{
-#'      t <- cumsum(rexp(10, rate = 0.1))
-#'      v <- matrix(rnorm(20), nrow=10)
-#'      irts2 <- tseries::irts(t, v)
-#'      as.uts(irts2)
-#'   }
-#' }
 as.uts.irts <- function(x, ...)
 {
   # Argument checking
@@ -100,6 +98,24 @@ as.uts.irts <- function(x, ...)
   uts(x$value, times)
 }
 
+
+#' @describeIn as.uts convert a \code{\link[xts:xts]{xts}} object
+as.uts.xts <- function(x, ...)
+{
+  as.uts(zoo::as.zoo(x, ...))
+}
+
+
+#' @describeIn as.uts convert a \code{\link[zoo:zoo]{zoo}} object
+as.uts.zoo <- function(x, ...)
+{
+  uts(as.numeric(x), as.POSIXct(as.character(attr(x, "index"))))
+}
+
+
+#######################
+# Coercion from "uts" #
+#######################
 
 #' Coercion to zoo
 #' 

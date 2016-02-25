@@ -2,6 +2,7 @@
 % Please edit documentation in R/coercions.R
 \name{as.uts}
 \alias{as.uts}
+\alias{as.uts.fts}
 \alias{as.uts.irts}
 \alias{as.uts.ts}
 \alias{as.uts.xts}
@@ -12,11 +13,13 @@ as.uts(x, ...)
 
 \method{as.uts}{ts}(x, ...)
 
+\method{as.uts}{fts}(x, ...)
+
+\method{as.uts}{irts}(x, ...)
+
 \method{as.uts}{xts}(x, ...)
 
 \method{as.uts}{zoo}(x, ...)
-
-\method{as.uts}{irts}(x, ...)
 }
 \arguments{
 \item{x}{a time series object of appropriate type.}
@@ -27,44 +30,40 @@ as.uts(x, ...)
 An object of class \code{"uts"}.
 }
 \description{
-Convert other time series objects to \code{"uts"} objects.
+Convert time series objects from other R package to \code{"uts"} objects.
 }
 \section{Methods (by class)}{
 \itemize{
 \item \code{ts}: convert a \code{\link[stats:ts]{ts}} object
 
+\item \code{fts}: convert a \code{\link[fts:fts]{fts}} object
+
+\item \code{irts}: convert a \code{\link[tseries:irts]{irts}} object
+
 \item \code{xts}: convert a \code{\link[xts:xts]{xts}} object
 
 \item \code{zoo}: convert a \code{\link[zoo:zoo]{zoo}} object
-
-\item \code{irts}: convert a \code{\link[tseries:irts]{irts}} object
 }}
 \examples{
-# Convert a quarterly "ts" time series
+# Convert a quarterly "ts"
 ts1 <- ts(1:10, frequency = 4, start = c(1959, 2))
 as.uts(ts1)
 
-# Convert a monthly "ts" time series
+# Convert a monthly "ts"
 ts2 <- ts(1:10, frequency = 12, start = c(1959, 8))
 as.uts(ts2)
 
-# Convert a yearly 'ts" time series
+# Convert a yearly 'ts"
 ts3 <- ts(1:10, frequency = 1, start = 1959)
 as.uts(ts3)
-#
-# Convert an "xts" time series
-if (requireNamespace("xts", quietly = TRUE)) {
-  xts1 <- xts::xts(1:4, as.Date("2015-01-01") + c(1, 3, 7, 9))
-  as.uts(xts1)
+
+# Convert an "fts"
+if (requireNamespace("fts", quietly = TRUE)) {
+  fts1 <- fts::fts(index=as.POSIXct("2016-01-01") + dhours(c(1, 4, 27)), data=c(5,4,7))
+  as.uts(fts1)
 }
-#
-# Convert a "zoo" time series
-if (requireNamespace("zoo", quietly = TRUE)) {
-  zoo1 <- zoo::zoo(1:4, as.Date("2015-01-01") + c(1, 3, 7, 9))
-  as.uts(zoo1)
-}
-#
-# Convert an "irts" time series
+
+#' # Convert an "irts"
 if (requireNamespace("tseries", quietly = TRUE)) {
   irts1 <- tseries::irts(as.POSIXct("2015-01-01") + days(c(1, 3, 7, 9)), 1:4)
   as.uts(irts1)
@@ -76,6 +75,18 @@ if (requireNamespace("tseries", quietly = TRUE)) {
      irts2 <- tseries::irts(t, v)
      as.uts(irts2)
   }
+}
+
+# Convert an "xts"
+if (requireNamespace("xts", quietly = TRUE)) {
+  xts1 <- xts::xts(1:4, as.Date("2015-01-01") + c(1, 3, 7, 9))
+  as.uts(xts1)
+}
+
+# Convert a "zoo"
+if (requireNamespace("zoo", quietly = TRUE)) {
+  zoo1 <- zoo::zoo(1:4, as.Date("2015-01-01") + c(1, 3, 7, 9))
+  as.uts(zoo1)
 }
 }
 
