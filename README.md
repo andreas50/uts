@@ -21,7 +21,7 @@ I therefore decided to design a new time series package, partially based on my [
 ##### Comparison with other packages for irregular time series
 
 * [fts](http://cran.r-project.org/web/packages/fts/index.html): A package with just a few basic functions.
-* [its](http://cran.r-project.org/web/packages/its/index.html): A package with just a few basic functions.
+* [its](http://cran.r-project.org/web/packages/its/index.html): An S4 implementation with a few basic methods. Not under active developement.
 * [timeSeries](http://cran.r-project.org/web/packages/timeSeries/index.html): Focused on computational finance.
 * [tseries](http://cran.r-project.org/web/packages/tseries/index.html): This package contains the `irts` class.
 * [zoo](http://cran.r-project.org/web/packages/zoo/index.html):
