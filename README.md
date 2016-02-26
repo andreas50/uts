@@ -29,7 +29,7 @@ I therefore decided to design a new time series package, partially based on my [
 * [fts](http://cran.r-project.org/web/packages/fts/index.html): An extension of `zoo` that provides many (stock) trading indicators and interface to `tslib` (a time series library in C++).
 * [its](http://cran.r-project.org/web/packages/its/index.html): An S4 implementation with a few basic methods. By the same author as `fts`.
 * [timeSeries](http://cran.r-project.org/web/packages/timeSeries/index.html): Focused on computational finance.
-* [tseries](http://cran.r-project.org/web/packages/tseries/index.html): This package contains the `irts` class.
+* [tseries](http://cran.r-project.org/web/packages/tseries/index.html): Focused on computational finance (GARCH, ARCH models) and times series analysis (ARMA models) for *evenly*-spaced time series. Also contains the `irts` class for irregular time series, but with little functionality.
 
 
 ##### Where to start
