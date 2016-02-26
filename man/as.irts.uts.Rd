@@ -12,7 +12,7 @@ as.irts.uts(x)
 \item{\dots}{further arguments passed to or from methods.}
 }
 \value{
-A \code{\link[tseries:irts]{irts}} object.
+An \code{\link[tseries:irts]{irts}} object.
 }
 \description{
 Coercion to irts

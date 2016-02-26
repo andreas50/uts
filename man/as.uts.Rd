@@ -4,6 +4,7 @@
 \alias{as.uts}
 \alias{as.uts.fts}
 \alias{as.uts.irts}
+\alias{as.uts.its}
 \alias{as.uts.ts}
 \alias{as.uts.xts}
 \alias{as.uts.zoo}
@@ -16,6 +17,8 @@ as.uts(x, ...)
 \method{as.uts}{fts}(x, ...)
 
 \method{as.uts}{irts}(x, ...)
+
+\method{as.uts}{its}(x, ...)
 
 \method{as.uts}{xts}(x, ...)
 
@@ -39,6 +42,8 @@ Convert univariate time series objects from other R package to \code{"uts"} obje
 \item \code{fts}: convert an \code{\link[fts:fts]{fts}} object
 
 \item \code{irts}: convert an \code{\link[tseries:irts]{irts}} object
+
+\item \code{its}: convert an \code{\link[its:its]{its}} object
 
 \item \code{xts}: convert an \code{\link[xts:xts]{xts}} object
 
@@ -67,6 +72,14 @@ if (requireNamespace("fts", quietly = TRUE)) {
 if (requireNamespace("tseries", quietly = TRUE)) {
   irts1 <- tseries::irts(as.POSIXct("2015-01-01") + days(c(1, 3, 7, 9)), 1:4)
   as.uts(irts1)
+}
+
+# Convert an "its"
+if (requireNamespace("its", quietly = TRUE)) {
+  mat <- matrix(1:2, nrow=2)
+  rownames(mat) <- c("2003-01-01","2003-01-04")
+  its1 <- its::its(mat)
+  as.uts(its1)
 }
 
 # Convert an "xts"

@@ -34,7 +34,7 @@
 #'   \item \code{\link{which.min.default}}
 #' }
 #' 
-#' Methods that exists solely ensure that methods intended for \code{\link{ts}} objects in base \R are not accidentally applied to \code{"uts"} objects:
+#' Methods that exists solely to ensure that methods intended for \code{\link{ts}} objects in base \R are not accidentally applied to \code{"uts"} objects:
 #' \itemize{
 #'   \item \code{\link[=cycle.uts]{cycle}}
 #'   \item \code{\link[=frequency.uts]{frequency}}

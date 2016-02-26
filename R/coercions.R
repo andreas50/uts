@@ -45,6 +45,14 @@ as.uts <- function(x, ...) UseMethod("as.uts")
 #'   as.uts(irts1)
 #' }
 #' 
+#' # Convert an "its"
+#' if (requireNamespace("its", quietly = TRUE)) {
+#'   mat <- matrix(1:2, nrow=2)
+#'   rownames(mat) <- c("2003-01-01","2003-01-04")
+#'   its1 <- its::its(mat)
+#'   as.uts(its1)
+#' }
+#' 
 #' # Convert an "xts"
 #' if (requireNamespace("xts", quietly = TRUE)) {
 #'   xts1 <- xts::xts(1:4, as.Date("2015-01-01") + c(1, 3, 7, 9))
@@ -98,6 +106,17 @@ as.uts.irts <- function(x, ...)
   class(times) <- class(as.POSIXct(character()))
   
   uts(x$value, times)
+}
+
+
+#' @describeIn as.uts convert an \code{\link[its:its]{its}} object
+as.uts.its <- function(x, ...)
+{
+  # Require univariate time series
+  if (!is.null(ncol(x)) && (ncol(x) > 1))
+    stop("Only univariate 'its' objects can be converted to a 'uts' object. Use as.uts_vector() in package utsMultivariate for multivariate time series")
+  
+  uts(as.vector(x@.Data), x@dates)
 }
 
 
@@ -183,7 +202,7 @@ as.fts.uts <- function(x)
 
 #' Coercion to irts
 #' 
-#' @return A \code{\link[tseries:irts]{irts}} object.
+#' @return An \code{\link[tseries:irts]{irts}} object.
 #' @param x a \code{"uts"} object.
 #' @param \dots further arguments passed to or from methods.
 #' 
