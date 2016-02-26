@@ -8,8 +8,6 @@ as.fts.uts(x)
 }
 \arguments{
 \item{x}{a \code{"uts"} object.}
-
-\item{\dots}{further arguments passed to or from methods.}
 }
 \value{
 An \code{\link[fts:fts]{fts}} object.

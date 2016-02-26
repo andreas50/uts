@@ -85,6 +85,7 @@ S3method(window, uts)
 #     See chapter 8 of "R packages" by Hadley Wickham.
 export(as.fts.uts)    # would need to create "fts" package dependency
 export(as.irts.uts)   # would need to create "tseries" package dependency
+export(as.its.uts)    # would need to create "its" package dependency
 export(as.xts.uts)    # would need to create "xts" package dependency
 export(as.zoo.uts)    # would need to create "zoo" package dependency
 # 2.) Otherwise loading the "xts" package (which also contains a generic "first" and "last")

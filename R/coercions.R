@@ -156,7 +156,7 @@ as.uts.zoo <- function(x, ...)
 #' if (requireNamespace("zoo", quietly = TRUE)) {
 #'   zoo::as.zoo(ex_uts())
 #' }
-as.zoo.uts <- function(x)
+as.zoo.uts <- function(x, ...)
 {
   if (!requireNamespace("zoo", quietly=TRUE))
     stop("Package 'zoo' needed for this function to work")
@@ -174,7 +174,7 @@ as.zoo.uts <- function(x)
 #' if (requireNamespace("xts", quietly = TRUE)) {
 #'   xts::as.xts(ex_uts())
 #' }
-as.xts.uts <- function(x)
+as.xts.uts <- function(x, ...)
 {
   if (!requireNamespace("xts", quietly=TRUE))
     stop("Package 'xts' needed for this function to work")
@@ -186,7 +186,6 @@ as.xts.uts <- function(x)
 #' 
 #' @return An \code{\link[fts:fts]{fts}} object.
 #' @param x a \code{"uts"} object.
-#' @param \dots further arguments passed to or from methods.
 #' 
 #' @examples
 #' if (requireNamespace("fts", quietly = TRUE)) {
@@ -204,7 +203,6 @@ as.fts.uts <- function(x)
 #' 
 #' @return An \code{\link[tseries:irts]{irts}} object.
 #' @param x a \code{"uts"} object.
-#' @param \dots further arguments passed to or from methods.
 #' 
 #' @examples
 #' if (requireNamespace("tseries", quietly = TRUE)) {
@@ -215,5 +213,25 @@ as.irts.uts <- function(x)
   if (!requireNamespace("tseries", quietly=TRUE))
     stop("Package 'tseries' needed for this function to work")
   tseries::irts(x$times, x$values)
+}
+
+
+#' Coercion to its
+#' 
+#' @return An \code{\link[its:its]{its}} object.
+#' @param x a \code{"uts"} object.
+#' @param \dots further arguments passed to or from methods.
+#' 
+#' @examples
+#' if (requireNamespace("its", quietly = TRUE)) {
+#'   its::as.its(ex_uts())
+#' }
+as.its.uts <- function(x, ...)
+{
+  if (!requireNamespace("its", quietly=TRUE))
+    stop("Package 'its' needed for this function to work")
+  
+  data <- matrix(x$values, ncol=1)
+  its::its(data, dates=x$times)
 }
 

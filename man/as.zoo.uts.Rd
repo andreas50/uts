@@ -4,7 +4,7 @@
 \alias{as.zoo.uts}
 \title{Coercion to zoo}
 \usage{
-as.zoo.uts(x)
+as.zoo.uts(x, ...)
 }
 \arguments{
 \item{x}{a \code{"uts"} object.}
