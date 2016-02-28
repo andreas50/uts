@@ -8,7 +8,7 @@
 #' 
 #' As shown in the example below, it is possible to store arbitrary \R objects in a \code{"uts"} object. However, some time series operations (e.g. arithmetic operations) require the observation values to be either \code{\link{numeric}}, \code{\link{logical}}, or \code{\link{complex}}.
 #' 
-#' @note A pure virtual (abstract) class \code{"uts_virtual"} exists from which \code{"uts"}, \code{"uts_vector"}, and \code{"uts_matrix"}, inherit (see package \code{utsMultivariate} for the latter three classes): it is used to allow operations such as subtraction to mix the classes.
+#' @note An abstract class \code{"uts_virtual"} exists from which \code{"uts"}, \code{"uts_vector"}, and \code{"uts_matrix"}, inherit (see package \code{utsMultivariate} for the latter three classes): it is used to allow operations such as subtraction to mix the classes.
 #'
 #' @return An object of class \code{"uts"}.
 #' @param values a vector of observation values.

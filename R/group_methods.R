@@ -100,10 +100,11 @@ Ops_uts <- function(e1, e2, .Generic)
 #' 
 #' Apply the \code{\link{Ops}} group methods in base \R{} to the observation values of \code{"uts"} objects.
 #' 
-#' For compatability with the S3 classes defined in the \code{utsMultivariate} package, the Ops group methods are implemented via \code{Ops.list} instead of \code{Ops.uts}.
+#' For unary oparations or operations involving just one time series and another \R object, the output time series has the same observation times as the input time series.
 #' 
-#' @note For unary oparations, the output time series has the same observation times as the input time series.
-#' @note For binary operations involving two time series \code{e1} and \code{e2}, the output time series has the union of observation times of \code{e1} and \code{e2}, but excluding times before the first observation time of either time series. The method for determining these times is unaffected by numerical noise less than \code{sqrt(\link[=.Machine]{.Machine$double.eps})}.
+#' For binary operations involving two time series \code{e1} and \code{e2}, the output time series has the union of observation times of \code{e1} and \code{e2}, but excluding times before the first observation time of either time series. The method for determining these times is unaffected by numerical noise less than \code{sqrt(\link[=.Machine]{.Machine$double.eps})}.
+#' 
+#' @note The classes \code{"uts"}, \code{"uts_vector"}, and \code{"uts_matrix"} (see package \code{utsMultivariate} for the latter two) inherit from the abstract class \code{"uts_virtual"}. Because the Ops group methods are implemented via \code{Ops.uts_virtual}, operations such as subtraction can mix the classes.
 #' 
 #' @param e1,e2 either \code{"uts"} objects or compatible \R objects of length one, where compatability depends on the type of operation performed.
 #' 
@@ -131,10 +132,10 @@ Ops.uts_virtual <- function(e1, e2)
     if (cl1 == "uts")
       return(Ops_uts(e1, .Generic=.Generic))
     else if (cl1 == "uts_vector")
-      if (!requireNamespace("utsMultivariate", quietly=TRUE))
-        stop("Package 'utsMultivariate' needed for this function to work")
-      else
+      if (requireNamespace("utsMultivariate", quietly=TRUE))
         return(utsMultivariate::Ops_uts_vector(e1, .Generic=.Generic))
+      else
+        stop("Package 'utsMultivariate' needed for this function to work")
     else
       stop("No Ops group methods available for this class")
   }
@@ -145,10 +146,10 @@ Ops.uts_virtual <- function(e1, e2)
   if (is.na(cl2))
     cl2 <- "other"
   if ((cl1 == "uts_vector") || (cl2 == "uts_vector")) {
-    if (!requireNamespace("utsMultivariate", quietly=TRUE))
-        stop("Package 'utsMultivariate' needed for this function to work")
-      else
+    if (requireNamespace("utsMultivariate", quietly=TRUE))
         utsMultivariate::Ops_uts_vector(e1, e2, .Generic=.Generic)
+      else
+        stop("Package 'utsMultivariate' needed for this function to work")
   } else if ((cl1 == "uts") || (cl2 == "uts")) {
     Ops_uts(e1, e2, .Generic=.Generic)
   } else

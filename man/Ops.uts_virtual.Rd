@@ -14,12 +14,12 @@
 Apply the \code{\link{Ops}} group methods in base \R{} to the observation values of \code{"uts"} objects.
 }
 \details{
-For compatability with the S3 classes defined in the \code{utsMultivariate} package, the Ops group methods are implemented via \code{Ops.list} instead of \code{Ops.uts}.
-}
-\note{
-For unary oparations, the output time series has the same observation times as the input time series.
+For unary oparations or operations involving just one time series and another \R object, the output time series has the same observation times as the input time series.
 
 For binary operations involving two time series \code{e1} and \code{e2}, the output time series has the union of observation times of \code{e1} and \code{e2}, but excluding times before the first observation time of either time series. The method for determining these times is unaffected by numerical noise less than \code{sqrt(\link[=.Machine]{.Machine$double.eps})}.
+}
+\note{
+The classes \code{"uts"}, \code{"uts_vector"}, and \code{"uts_matrix"} (see package \code{utsMultivariate} for the latter two) inherit from the abstract class \code{"uts_virtual"}. Because the Ops group methods are implemented via \code{Ops.uts_virtual}, operations such as subtraction can mix the classes.
 }
 \examples{
 # Unary oparators
