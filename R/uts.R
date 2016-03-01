@@ -242,7 +242,7 @@ as.data.frame.uts <- function(x,  ...)
 #' 
 #' @note The observation times of a \code{"uts"} object \code{x} can also be accessed using \code{x$times}. However, using \code{time(x)} relies on the internal object representation.
 #' 
-#' @return A \code{\link{POSIXct}} object with the observation times of \code{x}.
+#' @return A \code{\link{POSIXct}} object.
 #' @param x a \code{"uts"} object with \code{\link{logical}} observation values.
 #' @param \dots further arguments passed to or from methods.
 #' 

@@ -1,14 +1,13 @@
 context("coercions")
 
 test_that("coercions work",{
-
   # quarterly ts
   ts1 <- ts(1:10, frequency = 4, start = c(1959, 2))
   expect_equal_to_reference(as.uts(ts1), file="test-coercions_ts_1.rds")
  
   # monthly "ts"
- ts2 <- ts(1:10, frequency = 12, start = c(1959, 8))
- expect_equal_to_reference(as.uts(ts2), file="test-coercions_ts_2.rds")
+  ts2 <- ts(1:10, frequency = 12, start = c(1959, 8))
+  expect_equal_to_reference(as.uts(ts2), file="test-coercions_ts_2.rds")
  
   # Convert a yearly 'ts"
   ts3 <- ts(1:10, frequency = 1, start = 1959)

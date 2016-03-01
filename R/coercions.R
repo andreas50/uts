@@ -2,9 +2,9 @@
 # Convert objects back and forth between other R time series classes #
 ######################################################################
 
-######################
-# Coercion to ""uts" #
-######################
+#####################
+# Coercion to "uts" #
+#####################
 
 #' Coercion to uts
 #' 
@@ -13,12 +13,6 @@
 #' @return An object of class \code{"uts"}.
 #' @param x a time series object of appropriate type.
 #' @param \dots further arguments passed to or from methods.
-#' 
-#' @seealso \code{as.uts_vector} (in package \code{utsMultivariate}) for converting multivariate time series. 
-as.uts <- function(x, ...) UseMethod("as.uts")
-
-
-#' @describeIn as.uts convert a \code{\link[stats:ts]{ts}} object
 #' 
 #' @examples
 #' # Convert a quarterly "ts"
@@ -64,6 +58,12 @@ as.uts <- function(x, ...) UseMethod("as.uts")
 #'   zoo1 <- zoo::zoo(1:4, as.Date("2015-01-01") + c(1, 3, 7, 9))
 #'   as.uts(zoo1)
 #' }
+#' 
+#' @seealso \code{as.uts_vector} (in package \code{utsMultivariate}) for converting multivariate time series. 
+as.uts <- function(x, ...) UseMethod("as.uts")
+
+
+#' @describeIn as.uts convert a \code{\link[stats:ts]{ts}} object
 as.uts.ts <- function(x, ...)
 {
   # Require univariate time series

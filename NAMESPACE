@@ -31,13 +31,13 @@ export(which.min)
 # Register S3 methods (needed if a package is imported but not attached to the search path)
 S3method("[", uts)
 S3method("[<-", uts)
+S3method(as.data.frame, uts)
 S3method(as.uts, fts)
 S3method(as.uts, irts)
 S3method(as.uts, its)
 S3method(as.uts, ts)
 S3method(as.uts, xts)
 S3method(as.uts, zoo)
-S3method(as.data.frame, uts)
 S3method(cycle, uts)
 S3method(diff, uts)
 S3method(diff_t, uts)
@@ -96,7 +96,7 @@ export(first.uts)
 export(last.uts)
 
 
-# Sample time series
+# Examples of univariate time series
 export(ex_uts)
 export(ex_uts2)
 export(ex_uts3)
