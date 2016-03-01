@@ -146,6 +146,7 @@ num_leq_sorted_R <- function(a, b)
 #' # Trivial cases
 #' sorted_union(1:10, c())
 #' sorted_union(c(), 1:10)
+#' sorted_union(c(), c())
 sorted_union <- function(a, b, tolerance=0)
 {
   # Argument checking
@@ -165,7 +166,7 @@ sorted_union <- function(a, b, tolerance=0)
   nb <- length(b)
   res <- .C("sorted_union", as.double(a), na, as.double(b), nb,
     tolerance=as.double(tolerance), res=numeric(na + nb), length=integer(1L))
-  res$res[1L:res$length]
+  res$res[seq_len(res$length)]
 }
 
 

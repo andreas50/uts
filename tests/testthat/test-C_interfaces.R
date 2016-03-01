@@ -98,11 +98,7 @@ test_that("sorted_union works",{
   expect_error(sorted_union(2:1, c()))
   expect_error(sorted_union(c(), 2:1))
   
-  
-  expect_identical(
-    sorted_union(1:3, 2:4),
-    as.numeric(1:4)
-  )
+  # Trivial cases
   expect_identical(
     sorted_union(c(), 1:10),
     as.numeric(1:10)
@@ -110,6 +106,15 @@ test_that("sorted_union works",{
   expect_identical(
     sorted_union(1:10, c()),
     as.numeric(1:10)
+  )
+  expect_identical(
+    sorted_union(c(), c()),
+    numeric(0)
+  )
+  
+  expect_identical(
+    sorted_union(1:3, 2:4),
+    as.numeric(1:4)
   )
 })
 
