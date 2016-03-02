@@ -30,6 +30,7 @@ sorted_union(c(0, 1e-14), 2, tolerance=1e-12)
 # Trivial cases
 sorted_union(1:10, c())
 sorted_union(c(), 1:10)
+sorted_union(c(), c())
 }
 \keyword{internal}
 

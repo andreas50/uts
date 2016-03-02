@@ -98,6 +98,14 @@ test_that("sorted_union works",{
   expect_error(sorted_union(2:1, c()))
   expect_error(sorted_union(c(), 2:1))
   
+  # Order of inputs does not matter
+  a <- 1-1e-12
+  b <- 1
+  expect_identical(
+    sorted_union(a, b, tolerance=1e-8),
+    sorted_union(b, a, tolerance=1e-8)
+  )
+  
   # Trivial cases
   expect_identical(
     sorted_union(c(), 1:10),

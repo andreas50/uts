@@ -12,7 +12,7 @@
 \item{\dots}{further arguments passed to or from methods.}
 }
 \value{
-A \code{\link{POSIXct}} object with the observation times of \code{x}.
+A \code{\link{POSIXct}} object.
 }
 \description{
 Get the observation times.

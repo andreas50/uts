@@ -33,12 +33,12 @@ if (0) {
   a <- sort(runif(1e4))
   b <- sort(runif(1e4))
   
-  # R vs. C: 2.90s vs. 1.18s
+  # R vs. C: 2.82s vs. 1.13s
   system.time(for (j in 1:2000) sorted_union_R(a, b))
   system.time(for (j in 1:2000) sorted_union(a, b))
   
   # Profile C implementation
-  # -) ~30% of time spent in C code
+  # -) ~1/3 of time spent in C code
   Rprof(interval=0.01)
   for (j in 1:1e4) sorted_union(a, b)
   Rprof(NULL)

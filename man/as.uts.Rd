@@ -93,6 +93,7 @@ if (requireNamespace("zoo", quietly = TRUE)) {
   zoo1 <- zoo::zoo(1:4, as.Date("2015-01-01") + c(1, 3, 7, 9))
   as.uts(zoo1)
 }
+
 }
 \seealso{
 \code{as.uts_vector} (in package \code{utsMultivariate}) for converting multivariate time series.
