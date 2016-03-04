@@ -50,31 +50,31 @@ test_that("coercions to 'uts' work",{
 
 test_that("coercions from 'uts'",{
   # ts
-
+  expect_error(as.ts(ex_uts()))
   
   # fts
   if (requireNamespace("fts", quietly = TRUE)) {
-
+    expect_equal_to_reference(fts::as.fts(ex_uts()), file="test-coercions_to_fts.rds")
   }
   
   # irts
   if (requireNamespace("tseries", quietly = TRUE)) {
-
+    expect_equal_to_reference(tseries::as.irts(ex_uts()), file="test-coercions_to_irts.rds")
   }
 
   # its
   if (requireNamespace("its", quietly = TRUE)) {
-
+    expect_equal_to_reference(its::as.its(ex_uts()), file="test-coercions_to_its.rds")
   }
   
   # xts
   if (requireNamespace("xts", quietly = TRUE)) {
-
+    expect_equal_to_reference(xts::as.xts(ex_uts()), file="test-coercions_to_xts.rds")
   }
   
   # zoo
   if (requireNamespace("zoo", quietly = TRUE)) {
-
+     expect_equal_to_reference(zoo::as.zoo(ex_uts()), file="test-coercions_to_zoo.rds")
   }
 })
 
