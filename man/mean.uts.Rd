@@ -4,7 +4,7 @@
 \alias{mean.uts}
 \alias{median.uts}
 \alias{sd.uts}
-\title{Mean, Median, and Standard Deviation}
+\title{Mean, Median, and Standard Deviation of Observation Values}
 \usage{
 \method{mean}{uts}(x, ...)
 
@@ -17,13 +17,6 @@
 
 \item{\dots}{further arguments passed to or from methods.}
 }
-\value{
-\code{mean()} returns the arithmetic mean of the observation values.
-
-\code{median()} returns the median of the observation values.
-
-\code{sd()} returns the standard devation of the observation values.
-}
 \description{
 Calculate the mean, median, and standard deviation, respectively, of the observation values.
 }
@@ -35,4 +28,5 @@ sd(ex_uts())
 \seealso{
 \code{\link[base:mean]{mean}}, \code{\link[stats:median]{median}}, and \code{\link[stats:sd]{sd}} in base \R.
 }
+\keyword{internal}
 

@@ -7,7 +7,7 @@
 The internal functions listed below might be of interest to developers seeking to extend the package functionality.
 }
 \details{
-\code{uts} methods:
+\code{uts} methods that exist primarily because they also work for \R's other time series classes:
 \itemize{
   \item \code{\link{is.uts}}
   \item \code{\link{is.uts_virtual}}
@@ -39,7 +39,7 @@ Functions in base \R that are not generic, but really ought to be:
   \item \code{\link{which.min.default}}
 }
 
-Methods that exists solely to ensure that methods intended for \code{\link{ts}} objects in base \R are not accidentally applied to \code{"uts"} objects:
+Methods that are to applicable to unevenly space time series, but that are provided so that methods intended for \code{\link{ts}} objects in base \R are not accidentally applied to \code{"uts"} objects:
 \itemize{
   \item \code{\link{as.ts.uts}}
   \item \code{\link{cycle.uts}}

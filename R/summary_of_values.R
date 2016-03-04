@@ -39,16 +39,15 @@ sd <- function(x, ...) UseMethod("sd")
 sd.default <- function(x, ...) stats::sd(x, ...)
 
 
-#' Mean, Median, and Standard Deviation
+#' Mean, Median, and Standard Deviation of Observation Values
 #' 
 #' Calculate the mean, median, and standard deviation, respectively, of the observation values.
 #' 
-#' @return \code{mean()} returns the arithmetic mean of the observation values.
 #' @param x a \code{"uts"} object.
 #' @param \dots further arguments passed to or from methods.
 #' 
 #' @seealso \code{\link[base:mean]{mean}}, \code{\link[stats:median]{median}}, and \code{\link[stats:sd]{sd}} in base \R.
-#' 
+#' @keywords internal
 #' @examples
 #' mean(ex_uts())
 mean.uts <- function(x, ...)
@@ -59,8 +58,6 @@ mean.uts <- function(x, ...)
 
 #' @rdname mean.uts
 #' 
-#' @return \code{median()} returns the median of the observation values.
-#' 
 #' @examples
 #' median(ex_uts())
 median.uts <- function(x, ...)
@@ -70,8 +67,6 @@ median.uts <- function(x, ...)
 
 
 #' @rdname mean.uts
-#' 
-#' @return \code{sd()} returns the standard devation of the observation values.
 #' 
 #' @examples
 #' sd(ex_uts())
