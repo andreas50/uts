@@ -29,7 +29,7 @@ sample_values(x, ...)
 An vector of sampled values with same length as the input \code{x}.
 }
 \description{
-Sample values from a time series at given sampling times.
+Sample observation values from a time series at given sampling times.
 }
 \section{Methods (by class)}{
 \itemize{

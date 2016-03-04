@@ -221,7 +221,7 @@ window.uts <- function(x, start=NULL, end=NULL, ...)
 #' @examples
 #' as.data.frame(ex_uts())
 #' as.data.frame(uts(c("cat", "dog"), Sys.time() + days(1:2)), format="%Y-%m-%d")
-as.data.frame.uts <- function(x,  ...)
+as.data.frame.uts <- function(x, ...)
 {
   # Argument checking
   if (!is.atomic(x$values))

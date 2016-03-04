@@ -1,24 +1,16 @@
-##########################################
-# Sampling functionality for UTS objects #
-##########################################
-
-# -----------------
-# Generic functions
-# -----------------
+######################################
+# Sampling values from a time series #
+######################################
 
 #' Sample Values
 #'
-#' Sample values from a time series at given sampling times.
+#' Sample observation values from a time series at given sampling times.
 #' 
 #' @return An vector of sampled values with same length as the input \code{x}.
 #' @param x a time series object.
 #' @param \dots further arguments passed to or from methods.
 sample_values <- function(x, ...) UseMethod("sample_values")
 
-
-# ----------------------
-# Method implementations
-# ----------------------
 
 #' @describeIn sample_values sample from a \code{"uts"} object
 #'

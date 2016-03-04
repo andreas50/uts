@@ -16,14 +16,12 @@ NULL
 
 
 #' @rdname compatability
-#' 
-#' @return \code{cycle()} and \code{frequency()} give an error message, because \code{"uts"} objects, by definition, do not have a fixed number of observations in a given time interval.
-#' 
+#'
 #' @examples
-#' \dontrun{frequency(ex_uts())}
-frequency.uts <- function(x, ...)
+#' \dontrun{as.ts(ex_uts())}
+as.ts.uts <- function(x, ...)
 {
-  stop("Unevenly spaced time series ('uts') objects do not have a frequency attribute")
+  stop("Unevenly spaced time series cannot be coerced to 'ts' objects")
 }
 
 
@@ -35,5 +33,18 @@ cycle.uts <- function(x, ...)
 {
   stop("Unevenly spaced time series ('uts') objects do not have observation cycles")
 }
+
+
+#' @rdname compatability
+#' 
+#' @return \code{cycle()} and \code{frequency()} give an error message, because \code{"uts"} objects, by definition, do not have a fixed number of observations in a given time interval.
+#' 
+#' @examples
+#' \dontrun{frequency(ex_uts())}
+frequency.uts <- function(x, ...)
+{
+  stop("Unevenly spaced time series ('uts') objects do not have a frequency attribute")
+}
+
 
 

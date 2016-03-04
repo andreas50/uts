@@ -1,28 +1,28 @@
 context("coercions")
 
-test_that("coercions work",{
+test_that("coercions to 'uts' work",{
   # quarterly ts
   ts1 <- ts(1:10, frequency = 4, start = c(1959, 2))
-  expect_equal_to_reference(as.uts(ts1), file="test-coercions_ts_1.rds")
+  expect_equal_to_reference(as.uts(ts1), file="test-coercions_from_ts_1.rds")
  
   # monthly "ts"
   ts2 <- ts(1:10, frequency = 12, start = c(1959, 8))
-  expect_equal_to_reference(as.uts(ts2), file="test-coercions_ts_2.rds")
+  expect_equal_to_reference(as.uts(ts2), file="test-coercions_from_ts_2.rds")
  
   # Convert a yearly 'ts"
   ts3 <- ts(1:10, frequency = 1, start = 1959)
-  expect_equal_to_reference(as.uts(ts3), file="test-coercions_ts_3.rds")
+  expect_equal_to_reference(as.uts(ts3), file="test-coercions_from_ts_3.rds")
   
   # fts
   if (requireNamespace("fts", quietly = TRUE)) {
     fts1 <- fts::fts(index=as.POSIXct("2016-01-01") + dhours(c(1, 4, 27)), data=c(5,4,7))
-    expect_equal_to_reference(as.uts(fts1), file="test-coercions_fts.rds")
+    expect_equal_to_reference(as.uts(fts1), file="test-coercions_from_fts.rds")
   }
   
   # irts
   if (requireNamespace("tseries", quietly = TRUE)) {
     irts1 <- tseries::irts(as.POSIXct("2015-01-01") + days(c(1, 3, 7, 9)), 1:4)
-    expect_equal_to_reference(as.uts(irts1), file="test-coercions_irts.rds")
+    expect_equal_to_reference(as.uts(irts1), file="test-coercions_from_irts.rds")
   }
 
   # its
@@ -30,21 +30,55 @@ test_that("coercions work",{
     mat <- matrix(1:2, nrow=2)
     rownames(mat) <- c("2003-01-01","2003-01-04")
     its1 <- its::its(mat)
-    expect_equal_to_reference(as.uts(its1), file="test-coercions_its.rds")
+    expect_equal_to_reference(as.uts(its1), file="test-coercions_from_its.rds")
   }
   
   # xts
   if (requireNamespace("xts", quietly = TRUE)) {
     xts1 <- xts::xts(1:4, as.Date("2015-01-01") + c(1, 3, 7, 9))
-    expect_equal_to_reference(as.uts(xts1),file="test-coercions_xts.rds")
+    expect_equal_to_reference(as.uts(xts1),file="test-coercions_from_xts.rds")
   }
   
   # zoo
   if (requireNamespace("zoo", quietly = TRUE)) {
     zoo1 <- zoo::zoo(1:4, as.Date("2015-01-01") + c(1, 3, 7, 9))
-    expect_equal_to_reference(as.uts(zoo1), file="test-coercions_zoo.rds")
+    expect_equal_to_reference(as.uts(zoo1), file="test-coercions_from_zoo.rds")
   }
 })
+
+
+
+test_that("coercions from 'uts'",{
+  # ts
+
+  
+  # fts
+  if (requireNamespace("fts", quietly = TRUE)) {
+
+  }
+  
+  # irts
+  if (requireNamespace("tseries", quietly = TRUE)) {
+
+  }
+
+  # its
+  if (requireNamespace("its", quietly = TRUE)) {
+
+  }
+  
+  # xts
+  if (requireNamespace("xts", quietly = TRUE)) {
+
+  }
+  
+  # zoo
+  if (requireNamespace("zoo", quietly = TRUE)) {
+
+  }
+})
+
+
 
   
 test_that("multivariate time series are not converted",{
