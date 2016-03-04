@@ -214,13 +214,19 @@ window.uts <- function(x, start=NULL, end=NULL, ...)
 #' Flatten a \code{"uts"} to a two-column \code{data.frame}, with the observation times in first column and observation values in the second column. The column names are \code{"time"} and \code{"value"}.
 #' 
 #' @note Only time series with atomic observation values can be coerced to a \code{data.frame}.
+#' @note This method is helpful for saving a time series to a human-readable text file.
 #' 
 #' @param x a \code{"uts"} object.
-#' @param \dots arguments passed to \code{\link{format.POSIXct}}.
+#' @param \dots further arguments passed to or from methods.
 #' 
 #' @examples
 #' as.data.frame(ex_uts())
-#' as.data.frame(uts(c("cat", "dog"), Sys.time() + days(1:2)), format="%Y-%m-%d")
+#' 
+#' # Save a time series to a text file with nice date formatting
+#' uts1 <- uts(rnorm(10), Sys.time() + days(1:10))
+#' data <- as.data.frame(uts1)
+#' data$time <- format(data$time, format="%Y-%m-%d")
+#' \dontrun{write.csv(data, file="random.csv", row.names=FALSE, quote=FALSE)}
 as.data.frame.uts <- function(x, ...)
 {
   # Argument checking
@@ -232,7 +238,7 @@ as.data.frame.uts <- function(x, ...)
     values <- numeric()
   else
     values <- x$values
-  data.frame(time=format(x$times, ...), value=values, stringsAsFactors=FALSE)
+  data.frame(time=x$times, value=values, stringsAsFactors=FALSE)
 }
 
 
