@@ -32,6 +32,6 @@ is.infinite(test)
 is.nan(test)
 }
 \seealso{
-\code{\link[base:is.finite]{is.finite}}, \code{\link[base:is.infinite]{is.infinite}}, \code{\link[base:is.nan]{is.nan}} in base \R.
+\code{\link{is.finite}}, \code{\link{is.infinite}}, \code{\link{is.nan}} in base \R.
 }
 

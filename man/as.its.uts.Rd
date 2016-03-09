@@ -12,7 +12,7 @@ as.its.uts(x, ...)
 \item{\dots}{further arguments passed to or from methods.}
 }
 \value{
-An \code{\link[its:its]{its}} object.
+An \code{\link[its]{its}} object.
 }
 \description{
 Coercion to its

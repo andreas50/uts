@@ -46,7 +46,7 @@ sd.default <- function(x, ...) stats::sd(x, ...)
 #' @param x a \code{"uts"} object.
 #' @param \dots further arguments passed to or from methods.
 #' 
-#' @seealso \code{\link[base:mean]{mean}}, \code{\link[stats:median]{median}}, and \code{\link[stats:sd]{sd}} in base \R.
+#' @seealso \code{\link{mean}}, \code{\link{median}}, and \code{\link{sd}} in base \R.
 #' @keywords internal
 #' @examples
 #' mean(ex_uts())

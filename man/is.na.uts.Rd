@@ -24,8 +24,8 @@ test$values[c(2, 4)] <- NA      # NEXT: use replacement using time points
 is.na(test)
 }
 \seealso{
-\code{\link[=na.omit.uts]{na.omit}}
+\code{\link{na.omit.uts}}
 
-\code{\link[base:is.na]{is.na}}, \code{\link[stats:na.fail]{na.omit}} in base \R.
+\code{\link{is.na}}, \code{\link{na.omit}} in base \R.
 }
 

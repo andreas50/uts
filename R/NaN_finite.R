@@ -5,7 +5,7 @@
 #' @return A logical \code{"uts"} (i.e. a \code{"uts"} with \code{\link{logical}} observation values), indicating which observation values are finite, infinite, or \code{NaN}, respectively.
 #' @param x a \code{"uts"} object.
 #' 
-#' @seealso \code{\link[base:is.finite]{is.finite}}, \code{\link[base:is.infinite]{is.infinite}}, \code{\link[base:is.nan]{is.nan}} in base \R.
+#' @seealso \code{\link{is.finite}}, \code{\link{is.infinite}}, \code{\link{is.nan}} in base \R.
 #' 
 #' @rdname is.finite
 #' @examples

@@ -21,8 +21,8 @@ test$values[c(2, 4)] <- NA
 na.omit(test)
 }
 \seealso{
-\code{\link[=is.na.uts]{is.na}}
+\code{\link{is.na.uts}}
 
-\code{\link[base:is.na]{is.na}}, \code{\link[stats:na.fail]{na.omit}} in base \R.
+\code{\link{is.na}}, \code{\link{na.omit}} in base \R.
 }
 

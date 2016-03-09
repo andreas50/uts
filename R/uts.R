@@ -99,7 +99,7 @@ str.uts <- function(object, ...)
 #' @param style the printing style. Either \code{"horizontal"} (the default), "vertical" or "plain" (which first prints the data and then the index).
 #' @param \dots further arguments passed to or from methods.
 #' 
-#' @seealso \code{\link[base:print]{print}}
+#' @seealso \code{\link{print}} in base \R
 #' @examples
 #' print(ex_uts())
 #' print(ex_uts(), style="vertical")

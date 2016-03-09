@@ -23,6 +23,6 @@ print(ex_uts(), style="plain")
 uts()
 }
 \seealso{
-\code{\link[base:print]{print}}
+\code{\link{print}} in base \R
 }
 

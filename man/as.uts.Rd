@@ -37,17 +37,17 @@ Convert univariate time series objects from other R package to \code{"uts"} obje
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{ts}: convert a \code{\link[stats:ts]{ts}} object
+\item \code{ts}: convert a \code{\link{ts}} object
 
-\item \code{fts}: convert an \code{\link[fts:fts]{fts}} object
+\item \code{fts}: convert an \code{\link[fts]{fts}} object
 
-\item \code{irts}: convert an \code{\link[tseries:irts]{irts}} object
+\item \code{irts}: convert an \code{\link[tseries]{irts}} object
 
-\item \code{its}: convert an \code{\link[its:its]{its}} object
+\item \code{its}: convert an \code{\link[its]{its}} object
 
-\item \code{xts}: convert an \code{\link[xts:xts]{xts}} object
+\item \code{xts}: convert an \code{\link[xts]{xts}} object
 
-\item \code{zoo}: convert a \code{\link[zoo:zoo]{zoo}} object
+\item \code{zoo}: convert a \code{\link[zoo]{zoo}} object
 }}
 \examples{
 # Convert a quarterly "ts"

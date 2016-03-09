@@ -12,7 +12,7 @@ as.zoo.uts(x, ...)
 \item{\dots}{further arguments passed to or from methods.}
 }
 \value{
-A \code{\link[zoo:zoo]{zoo}} object.
+A \code{\link[zoo]{zoo}} object.
 }
 \description{
 Coercion to zoo

@@ -12,7 +12,7 @@
 #' @note For an evenly spaced time series (1) shifting observation \emph{times}, and (2) shifting observation \emph{values} essentinally gives the same result. For unevenly spaced time series, however, these two operations are quite different. The former affects only the observation \emph{times}, while the latter affects only the observation \emph{values} (apart from observations that are dropped).
 #' 
 #' @seealso \code{\link{lag_t}} allows to shift observation \emph{times}, as opposed to observation \emph{values}.
-#' @seealso \code{\link[stats:lag]{lag}} in base \R.
+#' @seealso \code{\link{lag}} in base \R.
 #' 
 #' @examples
 #' # Shift observations values forward by one observation

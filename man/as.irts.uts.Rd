@@ -10,7 +10,7 @@ as.irts.uts(x)
 \item{x}{a \code{"uts"} object.}
 }
 \value{
-An \code{\link[tseries:irts]{irts}} object.
+An \code{\link[tseries]{irts}} object.
 }
 \description{
 Coercion to irts

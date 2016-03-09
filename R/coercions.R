@@ -63,7 +63,7 @@
 as.uts <- function(x, ...) UseMethod("as.uts")
 
 
-#' @describeIn as.uts convert a \code{\link[stats:ts]{ts}} object
+#' @describeIn as.uts convert a \code{\link{ts}} object
 as.uts.ts <- function(x, ...)
 {
   # Require univariate time series
@@ -82,7 +82,7 @@ as.uts.ts <- function(x, ...)
 }
 
 
-#' @describeIn as.uts convert an \code{\link[fts:fts]{fts}} object
+#' @describeIn as.uts convert an \code{\link[fts]{fts}} object
 as.uts.fts <- function(x, ...)
 {
   # Require univariate time series
@@ -94,7 +94,7 @@ as.uts.fts <- function(x, ...)
 }
 
 
-#' @describeIn as.uts convert an \code{\link[tseries:irts]{irts}} object
+#' @describeIn as.uts convert an \code{\link[tseries]{irts}} object
 as.uts.irts <- function(x, ...)
 {
   # Require univariate time series
@@ -109,7 +109,7 @@ as.uts.irts <- function(x, ...)
 }
 
 
-#' @describeIn as.uts convert an \code{\link[its:its]{its}} object
+#' @describeIn as.uts convert an \code{\link[its]{its}} object
 as.uts.its <- function(x, ...)
 {
   # Require univariate time series
@@ -120,7 +120,7 @@ as.uts.its <- function(x, ...)
 }
 
 
-#' @describeIn as.uts convert an \code{\link[xts:xts]{xts}} object
+#' @describeIn as.uts convert an \code{\link[xts]{xts}} object
 as.uts.xts <- function(x, ...)
 {
   # Require univariate time series
@@ -131,7 +131,7 @@ as.uts.xts <- function(x, ...)
 }
 
 
-#' @describeIn as.uts convert a \code{\link[zoo:zoo]{zoo}} object
+#' @describeIn as.uts convert a \code{\link[zoo]{zoo}} object
 as.uts.zoo <- function(x, ...)
 {
   # Require univariate time series
@@ -148,7 +148,7 @@ as.uts.zoo <- function(x, ...)
 
 #' Coercion to zoo
 #' 
-#' @return A \code{\link[zoo:zoo]{zoo}} object.
+#' @return A \code{\link[zoo]{zoo}} object.
 #' @param x a \code{"uts"} object.
 #' @param \dots further arguments passed to or from methods.
 #' 
@@ -166,7 +166,7 @@ as.zoo.uts <- function(x, ...)
 
 #' Coercion to xts
 #' 
-#' @return An \code{\link[xts:xts]{xts}} object.
+#' @return An \code{\link[xts]{xts}} object.
 #' @param x a \code{"uts"} object.
 #' @param \dots further arguments passed to or from methods.
 #' 
@@ -184,7 +184,7 @@ as.xts.uts <- function(x, ...)
 
 #' Coercion to fts
 #' 
-#' @return An \code{\link[fts:fts]{fts}} object.
+#' @return An \code{\link[fts]{fts}} object.
 #' @param x a \code{"uts"} object.
 #' 
 #' @examples
@@ -201,7 +201,7 @@ as.fts.uts <- function(x)
 
 #' Coercion to irts
 #' 
-#' @return An \code{\link[tseries:irts]{irts}} object.
+#' @return An \code{\link[tseries]{irts}} object.
 #' @param x a \code{"uts"} object.
 #' 
 #' @examples
@@ -218,7 +218,7 @@ as.irts.uts <- function(x)
 
 #' Coercion to its
 #' 
-#' @return An \code{\link[its:its]{its}} object.
+#' @return An \code{\link[its]{its}} object.
 #' @param x a \code{"uts"} object.
 #' @param \dots further arguments passed to or from methods.
 #' 

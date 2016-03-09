@@ -23,7 +23,7 @@
 \item{\dots}{other graphical parameters passed to \code{\link[graphics:plot.default]{plot.default}}.}
 }
 \description{
-A convenience wrapper around \code{\link[graphics:plot.default]{plot.default}} with several sensible default arguments.
+A convenience wrapper around \code{\link{plot.default}} with several sensible default arguments.
 }
 \examples{
 plot(ex_uts())

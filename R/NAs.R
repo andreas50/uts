@@ -9,8 +9,8 @@
 #' @param object a time series object.
 #' @param \dots further arguments passed to or from methods.
 #' 
-#' @seealso \code{\link[=is.na.uts]{is.na}}
-#' @seealso \code{\link[base:is.na]{is.na}}, \code{\link[stats:na.fail]{na.omit}} in base \R.
+#' @seealso \code{\link{is.na.uts}}
+#' @seealso \code{\link{is.na}}, \code{\link{na.omit}} in base \R.
 #' 
 #' @examples
 #' # Remove NAs from a "uts"
@@ -33,8 +33,8 @@ na.omit.uts <- function(object, ...)
 #' @return A logical \code{"uts"} (i.e. a \code{"uts"} with \code{\link{logical}} observation values), indicating which observation values are \code{NA}.
 #' @param x a \code{"uts"} object.
 #' 
-#' @seealso \code{\link[=na.omit.uts]{na.omit}}
-#' @seealso \code{\link[base:is.na]{is.na}}, \code{\link[stats:na.fail]{na.omit}} in base \R.
+#' @seealso \code{\link{na.omit.uts}}
+#' @seealso \code{\link{is.na}}, \code{\link{na.omit}} in base \R.
 #' 
 #' @examples
 #' # Set observation to NA

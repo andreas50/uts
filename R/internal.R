@@ -34,7 +34,7 @@
 #'   \item \code{\link{which.min.default}}
 #' }
 #' 
-#' Methods that are to applicable to unevenly space time series, but that are provided so that methods intended for \code{\link{ts}} objects in base \R are not accidentally applied to \code{"uts"} objects:
+#' Methods that are not applicable to unevenly spaced time series. These are provided so that methods intended for \code{\link{ts}} objects in base \R are not accidentally applied to \code{"uts"} objects:
 #' \itemize{
 #'   \item \code{\link{as.ts.uts}}
 #'   \item \code{\link{cycle.uts}}

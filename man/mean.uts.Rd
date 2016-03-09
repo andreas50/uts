@@ -26,7 +26,7 @@ median(ex_uts())
 sd(ex_uts())
 }
 \seealso{
-\code{\link[base:mean]{mean}}, \code{\link[stats:median]{median}}, and \code{\link[stats:sd]{sd}} in base \R.
+\code{\link{mean}}, \code{\link{median}}, and \code{\link{sd}} in base \R.
 }
 \keyword{internal}
 

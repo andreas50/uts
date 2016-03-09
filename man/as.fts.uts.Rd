@@ -10,7 +10,7 @@ as.fts.uts(x)
 \item{x}{a \code{"uts"} object.}
 }
 \value{
-An \code{\link[fts:fts]{fts}} object.
+An \code{\link[fts]{fts}} object.
 }
 \description{
 Coercion to fts
