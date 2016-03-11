@@ -15,9 +15,10 @@ sample_values <- function(x, ...) UseMethod("sample_values")
 #' @describeIn sample_values sample from a \code{"uts"} object
 #'
 #' @param time_points a strictly increasing sequence of \code{\link{POSIXct}} date-times.
-#' @param interpolation either \code{"last"} or \code{"linear"}, specifying the interpolation method.
-#' \code{"last"} returns the most recent observation value in \code{x} for each sampling time.
-#' \code{"linear"} returns for each sampling time the linearily-interpolated  observation values in \code{x} that immediately preceede and follow each sampling time.
+#' @param interpolation the interpolation method: \itemize{
+#'    \item \code{"last"}: for each sampling time, return the most recent (i.e. last available) observation value in \code{x}.
+#'    \item \code{"linear"}: for each sampling time, return the linearily-interpolated value in \code{x} of the observation that immediately precedes and follows such sampling time.
+#' }
 #' @param max_dt a duration object, specifying the maximum time difference between each sampling time and the observation times in \code{x} used for determining the sampled value. Return \code{NA} as sampled value for sampling times for which this threshold is exceeded.
 #' @param tolerance tolerance for numerical noise in observation times. See \code{\link{num_leq_sorted}}.
 #' 
