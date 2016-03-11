@@ -13,7 +13,7 @@
 A logical \code{"uts"} (i.e. a \code{"uts"} with \code{\link{logical}} observation values), indicating which observation values are \code{NA}.
 }
 \description{
-Find missing values.
+Find missing observation values.
 }
 \examples{
 # Set observation to NA

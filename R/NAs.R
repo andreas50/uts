@@ -28,7 +28,7 @@ na.omit.uts <- function(object, ...)
 
 #' Not Available / Missing Observation Values
 #' 
-#' Find missing values.
+#' Find missing observation values.
 #' 
 #' @return A logical \code{"uts"} (i.e. a \code{"uts"} with \code{\link{logical}} observation values), indicating which observation values are \code{NA}.
 #' @param x a \code{"uts"} object.

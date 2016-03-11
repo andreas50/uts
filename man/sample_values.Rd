@@ -7,7 +7,7 @@
 \usage{
 sample_values(x, ...)
 
-\method{sample_values}{uts}(x, time_points, method = "last",
+\method{sample_values}{uts}(x, time_points, interpolation = "last",
   max_dt = ddays(Inf), tolerance = .Machine$double.eps^0.5, ...)
 }
 \arguments{
@@ -15,7 +15,7 @@ sample_values(x, ...)
 
 \item{time_points}{a strictly increasing sequence of \code{\link{POSIXct}} date-times.}
 
-\item{method}{the sampling method.
+\item{interpolation}{either \code{"last"} or \code{"linear"}, specifying the interpolation method.
 \code{"last"} returns the most recent observation value in \code{x} for each sampling time.
 \code{"linear"} returns for each sampling time the linearily-interpolated  observation values in \code{x} that immediately preceede and follow each sampling time.}
 
@@ -41,12 +41,12 @@ times <- as.POSIXct(c("2007-11-09", "2007-11-10"))
 sample_values(ex_uts(), times)
 
 # Sample with linear interpolation
-sample_values(ex_uts(), times, method="linear")
+sample_values(ex_uts(), times, interpolation="linear")
 
 # Sample a non-numeric time series
 sample_values(ex_uts2(), times)
 
 # Error, because only numeric time series can be linearly interpolated
-\dontrun{sample_values(ex_uts2(), as.POSIXct("2007-01-01"), method="linear")}
+\dontrun{sample_values(ex_uts2(), as.POSIXct("2007-01-01"), interpolation="linear")}
 }
 

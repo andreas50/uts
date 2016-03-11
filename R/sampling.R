@@ -15,7 +15,7 @@ sample_values <- function(x, ...) UseMethod("sample_values")
 #' @describeIn sample_values sample from a \code{"uts"} object
 #'
 #' @param time_points a strictly increasing sequence of \code{\link{POSIXct}} date-times.
-#' @param method the sampling method.
+#' @param interpolation either \code{"last"} or \code{"linear"}, specifying the interpolation method.
 #' \code{"last"} returns the most recent observation value in \code{x} for each sampling time.
 #' \code{"linear"} returns for each sampling time the linearily-interpolated  observation values in \code{x} that immediately preceede and follow each sampling time.
 #' @param max_dt a duration object, specifying the maximum time difference between each sampling time and the observation times in \code{x} used for determining the sampled value. Return \code{NA} as sampled value for sampling times for which this threshold is exceeded.
@@ -27,27 +27,27 @@ sample_values <- function(x, ...) UseMethod("sample_values")
 #' sample_values(ex_uts(), times)
 #' 
 #' # Sample with linear interpolation
-#' sample_values(ex_uts(), times, method="linear")
+#' sample_values(ex_uts(), times, interpolation="linear")
 #' 
 #' # Sample a non-numeric time series
 #' sample_values(ex_uts2(), times)
 #' 
 #' # Error, because only numeric time series can be linearly interpolated
-#' \dontrun{sample_values(ex_uts2(), as.POSIXct("2007-01-01"), method="linear")}
-sample_values.uts <- function(x, time_points, method="last", max_dt=ddays(Inf),
+#' \dontrun{sample_values(ex_uts2(), as.POSIXct("2007-01-01"), interpolation="linear")}
+sample_values.uts <- function(x, time_points, interpolation="last", max_dt=ddays(Inf),
   tolerance=.Machine$double.eps ^ 0.5, ...)
 { 
   # Remark: If it wasn't for the 'max_dt' argument, the approx() function could be used.
-  #         For example: approx(x$times, x$values, xout=time_points, method="linear", rule=1:2)
+  #         For example: approx(x$times, x$values, xout=time_points, interpolation="linear", rule=1:2)
   
   # Argument checking
   if (!is.POSIXct(time_points))
     stop("'time_points' is not a POSIXct' object")
   if (is.unsorted(time_points, strictly=TRUE))
     stop("'time_points' needs to be a strictly increasing time sequence")
-  if (!(method %in% c("last", "linear")))
+  if (!(interpolation %in% c("last", "linear")))
     stop("Unknown sampling 'method'")
-  if ((method == "linear") && !is.numeric(x$values) && !is.logical(x$values))
+  if ((interpolation == "linear") && !is.numeric(x$values) && !is.logical(x$values))
     stop("Sampling with linear interpolation is only supported for time series with numeric or logical observation values")
   if (!is.duration(max_dt))
     stop("'max_dt' is not a duration object")
@@ -63,11 +63,11 @@ sample_values.uts <- function(x, time_points, method="last", max_dt=ddays(Inf),
     sampling_idx_last[dt_last_observation > max_dt] <- NA
   sampled_values_last <- x$values[sampling_idx_last]
   
-  # Return samples values for method="last"
-  if (method == "last")
+  # Return sampled values for last-point interpolation
+  if (interpolation == "last")
     return(sampled_values_last)
   
-  ### code for method="linear" only ###
+  ### code for linear interpolation only ###
   
   # For each sampling time, determine the next observation time, and enforce the 'max_dt' threshold
   sampling_idx_next <- pmin(sampling_idx_last + 1, length(x))
