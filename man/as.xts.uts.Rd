@@ -7,7 +7,7 @@
 as.xts.uts(x, ...)
 }
 \arguments{
-\item{x}{a \code{"uts"} object.}
+\item{x}{a \code{"uts"} object with atomic observation values.}
 
 \item{\dots}{further arguments passed to or from methods.}
 }

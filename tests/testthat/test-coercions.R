@@ -48,7 +48,7 @@ test_that("coercions to 'uts' work",{
 
 
 
-test_that("coercions from 'uts'",{
+test_that("coercions from 'uts' with atomic observations works",{
   # ts
   expect_error(as.ts(ex_uts()))
   
@@ -79,6 +79,26 @@ test_that("coercions from 'uts'",{
 })
 
 
+test_that("time series with non-atomic observations are not converted from 'uts'",{
+  # fts: the conversion actually works
+  
+  # irts
+  if (requireNamespace("tseries", quietly = TRUE)) {
+    expect_error(tseries::as.irts(ex_uts2()))
+  }
+
+  # its: the conversion actually works
+  
+  # xts
+  if (requireNamespace("xts", quietly = TRUE)) {
+    expect_error(xts::as.xts(ex_uts2()))
+  }
+  
+  # zoo
+  if (requireNamespace("zoo", quietly = TRUE)) {
+     expect_error(zoo::as.zoo(ex_uts2()))
+  }
+})
 
   
 test_that("multivariate time series are not converted",{

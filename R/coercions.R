@@ -149,7 +149,7 @@ as.uts.zoo <- function(x, ...)
 #' Coercion to zoo
 #' 
 #' @return A \code{\link[zoo]{zoo}} object.
-#' @param x a \code{"uts"} object.
+#' @param x a \code{"uts"} object with atomic observation values.
 #' @param \dots further arguments passed to or from methods.
 #' 
 #' @examples
@@ -160,6 +160,9 @@ as.zoo.uts <- function(x, ...)
 {
   if (!requireNamespace("zoo", quietly=TRUE))
     stop("Package 'zoo' needed for this function to work")
+  if (!is.atomic(x$values))
+    stop("Only time series with atomic observation values can be coerced to a 'zoo' object")
+  
   zoo::zoo(x$values, x$times)
 }
 
@@ -167,7 +170,7 @@ as.zoo.uts <- function(x, ...)
 #' Coercion to xts
 #' 
 #' @return An \code{\link[xts]{xts}} object.
-#' @param x a \code{"uts"} object.
+#' @param x a \code{"uts"} object with atomic observation values.
 #' @param \dots further arguments passed to or from methods.
 #' 
 #' @examples
@@ -178,6 +181,9 @@ as.xts.uts <- function(x, ...)
 {
   if (!requireNamespace("xts", quietly=TRUE))
     stop("Package 'xts' needed for this function to work")
+  if (!is.atomic(x$values))
+    stop("Only time series with atomic observation values can be coerced to a 'xts' object")
+  
   xts::xts(x$values, x$times)
 }
 
@@ -195,6 +201,7 @@ as.fts.uts <- function(x)
 {
   if (!requireNamespace("fts", quietly=TRUE))
     stop("Package 'fts' needed for this function to work")
+  
   fts::fts(x$times, x$values)
 }
 
@@ -202,7 +209,7 @@ as.fts.uts <- function(x)
 #' Coercion to irts
 #' 
 #' @return An \code{\link[tseries]{irts}} object.
-#' @param x a \code{"uts"} object.
+#' @param x a \code{"uts"} object with atomic observation values.
 #' 
 #' @examples
 #' if (requireNamespace("tseries", quietly = TRUE)) {
@@ -212,6 +219,9 @@ as.irts.uts <- function(x)
 {
   if (!requireNamespace("tseries", quietly=TRUE))
     stop("Package 'tseries' needed for this function to work")
+  if (!is.atomic(x$values))
+    stop("Only time series with atomic observation values can be coerced to an 'irts' object")
+  
   tseries::irts(x$times, x$values)
 }
 

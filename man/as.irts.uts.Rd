@@ -7,7 +7,7 @@
 as.irts.uts(x)
 }
 \arguments{
-\item{x}{a \code{"uts"} object.}
+\item{x}{a \code{"uts"} object with atomic observation values.}
 }
 \value{
 An \code{\link[tseries]{irts}} object.
