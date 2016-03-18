@@ -8,7 +8,7 @@
 
 #' Coercion to uts
 #' 
-#' Convert univariate time series objects from other R package to \code{"uts"} objects.
+#' Convert univariate time series objects from other R packages to \code{"uts"} objects.
 #'
 #' @return An object of class \code{"uts"}.
 #' @param x a time series object of appropriate type.
@@ -182,7 +182,7 @@ as.xts.uts <- function(x, ...)
   if (!requireNamespace("xts", quietly=TRUE))
     stop("Package 'xts' needed for this function to work")
   if (!is.atomic(x$values))
-    stop("Only time series with atomic observation values can be coerced to a 'xts' object")
+    stop("Only time series with atomic observation values can be coerced to an 'xts' object")
   
   xts::xts(x$values, x$times)
 }

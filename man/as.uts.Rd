@@ -33,7 +33,7 @@ as.uts(x, ...)
 An object of class \code{"uts"}.
 }
 \description{
-Convert univariate time series objects from other R package to \code{"uts"} objects.
+Convert univariate time series objects from other R packages to \code{"uts"} objects.
 }
 \section{Methods (by class)}{
 \itemize{
