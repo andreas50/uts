@@ -1,5 +1,7 @@
 An Unevenly-spaced Time Series (uts) is a sequence of observation time and value pairs (t<sub>n</sub>, X<sub>n</sub>) with strictly increasing observation times. As opposed to equally spaced time series, the spacing of observation times may not be constant.
 
+##### Introduction
+
 As of late 2011, to the best of my knowledge, there is no `R` time series package that allows to write 100% of the application logic in terms of this definition. Either directly or indirectly, existing implementations fall back on equally spaced data for some of their functionality. For example, the window width of a rolling time series operator, such as a moving average, is usually specified in terms of the number of observations (e.g. 7 observations) instead of a temporal duration (e.g. 6 hours).
 
 Even when a time series is equally spaced, it is often preferable to define operations using a temporal duration (e.g. a moving average over the past year) instead of number of observations (e.g. a moving average over the last 12 observations values). Should the frequency of the time series change, then in the former case the code would not require any changes, while it would the later case. Moreover, in this way an identical analysis can be carried out on multiple time series of different frequencies, without having to keep track of the individual observation frequencies.
