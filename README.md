@@ -12,9 +12,9 @@ I therefore decided to design a new time series package, partially based on my [
 * Individual time series can store arbitrary R objects (not just numbers).
 * Add-on packages provide novel functionality:
   * utsData: example data sets
-  * utsMultivariate: time series vectors, matrices, and data frames
-    * These objects can be manipulated like normal R vectors, matrices, and data frames, but with one extra dimension representing time.
-    * The individual time series are completely independent of each. In particular, the observation times do not need to be
+  * utsMultivariate: time series vectors and matrices
+    * These objects can be manipulated like normal R vectors and matrices, but with one extra dimension representing time.
+    * The individual time series are completely independent of each other. In particular, the observation times do not need to be synchronized.
   * utsOperators: moving averages and other rolling time series operators
   * utsTrendSeasonality: trend and seasonality estimation
 
