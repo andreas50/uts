@@ -30,7 +30,7 @@ Create an unevenly spaced time series (\code{"uts"}) object from a vector of obs
 \code{is.uts_virtual} returns \code{TRUE} if its argument is a \code{"uts_virtual"} object.
 }
 \details{
-As shown in the example below, it is possible to store arbitrary \R objects in a \code{"uts"} object. However, some time series operations (e.g. arithmetic operations) require the observation values to be either \code{\link{numeric}}, \code{\link{logical}}, or \code{\link{complex}}.
+As shown in an example below, it is possible to store arbitrary \R objects in a \code{"uts"} object. However, many time series methods work only when the observation values are of a certain class or type. For example, arithmetic methods require the observation values to be \code{\link{numeric}}, \code{\link{logical}}, or \code{\link{complex}}; plotting only works for \code{\link{numeric}} and \code{\link{logical}} values; while \code{\link{as.data.frame.uts}} requires \code{\link{atomic}} observation values.
 }
 \note{
 An abstract class \code{"uts_virtual"} exists from which \code{"uts"}, \code{"uts_vector"}, and \code{"uts_matrix"}, inherit (see package \code{utsMultivariate} for the latter three classes): it is used to allow operations such as subtraction to mix the classes.
@@ -41,7 +41,7 @@ dts <- c("2007-11-08", "2007-11-08", "2007-11-08", "2007-11-09", "2007-11-09", "
 tms <- c("7:00:00", "8:01:00", "13:15:00", "7:30:00", "8:51:00", "15:15:00")
 uts(values=c(48.375, 48.5, 48.375, 47, 47.5, 47.35), times=paste(dts, tms))
 
-# Create a "uts" with non-numeric observations
+# Store arbitrary R objects in a "uts"
 uts(list(1:5, c("a", "B")), c("2007-11-08 1:01:00", "2007-11-09 15:16:00"))
 
 # Create an empty "uts"
