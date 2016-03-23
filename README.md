@@ -24,9 +24,8 @@ I therefore decided to design a new time series package, partially based on my [
 
 * [zoo](http://cran.r-project.org/web/packages/zoo/index.html):
   * According to the package vignette, independence of a particular index/time/date class is the most important design goal, while `uts` relies on the [POSIXct](https://stat.ethz.ch/R-manual/R-devel/library/base/html/DateTimeClasses.html) class available in base `R`.
-  * Provides a hybrid approach between evenly- and unevenly-spaced time series. For example, the application logic of rolling time series operators is in terms of the number of observations.
-  * [Take out after further review] Indexing into a time series is in terms of observation numbers (e.g. get observations at integer indices 5, 6, and 9), as opposed to in terms of observation times (e.g. get sampled observations at given time points).
-  * The support for multivariate time series is somewhat restrictive. Individual time series need to have identical observation times and, in particular, need to be of the same length. Moreover, indicidual time series can only store objects of the same type, because the data is stored in a matrix, although there a plans to eventually supported mixed types via data frames.
+  * Most of the application logic is in terms of number of observations. For example, for subperiod selection, lagging of observations, and rolling time series operators.
+  * The support for multivariate time series is somewhat restrictive. Individual time series need to have identical observation times and, in particular, need to be of the same length. Moreover, individual time series can only store objects of the same type, because the data is stored in a matrix, although there a plans to eventually supported mixed types via data frames.
 * [xts](http://cran.r-project.org/web/packages/xts/index.html): An extension of `zoo` that facilitates inter-class operability.
 * [fts](http://cran.r-project.org/web/packages/fts/index.html): An extension of `zoo` that provides many (stock) trading indicators and interface to `tslib` (a time series library in C++).
 * [its](http://cran.r-project.org/web/packages/its/index.html): An S4 implementation with a few basic methods. By the same author as `fts`.
