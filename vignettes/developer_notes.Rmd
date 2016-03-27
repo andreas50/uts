@@ -9,7 +9,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-This document describes the inner workings of the `uts` package, which might be useful to developers seeking the extend the functionality. In addition, the document lays out coding and commenting guidelines for package contributors.
+This document describes internal details of the `uts` package. It is intended for developers who want to the extend the package functionality.
 
 ## Internal representation of `uts` objects
 
