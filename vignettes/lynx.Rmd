@@ -8,9 +8,12 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
+<!-- % Global knitr options -->
+```{r, echo=FALSE}
+knitr::opts_chunk$set(collapse=TRUE)
+```
 
 This vignette demonstrates the "uts" package by analyzing a famous dataset about the population of Canada lynx for the years 1821-1939 for various regions across North America.
-
 
 
 ## Data Import
@@ -32,6 +35,10 @@ The figure sizes have been customized so that you can easily put two images side
 ```{r, fig.show='hold'}
 plot(1:10)
 plot(10:1)
+```
+
+```{r}
+1:10
 ```
 
 You can enable figure captions by `fig_caption: yes` in YAML:
