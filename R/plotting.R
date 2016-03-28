@@ -52,6 +52,7 @@ split_segments <- function(x, max_dt)
 #' @param col the colors for lines and points. See \code{\link[graphics:plot.default]{plot.default}}.
 #' @param xlab a label for the x axis.
 #' @param ylab a label for the y axis.
+#' @param plot.new boolean. If \code{TRUE}, a new plot is created from scratch. If \code{FALSE}, the plop is superimposed on the currently open plot.
 #' @param \dots other graphical parameters passed to \code{\link[graphics:plot.default]{plot.default}}.
 #' 
 #' @examples
@@ -70,7 +71,11 @@ split_segments <- function(x, max_dt)
 #' # -) this example produces several harmless warning messages, because other
 #' #    functions that are part of the call chain have no "format" argument
 #' plot(ex_uts(), format="%a %I%p")
-plot.uts <- function(x, max_dt=ddays(Inf), type="l", col="blue", xlab="", ylab="", ...)
+#' 
+#' # Plot two time series on top of each other
+#' plot(ex_uts())
+#' plot(ex_uts() + 0.1, plot.new=FALSE, col="red")
+plot.uts <- function(x, max_dt=ddays(Inf), type="l", col="blue", xlab="", ylab="", plot.new=TRUE, ...)
 {
   # Argument checking
   if (length(x) == 0L)
@@ -79,7 +84,8 @@ plot.uts <- function(x, max_dt=ddays(Inf), type="l", col="blue", xlab="", ylab="
     stop("Can only plot time series with numeric or logical observation values")
 
   # Set up empty plotting canvas
-  plot(x$times, x$values, type="n", col=col, xlab=xlab, ylab=ylab, ...)
+  if (plot.new)
+    plot(x$times, x$values, type="n", col=col, xlab=xlab, ylab=ylab, ...)
   
   # Remove plot.default() arguments that are not part of plot.xy()
   args <- c(list(...), type=type, col=col)

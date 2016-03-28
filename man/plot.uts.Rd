@@ -5,7 +5,7 @@
 \title{Plot a uts}
 \usage{
 \method{plot}{uts}(x, max_dt = ddays(Inf), type = "l", col = "blue",
-  xlab = "", ylab = "", ...)
+  xlab = "", ylab = "", plot.new = TRUE, ...)
 }
 \arguments{
 \item{x}{a \code{"uts"} object with numeric or logical observation values.}
@@ -19,6 +19,8 @@
 \item{xlab}{a label for the x axis.}
 
 \item{ylab}{a label for the y axis.}
+
+\item{plot.new}{boolean. If \code{TRUE}, a new plot is created from scratch. If \code{FALSE}, the plop is superimposed on the currently open plot.}
 
 \item{\dots}{other graphical parameters passed to \code{\link[graphics:plot.default]{plot.default}}.}
 }
@@ -41,5 +43,9 @@ plot(na.omit(tmp), type="b")
 # -) this example produces several harmless warning messages, because other
 #    functions that are part of the call chain have no "format" argument
 plot(ex_uts(), format="\%a \%I\%p")
+
+# Plot two time series on top of each other
+plot(ex_uts())
+plot(ex_uts() + 0.1, plot.new=FALSE, col="red")
 }
 
