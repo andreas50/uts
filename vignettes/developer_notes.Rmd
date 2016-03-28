@@ -1,5 +1,5 @@
 ---
-title: "uts: Developer Notes"
+title: "uts, utsMultivariate: Developer Notes"
 author: "Andreas Eckner"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
@@ -9,22 +9,26 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-This document describes the inner workings of the `uts` package, which might be useful to developers seeking the extend the functionality. In addition, the document lays out coding and commenting guidelines for package contributors.
+This document describes some of the inner workings of the `uts` and `utsMultivariate` package and targets developers who want to extend the functionality. In addition, the document lays out coding and commenting guidelines for package contributors.
 
-## Internal representation of `uts` objects
+## Internal representation
 
-A `uts` object is a list of length two with class attribute `c("uts", "list")`. The two list entries are vectors of equal length and are called `values` and `times`.
+A `uts` object is a list of length two with class attribute `c("uts", "uts_virtual")`. The two list entries are named `values` and `times`, respectively, and are vectors of equal length. The former is an `R` vector of arbitrary mode, containing the observation *values*. The latter is a `POSIXct` vector of strictly increasing observation *times*.
 
-The former is an `R` vector of arbitrary mode, containing the observation *values*. The latter is a `POSIXct` vector of strictly increasing observation *times*.
+A `uts_vector` object is a list of `uts` objects. It has the class attribute `c("uts_vector", "uts_virtual")` and an optional `names` attribute.
 
+A `uts_matrix` is also a list of `uts` objects. It has the class attribute `c("uts_matrix", "uts_vector", "uts_virtual")`, a `dim` attribute, and an optional `dimnames` attribute. Because the class `"uts_matrix"` inherits from the class `"uts_vector"`, methods for the latter (e.g. `first(), last(), start(), end()`, etc.) are automatically available for the former. In same cases though, a specialized method is available, especially 
+
+All three classes inherit from the abstract class `uts_virtual`. Because the Ops group methods are implemented via `Ops.uts_virtual`, operations such as subtraction can mix the classes.
 
 ## Internal functions
 
-The package contains a variety of functions that are typically to needed by ordinary users, but might be of interest to developers seeking the extend the package. To view the list of functions (including links to their documentation), either type
+The packages contains a variety of functions that are not needed by ordinary users, but might be of interest to developers seeking to implement their own methods. To view the list of functions (including links to their documentation), either type
 
     > ?`uts-internal`
+    > ?`utsMultivariate-internal`
 
-on the `R` command prompt, or go the HTML help page of the package and select entry `uts-internal`.
+on the `R` command prompt, or go the HTML help page of the package and select the topic `Internal Functions`.
 
 
 ## Criteria for package inclusion of your function
