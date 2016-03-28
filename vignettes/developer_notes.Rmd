@@ -9,7 +9,8 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-This document describes some of the inner workings of the `uts` and `utsMultivariate` package and targets developers who want to extend the functionality. In addition, the document lays out coding and commenting guidelines for package contributors.
+This document describes internal details of the `uts` and `utsMultivariate` package. It is intended for developers who want to the extend the package functionality.
+
 
 ## Internal representation
 
@@ -43,12 +44,14 @@ Whether your function is a good candidate for inclusion in this package depends 
 There is no hard threshold, but generally your function should meet a majority of these conditions.
 
 As an example, consider a `uts` method that outputs a summary of the observation values of a time series:
+
 ```
 summary.uts <- function(object, ...)
 {
   summary(object$values)
 }
 ```
+
 Although the code is trivial to write from scratch, failing condition #3, many end users are likely to use it, either consciously or inadvertently, because `summary()` is a generic function in base `R`. Meeting conditions #1, #2, and #4 this method is therefore part of the `uts` package, even though it has been marked using the keyword `internal` and therefore does not show up in the package index.
 
 On the other hand, consider a `uts` method that removes consecutive observations from a time series that are less than a certain (temporal) amount apart and for which the observation values are identical (how would you call such a function?). Only a minority of users will be interested in this functionality, and the functionality is difficult to define using a search engine term. Failing the first three conditions, this method is therefore not part of the `uts` package, even though I have already written it for an analysis of mine.

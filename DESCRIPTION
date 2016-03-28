@@ -14,10 +14,10 @@ Suggests:
 Enhances: fts, its, tseries, xts, zoo
 Description: An S3 class for constructing, analyzing, and manipulating
     univariate unevenly spaced time series (uts). A time series can store
-    arbitrary R objects. R users familiar with vectors, matrices, and data
-    frames should find it straightforward to work with the corresponding
-    time series objects, because the usage of many functions (such as [, [[,
-    length, etc.) is completely analogous.
+    arbitrary R objects. R users familiar with vectors and matrices should find
+    it straightforward to work with the corresponding time series objects,
+    because the usage of many functions (such as [, [[, length, etc.) is
+    completely analogous.
 License: GPL-2 | GPL-3
 URL: www.eckner.com
 VignetteBuilder: knitr
