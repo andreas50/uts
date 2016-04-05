@@ -32,7 +32,7 @@ Summary.uts <- function(x, ...)
 #' # Take the base-2 logarithm of the observation values and return the corresponding "uts"
 #' log(ex_uts(), base=2)
 #' 
-#' # Calculate the cumulative product of the observation values and return the corresponding "uts"
+#' # Calculate the cumulative sum of the observation values and return the corresponding "uts"
 #' cumsum(ex_uts())
 Math.uts <- function(x, ...)
 {
