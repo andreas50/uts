@@ -6,8 +6,7 @@
 #' 
 #' Apply \code{\link{summary}} from base \R to the observation values of a time series.
 #' 
-#' @note
-#' This method only exists because \code{\link{summary.default}} produces an error message.
+#' @note This method primarily exists because \code{\link{summary.default}} produces an error message.
 #'  
 #' @param x a \code{"uts"} object.
 #' @param \dots further arguments passed to or from methods.
@@ -15,6 +14,7 @@
 #' @keywords internal
 #' @examples
 #' summary(ex_uts())
+#' summary(ex_uts2())
 summary.uts <- function(object, ...)
 {
   summary(object$values)
@@ -46,7 +46,7 @@ sd.default <- function(x, ...) stats::sd(x, ...)
 #' @param x a \code{"uts"} object.
 #' @param \dots further arguments passed to or from methods.
 #' 
-#' @seealso \code{\link{mean}}, \code{\link{median}}, and \code{\link{sd}} in base \R.
+#' @seealso \code{\link{mean}}, \code{\link{median}}, \code{\link{sd}} in base \R.
 #' @keywords internal
 #' @examples
 #' mean(ex_uts())

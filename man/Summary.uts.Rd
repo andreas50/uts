@@ -15,10 +15,11 @@
 Apply \code{\link{summary}} from base \R to the observation values of a time series.
 }
 \note{
-This method only exists because \code{\link{summary.default}} produces an error message.
+This method primarily exists because \code{\link{summary.default}} produces an error message.
 }
 \examples{
 summary(ex_uts())
+summary(ex_uts2())
 }
 \keyword{internal}
 

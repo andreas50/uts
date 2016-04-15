@@ -9,9 +9,7 @@
 \arguments{
 \item{x}{a \code{"uts"} object.}
 
-\item{start}{a \code{\link{POSIXct}} object or coercible using \code{\link{as.POSIXct}}. The start time of the period of interest.}
-
-\item{end}{a \code{\link{POSIXct}} object or coercible using \code{\link{as.POSIXct}}. The end time of the period of interest.}
+\item{start, end}{\code{\link{POSIXct}} objects or coercible using \code{\link{as.POSIXct}}. The start and end times, respectively, of the period of interest.}
 
 \item{\dots}{further arguments passed to or from methods.}
 }

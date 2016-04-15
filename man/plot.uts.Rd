@@ -10,7 +10,7 @@
 \arguments{
 \item{x}{a \code{"uts"} object with numeric or logical observation values.}
 
-\item{max_dt}{a non-negative \code{\link[lubridate]{duration}} object. Consecutive observations are not connected by a line in the graph, if they are more than this amount apart in time.}
+\item{max_dt}{a non-negative \code{\link[lubridate]{duration}} object. Consecutive observations that are more than this amount apart in time, are not connected by a line in the graph.}
 
 \item{type}{what type of plot should be drawn, see \code{\link[graphics:plot.default]{plot.default}}. \code{type="b"} is helpful for highlighting individual observations.}
 
@@ -20,7 +20,7 @@
 
 \item{ylab}{a label for the y axis.}
 
-\item{plot.new}{boolean. If \code{TRUE}, a new plot is created from scratch. If \code{FALSE}, the plop is superimposed on the currently open plot.}
+\item{plot.new}{logical If \code{TRUE}, a new plot is created from scratch. If \code{FALSE}, the plop is superimposed on the currently open plot.}
 
 \item{\dots}{other graphical parameters passed to \code{\link[graphics:plot.default]{plot.default}}.}
 }

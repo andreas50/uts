@@ -47,12 +47,12 @@ split_segments <- function(x, max_dt)
 #' A convenience wrapper around \code{\link{plot.default}} with several sensible default arguments.
 #' 
 #' @param x a \code{"uts"} object with numeric or logical observation values.
-#' @param max_dt a non-negative \code{\link[lubridate]{duration}} object. Consecutive observations are not connected by a line in the graph, if they are more than this amount apart in time.
+#' @param max_dt a non-negative \code{\link[lubridate]{duration}} object. Consecutive observations that are more than this amount apart in time, are not connected by a line in the graph.
 #' @param type what type of plot should be drawn, see \code{\link[graphics:plot.default]{plot.default}}. \code{type="b"} is helpful for highlighting individual observations.
 #' @param col the colors for lines and points. See \code{\link[graphics:plot.default]{plot.default}}.
 #' @param xlab a label for the x axis.
 #' @param ylab a label for the y axis.
-#' @param plot.new boolean. If \code{TRUE}, a new plot is created from scratch. If \code{FALSE}, the plop is superimposed on the currently open plot.
+#' @param plot.new logical If \code{TRUE}, a new plot is created from scratch. If \code{FALSE}, the plop is superimposed on the currently open plot.
 #' @param \dots other graphical parameters passed to \code{\link[graphics:plot.default]{plot.default}}.
 #' 
 #' @examples

@@ -169,8 +169,7 @@ merge.uts <- function(x, y, tolerance=.Machine$double.eps ^ 0.5, ...)
 #' Extract a subperiod time series between times \code{start} and \code{end}.
 #' 
 #' @param x a \code{"uts"} object.
-#' @param start a \code{\link{POSIXct}} object or coercible using \code{\link{as.POSIXct}}. The start time of the period of interest.
-#' @param end a \code{\link{POSIXct}} object or coercible using \code{\link{as.POSIXct}}. The end time of the period of interest.
+#' @param start,end \code{\link{POSIXct}} objects or coercible using \code{\link{as.POSIXct}}. The start and end times, respectively, of the period of interest.
 #' @param \dots further arguments passed to or from methods.
 #' 
 #' @seealso \code{\link{head}}, \code{\link{head_t}}, \code{\link{tail}}, \code{\link{tail_t}} for other methods that extract a subperiod time series.
@@ -182,9 +181,9 @@ merge.uts <- function(x, y, tolerance=.Machine$double.eps ^ 0.5, ...)
 window.uts <- function(x, start=NULL, end=NULL, ...)
 {
   if (is.null(start))
-    start <- start(x, 3)
+    start <- start(x)
   if (is.null(end))
-    end <- end(x, 2)
+    end <- end(x)
   
   # Argument checking
   if (length(x) == 0L)
