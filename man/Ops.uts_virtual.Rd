@@ -8,7 +8,7 @@
 \method{Ops}{uts_virtual}(e1, e2)
 }
 \arguments{
-\item{e1, e2}{either \code{"uts"} objects or compatible \R objects of length one, where compatability depends on the type of operation performed.}
+\item{e1, e2}{either \code{"uts"}, \code{"uts_vector"} \code{"uts_matrix"} objects, or compatible length-one \R objects, where compatability depends on the type of operation performed.}
 }
 \description{
 Apply the \code{\link{Ops}} group methods in base \R{} to the observation values of \code{"uts"} objects.
@@ -16,10 +16,12 @@ Apply the \code{\link{Ops}} group methods in base \R{} to the observation values
 \details{
 For unary oparations or operations involving just one time series and another \R object, the output time series has the same observation times as the input time series.
 
-For binary operations involving two time series \code{e1} and \code{e2}, the output time series has the union of observation times of \code{e1} and \code{e2}, but excluding times before the first observation time of either time series. The method for determining these times is unaffected by numerical noise less than \code{sqrt(\link[=.Machine]{.Machine$double.eps})}.
+For binary operations involving two time series \code{e1} and \code{e2}, the output time series has the union of observation times of \code{e1} and \code{e2}, but excluding times before the first observation time (i.e. the start time) of either time series. The method for determining these times is unaffected by numerical noise less than \code{sqrt(\link[=.Machine]{.Machine$double.eps})}.
 }
 \note{
 The classes \code{"uts"}, \code{"uts_vector"}, and \code{"uts_matrix"} (see package \code{utsMultivariate} for the latter two) inherit from the abstract class \code{"uts_virtual"}. Because the Ops group methods are implemented via \code{Ops.uts_virtual}, operations such as subtraction can mix the classes.
+
+For binary \code{\link{Ops}} group methods, this function is a special case of \code{\link{binary_Ops}}. Specifically, \code{e1+e2} gives the same result as \code{binary_Ops(e1, "+", e2, times="all", interpolation="last")}, and the same is true for the other binary \code{"Ops"} methods.
 }
 \examples{
 # Unary oparators
@@ -34,6 +36,6 @@ ex_uts() > 48
 48 >= ex_uts()
 }
 \seealso{
-\code{\link{groupGeneric}}
+\code{\link{groupGeneric}}, \code{\link{binary_Ops}}
 }
 

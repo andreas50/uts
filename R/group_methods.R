@@ -102,14 +102,16 @@ Ops_uts <- function(e1, e2, .Generic)
 #' 
 #' For unary oparations or operations involving just one time series and another \R object, the output time series has the same observation times as the input time series.
 #' 
-#' For binary operations involving two time series \code{e1} and \code{e2}, the output time series has the union of observation times of \code{e1} and \code{e2}, but excluding times before the first observation time of either time series. The method for determining these times is unaffected by numerical noise less than \code{sqrt(\link[=.Machine]{.Machine$double.eps})}.
+#' For binary operations involving two time series \code{e1} and \code{e2}, the output time series has the union of observation times of \code{e1} and \code{e2}, but excluding times before the first observation time (i.e. the start time) of either time series. The method for determining these times is unaffected by numerical noise less than \code{sqrt(\link[=.Machine]{.Machine$double.eps})}.
 #' 
 #' @note The classes \code{"uts"}, \code{"uts_vector"}, and \code{"uts_matrix"} (see package \code{utsMultivariate} for the latter two) inherit from the abstract class \code{"uts_virtual"}. Because the Ops group methods are implemented via \code{Ops.uts_virtual}, operations such as subtraction can mix the classes.
 #' 
-#' @param e1,e2 either \code{"uts"} objects or compatible \R objects of length one, where compatability depends on the type of operation performed.
+#' @note For binary \code{\link{Ops}} group methods, this function is a special case of \code{\link{binary_Ops}}. Specifically, \code{e1+e2} gives the same result as \code{binary_Ops(e1, "+", e2, times="all", interpolation="last")}, and the same is true for the other binary \code{"Ops"} methods.
+#' 
+#' @param e1,e2 either \code{"uts"}, \code{"uts_vector"} \code{"uts_matrix"} objects, or compatible length-one \R objects, where compatability depends on the type of operation performed.
 #' 
 #' @aliases Ops.uts
-#' @seealso \code{\link{groupGeneric}}
+#' @seealso \code{\link{groupGeneric}}, \code{\link{binary_Ops}}
 #' 
 #' @examples
 #' # Unary oparators
@@ -168,4 +170,39 @@ Ops.uts_virtual <- function(e1, e2)
 }
 
 
+#' Binary Ops Groups Methods
+#' 
+#' Apply a binary \code{\link{Ops}} group method to the observation values of \code{"uts"} objects.
+#' 
+#' @param x,y either \code{\link{uts}} objects or compatible length-one \R objects, where compatability depends on the type of operation performed.
+#' @param Ops a binary \code{\link{Ops}} operator.
+#' @param times which observation times to use for the output time series: \itemize{
+#'    \item \code{"all"}: the union of observation times of \code{x} and \code{y}.
+#'    \item \code{"x"}: the observation times of \code{x}.
+#'    \item \code{"y"}: the observation times of \code{y}.
+#' }
+#' In all three cases, times before the first observation time (i.e. the start time) of either time series are excluded.
+#' The method for determining these times is unaffected by numerical noise less than \code{sqrt(\link[=.Machine]{.Machine$double.eps})}.
+#' @param interpolation 
+#' 
+#' @seealso \code{\link{Ops.uts}}, \code{\link{groupGeneric}}
+#' 
+#' @examples
+#' 
+#' # Create two sample time series
+#' x <- ex_uts()
+#' y <-  head(x * 1.1, dhours(1)), 5)
+#' 
+#' # Vary interpolation method
+#' binary_Ops(x, "/", y)
+#' binary_Ops(x, "/", y, interpolation="linear")
+#' 
+#' # Vary time point in output
+#' binary_Ops(x, "/", y)
+#' binary_Ops(x, "/", y, times="x")
+#' binary_Ops(x, "/", y, times="y")
+binary_Ops <- function(x, Ops, y, times="all", interpolation="last")
+{
+  
+}
 
