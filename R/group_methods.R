@@ -197,6 +197,11 @@ Ops.uts_virtual <- function(e1, e2)
 #' x <- ex_uts()
 #' y <- head(lag_t(x * 1.1, dhours(1)), 5)
 #' 
+#' # Vary binary operator
+#' binary_Ops(x, "/", y)
+#' binary_Ops(x, "-", y)
+#' binary_Ops(x, "!=", y)
+#' 
 #' # Vary time points in output
 #' binary_Ops(x, "/", y)
 #' binary_Ops(x, "/", y, times="x")
