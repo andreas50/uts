@@ -181,9 +181,11 @@ Ops.uts_virtual <- function(e1, e2)
 #'    \item \code{"x"}: the observation times of \code{x}.
 #'    \item \code{"y"}: the observation times of \code{y}.
 #' }
-#' In all three cases, times before the first observation time (i.e. the start time) of either time series are excluded.
+#' In all three cases, times before the first observation time (i.e. the start time) of either time series are excluded. \cr
 #' The method for determining these times is unaffected by numerical noise less than \code{sqrt(\link[=.Machine]{.Machine$double.eps})}.
-#' @param interpolation 
+#' @param interpolation either \code{"last"} or \code{"linear"}, denoting the interpolation method to use for sampling from \code{x} and \code{y}. See \code{\link{sample_values}} for a detailed description of the two methods.
+#' 
+#' @note For output times that are observation times of \code{x} (or \code{y}), the interpolation method has no effect, because the sampled value at such a time point is simply the observation value of \code{x} (or \code{y}) at this time point. In particular, the \code{interpolation} argument has no effect for \code{times="all"} (the default).
 #' 
 #' @seealso \code{\link{Ops.uts}}, \code{\link{groupGeneric}}
 #' 
@@ -191,7 +193,7 @@ Ops.uts_virtual <- function(e1, e2)
 #' 
 #' # Create two sample time series
 #' x <- ex_uts()
-#' y <-  head(x * 1.1, dhours(1)), 5)
+#' y <- head(lag_t(x * 1.1, dhours(1)), 5)
 #' 
 #' # Vary interpolation method
 #' binary_Ops(x, "/", y)
