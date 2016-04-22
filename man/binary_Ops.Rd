@@ -7,7 +7,7 @@
 binary_Ops(x, Ops, y, times = "all", interpolation = "last")
 }
 \arguments{
-\item{x, y}{either \code{\link{uts}} objects or compatible length-one \R objects, where compatability depends on the type of operation performed.}
+\item{x, y}{\code{\link{uts}} objects.}
 
 \item{Ops}{a binary \code{\link{Ops}} operator.}
 
@@ -25,6 +25,8 @@ The method for determining these times is unaffected by numerical noise less tha
 Apply a binary \code{\link{Ops}} group method to the observation values of \code{"uts"} objects.
 }
 \note{
+\code{\link{Ops.uts}}, when using a binary operator, is a special case of this method. Specifically, \code{x+y} gives the same result as \code{binary_Ops(x, "+", y, times="all", interpolation="last")}, and the same is true for the other binary \code{"Ops"} group\code{\link{Ops}} methods.
+
 For output times that are observation times of \code{x} (or \code{y}), the interpolation method has no effect, because the sampled value at such a time point is simply the observation value of \code{x} (or \code{y}) at this time point. In particular, the \code{interpolation} argument has no effect for \code{times="all"} (the default).
 }
 \examples{
@@ -33,14 +35,14 @@ For output times that are observation times of \code{x} (or \code{y}), the inter
 x <- ex_uts()
 y <- head(lag_t(x * 1.1, dhours(1)), 5)
 
-# Vary interpolation method
-binary_Ops(x, "/", y)
-binary_Ops(x, "/", y, interpolation="linear")
-
-# Vary time point in output
+# Vary time points in output
 binary_Ops(x, "/", y)
 binary_Ops(x, "/", y, times="x")
 binary_Ops(x, "/", y, times="y")
+
+# Vary interpolation method
+binary_Ops(x, "/", y, times="x")
+binary_Ops(x, "/", y, times="x", interpolation="linear")
 }
 \seealso{
 \code{\link{Ops.uts}}, \code{\link{groupGeneric}}

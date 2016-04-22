@@ -174,7 +174,7 @@ Ops.uts_virtual <- function(e1, e2)
 #' 
 #' Apply a binary \code{\link{Ops}} group method to the observation values of \code{"uts"} objects.
 #' 
-#' @param x,y either \code{\link{uts}} objects or compatible length-one \R objects, where compatability depends on the type of operation performed.
+#' @param x,y \code{\link{uts}} objects.
 #' @param Ops a binary \code{\link{Ops}} operator.
 #' @param times which observation times to use for the output time series: \itemize{
 #'    \item \code{"all"}: the union of observation times of \code{x} and \code{y}.
@@ -184,6 +184,8 @@ Ops.uts_virtual <- function(e1, e2)
 #' In all three cases, times before the first observation time (i.e. the start time) of either time series are excluded. \cr
 #' The method for determining these times is unaffected by numerical noise less than \code{sqrt(\link[=.Machine]{.Machine$double.eps})}.
 #' @param interpolation either \code{"last"} or \code{"linear"}, denoting the interpolation method to use for sampling from \code{x} and \code{y}. See \code{\link{sample_values}} for a detailed description of the two methods.
+#' 
+#' @note \code{\link{Ops.uts}}, when using a binary operator, is a special case of this method. Specifically, \code{x+y} gives the same result as \code{binary_Ops(x, "+", y, times="all", interpolation="last")}, and the same is true for the other binary \code{"Ops"} group\code{\link{Ops}} methods.
 #' 
 #' @note For output times that are observation times of \code{x} (or \code{y}), the interpolation method has no effect, because the sampled value at such a time point is simply the observation value of \code{x} (or \code{y}) at this time point. In particular, the \code{interpolation} argument has no effect for \code{times="all"} (the default).
 #' 
@@ -195,16 +197,32 @@ Ops.uts_virtual <- function(e1, e2)
 #' x <- ex_uts()
 #' y <- head(lag_t(x * 1.1, dhours(1)), 5)
 #' 
-#' # Vary interpolation method
-#' binary_Ops(x, "/", y)
-#' binary_Ops(x, "/", y, interpolation="linear")
-#' 
-#' # Vary time point in output
+#' # Vary time points in output
 #' binary_Ops(x, "/", y)
 #' binary_Ops(x, "/", y, times="x")
 #' binary_Ops(x, "/", y, times="y")
+#' 
+#' # Vary interpolation method
+#' binary_Ops(x, "/", y, times="x")
+#' binary_Ops(x, "/", y, times="x", interpolation="linear")
 binary_Ops <- function(x, Ops, y, times="all", interpolation="last")
 {
+  # Argument checking
+  if (!is.uts(x) || !is.uts(y))
+    stop("x and y need to be 'uts' objects")
+  if (!(times %in% c("all", "x", "y")))
+    stop("Illegal 'times' argument")
+  if (!(interpolation %in% c("last", "linear")))
+    stop("Illegal 'interpolation' argument")
   
+  # Sample the input time series
+  if (times == "x")
+    y <- window(y[x$times, interpolation=interpolation], start=start(y))
+  else if (times == "y")
+    x <- window(x[y$times, interpolation=interpolation], start=start(x))
+  
+  # Call Ops method
+  do.call(Ops, list(x, y))
 }
+
 
