@@ -4,8 +4,10 @@ useDynLib(uts)
 
 # Imports from other packages
 import(lubridate)
-importFrom(stats, as.ts, cycle, end, frequency, lag, median, na.omit, sd, start, time, window)
-importFrom(utils, head, tail)
+importFrom(stats, as.ts, cycle, end, frequency, lag, median, na.omit, rnorm, sd, start, time, tsp, window)
+importFrom(utils, head, tail, str)
+importFrom(graphics, plot, plot.xy)
+importFrom(grDevices, xy.coords)
 
 
 # Export class constructors
