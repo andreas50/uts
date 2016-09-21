@@ -76,7 +76,7 @@ as.uts.ts <- function(x, ...)
   
   # Round times for monthly and quarterly frequency
   freq <- tsp(x)[3]
-  if (freq %in% c(4, 12))
+  if (freq %in% c(1, 4, 12))
     times <- floor_date(times + days(5), unit="month")
   uts(values, times)
 }
