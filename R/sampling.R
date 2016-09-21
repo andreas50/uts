@@ -79,7 +79,7 @@ sample_values.uts <- function(x, time_points, interpolation="last", max_dt=ddays
   sampled_values_next <- x$values[sampling_idx_next]
   
   # Linearly interpolate last and next observation value
-  w <- pmax(0, dt_next_observation) / (as.numeric(dt_last_observation) + pmax(0, dt_next_observation))
+  w <- pmax(0, as.numeric(dt_next_observation)) / (as.numeric(dt_last_observation) + pmax(0, as.numeric(dt_next_observation)))
   w[sampling_idx_last == length(x)] <- 1
   w * sampled_values_last + (1-w) * sampled_values_next
 }
