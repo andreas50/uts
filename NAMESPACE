@@ -95,7 +95,9 @@ export(as.zoo.uts)    # would need to create "zoo" package dependency
 #     makes these methods inaccessible on the search path.
 #     The reason is that S3method() does not export an object from the namespace. Therefore,
 #     if the generic is in another package, that generic won't be able to find the method.
+export(first.default)
 export(first.uts)
+export(last.default)
 export(last.uts)
 
 

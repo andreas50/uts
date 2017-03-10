@@ -2,10 +2,13 @@
 % Please edit documentation in R/first_last.R
 \name{first}
 \alias{first}
+\alias{first.default}
 \alias{first.uts}
 \title{First Observation Value}
 \usage{
 first(x, ...)
+
+\method{first}{default}(x, ...)
 
 \method{first}{uts}(x, ...)
 }
@@ -19,9 +22,13 @@ Return the first value of an \R object.
 }
 \section{Methods (by class)}{
 \itemize{
+\item \code{default}: Assume that \code{x} is a vector or compatible object and return the first value.
+
 \item \code{uts}: Return the first observation \emph{value} of a \code{"uts"} object. Unlike method \code{first()} in package \href{https://cran.r-project.org/web/packages/xts/}{xts}, arguments \code{n} and \code{keep} are not supported. Instead, this functionality is provided by \code{head()} and \code{heat_t()}.
 }}
 \examples{
+first(5:10)
+first(list(a="test", b=3))
 first(ex_uts())
 }
 \seealso{

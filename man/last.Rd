@@ -2,10 +2,13 @@
 % Please edit documentation in R/first_last.R
 \name{last}
 \alias{last}
+\alias{last.default}
 \alias{last.uts}
 \title{Last Observation Value}
 \usage{
 last(x, ...)
+
+\method{last}{default}(x, ...)
 
 \method{last}{uts}(x, ...)
 }
@@ -19,9 +22,13 @@ Return the last value of an \R object.
 }
 \section{Methods (by class)}{
 \itemize{
+\item \code{default}: Assume that \code{x} is a vector or compatible object and return the last value.
+
 \item \code{uts}: Return the last observation \emph{value} of a \code{"uts"} object. Unlike method \code{last()} in package \href{https://cran.r-project.org/web/packages/xts/}{xts}, arguments \code{n} and \code{keep} are not supported. Instead, this functionality is provided by \code{tail()} and \code{tail_t()}.
 }}
 \examples{
+last(5:10)
+last(list(a="test", b=3))
 first(ex_uts())
 }
 \seealso{
