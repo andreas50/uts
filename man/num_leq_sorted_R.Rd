@@ -21,4 +21,3 @@ This function is identical to \code{\link{num_leq_sorted}} except that a) the in
 num_leq_sorted_R(c(-3, 1, 3, 5, 7), c(0, 1, 4, 9, 16))
 }
 \keyword{internal}
-

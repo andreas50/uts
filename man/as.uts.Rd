@@ -2,10 +2,10 @@
 % Please edit documentation in R/coercions.R
 \name{as.uts}
 \alias{as.uts}
+\alias{as.uts.ts}
 \alias{as.uts.fts}
 \alias{as.uts.irts}
 \alias{as.uts.its}
-\alias{as.uts.ts}
 \alias{as.uts.xts}
 \alias{as.uts.zoo}
 \title{Coercion to uts}
@@ -49,6 +49,7 @@ Convert univariate time series objects from other R packages to \code{"uts"} obj
 
 \item \code{zoo}: convert a \code{\link[zoo]{zoo}} object
 }}
+
 \examples{
 # Convert a quarterly "ts"
 ts1 <- ts(1:10, frequency = 4, start = c(1959, 2))
@@ -98,4 +99,3 @@ if (requireNamespace("zoo", quietly = TRUE)) {
 \seealso{
 \code{as.uts_vector} (in package \code{utsMultivariate}) for converting multivariate time series.
 }
-

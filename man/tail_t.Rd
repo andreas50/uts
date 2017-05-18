@@ -12,9 +12,9 @@ tail_t(x, ...)
 \arguments{
 \item{x}{a time series object.}
 
-\item{width}{a \code{\link[lubridate]{duration}} object, specifying the temporal width of the terminal subperiod time series.}
-
 \item{\dots}{further arguments passed to or from methods.}
+
+\item{width}{a \code{\link[lubridate]{duration}} object, specifying the temporal width of the terminal subperiod time series.}
 }
 \description{
 Return a subperiod time series with the terminal part, where the length is specified in terms of the \emph{temporal length}.
@@ -23,6 +23,7 @@ Return a subperiod time series with the terminal part, where the length is speci
 \itemize{
 \item \code{uts}: terminal subperiod time series for \code{"uts"} object.
 }}
+
 \note{
 For an evenly spaced time series, the methods \code{tail()} and \code{tail_t()} essentially work the same. For unevenly spaced time series, however, they are quite different. The subperiod window of the former is determined by the observation \emph{values}, while for the latter it is determined by the observation \emph{times}.
 }
@@ -33,4 +34,3 @@ tail_t(ex_uts(), ddays(0))  # leaves only the last observation
 \seealso{
 \code{\link{head}}, \code{\link{head_t}}, \code{\link{tail}}, \code{\link{window}} for other methods that extract a subperiod time series.
 }
-

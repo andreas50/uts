@@ -12,9 +12,9 @@ lag_t(x, ...)
 \arguments{
 \item{x}{a time series object.}
 
-\item{lag_t}{a finite \code{\link[lubridate]{duration}} object, specifying how much to shift the observation times of \code{x} forward.}
-
 \item{\dots}{further arguments passed to or from methods.}
+
+\item{lag_t}{a finite \code{\link[lubridate]{duration}} object, specifying how much to shift the observation times of \code{x} forward.}
 }
 \description{
 Compute a lagged version of a time series by shifting observation \emph{times}. Each observation time is shifted by the same temporal amount, thereby causing a shift in the time series sample path.
@@ -23,6 +23,7 @@ Compute a lagged version of a time series by shifting observation \emph{times}. 
 \itemize{
 \item \code{uts}: shift observation times for a \code{"uts"} object.
 }}
+
 \note{
 For an evenly spaced time series (1) shifting observation \emph{times}, and (2) shifting observation \emph{values} essentinally gives the same result. For unevenly spaced time series, however, these two operations are quite different. The former affects only the observation \emph{times}, while the latter affects only the observation \emph{values} (apart from observations that are dropped).
 }
@@ -33,4 +34,3 @@ lag_t(ex_uts(), dhours(7.5))
 \seealso{
 \code{\link{lag.uts}} allows to shift observation \emph{values}, as opposed to observation \emph{times}.
 }
-

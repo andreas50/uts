@@ -28,4 +28,3 @@ data <- as.data.frame(uts1)
 data$time <- format(data$time, format="\%Y-\%m-\%d")
 \dontrun{write.csv(data, file="random.csv", row.names=FALSE, quote=FALSE)}
 }
-

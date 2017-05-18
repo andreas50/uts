@@ -20,4 +20,3 @@ which(ex_uts() > 48)
 \seealso{
 The \code{\link{which}} generic function.
 }
-

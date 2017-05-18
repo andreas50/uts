@@ -24,6 +24,7 @@ Return the temporal length of a time series, i.e. the time difference between th
 \itemize{
 \item \code{uts}: temporal length of \code{"uts"} object.
 }}
+
 \note{
 For an evenly spaced time series there is a one-to-one correspondence between (1) the \emph{number} of observations, and (2) \emph{temporal} length. For unevenly spaced time series, however, these two concepts are quite different.
 }
@@ -35,4 +36,3 @@ length_t(uts())
 \seealso{
 \code{\link{length.uts}} allows to get the \emph{number} observations.
 }
-

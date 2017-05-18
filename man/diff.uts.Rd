@@ -32,4 +32,3 @@ diff(ex_uts(), lag=10)     # an empty time series, because the lag is too large
 
 \code{\link{diff}} in base \R.
 }
-

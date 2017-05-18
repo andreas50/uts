@@ -33,4 +33,3 @@ tail(ex_uts(), -6)
 \seealso{
 \code{\link{head_t}}, \code{\link{tail_t}}, \code{\link{window}} for other methods that extract a subperiod time series.
 }
-

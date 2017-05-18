@@ -25,4 +25,3 @@ uts()
 \seealso{
 \code{\link{print}} in base \R
 }
-

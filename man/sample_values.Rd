@@ -13,6 +13,8 @@ sample_values(x, ...)
 \arguments{
 \item{x}{a time series object.}
 
+\item{\dots}{further arguments passed to or from methods.}
+
 \item{time_points}{a strictly increasing sequence of \code{\link{POSIXct}} date-times.}
 
 \item{interpolation}{the interpolation method: \itemize{
@@ -23,8 +25,6 @@ sample_values(x, ...)
 \item{max_dt}{a duration object, specifying the maximum time difference between each sampling time and the observation times in \code{x} used for determining the sampled value. Return \code{NA} as sampled value for sampling times for which this threshold is exceeded.}
 
 \item{tolerance}{tolerance for numerical noise in observation times. See \code{\link{num_leq_sorted}}.}
-
-\item{\dots}{further arguments passed to or from methods.}
 }
 \value{
 An vector of sampled values with same length as the input \code{x}.
@@ -36,6 +36,7 @@ Sample observation values from a time series at given sampling times.
 \itemize{
 \item \code{uts}: sample from a \code{"uts"} object
 }}
+
 \examples{
 # Sample the most recent observation
 times <- as.POSIXct(c("2007-11-09", "2007-11-10"))
@@ -50,4 +51,3 @@ sample_values(ex_uts2(), times)
 # Error, because only numeric time series can be linearly interpolated
 \dontrun{sample_values(ex_uts2(), as.POSIXct("2007-01-01"), interpolation="linear")}
 }
-

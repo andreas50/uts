@@ -20,4 +20,3 @@ if (requireNamespace("tseries", quietly = TRUE)) {
   tseries::as.irts(ex_uts())
 }
 }
-

@@ -26,6 +26,7 @@ Return the last value of an \R object.
 
 \item \code{uts}: Return the last observation \emph{value} of a \code{"uts"} object. Unlike method \code{last()} in package \href{https://cran.r-project.org/web/packages/xts/}{xts}, arguments \code{n} and \code{keep} are not supported. Instead, this functionality is provided by \code{tail()} and \code{tail_t()}.
 }}
+
 \examples{
 last(5:10)
 last(list(a="test", b=3))
@@ -36,4 +37,3 @@ first(ex_uts())
 
 \code{\link{start}} and \code{\link{end}} return, respectively, the first and last obvservation \emph{time} from a time series.
 }
-

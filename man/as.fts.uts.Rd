@@ -20,4 +20,3 @@ if (requireNamespace("fts", quietly = TRUE)) {
   fts::as.fts(ex_uts())
 }
 }
-

@@ -23,4 +23,3 @@ Ops_uts(ex_uts(), ex_uts(), ">")         # comparison
 \code{\link{groupGeneric}}
 }
 \keyword{internal}
-

@@ -24,4 +24,3 @@ The observation times of a \code{"uts"} object \code{x} can also be accessed usi
 time(ex_uts())
 identical(time(ex_uts()), ex_uts()$times)     # TRUE
 }
-

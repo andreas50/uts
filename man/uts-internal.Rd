@@ -46,4 +46,3 @@ Methods that are not applicable to unevenly spaced time series. These are provid
   \item \code{\link{frequency.uts}}
 }
 }
-

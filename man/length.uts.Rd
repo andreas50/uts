@@ -22,4 +22,3 @@ length(uts())
 \seealso{
 \code{\link{length_t}} allows to get the temporal length of a time series.
 }
-

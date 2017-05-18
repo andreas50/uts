@@ -7,9 +7,9 @@
 \method{summary}{uts}(object, ...)
 }
 \arguments{
-\item{x}{a \code{"uts"} object.}
-
 \item{\dots}{further arguments passed to or from methods.}
+
+\item{x}{a \code{"uts"} object.}
 }
 \description{
 Apply \code{\link{summary}} from base \R to the observation values of a time series.
@@ -22,4 +22,3 @@ summary(ex_uts())
 summary(ex_uts2())
 }
 \keyword{internal}
-

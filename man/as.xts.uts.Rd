@@ -22,4 +22,3 @@ if (requireNamespace("xts", quietly = TRUE)) {
   xts::as.xts(ex_uts())
 }
 }
-

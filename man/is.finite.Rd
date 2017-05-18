@@ -34,4 +34,3 @@ is.nan(test)
 \seealso{
 \code{\link{is.finite}}, \code{\link{is.infinite}}, \code{\link{is.nan}} in base \R.
 }
-

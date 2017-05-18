@@ -25,4 +25,3 @@ window(ex_uts(), start=as.POSIXct("2007-11-09", tz="Australia/Sydney"))
 \seealso{
 \code{\link{head}}, \code{\link{head_t}}, \code{\link{tail}}, \code{\link{tail_t}} for other methods that extract a subperiod time series.
 }
-

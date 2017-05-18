@@ -27,4 +27,3 @@ split_segments(ex_uts(), ddays(0))
 \code{\link{plot}}, which optionally uses this function to not connect consecutive observations by a line.
 }
 \keyword{internal}
-

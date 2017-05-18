@@ -40,4 +40,3 @@ lag(ex_uts(), k=6)
 
 \code{\link{lag}} in base \R.
 }
-

@@ -31,4 +31,3 @@ ex_uts2()
 plot(ex_uts3())
 plot(cumsum(ex_uts3()))
 }
-

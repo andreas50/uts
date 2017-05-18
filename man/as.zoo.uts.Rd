@@ -22,4 +22,3 @@ if (requireNamespace("zoo", quietly = TRUE)) {
   zoo::as.zoo(ex_uts())
 }
 }
-

@@ -29,4 +29,3 @@ sd(ex_uts())
 \code{\link{mean}}, \code{\link{median}}, \code{\link{sd}} in base \R.
 }
 \keyword{internal}
-

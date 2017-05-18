@@ -33,4 +33,3 @@ sorted_union(c(), 1:10)
 sorted_union(c(), c())
 }
 \keyword{internal}
-

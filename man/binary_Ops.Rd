@@ -52,4 +52,3 @@ binary_Ops(x, "/", y, times="x", interpolation="linear")
 \seealso{
 \code{\link{Ops.uts}}, \code{\link{groupGeneric}}
 }
-

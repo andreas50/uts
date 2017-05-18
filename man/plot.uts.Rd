@@ -48,4 +48,3 @@ plot(ex_uts(), format="\%a \%I\%p")
 plot(ex_uts())
 plot(ex_uts() + 0.1, plot.new=FALSE, col="red")
 }
-

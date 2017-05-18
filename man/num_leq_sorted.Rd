@@ -45,4 +45,3 @@ num_leq_sorted(1:5, c())
 \code{\link{num_less_sorted}} for a less-than comparison of two sorted vectors.
 }
 \keyword{internal}
-

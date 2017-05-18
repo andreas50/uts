@@ -22,4 +22,3 @@ if (requireNamespace("its", quietly = TRUE)) {
   its::as.its(ex_uts())
 }
 }
-

@@ -21,4 +21,3 @@ This function is identical to \code{\link{sorted_union}} except that a) the inpu
 sorted_union_R(1:3, 2:4)
 }
 \keyword{internal}
-

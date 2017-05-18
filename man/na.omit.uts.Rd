@@ -25,4 +25,3 @@ na.omit(test)
 
 \code{\link{is.na}}, \code{\link{na.omit}} in base \R.
 }
-

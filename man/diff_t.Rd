@@ -12,11 +12,11 @@ diff_t(x, ...)
 \arguments{
 \item{x}{a time series object.}
 
+\item{\dots}{further arguments passed to or from methods.}
+
 \item{by}{a finite \code{\link[lubridate]{duration}} object, specifying over which time horizon to calculate differences in observation values.}
 
 \item{scale}{on which scale to calculate differences. Either \code{"abs"} for absolute differences \code{x_t - x[t - by]}, \code{"rel"} for relative differences \code{x_t / x[t - by] - 1}, or \code{"log"} for logarithmic differences \code{log(x_t / x[t - by])}.}
-
-\item{\dots}{further arguments passed to or from methods.}
 }
 \description{
 Return a time series with differences over a fixed time horizon.
@@ -30,6 +30,7 @@ Observations times for which no difference can be calculated (i.e. times \code{t
 \itemize{
 \item \code{uts}: rolling difference for a \code{"uts"} object.
 }}
+
 \note{
 For an evenly spaced time series, calculating differences over (1) a certain number of observations (e.g. over four observations for quarterly data), and (2) over a fixed time horizon (e.g. over one year) gives the same result. For unevenly spaced time series, however, these two operations are quite different.
 }
@@ -40,4 +41,3 @@ diff_t(ex_uts(), by=ddays(5)) # an empty time series, because the time differenc
 \seealso{
 \code{\link{diff}} allows to calculate differences over a fixed \emph{number of observations}, as opposed to \emph{time horizon}.
 }
-

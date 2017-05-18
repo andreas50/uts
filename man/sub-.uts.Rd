@@ -14,9 +14,9 @@
 
 \item{time_points}{either a strictly increasing sequence of \code{\link{POSIXct}} date-times, or a \code{"uts"} with \code{\link{logical}} observation values.}
 
-\item{value}{a vector of observation values to insert at the time points \code{time_points}.}
-
 \item{\dots}{further arguments passed to \code{\link{sample_values}}.}
+
+\item{value}{a vector of observation values to insert at the time points \code{time_points}.}
 }
 \description{
 The accessor method (\code{"["}) extracts a sub-sampled time series with the provided times. The replacement method (\code{"[<-"}) inserts observation values at the provided observation times, replacing observations values for already existing observation times (if any).
@@ -42,4 +42,3 @@ test[Sys.time() + ddays(3)] <- list(cat=1, dog=2)
 test <- ex_uts()
 test[test >= 48] <- 50
 }
-
