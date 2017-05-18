@@ -1,5 +1,5 @@
 # Load dynamic library with compliled C code
-useDynLib(uts)
+useDynLib(uts, .registration=TRUE, .fixes="C_")
 
 
 # Imports from other packages
