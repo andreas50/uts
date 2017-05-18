@@ -1,3 +1,6 @@
+#include "utils.h"
+
+
 /*
  * For two sorted numeric vectors 'a' and 'b', ror each element a[i] determine the number
  * of elements in 'b' that are less than or equal (leq) to this value.
