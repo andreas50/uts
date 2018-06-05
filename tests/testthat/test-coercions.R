@@ -53,11 +53,6 @@ test_that("coercions from 'uts' with atomic observations works",{
   if (requireNamespace("tseries", quietly = TRUE)) {
     expect_equal_to_reference(tseries::as.irts(ex_uts()), file="test-coercions_to_irts.rds")
   }
-
-  # its
-  if (requireNamespace("its", quietly = TRUE)) {
-    expect_equal_to_reference(its::as.its(ex_uts()), file="test-coercions_to_its.rds")
-  }
   
   # xts
   if (requireNamespace("xts", quietly = TRUE)) {
@@ -78,8 +73,6 @@ test_that("time series with non-atomic observations are not converted from 'uts'
   if (requireNamespace("tseries", quietly = TRUE)) {
     expect_error(tseries::as.irts(ex_uts2()))
   }
-
-  # its: the conversion actually works
   
   # xts
   if (requireNamespace("xts", quietly = TRUE)) {
