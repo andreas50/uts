@@ -6,7 +6,6 @@ output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{uts Developer Notes}
   %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
 ---
 
 This document describes internal details of the `uts` and `utsMultivariate` package. It is intended for developers who want to the extend the package functionality.

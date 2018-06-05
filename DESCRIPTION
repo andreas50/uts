@@ -1,6 +1,6 @@
 Package: uts
 Version: 0.14.1.9000
-Date: 2017-03-10
+Date: 2018-06-05
 Title: Unevenly-spaced Time Series
 Author: Andreas Eckner <andreas@eckner.com>
 Maintainer: Andreas Eckner <andreas@eckner.com>
@@ -11,7 +11,7 @@ Suggests:
     testthat,
     knitr,
     utsMultivariate
-Enhances: fts, its, tseries, xts, zoo
+Enhances: fts, tseries, xts, zoo
 Description: An S3 class for constructing, analyzing, and manipulating
     univariate unevenly spaced time series (uts). A time series can store
     arbitrary R objects. R users familiar with vectors and matrices should find

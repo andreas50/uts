@@ -6,7 +6,6 @@ output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{uts: Unevenly-spaced Time Series}
   %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
 ---
 
 An Unevenly-spaced Time Series (uts) is a sequence of observation time and value pairs (tn, Xn) with strictly increasing observation times. As opposed to equally spaced time series, the spacing of observation times may not be constant.

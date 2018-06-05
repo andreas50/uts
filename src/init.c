@@ -20,5 +20,6 @@ void R_init_uts(DllInfo *info)
    */
   R_registerRoutines(info, NULL, R_CallDef, NULL, NULL);
   //R_useDynamicSymbols(info, FALSE);
+  R_useDynamicSymbols(info, TRUE);
   R_forceSymbols(info, TRUE);
 }

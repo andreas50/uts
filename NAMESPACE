@@ -37,7 +37,6 @@ S3method(as.data.frame, uts)
 S3method(as.ts, uts)
 S3method(as.uts, fts)
 S3method(as.uts, irts)
-S3method(as.uts, its)
 S3method(as.uts, ts)
 S3method(as.uts, xts)
 S3method(as.uts, zoo)
@@ -88,7 +87,6 @@ S3method(window, uts)
 #     See chapter 8 of "R packages" by Hadley Wickham.
 export(as.fts.uts)    # would need to create "fts" package dependency
 export(as.irts.uts)   # would need to create "tseries" package dependency
-export(as.its.uts)    # would need to create "its" package dependency
 export(as.xts.uts)    # would need to create "xts" package dependency
 export(as.zoo.uts)    # would need to create "zoo" package dependency
 # 2.) Otherwise loading the "xts" package (which also contains a generic "first" and "last")

@@ -24,14 +24,6 @@ test_that("coercions to 'uts' work",{
     irts1 <- tseries::irts(as.POSIXct("2015-01-01") + days(c(1, 3, 7, 9)), 1:4)
     expect_equal_to_reference(as.uts(irts1), file="test-coercions_from_irts.rds")
   }
-
-  # its
-  if (requireNamespace("its", quietly = TRUE)) {
-    mat <- matrix(1:2, nrow=2)
-    rownames(mat) <- c("2003-01-01","2003-01-04")
-    its1 <- its::its(mat)
-    expect_equal_to_reference(as.uts(its1), file="test-coercions_from_its.rds")
-  }
   
   # xts
   if (requireNamespace("xts", quietly = TRUE)) {
@@ -120,14 +112,7 @@ test_that("multivariate time series are not converted",{
     values <- matrix(rnorm(20), nrow=10)
     x <- tseries::irts(times, values)
     expect_error(as.uts(x))
-  }
-
-  # its
-  if (requireNamespace("its", quietly = TRUE)) {
-    mat <- structure(1:6, dim=c(2,3), dimnames=list(c("2003-01-01","2003-01-04"), letters[1:3]))
-    its1 <- its::its(mat)
-    expect_error(as.uts(its1))
-  }
+ } 
   
   # xts
   if (requireNamespace("xts", quietly = TRUE)) {
