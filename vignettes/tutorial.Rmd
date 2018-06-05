@@ -20,7 +20,7 @@ An Unevenly-spaced Time Series (uts) is a sequence of observation time and value
 | Calculate differences over time | `diff` | `diff_t` |
 | Get the length                  | `length` | `length_t` |
 
-Methods that operate in terms of number of observations typically specify that number using an integer argument.
+Methods that operate in terms of the number of observations typically specify that number using an integer argument.
 
 On the other hand, methods that operate in terms of a time window typically have an argument specifying the temporal width (also know as *duration*) of this time window[^1]. The number of observations falling into this window depends on the observation density of the time series.
 
