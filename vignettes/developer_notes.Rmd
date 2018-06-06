@@ -8,6 +8,8 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
 ---
 
+### Introduction
+
 This document describes internal details of the `uts` and `utsMultivariate` package. It is intended for developers who want to the extend the package functionality.
 
 

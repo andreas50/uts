@@ -4,3 +4,4 @@ Rprof.out
 ^.*\.Rproj$
 ^\.Rproj\.user$
 to_do_list.md
+^README\.Rmd$
