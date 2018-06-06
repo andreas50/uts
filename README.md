@@ -45,7 +45,7 @@ x
 
 ``` r
 # Plot the time series
-plot(x, type="o", cex=0.8)
+plot(x, type="o", cex.axis=0.8)
 ```
 
 ![](man/uts_plot-1.png)
