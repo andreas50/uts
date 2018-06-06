@@ -74,8 +74,8 @@ length(x); length_t(x)
 # Insert new observation
 x[as.POSIXct("2007-11-10 10:00:00")] <- 45
 
-# Get most recent observation at specific time point
-sample_values(x, as.POSIXct("2007-11-10"))
+# Get most recent observation value at specific time point, using one of several interpolation methods
+sample_values(x, as.POSIXct("2007-11-10"), interpolation="linear")
 
 # Shift observation times by 3 hours
 lag_t(x, dhours(3))
@@ -89,7 +89,7 @@ x*2 + 5
 # Convert time series to data.frame
 as.data.frame(x)
 
-# Get "tail" of time series, first in terms of number of observations,second in terms of temporal length
+# Get "tail" of time series, first in terms of number of observations, second in terms of temporal length
 tail(x, 3)
 tail_t(x, ddays(1))
 ```
