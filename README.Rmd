@@ -65,7 +65,7 @@ plot(x, type="o", cex.axis=0.8)
 # Get first and last observation value(!)
 first(x); last(x)
 
-# Get the first and last observation time(!)
+# Get first and last observation time(!)
 start(x); end(x)
 
 # Get time series length, first in terms of number of observations, second in terms of temporal length
@@ -74,7 +74,7 @@ length(x); length_t(x)
 # Insert new observation
 x[as.POSIXct("2007-11-10 10:00:00")] <- 45
 
-# Get most recent observation value at specific time point, using one of several interpolation methods
+# Sample the time series at a specific time point, using one of several supported interpolation methods
 sample_values(x, as.POSIXct("2007-11-10"), interpolation="linear")
 
 # Shift observation times by 3 hours

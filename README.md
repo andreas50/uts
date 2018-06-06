@@ -56,7 +56,7 @@ first(x); last(x)
 #> [1] 48.375
 #> [1] 47.35
 
-# Get the first and last observation time(!)
+# Get first and last observation time(!)
 start(x); end(x)
 #> [1] "2007-11-08 07:00:00 EST"
 #> [1] "2007-11-09 15:15:00 EST"
@@ -69,7 +69,7 @@ length(x); length_t(x)
 # Insert new observation
 x[as.POSIXct("2007-11-10 10:00:00")] <- 45
 
-# Get most recent observation value at specific time point, using one of several interpolation methods
+# Sample the time series at a specific time point, using one of several supported interpolation methods
 sample_values(x, as.POSIXct("2007-11-10"), interpolation="linear")
 #> [1] 46.25333
 
