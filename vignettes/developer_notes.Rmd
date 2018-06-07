@@ -8,7 +8,7 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
 ---
 
-### Introduction
+## Introduction
 
 This document describes internal details of the `uts` and `utsMultivariate` package. It is intended for developers who want to the extend the package functionality.
 
@@ -78,7 +78,7 @@ To ensure that code is writting in a consistent manner, please follow the conven
 
 To ensure that the package help has a consistent format, please follow the conventions below.
 
-### Function parameter descriptions
+#### Function parameter descriptions
 
 To refer to an object of a given class "cl", write `an object of class \code{"cl"}` (which is the convention used in the help of predict.lm, mgcv, chron, etc.) rather than `a "cl" object`.
 
@@ -92,7 +92,7 @@ As reference, here are is a list of commonly used parameter descriptions:
 * @param max_dt a duration object, specifying ...
 * @param \\dots further arguments passed to or from methods.
 
-### Function keywords used
+#### Function keywords used
 
 The following keywords were used for documenting data sets and functions (for a full list see https://svn.r-project.org/R/trunk/doc/KEYWORDS):
 

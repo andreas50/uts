@@ -103,5 +103,5 @@ tail_t(x, ddays(1))
     * The support for multivariate time series is somewhat restrictive. Individual time series need to have identical observation times and, in particular, need to be of the same length. Moreover, they can only store objects of the same type, because the data is stored in a matrix, although there a plans to eventually supported mixed types via data frames.
 * [xts](http://cran.r-project.org/web/packages/xts/index.html): An extension of `zoo` that facilitates inter-class operability.
 * [fts](http://cran.r-project.org/web/packages/fts/index.html): An extension of `zoo` that provides many (stock) trading indicators and interface to `tslib` (a time series library in C++).
-* [timeSeries](http://cran.r-project.org/web/packages/timeSeries/index.html): Focused on computational finance.
+* [timeSeries](http://cran.r-project.org/web/packages/timeSeries/index.html): Focused on financial time series.
 * [tseries](http://cran.r-project.org/web/packages/tseries/index.html): Focused on computational finance (GARCH, ARCH models) and times series analysis (ARMA models) for *evenly*-spaced time series. Also contains the `irts` class for irregular time series, but with little functionality.

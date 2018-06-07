@@ -8,6 +8,8 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
 ---
 
+## Introduction
+
 An Unevenly-spaced Time Series (uts) is a sequence of observation time and value pairs (tn, Xn) with strictly increasing observation times. As opposed to equally spaced time series, the spacing of observation times may not be constant.
 
 ## Comparison with other packages for irregular time series
@@ -27,8 +29,6 @@ On the other hand, methods that operate in terms of a time window typically have
 [^1]: `length` and `length_t` are exceptions. Instead of requiring an integer or duration argument, respectively, they return such a value.
 
 ## Indexing
-
-
 
 ## Recycling rules
 
