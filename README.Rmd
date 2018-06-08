@@ -8,8 +8,7 @@ output: github_document
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  fig.path = "man/",
-  global.par = TRUE
+  fig.path = "man/"
 )
 library(uts)
 options(width=100)
@@ -40,11 +39,16 @@ I therefore decided to design a new time series package, partially based on my [
 
 ### Installation
 
-This package is not yet available on CRAN, but can be installled from GitHub:
+This package is not yet available on CRAN, but can be installled from GitHub, either using the `R` package [devtools](https://cran.r-project.org/web/packages/devtools/index.html):
 
 ```{r, eval=FALSE}
-devtools::install_github("andreas50/uts")   # using package 'devtools'
-remotes::install_github("andreas50/uts")    # ... or using package 'remotes'
+devtools::install_github("andreas50/uts", build_vignettes=TRUE)
+```
+
+or using the `R` package [remotes](https://cran.r-project.org/web/packages/remotes/index.html):
+
+```{r, eval=FALSE}
+remotes::install_github("andreas50/uts")
 ```
 
 ### Sample Code
