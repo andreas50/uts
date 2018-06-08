@@ -48,7 +48,7 @@ x
 plot(x, type="o", cex.axis=0.8)
 ```
 
-![](man/uts_plot-1.png)
+![](man/uts_plot-1.svg)
 
 ``` r
 # Get first and last observation value(!)

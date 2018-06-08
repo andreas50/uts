@@ -5,4 +5,4 @@ Rprof.out
 ^\.Rproj\.user$
 to_do_list.md
 ^README\.Rmd$
-^man/.*\.png$
+^man/.*\.svg$

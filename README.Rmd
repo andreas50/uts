@@ -55,7 +55,7 @@ x <- ex_uts()
 x
 ```
 
-```{r uts_plot, fig.width=8, fig.height=4, echo=c(1, 3)}
+```{r uts_plot, fig.width=8, fig.height=4, echo=c(1, 3), dev="svg"}
 # Plot the time series
 par(mai=c(0.5, 0.5, 0.2, 0.2))
 plot(x, type="o", cex.axis=0.8)
