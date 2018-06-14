@@ -47,14 +47,10 @@ num_leq_sorted <- function(a, b, tolerance=0)
     stop("'a' is not sorted")
   if (is.unsorted(b))
     stop("'b' is not sorted")
-  
-  # Call C function
-  # -) using C_num_leq_sorted gives unknown error "NULL value passed as symbol address" -> not used yet
-  num_leq <- integer(length(a))
-  .C("num_leq_sorted", as.double(a + tolerance), as.integer(length(a)),
-    as.double(b), as.integer(length(b)), num_leq=num_leq)$num_leq
-  #.C(C_num_leq_sorted, as.double(a + tolerance), as.integer(length(a)),
-  #  as.double(b), as.integer(length(b)), num_leq=num_leq)$num_leq
+
+  # Call C++ wrapper
+  # -) cast vectors 'a' and 'b' to cover special case of 'c()'
+  C_num_leq_sorted(as.numeric(a), as.numeric(b), tolerance)
 }
 
 
@@ -94,13 +90,9 @@ num_less_sorted <- function(a, b, tolerance=0)
   if (is.unsorted(b))
     stop("'b' is not sorted")
   
-  # Call C function
-  # -) using C_num_leq_sorted gives unknown error "NULL value passed as symbol address" -> not used yet
-  num_less <- integer(length(a))
-  .C("num_less_sorted", as.double(a), as.integer(length(a)),
-     as.double(b), as.integer(length(b)), num_less=num_less)$num_less
-  #.C(C_num_less_sorted, as.double(a), as.integer(length(a)),
-  #   as.double(b), as.integer(length(b)), num_less=num_less)$num_less
+  # Call C++ wrapper
+  # -) cast vectors 'a' and 'b' to cover special case of 'c()'
+  C_num_less_sorted(as.numeric(a), as.numeric(b), tolerance)
 }
 
 
@@ -167,15 +159,9 @@ sorted_union <- function(a, b, tolerance=0)
   if (is.unsorted(b))
     stop("'b' is not sorted")
   
-  # Call C-function
-  # -) using C_num_leq_sorted gives unknown error "NULL value passed as symbol address" -> not used yet
-  na <- length(a)
-  nb <- length(b)
-  res <- .C("sorted_union", as.double(a), na, as.double(b), nb,
-    tolerance=as.double(tolerance), res=numeric(na + nb), length=integer(1L))
-  #res <- .C(C_sorted_union, as.double(a), na, as.double(b), nb,
-  #  tolerance=as.double(tolerance), res=numeric(na + nb), length=integer(1L))
-  res$res[seq_len(res$length)]
+  # Call C++ wrapper
+  # -) cast vectors 'a' and 'b' to cover special case of 'c()'
+  C_sorted_union(as.numeric(a), as.numeric(b), tolerance)
 }
 
 

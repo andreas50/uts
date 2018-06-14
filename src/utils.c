@@ -8,10 +8,11 @@
  * Equivalently, because the vectors are sorted, for or each element a[i] determine the maximum
  * index j such that b[j-1] <= a[i].
 */
-void num_leq_sorted(const double a[], const int *na, const double b[], const int *nb, int num_leq[])
+void num_leq_sorted(const double a[], const int *na, const double b[], const int *nb,
+  const double *tolerance, int num_leq[])
 {
   for (int i=0, j=0; i < *na; i++) {
-    while ((j < *nb) && (b[j] <= a[i]))
+    while ((j < *nb) && (b[j] <= a[i] + *tolerance))
 	    j++;
     num_leq[i] = j;
   }
@@ -25,10 +26,11 @@ void num_leq_sorted(const double a[], const int *na, const double b[], const int
  * Equivalently, because the vectors are sorted, for or each element a[i] determine the maximum
  * index j such that b[j-1] < a[i].
  */
-void num_less_sorted(const double a[], const int *na, const double b[], const int *nb, int num_less[])
+void num_less_sorted(const double a[], const int *na, const double b[], const int *nb,
+  const double *tolerance, int num_less[])
 {
   for (int i=0, j=0; i < *na; i++) {
-    while ((j < *nb) && (b[j] < a[i]))
+    while ((j < *nb) && (b[j] < a[i] + *tolerance))
       j++;
     num_less[i] = j;
   }
@@ -41,8 +43,8 @@ void num_less_sorted(const double a[], const int *na, const double b[], const in
  * 
  * Values less than 'tolerance' apart are considered identical and ommitted.
  */
-void sorted_union(const double a[], const int *na, const double b[], const int *nb, const double *tolerance,
-                  double res[], int *length)
+void sorted_union(const double a[], const int *na, const double b[], const int *nb,
+  const double *tolerance, double res[], int *output_length)
 {
   int i=0, j=0, k=0;
   double previous_value, next_value;
@@ -66,7 +68,7 @@ void sorted_union(const double a[], const int *na, const double b[], const int *
       j++;
     }
     
-    // Only save values larger than (previous_inserted_value + eps)
+    // Only save values larger than (previous_inserted_value + tolerance)
     if (next_value > previous_value + *tolerance) {
       res[k] = next_value;
       previous_value = next_value;
@@ -75,5 +77,5 @@ void sorted_union(const double a[], const int *na, const double b[], const int *
   }  
  
   // Save the length of the merged vector
-  *length = k;
+  *output_length = k;
 }

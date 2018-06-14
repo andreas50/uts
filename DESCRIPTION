@@ -7,10 +7,12 @@ Maintainer: Andreas Eckner <andreas@eckner.com>
 Depends:
     R (>= 3.1),
     lubridate (>= 1.5.0)
+Imports: Rcpp
 Suggests:
     testthat,
     knitr,
     utsMultivariate
+LinkingTo: Rcpp
 Enhances: fts, tseries, xts, zoo
 Description: An S3 class for constructing, analyzing, and manipulating
     univariate unevenly spaced time series (uts). A time series can store

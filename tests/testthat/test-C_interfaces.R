@@ -141,7 +141,7 @@ test_that("sorted_union robust to numerical noise",{
   )
   
   expect_identical(
-    sorted_union(seq(0, 2, by=0.5), c(), tolerance=1),
+    sorted_union(seq(0, 2, by=0.5), c(), tolerance=1.001),
     c(0, 1.5)
   )
   expect_identical(

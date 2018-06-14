@@ -1,5 +1,6 @@
 # Load dynamic library with compliled C code
-useDynLib(uts)
+useDynLib(uts, .registration=TRUE)
+importFrom(Rcpp, evalCpp)
 
 
 # Imports from other packages
