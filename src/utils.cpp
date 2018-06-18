@@ -26,7 +26,6 @@ Rcpp::IntegerVector C_num_leq_sorted(Rcpp::NumericVector a, Rcpp::NumericVector 
 }
 
 
-
 /*
  * For two sorted numeric vectors 'a' and 'b', for each element a[i] determine the number of
  * elements in 'b' that are less than this value.
@@ -96,8 +95,6 @@ Rcpp::NumericVector C_sorted_union(Rcpp::NumericVector a, Rcpp::NumericVector b,
   }  
 
   // Copy unique elements over to results vector
-  Rcpp::NumericVector res(k);
-  for (int i=0; i < k; i++)
-    res[i] = tmp[i];
+  Rcpp::NumericVector res = head(tmp, k);
   return res;
 }
