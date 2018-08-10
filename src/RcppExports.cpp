@@ -6,39 +6,39 @@
 using namespace Rcpp;
 
 // C_num_leq_sorted
-Rcpp::IntegerVector C_num_leq_sorted(const Rcpp::NumericVector a, const Rcpp::NumericVector b, const double tolerance);
+Rcpp::IntegerVector C_num_leq_sorted(const Rcpp::NumericVector& a, const Rcpp::NumericVector& b, const double tolerance);
 RcppExport SEXP _uts_C_num_leq_sorted(SEXP aSEXP, SEXP bSEXP, SEXP toleranceSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const Rcpp::NumericVector >::type a(aSEXP);
-    Rcpp::traits::input_parameter< const Rcpp::NumericVector >::type b(bSEXP);
+    Rcpp::traits::input_parameter< const Rcpp::NumericVector& >::type a(aSEXP);
+    Rcpp::traits::input_parameter< const Rcpp::NumericVector& >::type b(bSEXP);
     Rcpp::traits::input_parameter< const double >::type tolerance(toleranceSEXP);
     rcpp_result_gen = Rcpp::wrap(C_num_leq_sorted(a, b, tolerance));
     return rcpp_result_gen;
 END_RCPP
 }
 // C_num_less_sorted
-Rcpp::IntegerVector C_num_less_sorted(const Rcpp::NumericVector a, const Rcpp::NumericVector b, const double tolerance);
+Rcpp::IntegerVector C_num_less_sorted(const Rcpp::NumericVector& a, const Rcpp::NumericVector& b, const double tolerance);
 RcppExport SEXP _uts_C_num_less_sorted(SEXP aSEXP, SEXP bSEXP, SEXP toleranceSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const Rcpp::NumericVector >::type a(aSEXP);
-    Rcpp::traits::input_parameter< const Rcpp::NumericVector >::type b(bSEXP);
+    Rcpp::traits::input_parameter< const Rcpp::NumericVector& >::type a(aSEXP);
+    Rcpp::traits::input_parameter< const Rcpp::NumericVector& >::type b(bSEXP);
     Rcpp::traits::input_parameter< const double >::type tolerance(toleranceSEXP);
     rcpp_result_gen = Rcpp::wrap(C_num_less_sorted(a, b, tolerance));
     return rcpp_result_gen;
 END_RCPP
 }
 // C_sorted_union
-Rcpp::NumericVector C_sorted_union(const Rcpp::NumericVector a, const Rcpp::NumericVector b, const double tolerance);
+Rcpp::NumericVector C_sorted_union(const Rcpp::NumericVector& a, const Rcpp::NumericVector& b, const double tolerance);
 RcppExport SEXP _uts_C_sorted_union(SEXP aSEXP, SEXP bSEXP, SEXP toleranceSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const Rcpp::NumericVector >::type a(aSEXP);
-    Rcpp::traits::input_parameter< const Rcpp::NumericVector >::type b(bSEXP);
+    Rcpp::traits::input_parameter< const Rcpp::NumericVector& >::type a(aSEXP);
+    Rcpp::traits::input_parameter< const Rcpp::NumericVector& >::type b(bSEXP);
     Rcpp::traits::input_parameter< const double >::type tolerance(toleranceSEXP);
     rcpp_result_gen = Rcpp::wrap(C_sorted_union(a, b, tolerance));
     return rcpp_result_gen;
