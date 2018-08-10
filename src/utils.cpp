@@ -9,7 +9,7 @@
  * index j such that b[j-1] <= a[i].
 */
 // [[Rcpp::export]]
-Rcpp::IntegerVector C_num_leq_sorted(Rcpp::NumericVector a, Rcpp::NumericVector b, const double tolerance)
+Rcpp::IntegerVector C_num_leq_sorted(const Rcpp::NumericVector a, const Rcpp::NumericVector b, const double tolerance)
 {
   // Allocate memory for output
   int na = a.size();
@@ -34,7 +34,7 @@ Rcpp::IntegerVector C_num_leq_sorted(Rcpp::NumericVector a, Rcpp::NumericVector 
  * index j such that b[j-1] < a[i].
  */
 // [[Rcpp::export]]
-Rcpp::IntegerVector C_num_less_sorted(Rcpp::NumericVector a, Rcpp::NumericVector b, const double tolerance)
+Rcpp::IntegerVector C_num_less_sorted(const Rcpp::NumericVector a, const Rcpp::NumericVector b, const double tolerance)
 {
   // Allocate memory for output
   int na = a.size();
@@ -57,7 +57,7 @@ Rcpp::IntegerVector C_num_less_sorted(Rcpp::NumericVector a, Rcpp::NumericVector
  * Values less than 'tolerance' apart are considered identical and ommitted.
  */
 // [[Rcpp::export]]
-Rcpp::NumericVector C_sorted_union(Rcpp::NumericVector a, Rcpp::NumericVector b, const double tolerance)
+Rcpp::NumericVector C_sorted_union(const Rcpp::NumericVector a, const Rcpp::NumericVector b, const double tolerance)
 {
   int na = a.size();
   int nb = b.size();
