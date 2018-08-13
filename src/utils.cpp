@@ -59,15 +59,13 @@ Rcpp::IntegerVector C_num_less_sorted(const Rcpp::NumericVector& a, const Rcpp::
 // [[Rcpp::export]]
 Rcpp::NumericVector C_sorted_union(const Rcpp::NumericVector& a, const Rcpp::NumericVector& b, double tolerance)
 {
+  // Allocate memory for intermediate results
   int na = a.size();
   int nb = b.size();
-  int i=0, j=0, k=0;
-  double previous_value, next_value;
-  
-  // Allocate memory for intermediate results
   Rcpp::NumericVector tmp(na + nb);
   
   // Initialize previously inserted value to a dummy value smaller than all elements in 'a' and 'b'
+  double previous_value, next_value;
   if (na == 0)
     previous_value = b[0] - tolerance - 1;
   else if (nb == 0)
@@ -76,6 +74,7 @@ Rcpp::NumericVector C_sorted_union(const Rcpp::NumericVector& a, const Rcpp::Num
     previous_value = (a[0] < b[0] ? a[0] : b[0]) - tolerance - 1;
   
   // Fill the output vector with elements from 'a' and 'b'
+  int i=0, j=0, num_unique=0;
   while ((i < na) || (j < nb)) {
     // Determine the next candidate value to be saved
     if ((i < na) && ((j == nb) || (a[i] < b[j]))) {
@@ -88,13 +87,12 @@ Rcpp::NumericVector C_sorted_union(const Rcpp::NumericVector& a, const Rcpp::Num
     
     // Only save values larger than (previous_inserted_value + tolerance)
     if (next_value > previous_value + tolerance) {
-      tmp[k] = next_value;
+      tmp[num_unique] = next_value;
       previous_value = next_value;
-      k++;
+      num_unique++;
     }
   }  
 
-  // Copy unique elements over to results vector
-  Rcpp::NumericVector res = head(tmp, k);
-  return res;
+  // Return unique elements
+  return head(tmp, num_unique);
 }
