@@ -73,7 +73,7 @@ Rcpp::NumericVector C_sorted_union(const Rcpp::NumericVector& a, const Rcpp::Num
   else
     previous_value = (a[0] < b[0] ? a[0] : b[0]) - tolerance - 1;
   
-  // Fill the output vector with elements from 'a' and 'b'
+  // Fill the intermediate results vector with unique elements from 'a' and 'b'
   int i=0, j=0, num_unique=0;
   while ((i < na) || (j < nb)) {
     // Determine the next candidate value to be saved
@@ -85,14 +85,12 @@ Rcpp::NumericVector C_sorted_union(const Rcpp::NumericVector& a, const Rcpp::Num
       j++;
     }
     
-    // Only save values larger than (previous_inserted_value + tolerance)
+    // Only save values that differ from the previously inserted value by more than 'tolerance'
     if (next_value > previous_value + tolerance) {
       tmp[num_unique] = next_value;
       previous_value = next_value;
       num_unique++;
     }
-  }  
-
-  // Return unique elements
+  }
   return head(tmp, num_unique);
 }
