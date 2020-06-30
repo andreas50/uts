@@ -22,17 +22,29 @@ I therefore decided to design a new time series package, partially based on my [
     -   [utsOperators](https://github.com/andreas50/utsOperators): moving averages and other rolling time series operators
     -   utsTrendSeasonality: trend and seasonality estimation
 
+### Prerequisites
+
+On Windows, install [Rtools](https://cran.r-project.org/bin/windows/Rtools/), which is needed to be able to compile packages from source.
+
+On Linux, the exact prerequisites depend on the distribution used. For example, on Debian and its derivates:
+
+```
+sudo apt install r-base-dev libxml2-dev
+```
+
 ### Installation
 
 This package is not yet available on CRAN, but can be installled from GitHub, either using the `R` package [devtools](https://cran.r-project.org/web/packages/devtools/index.html):
 
 ``` r
+install.packages("devtools")
 devtools::install_github("andreas50/uts", build_vignettes=TRUE)
 ```
 
 or using the `R` package [remotes](https://cran.r-project.org/web/packages/remotes/index.html):
 
 ``` r
+install.packages("remotes")
 remotes::install_github("andreas50/uts")
 ```
 
