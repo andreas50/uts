@@ -208,8 +208,8 @@ Ops.uts_virtual <- function(e1, e2)
 #' binary_Ops(x, "/", y, times="y")
 #' 
 #' # Vary interpolation method
-#' binary_Ops(x, "/", y, times="x")
-#' binary_Ops(x, "/", y, times="x", interpolation="linear")
+#' binary_Ops(x, "/", y)
+#' binary_Ops(x, "/", y, interpolation="linear")
 binary_Ops <- function(x, Ops, y, times="all", interpolation="last")
 {
   # Argument checking
@@ -225,6 +225,18 @@ binary_Ops <- function(x, Ops, y, times="all", interpolation="last")
     y <- window(y[x$times, interpolation=interpolation], start=start(y))
   else if (times == "y")
     x <- window(x[y$times, interpolation=interpolation], start=start(x))
+  else if (times == "all") {
+    # Determine time points of output time series
+    if (min(length(x), length(y)) == 0L)
+      return(uts())
+    all_times <- sorted_union(x$times, y$times, tolerance=.Machine$double.eps ^ 0.5)
+    all_times <- all_times[all_times >= max(x$times[1L], y$times[1L])]
+    attributes(all_times) <- attributes(x$times)
+    
+    # Sample the input time series
+    x <- x[all_times, interpolation=interpolation]
+    y <- y[all_times, interpolation=interpolation]
+  }
   
   # Call Ops method
   do.call(Ops, list(x, y))

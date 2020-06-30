@@ -1,6 +1,6 @@
 Package: uts
-Version: 1.0.1.9000
-Date: 2018-06-15
+Version: 1.0.1.9001
+Date: 2020-06-30
 Title: Unevenly-spaced Time Series
 Author: Andreas Eckner <andreas@eckner.com>
 Maintainer: Andreas Eckner <andreas@eckner.com>
@@ -23,4 +23,4 @@ Description: An S3 class for constructing, analyzing, and manipulating
 License: GPL-2 | GPL-3
 URL: www.eckner.com
 VignetteBuilder: knitr
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.0

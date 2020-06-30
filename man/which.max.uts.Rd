@@ -2,7 +2,6 @@
 % Please edit documentation in R/which.R
 \name{which.max.uts}
 \alias{which.max.uts}
-\alias{which.max.uts}
 \alias{which.min.uts}
 \title{Which Observation Time has the largest/smallest Observation Value?}
 \usage{
