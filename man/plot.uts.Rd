@@ -4,8 +4,16 @@
 \alias{plot.uts}
 \title{Plot a uts}
 \usage{
-\method{plot}{uts}(x, max_dt = ddays(Inf), type = "l", col = "blue",
-  xlab = "", ylab = "", plot.new = TRUE, ...)
+\method{plot}{uts}(
+  x,
+  max_dt = ddays(Inf),
+  type = "l",
+  col = "blue",
+  xlab = "",
+  ylab = "",
+  plot.new = TRUE,
+  ...
+)
 }
 \arguments{
 \item{x}{a \code{"uts"} object with numeric or logical observation values.}

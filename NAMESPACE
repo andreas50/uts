@@ -89,16 +89,20 @@ S3method(window, uts)
 export(as.fts.uts)    # would need to create "fts" package dependency
 export(as.irts.uts)   # would need to create "tseries" package dependency
 export(as.xts.uts)    # would need to create "xts" package dependency
-export(as.zoo.uts)    # would need to create "zoo" package dependency
+export(as.zoo.uts)    # would need tBo create "zoo" package dependency
 # 2.) Otherwise loading the "xts" package (which also contains a generic "first" and "last")
 #     makes these methods inaccessible on the search path.
 #     The reason is that S3method() does not export an object from the namespace. Therefore,
 #     if the generic is in another package, that generic won't be able to find the method.
-export(first.default)
-export(first.uts)
-export(last.default)
-export(last.uts)
-
+# -) 10/2020: commented out, because caused problems in R 4.0
+#export(first.default)
+#export(first.uts)
+#export(last.default)
+#export(last.uts)
+S3method(first, default)
+S3method(first, uts)
+S3method(last, default)
+S3method(last, uts)
 
 # Examples of univariate time series
 export(ex_uts)

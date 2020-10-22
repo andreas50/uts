@@ -7,8 +7,14 @@
 \usage{
 sample_values(x, ...)
 
-\method{sample_values}{uts}(x, time_points, interpolation = "last",
-  max_dt = ddays(Inf), tolerance = .Machine$double.eps^0.5, ...)
+\method{sample_values}{uts}(
+  x,
+  time_points,
+  interpolation = "last",
+  max_dt = ddays(Inf),
+  tolerance = .Machine$double.eps^0.5,
+  ...
+)
 }
 \arguments{
 \item{x}{a time series object.}

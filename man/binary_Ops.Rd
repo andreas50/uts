@@ -46,8 +46,8 @@ binary_Ops(x, "/", y, times="x")
 binary_Ops(x, "/", y, times="y")
 
 # Vary interpolation method
-binary_Ops(x, "/", y, times="x")
-binary_Ops(x, "/", y, times="x", interpolation="linear")
+binary_Ops(x, "/", y)
+binary_Ops(x, "/", y, interpolation="linear")
 }
 \seealso{
 \code{\link{Ops.uts}}, \code{\link{groupGeneric}}
