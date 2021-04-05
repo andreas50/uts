@@ -1,6 +1,6 @@
 Package: uts
-Version: 1.0.1.9002
-Date: 2020-10-22
+Version: 1.0.1.9003
+Date: 2021-04-05
 Title: Unevenly-spaced Time Series
 Author: Andreas Eckner <andreas@eckner.com>
 Maintainer: Andreas Eckner <andreas@eckner.com>

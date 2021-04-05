@@ -35,7 +35,7 @@ sample_values <- function(x, ...) UseMethod("sample_values")
 #' 
 #' # Error, because only numeric time series can be linearly interpolated
 #' \dontrun{sample_values(ex_uts2(), as.POSIXct("2007-01-01"), interpolation="linear")}
-sample_values.uts <- function(x, time_points, interpolation="last", max_dt=ddays(Inf),
+sample_values.uts <- function(x, time_points, interpolation="last", max_dt=Inf,
   tolerance=.Machine$double.eps ^ 0.5, ...)
 { 
   # Remark: If it wasn't for the 'max_dt' argument, the approx() function could be used.
@@ -50,8 +50,8 @@ sample_values.uts <- function(x, time_points, interpolation="last", max_dt=ddays
     stop("Unknown sampling 'method'")
   if ((interpolation == "linear") && !is.numeric(x$values) && !is.logical(x$values))
     stop("Sampling with linear interpolation is only supported for time series with numeric or logical observation values")
-  if (!is.duration(max_dt))
-    stop("'max_dt' is not a duration object")
+  #if (!is.duration(max_dt))
+  #  stop("'max_dt' is not a duration object")
   if (as.numeric(max_dt) < 0)
     stop("'max_dt' is negative")
   
@@ -60,7 +60,7 @@ sample_values.uts <- function(x, time_points, interpolation="last", max_dt=ddays
   sampling_idx_last[sampling_idx_last == 0L] <- NA
   sampled_times_last <- x$times[sampling_idx_last]
   dt_last_observation <- as.duration(time_points - sampled_times_last) 
-  if (max_dt < ddays(Inf))
+  if (max_dt < Inf)
     sampling_idx_last[dt_last_observation > max_dt] <- NA
   sampled_values_last <- x$values[sampling_idx_last]
   
@@ -74,7 +74,7 @@ sample_values.uts <- function(x, time_points, interpolation="last", max_dt=ddays
   sampling_idx_next <- pmin(sampling_idx_last + 1, length(x))
   sampled_times_next <- x$times[sampling_idx_next]
   dt_next_observation <- as.duration(sampled_times_next - time_points)
-  if (max_dt < ddays(Inf))
+  if (max_dt < Inf)
     sampling_idx_next[dt_next_observation > max_dt] <- NA
   sampled_values_next <- x$values[sampling_idx_next]
   

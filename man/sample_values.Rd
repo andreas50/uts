@@ -11,7 +11,7 @@ sample_values(x, ...)
   x,
   time_points,
   interpolation = "last",
-  max_dt = ddays(Inf),
+  max_dt = Inf,
   tolerance = .Machine$double.eps^0.5,
   ...
 )

@@ -6,7 +6,7 @@ test_that("sample_values argument checking works",{
   expect_error(sample_values(ex_uts(), as.POSIXct(c("2012-01-01", "2011-01-01"))))
   
   # For max_dt
-  expect_error(sample_values(ex_uts(), as.POSIXct(c("2007-01-01", "2011-01-01")), max_dt=5))
+  #expect_error(sample_values(ex_uts(), as.POSIXct(c("2007-01-01", "2011-01-01")), max_dt=5))
   expect_error(sample_values(ex_uts(), as.POSIXct(c("2007-01-01", "2011-01-01")), max_dt=ddays(-5)))
   
   # For the interpolation method
